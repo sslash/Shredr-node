@@ -5,10 +5,26 @@
   "scripts": {
     "start": "app.js"
   },
+  "url": "http://www.shredrapp.com",
+  "engines": {
+    "node": "0.10.21",
+    "npm": "1.3.11"
+  },
   "dependencies": {
     "express": "~3.3.4",
-    "jade": "~0.34.0",
-    "mongoose": "~3.6.14"
+    "ejs": "~0.8.5",
+    "mongoose": "latest",
+    "mongoose-user": "latest",
+    "connect-mongo": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+    "passport-facebook": "latest",
+    "passport-twitter": "latest",
+    "passport-github": "latest",
+    "passport-google-oauth": "latest",
+    "passport-linkedin": "latest",
+    "underscore": "latest",
+    "async": "latest"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -17,6 +33,7 @@
     "grunt-contrib-compass": "~0.6.0",
     "request": "~2.27.0",
     "time-grunt": "~0.1.1",
-    "load-grunt-tasks": "~0.2.0"
+    "load-grunt-tasks": "~0.2.0",
+    "grunt-contrib-less": "~0.8.3"
   }
 }

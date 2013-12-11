@@ -30,11 +30,32 @@ module.exports = function (grunt) {
         ],
         tasks: ['develop', 'delayed-livereload']
       },
-      jade: {
-        files: ['app/views/**/*.jade'],
+      ejs: {
+        files: ['app/views/**/*.ejs'],
         options: { livereload: reloadPort }
       }
-    }
+    },
+
+    less: {
+      development: {
+        options: {
+          paths: ["public/webapp/css"]
+        },
+        files: {
+          "public/webapp/css/result.css": "public/webapp/css/application.css.less"
+        }
+      },
+      production: {
+        options: {
+          paths: ["assets/css"],
+          cleancss: true
+        },
+      files: {
+        "public/webapp/css/result.css": "public/webapp/css/application.css.less"
+      }
+  }
+}
+
   });
 
   grunt.config.requires('watch.js.files');
