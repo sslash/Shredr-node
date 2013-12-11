@@ -3,8 +3,8 @@ var express     = require('express'),
 	mongoose    = mongoose || require('mongoose'),
 	schema      = mongoose.Schema,
 	passport    = require('passport'),
-  	fs          = require('fs'),
-  	config      = require('./config/config');
+	fs          = require('fs'),
+	config      = require('./config/config');
 
 mongoConfig.connectToMongo();
 
