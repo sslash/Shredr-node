@@ -6,6 +6,7 @@ define(function() {
 		specs: ['spec/exampleTest.js',
 		'spec/models/user.js',
 		'spec/views/item/landingPage.js',
+		'spec/views/nav/main.js',
 		'spec/views/item/nav.js',
 		'spec/views/landingPage.js'
 		]

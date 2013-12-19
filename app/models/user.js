@@ -1,14 +1,12 @@
-
 /*!
  * Module dependencies
  */
-
- var mongoose   = require('mongoose'),
-  Schema     = mongoose.Schema,
-  crypto	   = require('crypto'),
-  _ = require('underscore'),
- authTypes = ['github', 'twitter', 'facebook', 'google', 'linkedin'],
- userPlugin = require('mongoose-user');
+ var mongoose     = require('mongoose'),
+      Schema      = mongoose.Schema,
+      crypto	    = require('crypto'),
+      _           = require('underscore'),
+      authTypes   = ['github', 'twitter', 'facebook', 'google', 'linkedin'],
+      userPlugin  = require('mongoose-user');
 
 /**
  * User schema
@@ -57,25 +55,25 @@ UserSchema.path('username').validate(function (username) {
   	return username.length
 }, 'Username cannot be blank')
 
-// UserSchema.path('email').validate(function (email) {
-//   // if you are authenticating by any of the oauth strategies, don't validate
-//   if (authTypes.indexOf(this.provider) !== -1) return true
-//   	return email.length
-// }, 'Email cannot be blank')
+UserSchema.path('email').validate(function (email) {
+  // if you are authenticating by any of the oauth strategies, don't validate
+  if (authTypes.indexOf(this.provider) !== -1) return true
+  	return email.length
+}, 'Email cannot be blank')
 
-// UserSchema.path('email').validate(function (email, fn) {
-// 	var User = mongoose.model('User')
+UserSchema.path('email').validate(function (email, fn) {
+	var User = mongoose.model('User')
 
-//   // if you are authenticating by any of the oauth strategies, don't validate
-//   if (authTypes.indexOf(this.provider) !== -1) fn(true)
+  // if you are authenticating by any of the oauth strategies, don't validate
+  if (authTypes.indexOf(this.provider) !== -1) fn(true)
 
-//   // Check only when it is a new user or when email field is modified
-// if (this.isNew || this.isModified('email')) {
-// 	User.find({ email: email }).exec(function (err, users) {
-// 		fn(!err && users.length === 0)
-// 	})
-// } else fn(true)
-// }, 'Email already exists')
+  // Check only when it is a new user or when email field is modified
+if (this.isNew || this.isModified('email')) {
+	User.find({ email: email }).exec(function (err, users) {
+		fn(!err && users.length === 0)
+	})
+} else fn(true)
+}, 'Email already exists')
 
 UserSchema.path('username').validate(function (username) {
   // if you are authenticating by any of the oauth strategies, don't validate

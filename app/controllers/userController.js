@@ -24,10 +24,15 @@ exports.register = function(req, res){
 	user.provider = 'local'
 	user.save(function (err) {
 		if (err) {
-			console.log("ERROR: " +JSON.stringify(err) + "::" + utils.errors(err.errors));
+			console.log("ERROR: " +JSON.stringify(err));
 			return res.send(err.errors);
 		}else{
-			res.send(user);
+			// manually login the user once successfully signed up
+			// logIn is a passport function (passport.request.js)
+		    req.logIn(user, function(err) {
+		      if (err) return next(err)
+		      return res.send(user);
+		    });
 		}
 	});
 };

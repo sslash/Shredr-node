@@ -40,10 +40,9 @@ define([
           e.preventDefault();
           var username = $('#emailInput').val();
           var password = $('#passwordInput').val();
-          $.post("/auth/userAuthenticate", {username_or_email : username, password : password})
+          $.post("/users/session", {username : username, password : password})
           .done($.proxy(this.authenticateSuccess, this))
           .fail($.proxy(this.authenticateFail, this));
-
         },
 
         __signUpBtnCLicked : function() {

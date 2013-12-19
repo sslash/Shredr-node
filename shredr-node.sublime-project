@@ -2,7 +2,9 @@
 	"folders":
 	[
 		{
-			"path": "/Users/micgunnu/code/sap/shredr-node"
+			"follow_symlinks": true,
+			"path": "/Users/michaelgunnulfsen/code/Shredr-node",
+			"folder_exclude_patterns": ["node_modules"]
 		}
 	]
 }

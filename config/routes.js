@@ -13,12 +13,11 @@ var auth = require('./middlewares/authorization');
  module.exports = function(app, passport){
  	
 	app.get('/', userController.index);
-	app.post('/users/', userController.register);
 
 	app.get('/login', userController.login)
 	app.get('/signup', userController.signup)
 	app.get('/logout', userController.logout)
-	app.post('/users', userController.register)
+	app.post('/api/shredders/', userController.register)
 	app.post('/users/session',
 		passport.authenticate('local', {
 			//failureRedirect: '/login',

@@ -26,13 +26,19 @@ module.exports = function (grunt) {
         files: [
           'app.js',
           'app/**/*.js',
-          'config/*.js'
+          'config/*.js',
+          'public/webapp/scripts/*.js',
         ],
         tasks: ['develop', 'delayed-livereload']
       },
       ejs: {
         files: ['app/views/**/*.ejs'],
         options: { livereload: reloadPort }
+      },
+
+      less: {
+        files: ['public/webapp/css/*.less'],
+        tasks: ['less']//, 'develop', 'delayed-livereload']
       }
     },
 
@@ -50,12 +56,11 @@ module.exports = function (grunt) {
           paths: ["assets/css"],
           cleancss: true
         },
-      files: {
-        "public/webapp/css/result.css": "public/webapp/css/application.css.less"
+        files: {
+          "public/webapp/css/result.css": "public/webapp/css/application.css.less"
+        }
       }
-  }
-}
-
+    }
   });
 
   grunt.config.requires('watch.js.files');

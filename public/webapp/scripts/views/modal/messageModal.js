@@ -4,7 +4,7 @@ define([
 
   // Templates
   'hbs!tmpl/modal/mainMessageLayout',
-  ],function (Backbone, Handlebars, bs, tpl) {
+  ],function (Backbone, bs, tpl) {
 
   var MessageModal = {
     MainLayout : Backbone.Marionette.Layout.extend({
@@ -20,7 +20,7 @@ define([
 
       __readyBtnClicked : function() {
         this.ui.modal.modal('hide');
-        Shredr.router.navigate("/theStage", {trigger: true});
+        //Shredr.router.navigate("/theStage", {trigger: true});
       },
 
       onDomRefresh : function() {

@@ -3,28 +3,45 @@ define([
 
 	// Views
 	'views/item/nav',
-	'views/landingPage/landingPage'
+	'views/landingPage/landingPage',
+	'views/nav/main'
 
-	], function (Backbone, NavMainView, LandingPageView) {
+	], function (Backbone, NavMainView, LandingPageView, MainNavView) {
 
 	var MainController = Backbone.Marionette.Controller.extend({
 
 		/** Routing functions */
 		landingPage : function() {
-			this.renderNavigationView();
+			this.renderLandingNavView();
 			this.renderLangingView();
 			this.renderFooterView();
 		},
 
 		stagePage : function() {
+			console.log("The stage");
+			this.renderNavigationView();
+
+			this.renderStageView();
+
+			this.renderFooterView();
 		},
 
 		/** Rendering functions */
-		renderNavigationView : function(forced){
+		renderLandingNavView : function(forced){
 			if (forced || !this.navView) {
 				this.navView = new NavMainView();
 				Shredr.navigation.show(this.navView);
 			}
+		},
+
+		renderNavigationView : function() {
+			var view = new MainNavView();
+			Shredr.navigation.show(view);
+		},
+
+		renderStageView : function() {
+			// var view = new 
+			// Shredr.main.sho
 		},
 
 		renderLangingView : function(){

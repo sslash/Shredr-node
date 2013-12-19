@@ -50,6 +50,7 @@ function( Backbone, Communicator, Welcome_tmpl,EventController, RoutesController
 		Shredr.loggedIn = true;
 		Shredr.user = new User(userdata);
 		Shredr.mainController.renderNavigationView(true);
+		Shredr.mainController.renderLangingView();
 	});
 
 	Shredr.addInitializer(function(options){

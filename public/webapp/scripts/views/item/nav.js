@@ -9,7 +9,7 @@ function( Backbone, NavTmpl  ) {
 	return Backbone.Marionette.ItemView.extend({
 
 		initialize: function() {
-			console.log("initialize a Nav ItemView");
+			console.log("initialize a Nav ItemView : " + Shredr);
 		},
 		
 		template: NavTmpl,
@@ -17,8 +17,8 @@ function( Backbone, NavTmpl  ) {
 		serializeData : function() {
             if (Shredr.loggedIn) {
                     return {
-                            loggedIn: Shredr.loggedIn,
-                            user : Shredr.user.toJSON()
+                        loggedIn: Shredr.loggedIn,
+                        user : Shredr.user.toJSON()
                     };
             }
 		},
