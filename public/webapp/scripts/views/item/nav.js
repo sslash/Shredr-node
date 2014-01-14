@@ -1,6 +1,6 @@
 define([
 	'backbone',
-	'hbs!tmpl/item/nav_tmpl'
+	'hbs!tmpl/nav/nav_landing'
 ],
 function( Backbone, NavTmpl  ) {
     'use strict';

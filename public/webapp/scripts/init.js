@@ -29,6 +29,7 @@ require.config({
         backbone: '../bower_components/backbone-amd/backbone',
         underscore: '../bower_components/underscore-amd/underscore',
         jcrop: '../bower_components/jcrop/js/jquery.Jcrop',
+        
 
         /* alias all marionette libs */
         'backbone.marionette': '../bower_components/backbone.marionette/lib/core/amd/backbone.marionette',

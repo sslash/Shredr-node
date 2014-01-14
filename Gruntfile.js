@@ -1,8 +1,7 @@
-'use strict';
-
 var request = require('request');
 
 module.exports = function (grunt) {
+  'use strict';
   // show elapsed time at the end
   require('time-grunt')(grunt);
   // load all grunt tasks
@@ -22,14 +21,19 @@ module.exports = function (grunt) {
         nospawn: true,
         livereload: reloadPort
       },
+      hbs: {
+        files: [
+          'public/webapp/templates/**/*.hbs'
+        ]
+      },
       js: {
         files: [
           'app.js',
           'app/**/*.js',
           'config/*.js',
-          'public/webapp/scripts/*.js',
+          'public/webapp/scripts/**/*.js',
         ],
-        tasks: ['develop', 'delayed-livereload']
+        //tasks: ['develop', 'delayed-livereload']
       },
       ejs: {
         files: ['app/views/**/*.ejs'],
@@ -38,7 +42,7 @@ module.exports = function (grunt) {
 
       less: {
         files: ['public/webapp/css/*.less'],
-        tasks: ['less']//, 'develop', 'delayed-livereload']
+        tasks: ['less']//, 'develop', 'delayed-livereload'],
       }
     },
 

@@ -2,6 +2,9 @@ var mongoose = require('mongoose'),
 	User = mongoose.model('User');
 
 
+exports.youtube = function(req,res) {
+	res.render('youtube');
+};
 
 exports.index = function(req,res){
 	var user = {};

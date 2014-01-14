@@ -4,9 +4,10 @@ define([
 	// Views
 	'views/item/nav',
 	'views/landingPage/landingPage',
-	'views/nav/main'
+	'views/nav/main',
+	'views/stage/stage'
 
-	], function (Backbone, NavMainView, LandingPageView, MainNavView) {
+	], function (Backbone, NavMainView, LandingPageView, MainNavView, StageView) {
 
 	var MainController = Backbone.Marionette.Controller.extend({
 
@@ -50,6 +51,8 @@ define([
 		},
 
 		renderStageView : function() {
+			var view = new StageView();
+			Shredr.main.show(view);
 		},
 
 		renderFooterView : function(){
