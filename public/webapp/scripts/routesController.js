@@ -5,9 +5,11 @@ define([
 	'views/item/nav',
 	'views/landingPage/landingPage',
 	'views/nav/main',
-	'views/stage/stage'
+	'views/stage/stage',
+	'views/shredroom/shredroom'
 
-	], function (Backbone, NavMainView, LandingPageView, MainNavView, StageView) {
+	], function (Backbone, NavMainView, LandingPageView, MainNavView, 
+		StageView,ShredroomView) {
 
 	var MainController = Backbone.Marionette.Controller.extend({
 
@@ -27,6 +29,14 @@ define([
 			this.renderFooterView();
 		},
 
+		shredroom : function() {
+			this.renderLandingNavView();
+
+			this.renderShredroomView();
+
+			this.renderFooterView();
+		},
+
 		/** Rendering functions */
 		renderLandingNavView : function(forced){
 			if (forced || !this.navView) {
@@ -40,9 +50,9 @@ define([
 			Shredr.navigation.show(view);
 		},
 
-		renderStageView : function() {
-			// var view = new 
-			// Shredr.main.sho
+		renderShredroomView : function() {
+			var view = new ShredroomView();
+			Shredr.main.show(view);
 		},
 
 		renderLangingView : function(){

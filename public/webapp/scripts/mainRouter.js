@@ -4,8 +4,9 @@ define([
 
   var MainRouter = Backbone.Marionette.AppRouter.extend({
     appRoutes: {
-		"theStage" : "stagePage",
-		"*action" : "landingPage"
+		'theStage' : 'stagePage',
+		'shredroom': 'shredroom',
+		'*action' : 'landingPage'
     },
   });
 

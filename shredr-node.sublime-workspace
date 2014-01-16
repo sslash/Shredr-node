@@ -15,13 +15,73 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "public/webapp/scripts/routesController.js",
+			"settings":
+			{
+				"buffer_size": 1157,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/webapp/css/application.css.less",
+			"settings":
+			{
+				"buffer_size": 310,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/webapp/templates/nav/main_tmpl.hbs",
+			"settings":
+			{
+				"buffer_size": 700,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/webapp/css/colors.less",
+			"settings":
+			{
+				"buffer_size": 38,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/webapp/scripts/views/nav/main.js",
+			"settings":
+			{
+				"buffer_size": 480,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/webapp/css/images.css.less",
+			"settings":
+			{
+				"buffer_size": 89,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/webapp/css/nav.less",
+			"settings":
+			{
+				"buffer_size": 775,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 47.0,
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"insta",
 				"Package Control: Install Package"
@@ -31,15 +91,11 @@
 				"Package Control: Remove Package"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"instal",
 				"Package Control: Install Package"
 			]
 		],
-		"width": 467.0
+		"width": 449.0
 	},
 	"console":
 	{
@@ -60,6 +116,37 @@
 	},
 	"file_history":
 	[
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/variables.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/bootstrap3-less/modals.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/landingPage.css.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/navigation-landing.css.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/bootstrap3-less/navs.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/images.css.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/application.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/bootstrap3-less/variables.less",
+		"/Users/michaelgunnulfsen/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/nav.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/item/nav_tmpl.hbs",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/img/icons/shreddr-logo.jpg",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/bootstrap3-less/bootstrap.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/item/nav.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/Gruntfile.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/bootstrap3-less/navbar.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/mainRouter.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/modal/loginModal.hbs",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/main.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/modal/loginModalView.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/nav/main_tmpl.hbs",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/package.json",
+		"/Users/michaelgunnulfsen/code/Shredr-node/Gruntfile.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/nav/main.hbs",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/test/spec/testSuite.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/test/spec/views/nav/main.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/test/spec/views/item/nav/main.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/shredr-node.sublime-project",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/application.css.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower.json",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/.bowerrc",
 		"/Users/michaelgunnulfsen/code/codesnips/public/css/libraryView.less",
 		"/Users/michaelgunnulfsen/code/codesnips/scripts/seed.js",
 		"/Users/michaelgunnulfsen/Library/Application Support/Sublime Text 3/Packages/User/html/divs",
@@ -71,24 +158,14 @@
 		"/Users/michaelgunnulfsen/code/codesnips/app/views/404.ejs",
 		"/Users/michaelgunnulfsen/code/codesnips/.gitignore",
 		"/Users/michaelgunnulfsen/code/codesnips/package.json",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/modal/loginModal.hbs",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/landingpage/landingPageLoggedIn.hbs",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/routesController.js",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/modal/loginModalView.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/modal/messageModal.js",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/application.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/landingPage/landingPage.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/config/passport.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/modal/mainMessageLayout.hbs",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/item/nav.js",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/item/nav_tmpl.hbs",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/landingpage/landingPageView.hbs",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/modals.css.less",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/application.css.less",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/landingPage.css.less",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower.json",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/bootstrap3-less/bootstrap.less",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/Gruntfile.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/welcome.hbs",
 		"/Users/michaelgunnulfsen/code/Shredr-node/app/views/home/index.ejs",
 		"/Users/michaelgunnulfsen/code/Shredr-node/app/views/404.ejs",
@@ -101,13 +178,15 @@
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
 		"height": 93.0,
 		"where_history":
 		[
+			"*.less",
+			"*.js",
 			"",
 			"*.js"
 		]
@@ -117,6 +196,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"text-decoration",
+			"user:auth:success",
 			"login-area",
 			"h4",
 			"h3",
@@ -144,8 +225,206 @@
 	"groups":
 	[
 		{
+			"selected": 5,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "public/webapp/scripts/routesController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								828,
+								828
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/webapp/css/application.css.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 310,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								282,
+								282
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/webapp/templates/nav/main_tmpl.hbs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 700,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								513,
+								513
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Handlebars/Handlebars.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/webapp/css/colors.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 38,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								37,
+								31
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/webapp/scripts/views/nav/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 480,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								270,
+								270
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/webapp/css/images.css.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 89,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								56,
+								56
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"file": "public/webapp/css/nav.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 775,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								160,
+								160
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -166,11 +445,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -195,6 +481,50 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"images",
+				"public/webapp/css/images.css.less"
+			],
+			[
+				"varia",
+				"public/webapp/css/variables.less"
+			],
+			[
+				"modals",
+				"public/webapp/bower_components/bootstrap3-less/modals.less"
+			],
+			[
+				"landing",
+				"public/webapp/css/landingPage.css.less"
+			],
+			[
+				"navigation",
+				"public/webapp/css/navigation-landing.css.less"
+			],
+			[
+				"nav.less",
+				"public/webapp/css/nav.less"
+			],
+			[
+				"nav.hbs",
+				"public/webapp/templates/item/nav_tmpl.hbs"
+			],
+			[
+				"nav",
+				"public/webapp/css/navigation-landing.css.less"
+			],
+			[
+				"vari",
+				"public/webapp/bower_components/bootstrap3-less/variables.less"
+			],
+			[
+				"variables.less",
+				"public/webapp/bower_components/bootstrap3-less/variables.less"
+			],
+			[
+				"main_tm",
+				"public/webapp/templates/nav/main_tmpl.hbs"
+			],
 			[
 				"seed",
 				"scripts/seed.js"
@@ -312,7 +642,7 @@
 		"selected_items":
 		[
 		],
-		"width": 1138.0
+		"width": 661.0
 	},
 	"settings":
 	{
@@ -320,7 +650,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 351.0,
 	"status_bar_visible": true,
 	"template_settings":

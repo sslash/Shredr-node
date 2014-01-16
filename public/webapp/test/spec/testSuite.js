@@ -15,6 +15,7 @@ define(function() {
 		'spec/views/item/nav.js',
 		'spec/views/item/thumbView.js',
 		'spec/views/landingPage.js',
+		'spec/views/layout/shredroom.js',
 		'spec/views/nav/main.js',
 		'spec/views/stage/stage.js',
 		'spec/views/stage/stageKicker.js',
