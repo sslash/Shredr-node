@@ -1,0 +1,91 @@
+img {
+	&.tabs-img {
+		width: 540px;
+		height: 100px;
+	}
+}
+.note-decorator{
+	width: 300px;
+	height: 57px;
+	color:black;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	position: relative;
+	background: white;
+	border: 3px solid #ccc;
+	img {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	ul {
+		border-bottom: 2px solid lightgrey;
+		margin: 0;
+	}
+	li {
+		display: inline-block;
+		cursor:pointer;
+	}
+	#bendBtn {
+		width:30px;
+	}
+
+	.bendImg {
+		width:30px;
+		position:absolute;
+	}
+
+	.notes {
+		width:20px;
+		height:20px;
+		cursor:pointer;
+		opacity: 0.4;
+		&.selected {
+			opacity: 1;
+		}
+	}
+}
+
+.tabsArea {
+	background: rgba(0, 0, 0, 0.8);
+	position:relative;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;	
+
+	#tab-input {
+		position: absolute;
+		width: 540px;
+		display: inline-block;
+		left: 0px;
+		top: 0;
+	}
+
+	#tabs-cursor {
+		position: absolute;
+		top: 32px;
+		width: 33px;
+		padding: 0 0 0 4px;
+		margin: 0;
+		display: inline;
+		background: transparent;
+		border-color: transparent;
+		border-left: 1px solid #fff;
+		font-size: 12px;
+		left: 11px;
+		color: white;
+	}
+
+	label {
+		position: absolute;
+		text-shadow: 5px 5px 12px black;
+		font-size: 12px;
+		position: absolute;
+		color: white;
+		&:hover {
+			-webkit-transform: scale(1.3);
+			-moz-transform: scale(1.3);
+			-o-transform: scale(1.3);
+			transform: scale(1.3);
+		}
+	}
+}

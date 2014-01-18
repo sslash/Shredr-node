@@ -1,6 +1,11 @@
 input {
 
 	&.inline-search {
+		height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+		padding: @padding-base-vertical @padding-base-horizontal;
+		font-size: @font-size-base;
+		line-height: @line-height-base;
+		color: @input-color;
 		padding-left: 24px;
 	}
 }
@@ -16,4 +21,12 @@ input {
 	border: 1px solid #ccc;
 	margin: 0 2px;
 	border-radius: 3px;
+}
+
+.vertical-border {
+	position: fixed;
+	display: inline-block;
+	height: 85%;
+	border-right: 1px solid rgba(255, 255, 255, 0.7);
+	.box-shadow(0px 0px 4px rgba(255, 255, 255, 0.51));
 }
