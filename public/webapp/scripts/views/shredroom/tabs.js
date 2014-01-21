@@ -30,7 +30,7 @@ function( Backbone, TabsTmpl ) {
 
 		/* on render callback */
 		onRender: function() {
-			this.tabsGen = this.$('.tabsArea').tabGenerator({notes : $('.notes')});
+			this.tabsGen = this.$('.tabsArea').tabGenerator({notes : this.$('.notes')});
 		}
 	});
 

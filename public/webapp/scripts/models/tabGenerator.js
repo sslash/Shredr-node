@@ -20,7 +20,6 @@
 			this.tabsStringIndex = 0;	/* current string */
 			this.intervall = 4;			/* current rest */
 			this.bars = 0;				/* current bar / space */
-			this.stringzHeight = "22px";/* Height between strings */
 			this.noteDiv = "#crotchet";	/* Current interval image */
 			this.note_color = "white";
 
@@ -44,6 +43,7 @@
 		};
 
 		this.getNextMoveWidth = function() {
+			console.log(this.height()/6);
 			return this.width() / (this.intervall*4);
 		};
 
@@ -90,15 +90,16 @@
 		};
 
 		this.moveBarDownOrUpwards = function(dir) {
+			var height = Math.floor(this.height() / 6) - 2; /* Height between strings. - 2: duno why */
 			var fret = this.getTabInput();
 			if ( !isNaN (parseInt(fret, 10)) ){
 				this.createNoteObject(fret, this.tabsIndex, this.tabsStringIndex);
 			}
 			if (dir === 'up'){
-				this.tabInput.animate({ top: "-=" + this.stringzHeight}, 1);
+				this.tabInput.animate({ top: "-=" + height}, 1);
 				this.tabsStringIndex --;
 			} else {
-				this.tabInput.animate({ top: "+=" + this.stringzHeight}, 1);
+				this.tabInput.animate({ top: "+=" + height}, 1);
 				this.tabsStringIndex ++;
 			}
 			return fret;
@@ -139,7 +140,7 @@
 					return;
 			}
 			if ( fret === -1) {
-				fret = "<img src='/assets/icons/notes/hvilepause.png'>";
+				fret = "<img src='img/notes/hvilepause.png'>";
 			}
 
 			var label = $("<label class='note' style='color:" + this.note_color + ";'>" + fret + "</label>");
@@ -148,7 +149,7 @@
 			this.tabInput.val("");
 
 			if (this.currDecorators){
-				var img = $("<img src='/assets/icons/arrow_white.png' class='bendImg'>");
+				var img = $("<img src='img/notes/arrow_white.png' class='bendImg'>");
 				img.offset($(label).position());
 				label.after(img);
 				this.currDecorators = null;
