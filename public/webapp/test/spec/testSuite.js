@@ -12,6 +12,7 @@ define(function() {
 		'spec/views/collection/thumbsColl.js',
 		'spec/views/item/Tabs.js',
 		'spec/views/item/Upload.js',
+		'spec/views/item/backtrack.js',
 		'spec/views/item/landingPage.js',
 		'spec/views/item/nav/main.js',
 		'spec/views/item/nav.js',

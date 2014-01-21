@@ -7,7 +7,6 @@ function( Backbone, ResourcesTmpl  ) {
 
 	/* Return a Layout class definition */
 	return Backbone.Marionette.ItemView.extend({
-
 		className : 'sr-region-inner',
 		
 		initialize: function() {
