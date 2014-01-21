@@ -30,3 +30,36 @@ input {
 	border-right: 1px solid rgba(255, 255, 255, 0.7);
 	.box-shadow(0px 0px 4px rgba(255, 255, 255, 0.51));
 }
+
+
+.form-flat {
+	margin-top:24px;
+	text-transform: uppercase;
+
+	input, select, textarea {
+		margin: 10px 0;
+
+	};
+
+	input,textarea {
+		display:block;
+		width: 100%;
+		height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+		padding: @padding-base-vertical @padding-base-horizontal;
+		font-size: @font-size-base;
+		line-height: @line-height-base;
+		vertical-align: middle;
+  		border: none;
+  		font-weight: bold;
+  		// Placeholder
+  		//
+  		// Placeholder text gets special styles because when browsers invalidate entire
+  		// lines if it doesn't understand a selector/
+  		.placeholder();
+	}
+
+	input[type="submit"] {
+		width: inherit;
+  	}
+
+}
