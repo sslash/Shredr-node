@@ -19,8 +19,14 @@ function( Backbone, BacktrackTmpl  ) {
     	/* ui selector cache */
     	ui: {},
 
-		/* Ui events hash */
-		events: {},
+		events : {
+			'click .arrow_box' : '__arrowClicked'
+		},
+
+		__arrowClicked : function() {
+			this.trigger('arrow:event:click');
+		},
+
 
 		/* on render callback */
 		onRender: function() {}
