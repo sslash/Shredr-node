@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"Bac",
+				"BacktrackView"
+			],
+			[
 				"main",
 				"mainController"
 			],
@@ -15,46 +19,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "public/webapp/templates/shredroom/tabs_tmpl.hbs",
-			"settings":
-			{
-				"buffer_size": 1302,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/webapp/scripts/views/shredroom/tabs.js",
-			"settings":
-			{
-				"buffer_size": 697,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/webapp/templates/shredroom/resources_tmpl.hbs",
-			"settings":
-			{
-				"buffer_size": 2460,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/webapp/css/tabs.less",
-			"settings":
-			{
-				"buffer_size": 1370,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/webapp/scripts/models/tabGenerator.js",
-			"settings":
-			{
-				"buffer_size": 5454,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -100,25 +64,40 @@
 	},
 	"file_history":
 	[
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/shredroom/shredroom.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/requirejs/tests/plugins/nameOnly.html",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/routesController.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/test/spec/views/layout/shredroom.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/shredroom.less",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/tabs.less",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/type.less",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/models/tabGenerator.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/shredroom/backtrack_tmpl.hbs",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/backbone/backbone.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/collections/battlesCollection.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/modernizr/feature-detects/battery-api.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower.json",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/shredroom/shredroom_tmpl.hbs",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/variables.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/shredroom/upload_tmpl.hbs",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/shredroom/upload.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/bootstrap3-less/variables.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/forms.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/bootstrap3-less/forms.less",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/shredroom/shredroom.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/requirejs/updatesubs.sh",
+		"/Users/michaelgunnulfsen/code/Shredr-node/app/controllers/userController.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/requirejs/tests/undef/undefLocal.html",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/shredroom/Upload.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/tabs.less",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/shredroom/resources_tmpl.hbs",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/shredroom/tabs.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/shredroom/tabs_tmpl.hbs",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/models/tabGenerator.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/type.less",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/shredroom/resources.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/layout.less",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/application.css.less",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/shredroom/tabs.js",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/variables.less",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/colors.less",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/nav.less",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/forms.less",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/application.js",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/bootstrap3-less/forms.less",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/bootstrap3-less/mixins.less",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/routesController.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/nav/main.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/layout/shredroom.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/mainRouter.js",
@@ -128,7 +107,6 @@
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/landingPage.css.less",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/css/navigation-landing.css.less",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/bootstrap3-less/navs.less",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower_components/bootstrap3-less/variables.less",
 		"/Users/michaelgunnulfsen/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/item/nav_tmpl.hbs",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/img/icons/shreddr-logo.jpg",
@@ -146,7 +124,6 @@
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/test/spec/views/nav/main.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/test/spec/views/item/nav/main.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/shredr-node.sublime-project",
-		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/bower.json",
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/.bowerrc",
 		"/Users/michaelgunnulfsen/code/codesnips/public/css/libraryView.less",
 		"/Users/michaelgunnulfsen/code/codesnips/scripts/seed.js",
@@ -169,7 +146,6 @@
 		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/welcome.hbs",
 		"/Users/michaelgunnulfsen/code/Shredr-node/app/views/home/index.ejs",
 		"/Users/michaelgunnulfsen/code/Shredr-node/app/views/404.ejs",
-		"/Users/michaelgunnulfsen/code/Shredr-node/app/controllers/userController.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/app/models/user.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/config/middlewares/authorization.js",
 		"/Users/michaelgunnulfsen/code/Shredr-node/config/routes.js",
@@ -178,7 +154,7 @@
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -196,6 +172,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"iframe",
+			"border",
+			"rgba(255,255,255,.15)",
 			"stringz",
 			"stringzHeight",
 			"arrow",
@@ -235,154 +214,8 @@
 	"groups":
 	[
 		{
-			"selected": 4,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "public/webapp/templates/shredroom/tabs_tmpl.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1302,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								386,
-								386
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Handlebars/Handlebars.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "public/webapp/scripts/views/shredroom/tabs.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 697,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								668,
-								668
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "public/webapp/templates/shredroom/resources_tmpl.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2460,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								678,
-								678
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Handlebars/Handlebars.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "public/webapp/css/tabs.less",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1370,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								741,
-								741
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 313.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "public/webapp/scripts/models/tabGenerator.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5454,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3828,
-								3828
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1678.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -425,10 +258,10 @@
 	{
 		"height": 0.0
 	},
-	"project": "shredr-node.sublime-project",
+	"project": "brewit.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -436,6 +269,62 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"resource",
+				"public/webapp/templates/shredroom/resources_tmpl.hbs"
+			],
+			[
+				"reso",
+				"public/webapp/scripts/views/shredroom/resources.js"
+			],
+			[
+				"tabs",
+				"public/webapp/scripts/views/shredroom/tabs.js"
+			],
+			[
+				"shredroom.",
+				"public/webapp/templates/shredroom/shredroom_tmpl.hbs"
+			],
+			[
+				"backtra",
+				"public/webapp/scripts/views/shredroom/backtrack.js"
+			],
+			[
+				"shredroom",
+				"public/webapp/templates/shredroom/shredroom_tmpl.hbs"
+			],
+			[
+				"upload",
+				"public/webapp/templates/shredroom/upload_tmpl.hbs"
+			],
+			[
+				"varia",
+				"public/webapp/css/variables.less"
+			],
+			[
+				"variables",
+				"public/webapp/bower_components/bootstrap3-less/variables.less"
+			],
+			[
+				"forms",
+				"public/webapp/bower_components/bootstrap3-less/forms.less"
+			],
+			[
+				"form",
+				"public/webapp/bower_components/bootstrap3-less/forms.less"
+			],
+			[
+				"form.less",
+				"public/webapp/css/forms.less"
+			],
+			[
+				"upload.js",
+				"public/webapp/scripts/views/shredroom/Upload.js"
+			],
+			[
+				"shredrrom",
+				"public/webapp/templates/shredroom/shredroom_tmpl.hbs"
+			],
 			[
 				"tabgen",
 				"public/webapp/scripts/models/tabGenerator.js"
@@ -457,28 +346,12 @@
 				"public/webapp/scripts/views/shredroom/shredroom.js"
 			],
 			[
-				"resource",
-				"public/webapp/scripts/views/shredroom/resources.js"
-			],
-			[
-				"shredroom",
-				"public/webapp/scripts/views/shredroom/shredroom.js"
-			],
-			[
-				"tabs",
-				"public/webapp/scripts/views/shredroom/tabs.js"
-			],
-			[
 				"variable",
 				"public/webapp/css/variables.less"
 			],
 			[
 				"applica",
 				"public/webapp/css/application.css.less"
-			],
-			[
-				"forms",
-				"public/webapp/css/forms.less"
 			],
 			[
 				"colors",
@@ -499,10 +372,6 @@
 			[
 				"images",
 				"public/webapp/css/images.css.less"
-			],
-			[
-				"varia",
-				"public/webapp/css/variables.less"
 			],
 			[
 				"modals",
@@ -662,7 +531,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 212.0,
+	"side_bar_width": 256.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

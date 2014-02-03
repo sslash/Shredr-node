@@ -8,12 +8,16 @@ function( Backbone, UploadTmpl ) {
 	/* Return a ItemView class definition */
 	return Backbone.Marionette.ItemView.extend({
 		tagName : 'div',
-		className : 'modal-flat',
+		className : 'modal-flat sr-box',
 
 		initialize: function(options) {
 			console.log("initialize a Upload ItemView");
+			this.model = options.model;
 			this.listenTo(this.model, 'sync', this.modelSynced);
 			this.listenTo(this.model, 'error', this.modelSyncFailed);
+			this.vent = options.vent;
+
+			this.debug = true;
 		},
 		
     	template: UploadTmpl,
@@ -24,8 +28,8 @@ function( Backbone, UploadTmpl ) {
 
 		/* Ui events hash */
 		events: {
-			'submit form' 					 : '__uploadFormSubmitted',
-			'click a' : '__closeModalClicked'
+			'submit form' 	: '__uploadFormSubmitted',
+			'click a' 		: '__closeModalClicked'
 		},
 
 		onRender: function() {
@@ -34,13 +38,13 @@ function( Backbone, UploadTmpl ) {
 
 		__closeModalClicked : function(e) {
 			e.preventDefault();
-			console.log('sadasad')
 			this.trigger('close:event:click');
 		},
 
 		// Sends message to save the video to youtube
 		__uploadFormSubmitted : function(e) {
 			e.preventDefault();
+			console.log('hei')
 			var title = this.$('#shred-title').val(),
 				desc = this.$('#shred-description').val();
 
@@ -55,15 +59,24 @@ function( Backbone, UploadTmpl ) {
 					title : title,
 					description : desc
 				});
-				var receiver = document.getElementById('receiver').contentWindow;
-				receiver.postMessage(data, '*');
+
+				// Skips this part which sends the video to youTube
+				if ( this.debug ) {
+					this.model.set({
+						youtubeUrl : '//www.youtube.com/embed/eKOpKLv7Wv8?autohide=1',
+						youtubeId : 'eKOpKLv7Wv8'
+					});
+					this.saveShred();
+				} else {
+					var receiver = document.getElementById('receiver').contentWindow;
+					receiver.postMessage(data, '*');
+				}
 			} else {}
 		},
 
 		// Received message back from youtube (iframe js script)
 		receiveIframeMessage : function(event) {
 			event.preventDefault();
-			console.log("message from child! " + event.data);
 			if ( event.data ) {					
 				try {
 					var data = JSON.parse(event.data);
@@ -78,9 +91,12 @@ function( Backbone, UploadTmpl ) {
 			}
 		},
 
-		saveShred : function(e) {
-			console.log("will save shred!");
-			this.model.save();
+		// TODO:
+		// Fix this so that it saves model to server
+		saveShred : function() {
+			// this.model.save();
+			console.log('sap')
+			this.vent.trigger('shredroom:model:uploaded');
 		},
 
 		modelSyncFailed : function(err) {

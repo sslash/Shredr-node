@@ -16,6 +16,7 @@ define(function() {
 		'spec/views/item/landingPage.js',
 		'spec/views/item/nav/main.js',
 		'spec/views/item/nav.js',
+		'spec/views/item/preview.js',
 		'spec/views/item/thumbView.js',
 		'spec/views/landingPage.js',
 		'spec/views/layout/shredroom.js',
