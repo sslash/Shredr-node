@@ -85,7 +85,8 @@ function( Backbone, UploadTmpl ) {
 		*/
 		receiveIframeMessage : function(event) {
 			event.preventDefault();
-			if ( event.data ) {					
+			console.log('Got data from iframe!');
+			if ( event.data ) {	
 				try {
 					var data = JSON.parse(event.data);
 					if ( data.youtubeUrl && data.youtubeId ) {
