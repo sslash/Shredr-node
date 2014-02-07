@@ -6,10 +6,11 @@ define([
 	'views/landingPage/landingPage',
 	'views/nav/main',
 	'views/stage/stage',
+	'views/stage/profileLayout',
 	'views/shredroom/shredroom'
 
 	], function (Backbone, NavMainView, LandingPageView, MainNavView, 
-		StageView,ShredroomView) {
+		StageView,ProfilesView, ShredroomView) {
 
 	var MainController = Backbone.Marionette.Controller.extend({
 
@@ -36,6 +37,16 @@ define([
 
 			this.renderFooterView();
 		},
+
+		profiles : function() {
+			this.renderNavigationView();
+			this.renderProfilesView();
+		},
+
+		renderProfilesView : function() {
+			var view = new ProfilesView();
+			Shredr.main.show(view);
+		},		
 
 		/** Rendering functions */
 		renderLandingNavView : function(forced){

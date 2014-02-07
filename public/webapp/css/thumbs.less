@@ -1,0 +1,78 @@
+.profile-thumb {
+	// background-color: $nav-black;
+	margin: 20px;
+	// border: 1px solid rgba(255, 255, 255, 0.14);
+	// @include shadow(0px 0px 3px 2px #0A0A0A);
+	display:inline-block;
+
+	p {
+		padding: 0;
+		margin: 0;
+	}
+
+	img {
+		width: 100%;
+		width: 300px;
+		height: 200px;
+	}
+
+	.profile-thmb-meta {
+
+		text-align: left;
+		padding: 6px;
+		background-color: @nav-black;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		border-top: 0;
+		.box-shadow(0px 0px 3px 2px #0A0A0A);
+		position: relative;
+		left: 20px;
+		width: 88%;
+
+
+		div {display:inline-block;}
+	}
+
+	i { 
+		color: @gray-text;
+		margin: 0 6px;
+	}
+
+	.style-tags {
+		span { 
+			margin:1px; 
+			// background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7B993C), to(#7B993C), color-stop(.2,#CDFF65),color-stop(.8,#CDFF65));
+			background: @red-dark;			
+			padding: 1px 6px;
+			border-radius: 4px;
+			color: @nav-black;
+
+		}
+	}
+
+	.left-side {
+		position: relative;
+		.skills {
+			position:relative; left: 100px;
+			i {margin: 0px 11px;}
+		}
+	}
+	.right-side {
+		position: relative;
+		top: -42px;
+		width: 55%;
+		text-align: right;
+		float: right;
+	}
+}
+
+.border
+{
+	padding: 1px;
+	border: 1px solid rgba(0,0,0,0.5);
+	border-radius: 10px 10px 2px 2px;
+	background: rgba(0,0,0,0.25);
+	box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+	-o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+}

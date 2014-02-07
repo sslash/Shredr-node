@@ -6,9 +6,10 @@ nav {
 	position: fixed;
 	width:100%;
 	height: @nav-height;
-	//background-color:@dark-blue;
-	background-color: transparent;
+	background-color: @nav-black;
 	z-index: 10000;
+	.box-shadow( 0px 4px 8px 0px #0A0A0A);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 
 	a {
 		padding: 10px 15px;
@@ -32,7 +33,7 @@ nav {
 			margin-top: 10px;
 		}
 
-		ul{
+		ul {
 			list-style: none;
 			li { float:left; }
 		}
@@ -47,9 +48,9 @@ nav {
 		li { &:hover { .scale(1.1); } }
 		a{
 			padding: 10px 34px;
-			background-color: @white;
-			color:@dark-blue;
-			border: 1px solid #000;
+			background-color: @brown;
+			color: #fff;
+			border: 1px solid rgba(255, 255, 255, 0.14);
 			&.active{ border-bottom:1px solid transparent; }
 		}
 	}

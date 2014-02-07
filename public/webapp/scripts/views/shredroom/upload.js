@@ -20,11 +20,11 @@ function( Backbone, UploadTmpl ) {
 			this.debug = true;
 		},
 		
-    	template: UploadTmpl,
+		template: UploadTmpl,
         
 
-    	/* ui selector cache */
-    	ui: {},
+		/* ui selector cache */
+		ui: {},
 
 		/* Ui events hash */
 		events: {
@@ -44,7 +44,6 @@ function( Backbone, UploadTmpl ) {
 		// Sends message to save the video to youtube
 		__uploadFormSubmitted : function(e) {
 			e.preventDefault();
-			console.log('hei')
 			var title = this.$('#shred-title').val(),
 				desc = this.$('#shred-description').val();
 
@@ -74,7 +73,16 @@ function( Backbone, UploadTmpl ) {
 			} else {}
 		},
 
-		// Received message back from youtube (iframe js script)
+		/*
+		* Received message back from youtube (iframe js script)
+		*
+		*  The message includes:
+		* event : {"youtubeUrl":"http://youtu.be/v_ck-cNNKxU",
+		*          "youtubeId":"v_ck-cNNKxU"};
+		* 
+		* These attributes are saved on the model, and must be used to
+		* show the video instead of the button after the upload is made.
+		*/
 		receiveIframeMessage : function(event) {
 			event.preventDefault();
 			if ( event.data ) {					
