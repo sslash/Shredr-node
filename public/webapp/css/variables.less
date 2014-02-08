@@ -1,11 +1,15 @@
 body {
 	background-image: url('/img/outlets.png');
-    background-position: initial initial;
-    background-repeat: initial initial;
-    -webkit-font-smoothing: antialiased;
+	background-position: initial initial;
+	background-repeat: initial initial;
+	-webkit-font-smoothing: antialiased;
 }
 
+@brown-dark : #1F1E1E;
 @brown : #333;
+@white : #d1d1d1;
+@light-brown : #4f4f4f;
+.brown-border (){ box-shadow: 0 0 0 1px #666; }
 @gray-text: #ccc;
 @nav-black: #0E0E0E;
 @red-dark:	#C44741;
@@ -13,6 +17,8 @@ body {
 @yellow:	#FFFF6C;
 @blue-dark:	#2286CC;
 @blue-light: #4585B2;
+
+.bottom-brown-border (){border-bottom: 1px solid #666;}
 
 .small-gap {
 	width:100%;
@@ -24,6 +30,11 @@ body {
 	height:100px;
 }
 
+.vert-align {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
 .center-pos {
 	text-align:center;
 	margin:auto !important;

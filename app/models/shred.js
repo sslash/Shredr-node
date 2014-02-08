@@ -25,6 +25,7 @@ var setTags = function (tags) {
 
 var ShredSchema = new Schema({
   title: {type : String, default : '', trim : true},
+  type: {type : String, default : '', trim : true},
   description: {type : String, default : '', trim : true},
   youtubeUrl : {type : String, default : '', trim : true},
   user: {type : Schema.ObjectId, ref : 'User'},

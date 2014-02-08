@@ -1,9 +1,6 @@
 require.config({
-
-    
-
     /* starting point for application */
-    deps: ['backbone.marionette', 'bootstrap', 'main'],
+    deps: ['backbone.marionette', 'main'],
 
 
     shim: {
@@ -14,13 +11,14 @@ require.config({
             ],
             exports: 'Backbone'
         },
-        bootstrap: {
-            deps: ['jquery'],
-            exports: 'jquery'
-        },
         jcrop : {
             deps: ['jquery'],
             exports: 'jcrop'
+        },
+
+        autocomplete : {
+            deps: ['jquery'],
+            exports: 'autocomplete'
         }
     },
 
@@ -29,15 +27,13 @@ require.config({
         backbone: '../bower_components/backbone-amd/backbone',
         underscore: '../bower_components/underscore-amd/underscore',
         jcrop: '../bower_components/jcrop/js/jquery.Jcrop',
-        
 
         /* alias all marionette libs */
         'backbone.marionette': '../bower_components/backbone.marionette/lib/core/amd/backbone.marionette',
         'backbone.wreqr': '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
         'backbone.babysitter': '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
 
-        /* alias the bootstrap js lib */
-        bootstrap: 'vendor/bootstrap',
+        autocomplete: 'vendor/jquery-ui-1.10.4.custom', // includes jquery ui core, widget, position, menu
 
         /* Alias text.js for template loading and shortcut the templates dir to tmpl */
         text: '../bower_components/requirejs-text/text',

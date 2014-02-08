@@ -1,0 +1,1181 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"init",
+				"initDropListeners"
+			],
+			[
+				"ove",
+				"overlay (str)"
+			],
+			[
+				"over",
+				"overlayMsg (str)"
+			],
+			[
+				"inputE",
+				"inputEmail (str)"
+			],
+			[
+				"ema",
+				"inputEmail (str)"
+			],
+			[
+				"in",
+				"inputUsername (str)"
+			],
+			[
+				"input",
+				"inputName (str)"
+			],
+			[
+				"add",
+				"addDraggingToElement"
+			],
+			[
+				"main",
+				"mainController"
+			],
+			[
+				"snippet",
+				"snippetsCollection"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "public/webapp/css/modals.less",
+			"settings":
+			{
+				"buffer_size": 801,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/webapp/scripts/init.js",
+			"settings":
+			{
+				"buffer_size": 1843,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/webapp/templates/shredroom/upload_tmpl.hbs",
+			"settings":
+			{
+				"buffer_size": 2793,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/webapp/css/variables.less",
+			"settings":
+			{
+				"buffer_size": 827,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/webapp/bower_components/bootstrap3-less/variables.less",
+			"settings":
+			{
+				"buffer_size": 19647,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 203.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 475.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/micgunnu/code/sap/shredr-node/shredr.sublime-project",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/shredroom.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/shredroom/upload.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/init.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt-contrib-less/node_modules/less/test/less/errors/import-no-semi.less",
+		"/Users/micgunnu/code/sap/shredr-node/app/views/index.ejs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/youtube-direct-lite/static/css/index.css",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/youtube-direct-lite/static/js/ytdl/panels/upload.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/youtube-direct-lite/static/index.html",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/modals.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/modals.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/forms.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/mixins.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/sass-bootstrap/js/bootstrap-modal.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/ejs/Makefile",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/shredroom/upload_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/bootstrap.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/type.less",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/generator-marionette/app/templates/bootstrap.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt-contrib-less/node_modules/less/test/browser/runner-browser-options.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/ejs/benchmark.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/variables.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/application.css.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/shredroom/shredroom.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/mainRouter.js",
+		"/Users/micgunnu/code/sap/shredr-node/app/controllers/userController.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/shredroom/shredroom_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/shredr-node.sublime-project",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/test/spec/views/layout/shredroom.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/routesController.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/stage/profileLayout.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/thumbs.less",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/request/tests/test-hawk.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/tabs.less",
+		"/Users/micgunnu/code/sap/shredr-node/config/routes.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/layout.less",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/passport-facebook/lib/profile.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/passport-twitter/lib/profile.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/stage/profiles_layout_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt/node_modules/glob/test/pause-resume.js",
+		"/Users/micgunnu/code/sap/shredr-node/config/passport.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/nav.less",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/mongoose/lib/promise.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/nav/main_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/modal/mainMessageLayout.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/mongoose/examples/express/connection-sharing/routes.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/generator-express/test/temp/config/routes.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/generator-mocha-amd/helpers/validateDirectory.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/sass-bootstrap/lib/tests/navbar-fixed-top.html",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/item/nav.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/jade/lib/nodes/mixin.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/ejs/test/fixtures/includes/menu-item.ejs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/node_modules/tar/test/zz-cleanup.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/navbar.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/navs.less",
+		"/Users/micgunnu/code/sap/startaband/views/layout.hjs",
+		"/Users/micgunnu/code/sap/startaband/public/css/dist/nav.css",
+		"/Users/micgunnu/code/sap/startaband/public/dist/build/nav.css",
+		"/Users/micgunnu/code/sap/startaband/public/js/views/nav.js",
+		"/Users/micgunnu/code/sap/startaband/public/css/variables.scss",
+		"/Users/micgunnu/code/sap/startaband/public/css/modal.scss",
+		"/Users/micgunnu/code/sap/startaband/public/css/nav.scss",
+		"/Users/micgunnu/code/sap/startaband/node_modules/grunt/node_modules/findup-sync/test/fixtures/a.txt",
+		"/Users/micgunnu/code/sap/startaband/public/js/libs/dom.js",
+		"/Users/micgunnu/code/sap/startaband/views/templates/modal.hjs",
+		"/Users/micgunnu/code/sap/startaband/public/css/buttons.scss",
+		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/url/node_modules/punycode/vendor/requirejs/tests/depoverlap.html",
+		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/url/node_modules/punycode/vendor/requirejs/tests/depoverlap.js",
+		"/Users/micgunnu/code/sap/startaband/node_modules/mongoose/lib/errors/overwriteModel.js",
+		"/Users/micgunnu/code/sap/startaband/node_modules/forever/node_modules/flatiron/node_modules/prompt/examples/override-validation.js",
+		"/Users/micgunnu/code/sap/startaband/node_modules/grunt/lib/grunt/option.js",
+		"/Users/micgunnu/code/sap/startaband/public/css/typo.scss",
+		"/Users/micgunnu/code/sap/startaband/public/css/form.scss",
+		"/Users/micgunnu/code/sap/startaband/public/components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/forms.less",
+		"/Users/micgunnu/code/sap/startaband/public/components/sass-bootstrap/lib/_forms.scss",
+		"/Users/micgunnu/code/sap/startaband/public/components/font-awesome/src/assets/less/bootstrap-3.0.0/forms.less",
+		"/Users/micgunnu/code/sap/startaband/node_modules/.bin/forever",
+		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/url/node_modules/punycode/vendor/requirejs/docs/faq-optimization.html",
+		"/Users/micgunnu/code/sap/startaband/public/css/bundle.scss",
+		"/Users/micgunnu/code/sap/startaband/.sass-cache/2a4a68884c13bc361910e24e62b64b510e7a5d93/bundle.scssc",
+		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/test/multi_bundle_unique.js",
+		"/Users/micgunnu/code/sap/startaband/bower.json",
+		"/Users/micgunnu/code/sap/startaband/app.js",
+		"/Users/micgunnu/code/sap/startaband/.sass-cache/2a4a68884c13bc361910e24e62b64b510e7a5d93/typo.scssc",
+		"/Users/micgunnu/code/sap/startaband/.sass-cache/2a4a68884c13bc361910e24e62b64b510e7a5d93/thumbs.scssc",
+		"/Users/micgunnu/code/sap/startaband/.sass-cache/2a4a68884c13bc361910e24e62b64b510e7a5d93/variables.scssc",
+		"/Users/micgunnu/code/sap/startaband/config/config.js",
+		"/Users/micgunnu/code/sap/startaband/public/components/font-awesome/src/assets/less/bootstrap-3.0.0/component-animations.less",
+		"/Users/micgunnu/code/sap/startaband/public/css/mixins.scss",
+		"/Users/micgunnu/code/sap/startaband/public/js/main.js",
+		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/browser-pack/node_modules/combine-source-map/node_modules/inline-source-map/test/inline-source-map.js",
+		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/commondir/index.js",
+		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/browserify/test/circular.js",
+		"/Users/micgunnu/code/sap/startaband/node_modules/connect-mongo/node_modules/mongodb/lib/mongodb/commands/insert_command.js",
+		"/Users/micgunnu/code/sap/startaband/public/css/icons.scss",
+		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/umd/node_modules/uglify-js/lib/mozilla-ast.js",
+		"/Users/micgunnu/code/sap/startaband/node_modules/mongoose/examples/doc-methods.js",
+		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify-shim/test/fixtures/shims/lib-depending-on-global-jquery.js",
+		"/Users/micgunnu/code/sap/startaband/build/public/dist/dest.js",
+		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/JSONStream/test/multiple_objects.js",
+		"/Users/micgunnu/code/sap/startaband/scripts/compile.js",
+		"/Users/micgunnu/code/sap/startaband/package.json",
+		"/Users/micgunnu/code/sap/startaband/views/register.hjs",
+		"/Users/micgunnu/code/sap/startaband/.sass-cache/2a4a68884c13bc361910e24e62b64b510e7a5d93/main.scssc",
+		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-concat/node_modules/through/LICENSE.APACHE2",
+		"/Users/micgunnu/code/sap/startaband/node_modules/async/LICENSE",
+		"/Users/micgunnu/code/sap/startaband/views/home.hjs",
+		"/Users/micgunnu/code/sap/startaband/views/modal.hjs",
+		"/Users/micgunnu/code/sap/startaband/config/express.js",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/css/typography.less",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/css/elusive-webfont.less",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/css/screen.less",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/css/result.css",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/App.js",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/node/config/routes.js",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/css/reset.less",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/views/editor/editor.js",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/init.js",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/node/app.js",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/templates/home/overlay_tmpl.hbs",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/views/OverlayView.js",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/node_modules/express/node_modules/connect/node_modules/formidable/example/upload.js",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/node_modules/grunt-contrib-livereload/node_modules/tiny-lr/bin/update-livereload",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/bower_components/requirejs/updatesubs.sh",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/views/sidepane/userSidepane.js",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/node/controllers/apiController.js",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/node/apiClient.js",
+		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/controllers/RoutesController.js"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"*.js",
+			"",
+			"*.less",
+			"*.css",
+			"*.less",
+			"*.js",
+			"",
+			"*.js"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"bootstrap",
+			"file",
+			"upload",
+			"ont-size",
+			"font-size-",
+			"xs",
+			"modal-content",
+			"shadow",
+			"login",
+			"logIn",
+			"sap",
+			"google",
+			"transition",
+			"__PROD",
+			"__DEV",
+			"editor-wrap",
+			"__PROD",
+			"__DEV",
+			"img",
+			"data-upload",
+			"__DEV",
+			"DEV",
+			"PROD",
+			"__PROD__",
+			"__PROD",
+			"mountfolder",
+			"_PROD",
+			"[i",
+			"__DEV",
+			"__PROD",
+			"consol",
+			"data-link-hel",
+			"cons",
+			"conso",
+			"__linkClicked",
+			"__modalInputKeyUp",
+			"__PROD__",
+			"content",
+			"__DEV",
+			"DEV",
+			"custome",
+			"_events",
+			"stopListening",
+			"stop",
+			"\" ",
+			"dropped",
+			"changeTemplate",
+			"rendersele",
+			"here",
+			"remove",
+			"removeerror",
+			"inputnameb",
+			"__inputNameBlurred",
+			"__PROD",
+			"PROD",
+			"__PROD",
+			"PROD",
+			"debugger",
+			"inputName",
+			"h3",
+			"input[type=\"text\"",
+			"__PROD__",
+			"__DEV__",
+			"__PROD__",
+			"archived-rm",
+			"btn-remove",
+			"elementDeletedFromEditor",
+			"element:delete:success",
+			"elementDeletedFromEditor",
+			"droppa",
+			"elementDropped",
+			"draggable",
+			"growl-re",
+			"setmodalatt",
+			"setModalAttributes",
+			"__PROD__",
+			"PROD",
+			"console.log",
+			"elementIdsInPage",
+			"elementDeletedFromEditor",
+			"element:delete:success",
+			"getElementRenderer",
+			"chosenSprite@2x.png",
+			"chosenSprite@2x",
+			"nav",
+			"navigationTpl",
+			"nav",
+			"__PROD__",
+			"this.model.get('status')",
+			"status",
+			"elementrenderer",
+			"elementrender",
+			"__PROD__",
+			"chosenSprite@2x.png",
+			"cms/css",
+			"chosenSprite@2x.png",
+			"cms/css/chosenSprite@2x.png",
+			"stringz",
+			"stringzHeight",
+			"arrow",
+			"60px",
+			"60",
+			"z-index",
+			"z-inde",
+			"-",
+			"shadow",
+			"url",
+			"text-decoration",
+			"user:auth:success",
+			"login-area",
+			"h4",
+			"h3",
+			"coffee",
+			"Shredr.loggedIn",
+			"landingPageLoggedIn",
+			"user:auth:success",
+			"user:auth:create:success"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"h5",
+			"h4"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "public/webapp/css/modals.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 801,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								392,
+								392
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/webapp/scripts/init.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1843,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								134,
+								134
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/webapp/templates/shredroom/upload_tmpl.hbs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2793,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1763,
+								1763
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Handlebars/Handlebars.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 196.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "public/webapp/css/variables.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 827,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								246,
+								239
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/webapp/bower_components/bootstrap3-less/variables.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19647,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								553,
+								553
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 238.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.620765006188,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "shredr.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"init.js",
+				"public/webapp/scripts/init.js"
+			],
+			[
+				"upload",
+				"public/webapp/scripts/views/shredroom/upload.js"
+			],
+			[
+				"modals.l",
+				"public/webapp/css/modals.less"
+			],
+			[
+				"mixins",
+				"public/webapp/bower_components/bootstrap3-less/mixins.less"
+			],
+			[
+				"modal.less",
+				"public/webapp/css/modals.less"
+			],
+			[
+				"bootstrap",
+				"public/webapp/bower_components/bootstrap3-less/bootstrap.less"
+			],
+			[
+				"variables",
+				"public/webapp/bower_components/bootstrap3-less/variables.less"
+			],
+			[
+				"forms",
+				"public/webapp/css/forms.less"
+			],
+			[
+				"varia",
+				"public/webapp/css/variables.less"
+			],
+			[
+				"shredroom",
+				"public/webapp/templates/shredroom/shredroom_tmpl.hbs"
+			],
+			[
+				"shredroom.",
+				"public/webapp/templates/shredroom/shredroom_tmpl.hbs"
+			],
+			[
+				"upload_tmpl.hbs",
+				"public/webapp/templates/shredroom/upload_tmpl.hbs"
+			],
+			[
+				"upload.js",
+				"public/webapp/scripts/views/shredroom/upload.js"
+			],
+			[
+				"thumbs",
+				"public/webapp/css/thumbs.less"
+			],
+			[
+				"profilelayou",
+				"public/webapp/scripts/views/stage/profileLayout.js"
+			],
+			[
+				"profiles",
+				"public/webapp/templates/stage/profiles_layout_tmpl.hbs"
+			],
+			[
+				"routescontr",
+				"public/webapp/scripts/routesController.js"
+			],
+			[
+				"mainrou",
+				"public/webapp/scripts/mainRouter.js"
+			],
+			[
+				"nav",
+				"public/webapp/css/nav.less"
+			],
+			[
+				"routes",
+				"config/routes.js"
+			],
+			[
+				"layout",
+				"views/layout.hjs"
+			],
+			[
+				"dom.",
+				"public/js/libs/dom.js"
+			],
+			[
+				"modal",
+				"public/css/modal.scss"
+			],
+			[
+				"nav.js",
+				"public/js/views/nav.js"
+			],
+			[
+				"dom",
+				"public/js/libs/dom.js"
+			],
+			[
+				"dom.js",
+				"public/js/libs/dom.js"
+			],
+			[
+				"modal.scss",
+				"public/css/modal.scss"
+			],
+			[
+				"layou",
+				"views/layout.hjs"
+			],
+			[
+				"modal.",
+				"views/templates/modal.hjs"
+			],
+			[
+				"typo",
+				"public/css/typo.scss"
+			],
+			[
+				"form.scs",
+				"public/css/form.scss"
+			],
+			[
+				"var",
+				"public/css/variables.scss"
+			],
+			[
+				"typ",
+				"public/css/typo.scss"
+			],
+			[
+				"vari",
+				"public/css/variables.scss"
+			],
+			[
+				"bund",
+				"public/css/bundle.scss"
+			],
+			[
+				"bundle",
+				"public/css/bundle.scss"
+			],
+			[
+				"nav.scss",
+				"public/css/nav.scss"
+			],
+			[
+				"variables.scss",
+				"public/css/variables.scss"
+			],
+			[
+				"lay",
+				"views/layout.hjs"
+			],
+			[
+				"nav.sc",
+				"public/css/nav.scss"
+			],
+			[
+				"layt",
+				"views/layout.hjs"
+			],
+			[
+				"modal.hjs",
+				"views/templates/modal.hjs"
+			],
+			[
+				"main.js",
+				"public/js/main.js"
+			],
+			[
+				"editor.js",
+				"js/app/views/editor/editor.js"
+			],
+			[
+				"apic",
+				"js/node/controllers/apiController.js"
+			],
+			[
+				"editor",
+				"js/app/views/editor/editor.js"
+			],
+			[
+				"app.js",
+				"js/app/App.js"
+			],
+			[
+				"init",
+				"js/app/init.js"
+			],
+			[
+				"overla",
+				"js/app/views/home/overlay.js"
+			],
+			[
+				"apicon",
+				"js/node/controllers/apiController.js"
+			],
+			[
+				"routescon",
+				"js/app/controllers/RoutesController.js"
+			],
+			[
+				"screen",
+				"css/screen.less"
+			],
+			[
+				"overlay",
+				"js/app/templates/home/overlay_tmpl.hbs"
+			],
+			[
+				"over",
+				"js/app/views/OverlayView.js"
+			],
+			[
+				"elementside",
+				"js/app/views/sidepane/elementSidepane.js"
+			],
+			[
+				"app.",
+				"js/app/App.js"
+			],
+			[
+				"elementedi",
+				"js/app/views/editor/elementEditor.js"
+			],
+			[
+				"gruntfile",
+				"js/app/Gruntfile.js"
+			],
+			[
+				"elementrender",
+				"js/app/views/elementRenderer.js"
+			],
+			[
+				"template",
+				"css/templates.less"
+			],
+			[
+				"elementeid",
+				"js/app/views/editor/elementEditor.js"
+			],
+			[
+				"sidepane",
+				"js/app/templates/sidepane/sidepane_tmpl.hbs"
+			],
+			[
+				"form",
+				"css/forms.less"
+			],
+			[
+				"elements",
+				"js/app/templates/sidepane/elementSidepane_tmpl.hbs"
+			],
+			[
+				"usersi",
+				"js/app/views/sidepane/userSidepane.js"
+			],
+			[
+				"pageside",
+				"js/app/views/sidepane/pageSidepane.js"
+			],
+			[
+				"users",
+				"js/app/templates/sidepane/userSidepane_tmpl.hbs"
+			],
+			[
+				"user",
+				"js/app/templates/sidepane/userSidepane_tmpl.hbs"
+			],
+			[
+				"userside",
+				"js/app/views/sidepane/userSidepane.js"
+			],
+			[
+				"user.js",
+				"js/app/models/User.js"
+			],
+			[
+				"sidep",
+				"js/app/views/sidepane/sidepane.js"
+			],
+			[
+				"side",
+				"js/app/views/sidepane/sidepane.js"
+			],
+			[
+				"template.js",
+				"js/app/models/Template.js"
+			],
+			[
+				"element.",
+				"js/app/models/Element.js"
+			],
+			[
+				"scree",
+				"css/screen.less"
+			],
+			[
+				"reset",
+				"css/reset.less"
+			],
+			[
+				"variab",
+				"css/variables.less"
+			],
+			[
+				"reset.",
+				"css/reset.less"
+			],
+			[
+				"sidepane.js",
+				"js/app/views/sidepane/sidepane.js"
+			],
+			[
+				"modelval",
+				"js/app/models/ModelValidator.js"
+			],
+			[
+				"home",
+				"views/home.html"
+			],
+			[
+				"img.scss",
+				"public/css/img.scss"
+			],
+			[
+				"prepro",
+				"node_modules/karma/lib/preprocessor.js"
+			],
+			[
+				"eventli",
+				"node_modules/eventlistener/eventlistener.js"
+			],
+			[
+				"elementedit",
+				"js/app/views/editor/elementEditor.js"
+			],
+			[
+				"modelvali",
+				"js/app/models/ModelValidator.js"
+			],
+			[
+				"element.js",
+				"js/app/models/Element.js"
+			],
+			[
+				"pageedi",
+				"js/app/views/editor/pageEditor.js"
+			],
+			[
+				"app",
+				"js/app/App.js"
+			],
+			[
+				"pagesidepa",
+				"js/app/views/sidepane/pageSidepane.js"
+			],
+			[
+				"grunt",
+				"js/app/Gruntfile.js"
+			],
+			[
+				"identity",
+				"js/app/collectionIdentityMap.js"
+			],
+			[
+				"main",
+				"js/app/main.js"
+			],
+			[
+				"statistics",
+				"js/app/test/spec/collections/statisticsCollection.js"
+			],
+			[
+				"statisticsco",
+				"js/app/collections/StatisticsCollection.js"
+			],
+			[
+				"pageed",
+				"js/app/views/editor/pageEditor.js"
+			],
+			[
+				"element",
+				"js/app/models/Element.js"
+			],
+			[
+				"pageeditor",
+				"js/app/views/editor/pageEditor.js"
+			],
+			[
+				"elementrende",
+				"js/app/views/elementRenderer.js"
+			],
+			[
+				"sinon.js",
+				"js/app/bower_components/sinon/lib/sinon.js"
+			],
+			[
+				"statisticscol",
+				"js/app/collections/StatisticsCollection.js"
+			],
+			[
+				"tabgen",
+				"public/webapp/scripts/models/tabGenerator.js"
+			],
+			[
+				"tabs.le",
+				"public/webapp/css/tabs.less"
+			],
+			[
+				"resources",
+				"public/webapp/templates/shredroom/resources_tmpl.hbs"
+			],
+			[
+				"resou",
+				"public/webapp/scripts/views/shredroom/resources.js"
+			],
+			[
+				"shedroom",
+				"public/webapp/scripts/views/shredroom/shredroom.js"
+			],
+			[
+				"resource",
+				"public/webapp/scripts/views/shredroom/resources.js"
+			],
+			[
+				"tabs",
+				"public/webapp/scripts/views/shredroom/tabs.js"
+			],
+			[
+				"variable",
+				"public/webapp/css/variables.less"
+			],
+			[
+				"applica",
+				"public/webapp/css/application.css.less"
+			],
+			[
+				"colors",
+				"public/webapp/css/colors.less"
+			],
+			[
+				"mainrouter",
+				"public/webapp/scripts/mainRouter.js"
+			],
+			[
+				"images",
+				"public/webapp/css/images.css.less"
+			],
+			[
+				"modals",
+				"public/webapp/bower_components/bootstrap3-less/modals.less"
+			],
+			[
+				"landing",
+				"public/webapp/css/landingPage.css.less"
+			],
+			[
+				"navigation",
+				"public/webapp/css/navigation-landing.css.less"
+			],
+			[
+				"nav.less",
+				"public/webapp/css/nav.less"
+			],
+			[
+				"nav.hbs",
+				"public/webapp/templates/item/nav_tmpl.hbs"
+			],
+			[
+				"variables.less",
+				"public/webapp/bower_components/bootstrap3-less/variables.less"
+			],
+			[
+				"main_tm",
+				"public/webapp/templates/nav/main_tmpl.hbs"
+			],
+			[
+				"seed",
+				"scripts/seed.js"
+			],
+			[
+				"library",
+				"public/js/LibraryCtrl.js"
+			],
+			[
+				"snippet",
+				"app/models/snippet.js"
+			],
+			[
+				"snippetco",
+				"app/controllers/snippetController.js"
+			],
+			[
+				"snippet.js",
+				"app/models/snippet.js"
+			],
+			[
+				"snippets",
+				"app/controllers/snippetController.js"
+			],
+			[
+				"authorization",
+				"config/middlewares/authorization.js"
+			],
+			[
+				"routes.js",
+				"config/routes.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 661.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 247.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
