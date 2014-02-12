@@ -15,19 +15,6 @@ function( Backbone, Communicator,EventController, RoutesController,
 			MainRouter, ShredsCollection, User ) {
     'use strict';
 
-	//var welcomeTmpl = Welcome_tmpl;
-
-	// var App = new Backbone.Marionette.Application();
-
-	// /* Add application regions here */
-	// App.addRegions({});
-
-	// /* Add initializers here */
-	// App.addInitializer( function () {
-	// 	document.body.innerHTML = welcomeTmpl({ success: "CONGRATS!" });
-	// 	Communicator.mediator.trigger("APP:START");
-	// });
-
 	window.Shredr = new Backbone.Marionette.Application();
 
 	Shredr.on("initialize:before", function(options){
@@ -60,7 +47,7 @@ function( Backbone, Communicator,EventController, RoutesController,
 	});
 
 	Shredr.on("initialize:before", function(options){
-		if ( window.user ) {
+		if ( window.user && window.user.username ) {
 			Shredr.user = new User(user);
 			Shredr.vent.trigger("user:auth:success", window.user);
 		}

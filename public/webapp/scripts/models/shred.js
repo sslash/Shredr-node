@@ -816,8 +816,11 @@ function( Backbone ) {
 
 		rate : function(rateVal) {
 			var url = this.url() + '/rate?rating=' + rateVal;
+			var that = this;
 			$.post(url)
-			.done(function(res) {console.log('sweet')})
+			.done(function(res) {
+				that.set({rating : res.rating});
+			})
 			.fail(function(err) {console.log('fail');});
 		},
     });

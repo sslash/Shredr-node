@@ -13,7 +13,8 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 
 		initialize: function() {
 			this.model.fetch();
-			this.listenTo(this.model, 'change', this.populateView);
+			this.listenTo(this.model, 'change:tags', this.populateView);
+			this.listenTo(this.model, 'change:rating', this.ratingChanged);
 		},
 		
 		template: PreviewTmpl,
@@ -69,8 +70,30 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 			}, this);
 		},
 
+		ratingChanged : function(modal) {
+			console.log('rating changed');
+			this.colorLogos(this.rateValue-1, 'img/icons/logo_sml_grey.png');
+			this.rated = true;
+
+		},
+
+		colorLogos : function(index, img) {
+
+			for (var i = 0; i <= index; i ++ ) {
+				var $logo = this.ui['index'+i];
+				$logo.attr('src', img );
+			}
+
+			for ( var i = index +1; i < 10; i++ ) {
+				var $logo = this.ui['index'+i];
+				$logo.attr('src', 'img/icons/logo_sml_white.png');	
+			}
+		},
+
 		__logoExit : function(e) {
-			this.ui.logos.attr('src', 'img/icons/logo_sml_white.png');
+			if ( !this.rated ) {
+				this.ui.logos.attr('src', 'img/icons/logo_sml_white.png');
+			}
 		},
 
 		__rateClicked : function() {
@@ -80,18 +103,10 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 		__logoEntered : function(e) {
 			var $curr = $(e.currentTarget);
 			var index = parseInt($curr.attr('data-index'), 10);
-			this.rateValue = parseInt(index, 10) + 1;
+			this.rateValue = index + 1;
 			this.ui.rating.text(this.rateValue + '/10');
 
-			for (var i = 0; i <= index; i ++ ) {
-				var $logo = this.ui['index'+i];
-				$logo.attr('src','img/icons/logo_sml-black.png' );
-			}
-
-			for ( var i = index +1; i < 10; i++ ) {
-				var $logo = this.ui['index'+i];
-				$logo.attr('src', 'img/icons/logo_sml_white.png');	
-			}
+			this.colorLogos(index, 'img/icons/logo_sml-black.png');
 		},
 
 		// 3. This function creates an <iframe> (and YouTube player)
