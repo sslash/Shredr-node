@@ -36,17 +36,12 @@
 		width: 100%;
 		float: left;
 		min-height: 40px;
+		word-break: keep-all;
 	}
 
 	.modal-content {
 		color: @white;
 		.brown-border();
-	}
-
-	.up-meta {
-		text-align:left;
-		background: @brown;
-		padding: 18px 24px;
 	}
 	.up-video {
 		background-image: url('/img/outlets.png');
@@ -56,13 +51,14 @@
 }
 
 .style-tags {
+	overflow-wrap: break-word;
 	span { 
+		white-space: pre;
 		margin:1px; 
 			// background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#7B993C), to(#7B993C), color-stop(.2,#CDFF65),color-stop(.8,#CDFF65));
 			background: @red-dark;			
-			padding: 1px 6px;
-			border-radius: 4px;
-			color: @nav-black;
-
+			padding: 2px 8px;
+			strong{ color: @nav-black;}
+			border: 1px solid @nav-black;
 		}
 	}

@@ -1,7 +1,11 @@
+input[type="submit"] {
+  background: @red-dark;
+}
+
 input {
 
 	&.inline-search {
-		height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+		height: 14px; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
 		padding: @padding-base-vertical @padding-base-horizontal;
 		font-size: @font-size-base;
 		line-height: @line-height-base;
@@ -12,7 +16,7 @@ input {
 
 .search-content{
 	position: absolute;
-	top: 3px;
+	top: 0px;
 	left: 24px;
 }
 
@@ -33,7 +37,10 @@ input {
 
 
 .form-flat {
-	margin-top:24px;
+
+  .row {
+    margin: 0 5px;
+  }
 
 	input, select, textarea {
 		margin: 10px 0;
@@ -51,6 +58,9 @@ input {
 		border: none;
 		font-weight: bold;
 		color: @white;
+    &.light {
+          color:@nav-black;
+        }
   		// Placeholder
   		//
   		// Placeholder text gets special styles because when browsers invalidate entire
@@ -82,7 +92,6 @@ input {
 
       input[type="submit"] {
        float:left;
-       background: @red-dark;
      }
 
      .tags-area {
@@ -98,4 +107,8 @@ input {
 
 input[type="radio"] {
  margin: 4px;
+}
+
+.btn-small {
+  width:50px !important;
 }

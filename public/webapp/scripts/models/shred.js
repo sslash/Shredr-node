@@ -6,13 +6,804 @@ function( Backbone ) {
 
 	/* Return a model class definition */
 	return Backbone.Model.extend({
-		url : 'api/shreds/',
+		urlRoot : 'api/shreds/',
 		
-		initialize: function() {
-			console.log("initialize a Shred model");
+		defaults: {
+				"tabs" : {
+				"tempo" : "125",
+				"tabs" : [
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 4,
+						"1" : 4,
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 10
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"4" : 4
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"5" : 5
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"3" : 0
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 2
+					},
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : -1
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : -1
+					},
+					{
+						"3" : -1
+					},
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					},
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 22
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 22
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : -1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				}
+				]
+			},
 		},
-
-		defaults: {},
 
 		validate : function (attrs) {
 			if ( !attrs.title || attrs.title.length === 0 ){

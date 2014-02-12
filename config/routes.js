@@ -5,12 +5,8 @@ var http = require('https');
 /**
  * Route middlewares
  */
-
- //var snippetsAuth = [auth.requiresLogin, auth.snippet.hasAuthorization]
  var userController		= require('../app/controllers/userController');
  var shredsController	= require('../app/controllers/shredsController');
-
-
 
  module.exports = function(app, passport){
 	app.get('/', userController.index);
@@ -20,8 +16,16 @@ var http = require('https');
 	app.get('/login', userController.login);
 	app.get('/signup', userController.signup);
 	app.get('/logout', userController.logout);
+
+	// Shredders
 	app.post('/api/shredders/', userController.register);
+
+	// Shreds
 	app.post('/api/shreds/', shredsController.create);
+	app.get('/api/shreds/:id', shredsController.get);
+
+
+	// Users
 	app.post('/users/session',
 		passport.authenticate('local', {
 			//failureRedirect: '/login',

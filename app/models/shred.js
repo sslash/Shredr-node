@@ -27,7 +27,9 @@ var ShredSchema = new Schema({
   title: {type : String, default : '', trim : true},
   type: {type : String, default : '', trim : true},
   description: {type : String, default : '', trim : true},
+  tabs: {},
   youtubeUrl : {type : String, default : '', trim : true},
+  youtubeId : {type : String, default : '', trim : true},
   user: {type : Schema.ObjectId, ref : 'User'},
   comments: [{
     body: { type : String, default : '' },
@@ -117,10 +119,9 @@ ShredSchema.statics = {
    * @param {Function} cb
    * @api private
    */
-
   findById: function (id, cb) {
     this.findOne({ _id : id })
-      .populate('user', 'email username')
+      .populate('user')
       .populate('comments.user')
       .exec(cb);
   },
@@ -137,13 +138,14 @@ ShredSchema.statics = {
     var criteria = options.criteria || {};
 
     this.find(criteria)
-      .populate('user', 'username')
+      .populate('user')
       .sort({'createdAt': -1}) // sort by date
       .limit(options.perPage)
       .skip(options.perPage * options.page)
-      .exec(cb);
+      .exec(function(err, res) {
+        cb(err,res);
+      });
   }
-
 };
 
 mongoose.model('Shred', ShredSchema);

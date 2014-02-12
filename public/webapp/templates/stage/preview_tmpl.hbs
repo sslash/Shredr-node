@@ -1,0 +1,129 @@
+<div id="player"></div>
+<section class="tabs-preview stage-box"></section>
+<section class="focus-content">
+	<label class="right" data-model="duration"></label>
+	<h3>{{this.type}}</h3>
+	<h5 class="lead">{{this.title}}</h5>
+	
+
+	<section class="profile-region row">
+		<div class="col-sm-2">
+			<img class="profile-icon profile-icon-lg" src="img/profiles/{{this.user.profileImgFile}}">
+		</div>
+		<div class="col-sm-10 usr-meta">
+			<p class="clear-marg"><strong>{{this.user.username}}</strong></p>
+			<small>{{this.user.location}}</small>
+		</div>
+	</section>
+
+<div class="xsmall-gap"></div>
+	<section class="rate-region row">
+		<form class="form-flat">
+			<div class="col-sm-10 logos">
+				<img src="img/icons/logo_sml_white.png" data-index="0" class="logo-xsmall">
+				<img src="img/icons/logo_sml_white.png" data-index="1" class="logo-xsmall">
+				<img src="img/icons/logo_sml_white.png" data-index="2" class="logo-xsmall">
+				<img src="img/icons/logo_sml_white.png" data-index="3" class="logo-xsmall">
+				<img src="img/icons/logo_sml_white.png" data-index="4" class="logo-xsmall">
+				<img src="img/icons/logo_sml_white.png" data-index="5" class="logo-xsmall">
+				<img src="img/icons/logo_sml_white.png" data-index="6" class="logo-xsmall">
+				<img src="img/icons/logo_sml_white.png" data-index="7" class="logo-xsmall">
+				<img src="img/icons/logo_sml_white.png" data-index="8" class="logo-xsmall">
+				<img src="img/icons/logo_sml_white.png" data-index="9" class="logo-xsmall">
+			</div>
+
+			<div class="col-sm-2">
+				<p><strong>0/10</strong></p>
+			</div>
+		</form>
+	</section>
+
+	<div class="xsmall-gap"></div>
+	
+	<section class="desc-section">
+		<p>{{this.description}}</p>
+	</section>
+
+	<div class="xsmall-gap"></div>
+
+	<section class="style-tags">
+		{{#each this.tags}}
+		<span class="font-xsmall">{{this}}</span>
+		{{/each}}
+	</section>
+
+	<div class="xsmall-gap"></div>
+
+	<section class="comments-region lighten">
+
+		<form class="form-flat">
+			<div class="row">
+				<div class="col-sm-9">	
+				<input type="text" class="light" placeholder="Leave a comment">
+				</div>
+				<div class="col-sm-3">
+					<input type="submit" value="Add" class="btn-small">
+				</div>
+			</div>
+		</form>
+
+		<section class="profile-region row comment">
+			<div class="col-sm-2">
+				<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+			</div>
+			<div class="col-sm-10">
+				<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">12. August 2014</em></p>
+				<small>Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
+			</div>
+		</section>
+
+		<section class="profile-region row comment">
+			<div class="col-sm-2">
+				<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+			</div>
+			<div class="col-sm-10">
+				<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">13. August 2014</em></p>
+				<small>Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
+			</div>
+		</section>
+
+		<section class="profile-region row comment">
+			<div class="col-sm-2">
+				<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+			</div>
+			<div class="col-sm-10">
+				<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">15. August 2014</em></p>
+				<small>Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
+			</div>
+		</section>
+
+		<section class="profile-region row comment">
+			<div class="col-sm-2">
+				<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+			</div>
+			<div class="col-sm-10">
+				<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">12. July 2014</em></p>
+				<small>Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
+			</div>
+		</section>
+
+		<section class="profile-region row comment">
+			<div class="col-sm-2">
+				<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+			</div>
+			<div class="col-sm-10">
+				<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">12. August 2014</em></p>
+				<small>Very nice yes indeead lol sap hello bro come at me</small>
+			</div>
+		</section>
+	</section>
+</section>
+
+<!-- rating:
+
+- number of raters
+- rating
+
+- rate it: 0-10 pics
+
+-->

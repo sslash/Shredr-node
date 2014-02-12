@@ -9,16 +9,33 @@ function( Backbone, Thumbview  ) {
 	return Backbone.Marionette.CollectionView.extend({
 		className: 'col-sm-6 stage-clear',
 
-		initialize: function() {
-			console.log("initialize a Thumbscoll CollectionView");
-			this.collection = new Backbone.Collection();
-			this.collection.add({name: 'sap', description : 'lol'});
-			this.collection.add({name: 'sap2', description : 'lol2'});
-			this.collection.add({name: 'sap3', description : 'lol3'});
-			this.collection.add({name: 'sap4', description : 'lol4'});
+		renderCount : 0,
+
+		initialize: function(options) {
+			if ( options.itemClassname ) {
+				this.itemViewOptions = {
+					className : options.itemClassname
+				};
+			};
 		},
 		
     	itemView: Thumbview,
+
+    	buildItemView: function(item, ItemViewType, itemViewOptions){
+  			// build the final list of options for the item view type
+  			var mustFadeOut = false;
+  			if ( this.renderCount > 1 ) {
+  				mustFadeOut = true;
+  			}
+  			this.renderCount++;
+
+			var options = _.extend({model: item, mustFadeOut : mustFadeOut}, itemViewOptions);
+
+			// create the item view instance
+		  	var view = new ItemViewType(options);
+		  	// return it
+		  	return view;
+		},
     	
 
     	/* ui selector cache */
@@ -28,7 +45,8 @@ function( Backbone, Thumbview  ) {
 		events: {},
 
 		/* on render callback */
-		onRender: function() {}
+		onRender: function() {
+		}
 	});
 
 });

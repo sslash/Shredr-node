@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"stage",
+				"stage-block"
+			],
+			[
+				"render",
+				"renderCount"
+			],
+			[
+				"item",
+				"itemViewOptions"
+			],
+			[
+				"you",
+				"youtubei (num)"
+			],
+			[
+				"yout",
+				"youtubeurls ([])"
+			],
+			[
+				"loc",
+				"loci (num)"
+			],
+			[
+				"aut",
+				"autocompleteTags"
+			],
+			[
+				"au",
+				"autocomplete"
+			],
+			[
 				"init",
 				"initDropListeners"
 			],
@@ -48,26 +80,34 @@
 	"buffers":
 	[
 		{
+			"file": "public/webapp/scripts/views/stage/preview.js",
+			"settings":
+			{
+				"buffer_size": 3552,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/webapp/templates/stage/preview_tmpl.hbs",
+			"settings":
+			{
+				"buffer_size": 4418,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "public/webapp/css/modals.less",
 			"settings":
 			{
-				"buffer_size": 801,
+				"buffer_size": 1086,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "public/webapp/scripts/init.js",
+			"file": "public/webapp/css/comments.less",
 			"settings":
 			{
-				"buffer_size": 1843,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/webapp/templates/shredroom/upload_tmpl.hbs",
-			"settings":
-			{
-				"buffer_size": 2793,
+				"buffer_size": 29,
 				"line_ending": "Unix"
 			}
 		},
@@ -75,15 +115,23 @@
 			"file": "public/webapp/css/variables.less",
 			"settings":
 			{
-				"buffer_size": 827,
+				"buffer_size": 979,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "public/webapp/bower_components/bootstrap3-less/variables.less",
+			"file": "public/webapp/css/forms.less",
 			"settings":
 			{
-				"buffer_size": 19647,
+				"buffer_size": 2185,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/webapp/css/images.css.less",
+			"settings":
+			{
+				"buffer_size": 192,
 				"line_ending": "Unix"
 			}
 		}
@@ -132,134 +180,134 @@
 	},
 	"file_history":
 	[
-		"/Users/micgunnu/code/sap/shredr-node/shredr.sublime-project",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/shredroom.less",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/shredroom/upload.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/init.js",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt-contrib-less/node_modules/less/test/less/errors/import-no-semi.less",
-		"/Users/micgunnu/code/sap/shredr-node/app/views/index.ejs",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/youtube-direct-lite/static/css/index.css",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/youtube-direct-lite/static/js/ytdl/panels/upload.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/youtube-direct-lite/static/index.html",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/modals.less",
+		"/Users/micgunnu/code/sap/shredr-node/config/config.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/comments.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/sass-bootstrap/lib/_buttons.scss",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/buttons.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/sass-bootstrap/lib/tests/buttons.html",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/button-groups.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/buttons.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/requirejs/tests/baseUrl.html",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/bootstrap.less",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/connect-mongo/lib/connect-mongo.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/shredroom/upload_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/app/models/user.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/type.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/application.css.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/layout.less",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/async/LICENSE",
 		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/modals.less",
 		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/forms.less",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/mixins.less",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/sass-bootstrap/js/bootstrap-modal.js",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/ejs/Makefile",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/shredroom/upload_tmpl.hbs",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/bootstrap.less",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/type.less",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/generator-marionette/app/templates/bootstrap.js",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt-contrib-less/node_modules/less/test/browser/runner-browser-options.js",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/ejs/benchmark.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/variables.less",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/application.css.less",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/shredroom/shredroom.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/mainRouter.js",
-		"/Users/micgunnu/code/sap/shredr-node/app/controllers/userController.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/shredroom/shredroom_tmpl.hbs",
-		"/Users/micgunnu/code/sap/shredr-node/shredr-node.sublime-project",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/test/spec/views/layout/shredroom.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/routesController.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/stage/profileLayout.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/thumbs.less",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/request/tests/test-hawk.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/tabs.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/modernizr/feature-detects/img-apng.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt-contrib-less/node_modules/less/test/less/errors/import-missing.less",
+		"/Users/micgunnu/code/sap/shredr-node/app/views/index.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/stage/tabsPreview.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/request/tests/test-form.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/express3-handlebars/node_modules/glob/test/pause-resume.js",
+		"/Users/micgunnu/code/sap/shredr-node/package.json",
+		"/Users/micgunnu/code/sap/shredr-node/app/models/shred.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/stage/preview_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/stage/tabsPrev_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt-contrib-compass/node_modules/tmp/test-all.sh",
+		"/Users/micgunnu/code/sap/shredr-node/scripts/seed.js",
+		"/Users/micgunnu/code/sap/shredr-node/app/controllers/homeController.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/node_modules/grunt-contrib-handlebars/docs/handlebars-options.md",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/ejs/History.md",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/jade/lib/inline-tags.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/models/tabGenerator.js",
 		"/Users/micgunnu/code/sap/shredr-node/config/routes.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/layout.less",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/passport-facebook/lib/profile.js",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/passport-twitter/lib/profile.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/stage/profiles_layout_tmpl.hbs",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt/node_modules/glob/test/pause-resume.js",
-		"/Users/micgunnu/code/sap/shredr-node/config/passport.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/nav.less",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/mongoose/lib/promise.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/nav/main_tmpl.hbs",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/modal/mainMessageLayout.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/variables.less",
+		"/Users/micgunnu/code/sap/shredr-node/app/controllers/shredsController.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/models/shred.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/application.js",
 		"/Users/micgunnu/code/sap/shredr-node/node_modules/mongoose/examples/express/connection-sharing/routes.js",
 		"/Users/micgunnu/code/sap/shredr-node/node_modules/generator-express/test/temp/config/routes.js",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/generator-mocha-amd/helpers/validateDirectory.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/sass-bootstrap/lib/tests/navbar-fixed-top.html",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/routesController.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/collections/shredsCollection.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/images.css.less",
+		"/Users/micgunnu/code/sap/shredr-node/scripts/seedToJson.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/node_modules/grunt-requirejs/node_modules/domino/test/w3c/level1/html/files/img.html",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/modernizr/test/caniuse_files/svg-img.svg",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/shredroom/upload.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/stage/thumbView_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/request/tests/test-hawk.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/stage/thumbView.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/type.less",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/request/node_modules/http-signature/node_modules/asn1/lib/ber/types.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/tabs.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/variables.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/stage/stage.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/stage/stage_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/nav/main.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/shredroom/resources.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/generator-marionette/app/templates/app/main.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/generator-mocha-amd/node_modules/yeoman-generator/main.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/generator-marionette/node_modules/yeoman-generator/main.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/generator-express/node_modules/yeoman-generator/main.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/main.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/mainRouter.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/mongoose/examples/express/connection-sharing/modelA.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/shredroom/tabs_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/shredroom/tabs.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/shredroom/preview.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt-contrib-less/node_modules/less/test/browser/runner-errors-spec.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt-contrib-less/node_modules/less/test/browser/runner-errors-options.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/test/spec/views/item/Tabs.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/thumbs.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/node_modules/grunt-mocha/node_modules/grunt-lib-phantomjs/node_modules/phantomjs/node_modules/adm-zip/util/errors.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/passport/lib/passport/middleware/authenticate.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/requirejs/tests/urlArgsToUrl.html",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/stage/profiles_layout_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/communicator.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/express/lib/application.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/stage/welcomeBackView.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/stage/welcomeBackView_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/mongoose/website.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/shredroom/preview_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/youtube-direct-lite2/static/js/main.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/youtube-direct-lite/static/js/main.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/node_modules/grunt-mocha/phantomjs/main.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/require-handlebars-plugin/demo/main.js",
 		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/item/nav.js",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/jade/lib/nodes/mixin.js",
-		"/Users/micgunnu/code/sap/shredr-node/node_modules/ejs/test/fixtures/includes/menu-item.ejs",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/node_modules/tar/test/zz-cleanup.js",
-		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/navbar.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/test/spec/views/item/nav.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/nav.less",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/generator-mocha-amd/node_modules/yeoman-generator/node_modules/request/tests/ssl/ca/server.key",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/express3-handlebars/examples/advanced/views/layouts/main.handlebars",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/sass-bootstrap/docs/examples/marketing-narrow.html",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/font-awesome/src/_includes/navbar.html",
 		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/navs.less",
-		"/Users/micgunnu/code/sap/startaband/views/layout.hjs",
-		"/Users/micgunnu/code/sap/startaband/public/css/dist/nav.css",
-		"/Users/micgunnu/code/sap/startaband/public/dist/build/nav.css",
-		"/Users/micgunnu/code/sap/startaband/public/js/views/nav.js",
-		"/Users/micgunnu/code/sap/startaband/public/css/variables.scss",
-		"/Users/micgunnu/code/sap/startaband/public/css/modal.scss",
-		"/Users/micgunnu/code/sap/startaband/public/css/nav.scss",
-		"/Users/micgunnu/code/sap/startaband/node_modules/grunt/node_modules/findup-sync/test/fixtures/a.txt",
-		"/Users/micgunnu/code/sap/startaband/public/js/libs/dom.js",
-		"/Users/micgunnu/code/sap/startaband/views/templates/modal.hjs",
-		"/Users/micgunnu/code/sap/startaband/public/css/buttons.scss",
-		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/url/node_modules/punycode/vendor/requirejs/tests/depoverlap.html",
-		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/url/node_modules/punycode/vendor/requirejs/tests/depoverlap.js",
-		"/Users/micgunnu/code/sap/startaband/node_modules/mongoose/lib/errors/overwriteModel.js",
-		"/Users/micgunnu/code/sap/startaband/node_modules/forever/node_modules/flatiron/node_modules/prompt/examples/override-validation.js",
-		"/Users/micgunnu/code/sap/startaband/node_modules/grunt/lib/grunt/option.js",
-		"/Users/micgunnu/code/sap/startaband/public/css/typo.scss",
-		"/Users/micgunnu/code/sap/startaband/public/css/form.scss",
-		"/Users/micgunnu/code/sap/startaband/public/components/font-awesome/src/3.2.1/assets/less/bootstrap-2.3.2/forms.less",
-		"/Users/micgunnu/code/sap/startaband/public/components/sass-bootstrap/lib/_forms.scss",
-		"/Users/micgunnu/code/sap/startaband/public/components/font-awesome/src/assets/less/bootstrap-3.0.0/forms.less",
-		"/Users/micgunnu/code/sap/startaband/node_modules/.bin/forever",
-		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/url/node_modules/punycode/vendor/requirejs/docs/faq-optimization.html",
-		"/Users/micgunnu/code/sap/startaband/public/css/bundle.scss",
-		"/Users/micgunnu/code/sap/startaband/.sass-cache/2a4a68884c13bc361910e24e62b64b510e7a5d93/bundle.scssc",
-		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/test/multi_bundle_unique.js",
-		"/Users/micgunnu/code/sap/startaband/bower.json",
-		"/Users/micgunnu/code/sap/startaband/app.js",
-		"/Users/micgunnu/code/sap/startaband/.sass-cache/2a4a68884c13bc361910e24e62b64b510e7a5d93/typo.scssc",
-		"/Users/micgunnu/code/sap/startaband/.sass-cache/2a4a68884c13bc361910e24e62b64b510e7a5d93/thumbs.scssc",
-		"/Users/micgunnu/code/sap/startaband/.sass-cache/2a4a68884c13bc361910e24e62b64b510e7a5d93/variables.scssc",
-		"/Users/micgunnu/code/sap/startaband/config/config.js",
-		"/Users/micgunnu/code/sap/startaband/public/components/font-awesome/src/assets/less/bootstrap-3.0.0/component-animations.less",
-		"/Users/micgunnu/code/sap/startaband/public/css/mixins.scss",
-		"/Users/micgunnu/code/sap/startaband/public/js/main.js",
-		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/browser-pack/node_modules/combine-source-map/node_modules/inline-source-map/test/inline-source-map.js",
-		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/commondir/index.js",
-		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/browserify/test/circular.js",
-		"/Users/micgunnu/code/sap/startaband/node_modules/connect-mongo/node_modules/mongodb/lib/mongodb/commands/insert_command.js",
-		"/Users/micgunnu/code/sap/startaband/public/css/icons.scss",
-		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/umd/node_modules/uglify-js/lib/mozilla-ast.js",
-		"/Users/micgunnu/code/sap/startaband/node_modules/mongoose/examples/doc-methods.js",
-		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify-shim/test/fixtures/shims/lib-depending-on-global-jquery.js",
-		"/Users/micgunnu/code/sap/startaband/build/public/dist/dest.js",
-		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-browserify/node_modules/browserify/node_modules/JSONStream/test/multiple_objects.js",
-		"/Users/micgunnu/code/sap/startaband/scripts/compile.js",
-		"/Users/micgunnu/code/sap/startaband/package.json",
-		"/Users/micgunnu/code/sap/startaband/views/register.hjs",
-		"/Users/micgunnu/code/sap/startaband/.sass-cache/2a4a68884c13bc361910e24e62b64b510e7a5d93/main.scssc",
-		"/Users/micgunnu/code/sap/startaband/node_modules/gulp-concat/node_modules/through/LICENSE.APACHE2",
-		"/Users/micgunnu/code/sap/startaband/node_modules/async/LICENSE",
-		"/Users/micgunnu/code/sap/startaband/views/home.hjs",
-		"/Users/micgunnu/code/sap/startaband/views/modal.hjs",
-		"/Users/micgunnu/code/sap/startaband/config/express.js",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/css/typography.less",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/css/elusive-webfont.less",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/css/screen.less",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/css/result.css",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/App.js",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/node/config/routes.js",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/css/reset.less",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/views/editor/editor.js",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/init.js",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/node/app.js",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/templates/home/overlay_tmpl.hbs",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/views/OverlayView.js",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/node_modules/express/node_modules/connect/node_modules/formidable/example/upload.js",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/node_modules/grunt-contrib-livereload/node_modules/tiny-lr/bin/update-livereload",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/bower_components/requirejs/updatesubs.sh",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/views/sidepane/userSidepane.js",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/node/controllers/apiController.js",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/node/apiClient.js",
-		"/Users/micgunnu/code/Finntech/cms/web/src/main/webapp/js/app/controllers/RoutesController.js"
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/navbar.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/stage/thumbsColl.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/views/shredroom/shredroom.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/shredroom/shredroom_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/test/spec/views/stage/welcomeBackView.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/generator-marionette/app/templates/app/welcome.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/node_modules/generator-marionette/app/templates/app/welcome.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/mixins.less",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/express-hbs/node_modules/readdirp/stream-api.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/landingpage/landingPageView.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/nav/main_tmpl.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/nav/nav_landing.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/navigation-landing.css.less",
+		"/Users/micgunnu/code/sap/shredr-node/app/controllers/userController.js",
+		"/Users/micgunnu/code/sap/shredr-node/app.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/mongoose/node_modules/mpromise/test/promises-A.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt-contrib-less/docs/less-options.md",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/templates/modal/loginModalRegister.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/font-awesome/src/assets/less/bootstrap-3.0.0/modals.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/modals.css.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/bootstrap3-less/modals.less",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/mongoose/lib/collection.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/express-hbs/test/layoutSpecs.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/express-hbs/test/issues/21/views/useLayoutInDir.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt-contrib-less/node_modules/less/test/less/errors/import-no-semi.less",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/scripts/init.js",
+		"/Users/micgunnu/code/sap/shredr-node/node_modules/express/node_modules/mkdirp/test/umask_sync.js",
+		"/Users/micgunnu/code/sap/shredr-node/config/express.js",
+		"/Users/micgunnu/code/sap/shredr-node/app/views/youtube.hbs",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/requirejs/tests/configRequirejs.html",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/bower_components/modernizr/feature-detects/css-objectfit.js",
+		"/Users/micgunnu/code/sap/shredr-node/public/webapp/css/colors.less"
 	],
 	"find":
 	{
@@ -270,6 +318,11 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"",
+			"*.js",
+			"",
+			"*.js",
+			"./*.js",
 			"*.js",
 			"",
 			"*.less",
@@ -285,6 +338,36 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"style",
+			"focus",
+			"load",
+			"}\n",
+			"renderPreviewView",
+			"up-met",
+			".modal-flat .up-meta",
+			"height",
+			"slideInPreview",
+			"this.model",
+			"this.shred",
+			"stage:thumbclicked:fadeout",
+			"langingPageView",
+			"langingPageVIew",
+			"class=\"fullscreen\"",
+			"user:auth:success",
+			"sap",
+			"find",
+			"list",
+			"search-content",
+			"input-height-base",
+			"inline-search",
+			"inline-sea",
+			"inline-",
+			"tags",
+			"heigh",
+			"half",
+			"type",
+			"menu-item",
+			"autocompleteTags",
 			"bootstrap",
 			"file",
 			"upload",
@@ -382,26 +465,7 @@
 			"cms/css",
 			"chosenSprite@2x.png",
 			"cms/css/chosenSprite@2x.png",
-			"stringz",
-			"stringzHeight",
-			"arrow",
-			"60px",
-			"60",
-			"z-index",
-			"z-inde",
-			"-",
-			"shadow",
-			"url",
-			"text-decoration",
-			"user:auth:success",
-			"login-area",
-			"h4",
-			"h3",
-			"coffee",
-			"Shredr.loggedIn",
-			"landingPageLoggedIn",
-			"user:auth:success",
-			"user:auth:create:success"
+			"stringz"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -409,6 +473,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"this.model",
 			"h5",
 			"h4"
 		],
@@ -421,29 +486,58 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "public/webapp/css/modals.less",
+					"file": "public/webapp/scripts/views/stage/preview.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 801,
+						"buffer_size": 3552,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								392,
-								392
+								1277,
+								1277
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 412.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/webapp/templates/stage/preview_tmpl.hbs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4418,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								617,
+								606
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Handlebars/Handlebars.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -454,91 +548,113 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "public/webapp/scripts/init.js",
+					"buffer": 2,
+					"file": "public/webapp/css/modals.less",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1843,
+						"buffer_size": 1086,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								134,
-								134
+								814,
+								814
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 27.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/webapp/css/comments.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 29,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								27,
+								27
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "public/webapp/templates/shredroom/upload_tmpl.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2793,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1763,
-								1763
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Handlebars/Handlebars.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 196.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "public/webapp/css/variables.less",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 827,
+						"buffer_size": 979,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								246,
-								239
+								327,
+								333
 							]
 						],
 						"settings":
 						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/LESS/LESS.tmLanguage"
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 19.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/webapp/css/forms.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								753,
+								753
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -548,20 +664,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "public/webapp/bower_components/bootstrap3-less/variables.less",
+					"buffer": 6,
+					"file": "public/webapp/css/images.css.less",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 19647,
+						"buffer_size": 192,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								553,
-								553
+								192,
+								192
 							]
 						],
 						"settings":
@@ -569,10 +685,10 @@
 							"syntax": "Packages/LESS/LESS.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 238.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -595,18 +711,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.620765006188,
 			1.0
 		],
 		"rows":
@@ -627,7 +736,7 @@
 	"project": "shredr.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -636,35 +745,43 @@
 		"selected_items":
 		[
 			[
-				"init.js",
-				"public/webapp/scripts/init.js"
+				"modal",
+				"public/webapp/css/modals.less"
+			],
+			[
+				"comments",
+				"public/webapp/css/comments.less"
+			],
+			[
+				"comment",
+				"public/webapp/css/comments.less"
 			],
 			[
 				"upload",
-				"public/webapp/scripts/views/shredroom/upload.js"
+				"public/webapp/templates/shredroom/upload_tmpl.hbs"
 			],
 			[
-				"modals.l",
-				"public/webapp/css/modals.less"
+				"type",
+				"public/webapp/css/type.less"
 			],
 			[
-				"mixins",
-				"public/webapp/bower_components/bootstrap3-less/mixins.less"
-			],
-			[
-				"modal.less",
-				"public/webapp/css/modals.less"
-			],
-			[
-				"bootstrap",
-				"public/webapp/bower_components/bootstrap3-less/bootstrap.less"
-			],
-			[
-				"variables",
-				"public/webapp/bower_components/bootstrap3-less/variables.less"
+				"layout",
+				"public/webapp/css/layout.less"
 			],
 			[
 				"forms",
+				"public/webapp/css/forms.less"
+			],
+			[
+				"image",
+				"public/webapp/css/images.css.less"
+			],
+			[
+				"modals",
+				"public/webapp/css/modals.less"
+			],
+			[
+				"form",
 				"public/webapp/css/forms.less"
 			],
 			[
@@ -672,8 +789,248 @@
 				"public/webapp/css/variables.less"
 			],
 			[
+				"preview",
+				"public/webapp/templates/stage/preview_tmpl.hbs"
+			],
+			[
+				"tabsp",
+				"public/webapp/templates/stage/tabsPrev_tmpl.hbs"
+			],
+			[
+				"tabspre",
+				"public/webapp/scripts/views/stage/tabsPreview.js"
+			],
+			[
+				"shred",
+				"app/models/shred.js"
+			],
+			[
+				"index",
+				"app/views/index.hbs"
+			],
+			[
+				"seed.js",
+				"scripts/seed.js"
+			],
+			[
+				"shred.js",
+				"app/models/shred.js"
+			],
+			[
+				"routes",
+				"config/routes.js"
+			],
+			[
+				"shredc",
+				"app/controllers/shredsController.js"
+			],
+			[
+				"routesc",
+				"public/webapp/scripts/routesController.js"
+			],
+			[
+				"seed",
+				"scripts/seed.js"
+			],
+			[
+				"layou",
+				"public/webapp/css/layout.less"
+			],
+			[
+				"seeds",
+				"scripts/seed.js"
+			],
+			[
+				"vari",
+				"public/webapp/css/variables.less"
+			],
+			[
+				"user.js",
+				"app/models/user.js"
+			],
+			[
+				"thumb",
+				"public/webapp/templates/stage/thumbView_tmpl.hbs"
+			],
+			[
+				"variab",
+				"public/webapp/css/variables.less"
+			],
+			[
+				"stage",
+				"public/webapp/scripts/views/stage/stage.js"
+			],
+			[
+				"boots",
+				"public/webapp/bower_components/bootstrap3-less/bootstrap.less"
+			],
+			[
+				"application",
+				"public/webapp/scripts/application.js"
+			],
+			[
+				"main.js",
+				"public/webapp/scripts/views/nav/main.js"
+			],
+			[
+				"tabs",
+				"public/webapp/templates/stage/tabsPrev_tmpl.hbs"
+			],
+			[
+				"tabsprev",
+				"public/webapp/templates/stage/tabsPrev_tmpl.hbs"
+			],
+			[
+				"resource",
+				"public/webapp/scripts/views/shredroom/resources.js"
+			],
+			[
+				"seed.",
+				"scripts/seed.js"
+			],
+			[
+				"tabgene",
+				"public/webapp/scripts/models/tabGenerator.js"
+			],
+			[
+				"",
+				"public/webapp/templates/stage/preview_tmpl.hbs"
+			],
+			[
+				"tabs.",
+				"public/webapp/css/tabs.less"
+			],
+			[
+				"welcome.js",
+				"public/webapp/scripts/views/stage/welcomeBackView.js"
+			],
+			[
+				"nav",
+				"public/webapp/scripts/views/item/nav.js"
+			],
+			[
 				"shredroom",
-				"public/webapp/templates/shredroom/shredroom_tmpl.hbs"
+				"public/webapp/scripts/views/shredroom/shredroom.js"
+			],
+			[
+				"welcome",
+				"public/webapp/templates/stage/welcomeBackView_tmpl.hbs"
+			],
+			[
+				"thumbsless",
+				"public/webapp/css/thumbs.less"
+			],
+			[
+				"applica",
+				"public/webapp/scripts/application.js"
+			],
+			[
+				"shreds",
+				"public/webapp/scripts/collections/shredsCollection.js"
+			],
+			[
+				"appl",
+				"public/webapp/scripts/application.js"
+			],
+			[
+				"inde",
+				"app/views/index.hbs"
+			],
+			[
+				"usercon",
+				"app/controllers/userController.js"
+			],
+			[
+				"bootstrap",
+				"public/webapp/bower_components/bootstrap3-less/bootstrap.less"
+			],
+			[
+				"upload.js",
+				"public/webapp/scripts/views/shredroom/upload.js"
+			],
+			[
+				"thumbcol",
+				"public/webapp/scripts/views/stage/thumbsColl.js"
+			],
+			[
+				"mixins",
+				"public/webapp/bower_components/bootstrap3-less/mixins.less"
+			],
+			[
+				"shredscon",
+				"app/controllers/shredsController.js"
+			],
+			[
+				"thumbs",
+				"public/webapp/scripts/views/stage/thumbsColl.js"
+			],
+			[
+				"user",
+				"app/models/user.js"
+			],
+			[
+				"app.js",
+				"app.js"
+			],
+			[
+				"express",
+				"config/express.js"
+			],
+			[
+				"config",
+				"config/config.js"
+			],
+			[
+				"shredsco",
+				"app/controllers/shredsController.js"
+			],
+			[
+				"welcomebac",
+				"public/webapp/scripts/views/stage/welcomeBackView.js"
+			],
+			[
+				"lay",
+				"public/webapp/css/layout.less"
+			],
+			[
+				"thumbscoll",
+				"public/webapp/scripts/views/stage/thumbsColl.js"
+			],
+			[
+				"stage.h",
+				"public/webapp/templates/stage/stage_tmpl.hbs"
+			],
+			[
+				"nav.l",
+				"public/webapp/css/nav.less"
+			],
+			[
+				"shredco",
+				"app/controllers/shredsController.js"
+			],
+			[
+				"jquery-",
+				"public/webapp/css/jquery-ui-1.10.4.custom.css"
+			],
+			[
+				"index.",
+				"app/views/index.ejs"
+			],
+			[
+				"init.js",
+				"public/webapp/scripts/init.js"
+			],
+			[
+				"modals.l",
+				"public/webapp/css/modals.less"
+			],
+			[
+				"modal.less",
+				"public/webapp/css/modals.less"
+			],
+			[
+				"variables",
+				"public/webapp/bower_components/bootstrap3-less/variables.less"
 			],
 			[
 				"shredroom.",
@@ -682,14 +1039,6 @@
 			[
 				"upload_tmpl.hbs",
 				"public/webapp/templates/shredroom/upload_tmpl.hbs"
-			],
-			[
-				"upload.js",
-				"public/webapp/scripts/views/shredroom/upload.js"
-			],
-			[
-				"thumbs",
-				"public/webapp/css/thumbs.less"
 			],
 			[
 				"profilelayou",
@@ -708,24 +1057,8 @@
 				"public/webapp/scripts/mainRouter.js"
 			],
 			[
-				"nav",
-				"public/webapp/css/nav.less"
-			],
-			[
-				"routes",
-				"config/routes.js"
-			],
-			[
-				"layout",
-				"views/layout.hjs"
-			],
-			[
 				"dom.",
 				"public/js/libs/dom.js"
-			],
-			[
-				"modal",
-				"public/css/modal.scss"
 			],
 			[
 				"nav.js",
@@ -742,10 +1075,6 @@
 			[
 				"modal.scss",
 				"public/css/modal.scss"
-			],
-			[
-				"layou",
-				"views/layout.hjs"
 			],
 			[
 				"modal.",
@@ -768,10 +1097,6 @@
 				"public/css/typo.scss"
 			],
 			[
-				"vari",
-				"public/css/variables.scss"
-			],
-			[
 				"bund",
 				"public/css/bundle.scss"
 			],
@@ -788,10 +1113,6 @@
 				"public/css/variables.scss"
 			],
 			[
-				"lay",
-				"views/layout.hjs"
-			],
-			[
 				"nav.sc",
 				"public/css/nav.scss"
 			],
@@ -804,10 +1125,6 @@
 				"views/templates/modal.hjs"
 			],
 			[
-				"main.js",
-				"public/js/main.js"
-			],
-			[
 				"editor.js",
 				"js/app/views/editor/editor.js"
 			],
@@ -818,10 +1135,6 @@
 			[
 				"editor",
 				"js/app/views/editor/editor.js"
-			],
-			[
-				"app.js",
-				"js/app/App.js"
 			],
 			[
 				"init",
@@ -884,10 +1197,6 @@
 				"js/app/templates/sidepane/sidepane_tmpl.hbs"
 			],
 			[
-				"form",
-				"css/forms.less"
-			],
-			[
 				"elements",
 				"js/app/templates/sidepane/elementSidepane_tmpl.hbs"
 			],
@@ -904,16 +1213,8 @@
 				"js/app/templates/sidepane/userSidepane_tmpl.hbs"
 			],
 			[
-				"user",
-				"js/app/templates/sidepane/userSidepane_tmpl.hbs"
-			],
-			[
 				"userside",
 				"js/app/views/sidepane/userSidepane.js"
-			],
-			[
-				"user.js",
-				"js/app/models/User.js"
 			],
 			[
 				"sidep",
@@ -940,10 +1241,6 @@
 				"css/reset.less"
 			],
 			[
-				"variab",
-				"css/variables.less"
-			],
-			[
 				"reset.",
 				"css/reset.less"
 			],
@@ -958,194 +1255,6 @@
 			[
 				"home",
 				"views/home.html"
-			],
-			[
-				"img.scss",
-				"public/css/img.scss"
-			],
-			[
-				"prepro",
-				"node_modules/karma/lib/preprocessor.js"
-			],
-			[
-				"eventli",
-				"node_modules/eventlistener/eventlistener.js"
-			],
-			[
-				"elementedit",
-				"js/app/views/editor/elementEditor.js"
-			],
-			[
-				"modelvali",
-				"js/app/models/ModelValidator.js"
-			],
-			[
-				"element.js",
-				"js/app/models/Element.js"
-			],
-			[
-				"pageedi",
-				"js/app/views/editor/pageEditor.js"
-			],
-			[
-				"app",
-				"js/app/App.js"
-			],
-			[
-				"pagesidepa",
-				"js/app/views/sidepane/pageSidepane.js"
-			],
-			[
-				"grunt",
-				"js/app/Gruntfile.js"
-			],
-			[
-				"identity",
-				"js/app/collectionIdentityMap.js"
-			],
-			[
-				"main",
-				"js/app/main.js"
-			],
-			[
-				"statistics",
-				"js/app/test/spec/collections/statisticsCollection.js"
-			],
-			[
-				"statisticsco",
-				"js/app/collections/StatisticsCollection.js"
-			],
-			[
-				"pageed",
-				"js/app/views/editor/pageEditor.js"
-			],
-			[
-				"element",
-				"js/app/models/Element.js"
-			],
-			[
-				"pageeditor",
-				"js/app/views/editor/pageEditor.js"
-			],
-			[
-				"elementrende",
-				"js/app/views/elementRenderer.js"
-			],
-			[
-				"sinon.js",
-				"js/app/bower_components/sinon/lib/sinon.js"
-			],
-			[
-				"statisticscol",
-				"js/app/collections/StatisticsCollection.js"
-			],
-			[
-				"tabgen",
-				"public/webapp/scripts/models/tabGenerator.js"
-			],
-			[
-				"tabs.le",
-				"public/webapp/css/tabs.less"
-			],
-			[
-				"resources",
-				"public/webapp/templates/shredroom/resources_tmpl.hbs"
-			],
-			[
-				"resou",
-				"public/webapp/scripts/views/shredroom/resources.js"
-			],
-			[
-				"shedroom",
-				"public/webapp/scripts/views/shredroom/shredroom.js"
-			],
-			[
-				"resource",
-				"public/webapp/scripts/views/shredroom/resources.js"
-			],
-			[
-				"tabs",
-				"public/webapp/scripts/views/shredroom/tabs.js"
-			],
-			[
-				"variable",
-				"public/webapp/css/variables.less"
-			],
-			[
-				"applica",
-				"public/webapp/css/application.css.less"
-			],
-			[
-				"colors",
-				"public/webapp/css/colors.less"
-			],
-			[
-				"mainrouter",
-				"public/webapp/scripts/mainRouter.js"
-			],
-			[
-				"images",
-				"public/webapp/css/images.css.less"
-			],
-			[
-				"modals",
-				"public/webapp/bower_components/bootstrap3-less/modals.less"
-			],
-			[
-				"landing",
-				"public/webapp/css/landingPage.css.less"
-			],
-			[
-				"navigation",
-				"public/webapp/css/navigation-landing.css.less"
-			],
-			[
-				"nav.less",
-				"public/webapp/css/nav.less"
-			],
-			[
-				"nav.hbs",
-				"public/webapp/templates/item/nav_tmpl.hbs"
-			],
-			[
-				"variables.less",
-				"public/webapp/bower_components/bootstrap3-less/variables.less"
-			],
-			[
-				"main_tm",
-				"public/webapp/templates/nav/main_tmpl.hbs"
-			],
-			[
-				"seed",
-				"scripts/seed.js"
-			],
-			[
-				"library",
-				"public/js/LibraryCtrl.js"
-			],
-			[
-				"snippet",
-				"app/models/snippet.js"
-			],
-			[
-				"snippetco",
-				"app/controllers/snippetController.js"
-			],
-			[
-				"snippet.js",
-				"app/models/snippet.js"
-			],
-			[
-				"snippets",
-				"app/controllers/snippetController.js"
-			],
-			[
-				"authorization",
-				"config/middlewares/authorization.js"
-			],
-			[
-				"routes.js",
-				"config/routes.js"
 			]
 		],
 		"width": 0.0
@@ -1173,7 +1282,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 247.0,
+	"side_bar_width": 190.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

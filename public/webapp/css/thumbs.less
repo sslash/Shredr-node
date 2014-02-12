@@ -53,6 +53,47 @@
 	}
 }
 
+.profile-icon {
+	width: 40px;
+	border-radius: 50%;
+	height: 40px;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.img-wrapper {
+	position: relative; 
+	width: 100%; /* for IE 6 */
+	.thumb-img {
+		// border: 1px solid;
+		cursor: pointer;
+		opacity:0.7;
+		// .box-shadow(0 0 1px #333);
+		// border-radius: 1px;
+		width: 284px;
+		height: 214px;
+		.transition(opacity ease-out 100ms);
+
+		&:hover {
+			opacity:1;
+		}
+	}
+
+	.profile-icon {
+		position: absolute;
+		top: 4px;
+		right: 6px;
+		.box-shadow(1px 1px 3px);
+	}
+
+	.content { 
+		position: absolute;
+		top: 140px;
+		left: 1px;
+		width: 99%;
+		background: rgba(0, 0, 0, 0.79);
+		padding: 9px 0px 5px 8px;
+	}
+}
 .border
 {
 	padding: 1px;

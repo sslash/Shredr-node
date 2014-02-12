@@ -2,6 +2,7 @@ var express = require('express');
 var mongoStore = require('connect-mongo')(express);
 var mongoConfig = require('./mongoConfig');
 var pkg = require('../package');
+var exphbs  = require('express3-handlebars');
 
 module.exports = function (app, config, passport) {
   app.set('showStackError', true);
@@ -13,9 +14,11 @@ module.exports = function (app, config, passport) {
   app.use(express.logger('dev'));
 
   // views config
-  app.set('views', config.root + '/app/views');
-  app.set('view engine', 'ejs');
+  app.engine('.hbs', exphbs({extname: '.hbs'}));
+  app.set('view engine', '.hbs');
 
+  app.set('views', config.root + '/app/views');
+  
   app.configure(function () {
     // bodyParser should be above methodOverride
     app.use(express.bodyParser());

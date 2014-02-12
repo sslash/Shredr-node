@@ -5,36 +5,40 @@ var mongoose = require('mongoose'),
   Shred = mongoose.model('Shred'),
   _ = require('underscore');
 
-/**
- * Find by Id
- */
-exports.findById = function(req, res, next, id){
-  var User = mongoose.model('User');
+exports.get = function(req, res) {
 
-  Shred.findById(id, function (err, shred) {
-    if (err) { return next(err); }
-    if (!shred) { return next(new Error('not found')); }
-    req.shred = shred;
-    next();
+  var _id = req.params.id;
+
+  Shred.findById(_id, function (err, shred) {
+    if (err) { return res.send(err, '500'); }
+    if (!shred){ return res.send({'error' : 'Not found'}, '401'); }
+
+    return res.send(shred);
   });
-};
+}
 
 
 /**
  * List
  */
-exports.list = function(req, res){
-  var page = (req.param('page') > 0 ? req.param('page') : 1) - 1;
-  var perPage = 30;
+exports.list = function(req, next){
+  var page = req.param('page');
+  if ( !page ) { page = 1;}
+  page = (page > 0 ? page : 1) - 1;
+  var perPage = 32;
   var options = {
     perPage: perPage,
     page: page
   };
 
   Shred.list(options, function(err, shreds) {
-    if (err) { return res.render('500'); }
 
-    res.render(shreds);
+    if ( err ) { next({}, err); }
+
+    Shred.count().exec(function (err, count) {
+      if (err) { next({}, err) }
+      next(shreds);
+    });    
   });
 };
 
@@ -83,5 +87,19 @@ exports.destroy = function(req, res){
   var shred = req.shred;
   shred.remove(function(err){
     res.render({}, 200);
+  });
+};
+
+/**
+ * Find by Id. Used by other controllers
+ */
+exports.findById = function(req, res, next, id){
+  var User = mongoose.model('User');
+
+  Shred.findById(id, function (err, shred) {
+    if (err) { return next(err); }
+    if (!shred) { return next(new Error('not found')); }
+    req.shred = shred;
+    next();
   });
 };

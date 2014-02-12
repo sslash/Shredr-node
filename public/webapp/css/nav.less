@@ -1,5 +1,5 @@
 @import '../bower_components/bootstrap3-less/mixins.less';
-@nav-height: 85px;
+@nav-height: 92px;
 
 nav {
 	color: #fff;
@@ -42,16 +42,19 @@ nav {
 
 	.nav-categories {
 		position: absolute;
-		top: 48px;
+		top: 54px;
 		left: 400px;
 
 		li { &:hover { .scale(1.1); } }
 		a{
 			padding: 10px 34px;
-			background-color: @brown;
 			color: #fff;
-			border: 1px solid rgba(255, 255, 255, 0.14);
-			&.active{ border-bottom:1px solid transparent; }
+			border: 1px solid rgba(255,255,255,.14);
+			border-bottom: none;
+			&.active{ 
+				border-bottom: 1px solid @nav-black;
+				padding: 11px 34px;
+			}
 		}
 	}
 }

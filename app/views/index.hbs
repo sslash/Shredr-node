@@ -11,12 +11,44 @@
   <meta name="viewport" content="width=device-width">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="webapp/css/result.css">
+
+  <script type="text/javascript">
+  {{#if shreds}}
+  var shreds = [], shred = {};
+    {{#each shreds}}
+      shred = {};
+      shred.id = "{{this._id}}";
+      shred.title = "{{this.title}}";
+      shred.description = "{{this.description}}";
+      shred.createdAt="{{this.createdAt}}";
+      shred.youtubeId="{{this.youtubeId}}";
+      shred.type="{{this.type}}";
+      shred.youtubeUrl = '{{this.youtubeUrl}}';
+
+      // user
+      shred.user = {};
+      shred.user.username = "{{this.user.username}}";
+      shred.user.id = "{{this.user._id}}";
+      shred.user.profileImgFile = "{{this.user.profileImgFile}}";
+      shred.user.location = "{{this.user.location}}";
+      shred.user.birth = "{{this.user.birth}}";
+      shred.user.email = "{{this.user.email}}";
+      shreds.push(shred);
+    {{/each}}
+  {{/if}}
+  ;
+  {{#if user}}
+    var user = {};
+    user.username="{{user.username}}";
+    user.profileImgFile="{{user.profileImgFile}}";
+  {{/if}}
+  </script>
 </head>
 <body>
   <section id="navigation"></section>
   <section id="modal"></section>
   <section id="main"></section>
-  <section id="footer"></section>
+  <footer id="footer"></footer>
 
   <script data-main="webapp/scripts/init" src="webapp/bower_components/requirejs/require.js"></script>
 </body>

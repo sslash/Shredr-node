@@ -1,24 +1,44 @@
 var mongoose = require('mongoose'),
 	User = mongoose.model('User');
+	shredsController = require('./shredsController');
 
+var renderIndex = function(req, res, user, err) {
+	if (err) {return res.render('index', err);}
+
+	shredsController.list(req, function(shreds, err) {
+		if (err) { return res.render('index', err);}
+
+		return res.render('index', {
+			user : {
+				username : 'Mikey Megakill',
+				profileImgFile : '1.jpg'
+			},
+			shreds : shreds
+		});
+	});
+}
 
 exports.youtube = function(req,res) {
 	res.render('youtube');
 };
 
 exports.index = function(req,res){
-	var user = {};
+
 	if ( req.session.passport.user ){
 		var userId = req.session.passport.user;
 		User.findOne({ _id: userId }, function (err, doc) {
-        	if (doc){
-        		user = doc;
+        	if (err){
+        		renderIndex(req, res, {}, err);
         	}
-    		res.render('index', {user: user});
+        	console.log('User is logged in: ' + user);
+        	renderIndex(req, res, doc);
         });
-	}else{
-		res.render('index', {user: user});
+	} else {
+		console.log('User is not logged in');
+		renderIndex(req, res, {});
 	}
+
+
 };
 
 exports.register = function(req, res){
@@ -29,7 +49,7 @@ exports.register = function(req, res){
 		if (err) {
 			console.log("ERROR: " +JSON.stringify(err));
 			return res.send(err.errors);
-		}else{
+		} else {
 			// manually login the user once successfully signed up
 			// logIn is a passport function (passport.request.js)
 		    req.logIn(user, function(err) {
