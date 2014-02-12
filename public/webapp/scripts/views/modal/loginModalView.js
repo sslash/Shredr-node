@@ -48,7 +48,6 @@ define([
         __signUpBtnCLicked : function() {
           this.ui.login.remove();
           this.ui.signUpBtn.remove();
-          this.ui.logo.remove();
 
           var that = this;
           this.ui.modalBody.animate({

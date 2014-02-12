@@ -27,6 +27,10 @@ var ShredSchema = new Schema({
   title: {type : String, default : '', trim : true},
   type: {type : String, default : '', trim : true},
   description: {type : String, default : '', trim : true},
+  rating: {
+    rating : {type : Number, default : 0 },
+    raters : [] 
+  },
   tabs: {},
   youtubeUrl : {type : String, default : '', trim : true},
   youtubeId : {type : String, default : '', trim : true},
@@ -76,6 +80,13 @@ ShredSchema.methods = {
 
   create: function (cb) {
    this.save(cb);
+  },
+
+
+  rate : function(user, rate, cb) {
+    this.rating.raters.push(user._id);
+    this.rating.rating += rate;
+    this.save(cb);
   },
 
   /**

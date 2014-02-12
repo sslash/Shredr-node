@@ -103,3 +103,22 @@ exports.findById = function(req, res, next, id){
     next();
   });
 };
+
+exports.rate = function(req, res) {
+  var rate = req.query.rating;
+  if (!rate) {return res.json ({'error' : 'Rating not included'}, 500);}
+  rate = parseInt(rate, 10);
+
+  var user = req.user;
+  if (!user) {return res.json ({'error' : 'User no logged in'}, 500);}
+
+  var shredid = req.params.id;
+
+  Shred.findById(shredid, function(err, shred) {
+    if ( err ) {return res.json({}, 500);}
+    if (!shred) { return res.json({error : 'shred with id ' + shredid + ' not found'}, 500); }
+    shred.rate(user, rate, function(err, shred) {
+      return res.json(shred);
+    });
+  });
+};

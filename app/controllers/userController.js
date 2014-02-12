@@ -9,10 +9,7 @@ var renderIndex = function(req, res, user, err) {
 		if (err) { return res.render('index', err);}
 
 		return res.render('index', {
-			user : {
-				username : 'Mikey Megakill',
-				profileImgFile : '1.jpg'
-			},
+			user : user,
 			shreds : shreds
 		});
 	});
@@ -30,7 +27,7 @@ exports.index = function(req,res){
         	if (err){
         		renderIndex(req, res, {}, err);
         	}
-        	console.log('User is logged in: ' + user);
+        	console.log('User is logged in: ' + doc);
         	renderIndex(req, res, doc);
         });
 	} else {

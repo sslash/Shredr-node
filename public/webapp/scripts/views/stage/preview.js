@@ -28,6 +28,8 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 			duration : '[data-model="duration"]',
 			tags : '.style-tags',
 
+			logos : '.logos .logo-xsmall',
+
 			// imgs
 			index0 : '[data-index="0"]',
 			index1 : '[data-index="1"]',
@@ -38,14 +40,16 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 			index6 : '[data-index="6"]',
 			index7 : '[data-index="7"]',
 			index8 : '[data-index="8"]',
-			index9 : '[data-index="9"]'
+			index9 : '[data-index="9"]',
+
+			rating : '[data-model="rating"]'
 		},
 
 		/* Ui events hash */
 		events: {
-			'mouseenter .logo-xsmall' : '__logoEntered',
-			'mouseout .logo-xsmall' : '__logoExit',
-			
+			'mouseenter .logos .logo-xsmall' : '__logoEntered',
+			'mouseleave .logos'		: '__logoExit',
+			'click .logos .logo-xsmall' : '__rateClicked'			
 		},
 
 		/* on render callback */
@@ -66,22 +70,28 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 		},
 
 		__logoExit : function(e) {
-			var $curr = $(e.currentTarget);
-			var index = parseInt($curr.attr('data-index'), 10);
-			this.logoToggle(index,'img/icons/logo_sml_white.png' );
+			this.ui.logos.attr('src', 'img/icons/logo_sml_white.png');
 		},
 
-		logoToggle : function(index, img) {
-			for (var i = 0; i <= index; i ++ ) {
-				var $logo = this.ui['index'+i];
-				$logo.attr('src',img );
-			}
+		__rateClicked : function() {
+			this.model.rate(this.rateValue);
 		},
 
 		__logoEntered : function(e) {
 			var $curr = $(e.currentTarget);
 			var index = parseInt($curr.attr('data-index'), 10);
-			this.logoToggle(index,'img/icons/logo_sml-black.png' );
+			this.rateValue = parseInt(index, 10) + 1;
+			this.ui.rating.text(this.rateValue + '/10');
+
+			for (var i = 0; i <= index; i ++ ) {
+				var $logo = this.ui['index'+i];
+				$logo.attr('src','img/icons/logo_sml-black.png' );
+			}
+
+			for ( var i = index +1; i < 10; i++ ) {
+				var $logo = this.ui['index'+i];
+				$logo.attr('src', 'img/icons/logo_sml_white.png');	
+			}
 		},
 
 		// 3. This function creates an <iframe> (and YouTube player)

@@ -814,5 +814,11 @@ function( Backbone ) {
 			}
 		},
 
+		rate : function(rateVal) {
+			var url = this.url() + '/rate?rating=' + rateVal;
+			$.post(url)
+			.done(function(res) {console.log('sweet')})
+			.fail(function(err) {console.log('fail');});
+		},
     });
 });
