@@ -43,7 +43,8 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 			index8 : '[data-index="8"]',
 			index9 : '[data-index="9"]',
 
-			rating : '[data-model="rating"]'
+			rating : '[data-model="rating"]',
+			rateVal : '[data-model="rateVal"]'
 		},
 
 		/* Ui events hash */
@@ -72,9 +73,8 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 
 		ratingChanged : function(modal) {
 			console.log('rating changed');
-			this.colorLogos(this.rateValue-1, 'img/icons/logo_sml_grey.png');
-			this.rated = true;
-
+			this.colorLogos(this.currRateVal-1, 'img/icons/logo_sml_grey.png');
+			this.ui.rateVal.text(this.model.get('rateValue'));
 		},
 
 		colorLogos : function(index, img) {
@@ -91,21 +91,23 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 		},
 
 		__logoExit : function(e) {
-			if ( !this.rated ) {
+			if ( !this.model.get('userHasRated') ) {
 				this.ui.logos.attr('src', 'img/icons/logo_sml_white.png');
+			} else {
+				this.colorLogos(this.rateVal-1, 'img/icons/logo_sml_grey.png');
 			}
 		},
 
 		__rateClicked : function() {
-			this.model.rate(this.rateValue);
+			this.rateVal = this.currRateVal;
+			this.model.rate(this.currRateVal);
 		},
 
 		__logoEntered : function(e) {
 			var $curr = $(e.currentTarget);
 			var index = parseInt($curr.attr('data-index'), 10);
-			this.rateValue = index + 1;
-			this.ui.rating.text(this.rateValue + '/10');
-
+			this.currRateVal = index + 1;
+			this.ui.rating.text(this.currRateVal + '/10');
 			this.colorLogos(index, 'img/icons/logo_sml-black.png');
 		},
 

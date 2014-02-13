@@ -29,7 +29,7 @@ var ShredSchema = new Schema({
   description: {type : String, default : '', trim : true},
   rating: {
     rating : {type : Number, default : 0 },
-    raters : [] 
+    raters : {}
   },
   tabs: {},
   youtubeUrl : {type : String, default : '', trim : true},
@@ -84,8 +84,24 @@ ShredSchema.methods = {
 
 
   rate : function(user, rate, cb) {
-    this.rating.raters.push(user._id);
+
+    var ratingSet = false;
+
+    if (!this.rating.raters ) {
+      this.rating.raters = {};
+    }
+    var rateObj = this.rating.raters[user._id];
+    
+    // If user has rated; then substract that value first
+    if ( rateObj ) {
+      this.rating.rating -= parseInt(rateObj, 10);
+    }
+
+    this.rating.raters[user._id] = rate;
+
     this.rating.rating += rate;
+
+    console.log('Rated! Rate now: ' + JSON.stringify(this.rating));
     this.save(cb);
   },
 

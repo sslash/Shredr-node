@@ -7,7 +7,6 @@ var renderIndex = function(req, res, user, err) {
 
 	shredsController.list(req, function(shreds, err) {
 		if (err) { return res.render('index', err);}
-
 		return res.render('index', {
 			user : user,
 			shreds : shreds
