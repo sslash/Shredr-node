@@ -9,7 +9,6 @@ function( Backbone, NavMainTmpl  ) {
 	return Backbone.Marionette.ItemView.extend({
 
 		initialize: function() {
-			console.log("initialize a NavMain ItemView :" + window.Shredr);
 			Shredr.vent.on('stage:thumbclicked:fadeout', this.rotateLogo.bind(this));
 		},
 		
@@ -27,7 +26,6 @@ function( Backbone, NavMainTmpl  ) {
 
 		rotateLogo : function() {
 			var $elie = $(".logo-small"), degree = 30, timer, countDown = 4, ticks = 1;
-			console.log('will rotate');
 			rotate();
 			function rotate() {
 

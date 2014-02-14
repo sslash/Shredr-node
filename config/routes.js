@@ -24,6 +24,7 @@ var http = require('https');
 	app.post('/api/shreds/', shredsController.create);
 	app.get('/api/shreds/:id', shredsController.get);
 	app.post('/api/shreds/:id/rate', shredsController.rate);
+	app.post('/api/shreds/:id/comment', shredsController.comment);
 
 
 	// Users

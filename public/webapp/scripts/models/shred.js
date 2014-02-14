@@ -4,809 +4,809 @@ define([
 	function( Backbone ) {
 		'use strict';
 
-		/* Return a model class definition */
-		return Backbone.Model.extend({
-			urlRoot : 'api/shreds/',
+	/* Return a model class definition */
+	return Backbone.Model.extend({
+		urlRoot : 'api/shreds/',
 
-			defaults: {
-				"tabs" : {
-					"tempo" : "125",
-					"tabs" : [
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"0" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"0" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"0" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"0" : 4,
-							"1" : 4,
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"0" : 10
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 2
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 2
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 2
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 1
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 1
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 1
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 1
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"3" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"4" : 4
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"5" : 5
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"3" : 0
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 4
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 4
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 4
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 4
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 4
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 4
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 4
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"4" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"4" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"4" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"4" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"4" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"4" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"4" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"4" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"4" : 2
-						},
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 2
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : -1
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : -1
-						},
-						{
-							"3" : -1
-						},
-						{
-							"3" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 3
-						}
-						]
-					},
-					{
-						"rest" : 8,
-						"stringz" : [
-						{
-							"3" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 1
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 1
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 1
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 1
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 1
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 1
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 1
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"0" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"0" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"0" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"0" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"0" : 3
-						},
-						{
-							"1" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 3
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 2
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 2
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 2
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"1" : 22
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 2
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 2
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 2
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 2
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 22
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 2
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : -1
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 2
-						}
-						]
-					},
-					{
-						"rest" : 4,
-						"stringz" : [
-						{
-							"2" : 2
-						}
-						]
+		defaults: {
+			"tabs" : {
+				"tempo" : "125",
+				"tabs" : [
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
 					}
-					],
-					userHasRated : false
+					]
 				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 4,
+						"1" : 4,
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 10
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"4" : 4
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"5" : 5
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"3" : 0
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 4
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"4" : 2
+					},
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 2
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : -1
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : -1
+					},
+					{
+						"3" : -1
+					},
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 8,
+					"stringz" : [
+					{
+						"3" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"0" : 3
+					},
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 3
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"1" : 22
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 22
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : -1
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				},
+				{
+					"rest" : 4,
+					"stringz" : [
+					{
+						"2" : 2
+					}
+					]
+				}
+				],
+				userHasRated : false
 			},
+		},
 
-			parse : function( response, options ) {
+		parse : function(response, options) {
 
 			// This only works in EcmaScript 5 ++
 			if ( Object.keys(response.rating).length === 0) {
@@ -856,5 +856,21 @@ define([
 			})
 			.fail(function(err) {console.log('fail');});
 		},
+
+		addComment : function(comment) {
+			if ( comment && comment.length > 0 ) {
+				var url = this.url() + '/comment';
+				var that = this;
+				$.post(url, {comment : comment})
+				.done(function(res) {
+
+					// Don't set the comments. no need. 
+					// just append the new one to the current view
+					var comment = res.comments[res.comments.length-1];
+					that.trigger('leChange:commentAdded', comment);
+				})
+				.fail(function(err) {console.log('fail');});
+			}
+		}
 	});
 });

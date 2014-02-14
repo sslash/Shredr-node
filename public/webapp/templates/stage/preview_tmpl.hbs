@@ -16,7 +16,7 @@
 		</div>
 	</section>
 
-<div class="xsmall-gap"></div>
+	<div class="xsmall-gap"></div>
 	<section class="rate-region row">
 		<form class="form-flat">
 			<div class="col-sm-10 logos">
@@ -60,62 +60,65 @@
 		<form class="form-flat">
 			<div class="row">
 				<div class="col-sm-9">	
-				<input type="text" class="light" placeholder="Leave a comment">
+					<textarea placeholder="Leave a comment" class="light short" data-model="comment-input"></textarea>
 				</div>
 				<div class="col-sm-3">
-					<input type="submit" value="Add" class="btn-small">
+					<input type="submit" value="Add" class="btn-small" data-event="comment-submit">
 				</div>
 			</div>
 		</form>
 
-		<section class="profile-region row comment">
-			<div class="col-sm-2">
-				<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
-			</div>
-			<div class="col-sm-10">
-				<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">12. August 2014</em></p>
-				<small>Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
-			</div>
-		</section>
+		<section data-region="comments-list">
 
-		<section class="profile-region row comment">
-			<div class="col-sm-2">
-				<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
-			</div>
-			<div class="col-sm-10">
-				<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">13. August 2014</em></p>
-				<small>Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
-			</div>
-		</section>
+			<section class="profile-region row comment">
+				<div class="col-sm-2">
+					<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+				</div>
+				<div class="col-sm-10">
+					<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">12. August 2014</em></p>
+					<small>Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
+				</div>
+			</section>
 
-		<section class="profile-region row comment">
-			<div class="col-sm-2">
-				<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
-			</div>
-			<div class="col-sm-10">
-				<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">15. August 2014</em></p>
-				<small>Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
-			</div>
-		</section>
+			<section class="profile-region row comment">
+				<div class="col-sm-2">
+					<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+				</div>
+				<div class="col-sm-10">
+					<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">13. August 2014</em></p>
+					<small>Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
+				</div>
+			</section>
 
-		<section class="profile-region row comment">
-			<div class="col-sm-2">
-				<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
-			</div>
-			<div class="col-sm-10">
-				<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">12. July 2014</em></p>
-				<small>Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
-			</div>
-		</section>
+			<section class="profile-region row comment">
+				<div class="col-sm-2">
+					<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+				</div>
+				<div class="col-sm-10">
+					<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">15. August 2014</em></p>
+					<small>Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
+				</div>
+			</section>
 
-		<section class="profile-region row comment">
-			<div class="col-sm-2">
-				<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
-			</div>
-			<div class="col-sm-10">
-				<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">12. August 2014</em></p>
-				<small>Very nice yes indeead lol sap hello bro come at me</small>
-			</div>
+			<section class="profile-region row comment">
+				<div class="col-sm-2">
+					<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+				</div>
+				<div class="col-sm-10">
+					<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">12. July 2014</em></p>
+					<small>Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
+				</div>
+			</section>
+
+			<section class="profile-region row comment">
+				<div class="col-sm-2">
+					<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+				</div>
+				<div class="col-sm-10">
+					<p class="clear-marg"><strong>Mike dike</strong> <em class="font-xsmall right">12. August 2014</em></p>
+					<small>Very nice yes indeead lol sap hello bro come at me</small>
+				</div>
+			</section>
 		</section>
 	</section>
 </section>

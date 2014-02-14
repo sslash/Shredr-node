@@ -1,10 +1,11 @@
 define([
 	'backbone',
 	'hbs!tmpl/stage/preview_tmpl',
+	'hbs!tmpl/stage/comment_tmpl',
 
 	'views/stage/tabsPreview'
 ],
-function( Backbone, PreviewTmpl, TabsPreviewView) {
+function( Backbone, PreviewTmpl, CommentsTmpl, TabsPreviewView) {
     'use strict';
 
 	/* Return a Layout class definition */
@@ -15,6 +16,8 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 			this.model.fetch();
 			this.listenTo(this.model, 'change:tags', this.populateView);
 			this.listenTo(this.model, 'change:rating', this.ratingChanged);
+			this.listenTo(this.model, 'change:comments', this.commentsChanged);
+			this.listenTo(this.model, 'leChange:commentAdded', this.commentAddedSuccess);
 		},
 		
 		template: PreviewTmpl,
@@ -28,8 +31,9 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 		ui: {
 			duration : '[data-model="duration"]',
 			tags : '.style-tags',
-
+			comment : '[data-model="comment-input"]',
 			logos : '.logos .logo-xsmall',
+			commentsList : '[data-region="comments-list"]',
 
 			// imgs
 			index0 : '[data-index="0"]',
@@ -51,7 +55,9 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 		events: {
 			'mouseenter .logos .logo-xsmall' : '__logoEntered',
 			'mouseleave .logos'		: '__logoExit',
-			'click .logos .logo-xsmall' : '__rateClicked'			
+			'click .logos .logo-xsmall' : '__rateClicked',
+			'click [data-model="comment-input"]' : '__commentClicked',
+			'click [data-event="comment-submit"]' : '__addCommentClicked'
 		},
 
 		/* on render callback */
@@ -60,10 +66,18 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 			this.renderTabs();
 		},
 
+		commentsChanged : function() {
+			// render comments
+			if( this.model.get('comments')) {
+				this.model.get('comments').forEach(function(comment) {
+					this.renderComment(comment);
+				}.bind(this));
+			}
+		},
+
 		renderTabs : function (){
 			this.tabs.show(new TabsPreviewView({model : this.model}));
 		},
-
 
 		populateView : function() {
 			this.model.get('tags').forEach(function(t){
@@ -72,7 +86,6 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 		},
 
 		ratingChanged : function(modal) {
-			console.log('rating changed');
 			this.colorLogos(this.currRateVal-1, 'img/icons/logo_sml_grey.png');
 			this.ui.rateVal.text(this.model.get('rateValue'));
 		},
@@ -88,6 +101,31 @@ function( Backbone, PreviewTmpl, TabsPreviewView) {
 				var $logo = this.ui['index'+i];
 				$logo.attr('src', 'img/icons/logo_sml_white.png');	
 			}
+		},
+
+		// Maybe this could be a sparate view...
+		renderComment : function(comment) {
+			var commentHtml = CommentsTmpl({
+				body : comment.body,
+				createdAt : comment.createdAt,
+				user : comment.user
+			});
+			this.ui.commentsList.prepend(commentHtml);
+		},
+
+		commentAddedSuccess : function(comment) {
+			comment.user = Shredr.user.toJSON();
+			this.renderComment(comment);
+		},
+
+		__addCommentClicked : function(e) {
+			e.preventDefault();
+			var comment = this.ui.comment.val();
+			this.model.addComment(comment);
+		},
+
+		__commentClicked : function(e) {
+			this.ui.comment.animate({ 'height' : '100px' });
 		},
 
 		__logoExit : function(e) {

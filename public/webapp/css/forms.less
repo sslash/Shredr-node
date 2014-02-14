@@ -1,6 +1,9 @@
 input[type="submit"] {
   background: @red-dark;
 }
+input[type="text"] {
+  height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+}
 
 input {
 
@@ -16,7 +19,7 @@ input {
 
 .search-content{
 	position: absolute;
-	top: 0px;
+	top: 4px;
 	left: 24px;
 }
 
@@ -50,7 +53,6 @@ input {
 	input, textarea {
 		display:block;
 		width: 100%;
-		height: @input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
 		padding: @padding-base-vertical @padding-base-horizontal;
 		font-size: @font-size-base;
 		line-height: @line-height-base;
@@ -59,8 +61,8 @@ input {
 		font-weight: bold;
 		color: @white;
     &.light {
-          color:@nav-black;
-        }
+      color:@nav-black;
+    }
   		// Placeholder
   		//
   		// Placeholder text gets special styles because when browsers invalidate entire
@@ -68,7 +70,11 @@ input {
   		.placeholder();
   	}
 
-  	textarea { height: 110px !important; resize:none; }
+  	textarea { 
+      height: 110px; 
+      resize:none;
+      &.short {height: 2.5em;}
+    }
 
   	.footer {
   		margin-top: 15px;

@@ -118,7 +118,7 @@ ShredSchema.methods = {
     //var notify = require('../mailer/notify') // Email notify
 
     this.comments.push({
-      body: comment.body,
+      body: comment,
       user: user._id
     });
 

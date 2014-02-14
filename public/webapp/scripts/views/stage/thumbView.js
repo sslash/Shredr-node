@@ -17,17 +17,20 @@ function( Backbone, ThumbviewTmpl  ) {
 			this.mustFadeOut = options.mustFadeOut;
 			if( this.mustFadeOut === true ) {
 				Shredr.vent.on('stage:thumbclicked:fadeout', this.fadeOut.bind(this));
+				Shredr.vent.on('stage:kickerback:clicked', this.fadeIn.bind(this));
 			}
 		},
 		
 		template: ThumbviewTmpl,
         
         fadeOut : function() {
-        	this.faded = !this.faded;
-        	if ( this.faded)
-        		this.$el.fadeOut();
-        	else
-        		this.$el.fadeIn();
+        	// If the stage is in preview mode already, dont fade out.
+        	var shouldFade = Shredr.request('stage:thumbclicked:shouldfade');
+        	if ( shouldFade ) { this.$el.fadeOut(); }
+        },
+
+        fadeIn : function() {
+        	this.$el.fadeIn();
         },
 
 		/* ui selector cache */
@@ -39,7 +42,6 @@ function( Backbone, ThumbviewTmpl  ) {
 		},
 
 		__imgClicked : function() {
-			console.log("trigger");
 			Shredr.vent.trigger('stage:thumbclicked:fadeout', this.model);
 
 			// $("input").toggle(function() {

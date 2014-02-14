@@ -12,21 +12,44 @@ function( Backbone, StagekickerTmpl  ) {
 
 		initialize: function() {
 			console.log("initialize a Stagekicker ItemView");
+			Shredr.vent.on('stage:thumbclicked:fadeout', this.changeHeadline.bind(this));
 		},
 		
 		template: StagekickerTmpl,
         
 
 		/* ui selector cache */
-		ui: {},
+		ui: {
+			headline : '[data-model="headline"]',
+			backbtn : '[data-event="back-btn"]',
+			header : '[data-model="header"]',
+			clickarea : '[data-event="clickarea"]'
+		},
 
 		/* Ui events hash */
 		events: {
-			'keyup .inline-search' : '__searchKeyPressed'
+			'keyup .inline-search' : '__searchKeyPressed',
+			'click .hover' : '__backClicked'
 		},
 
 		/* on render callback */
-		onRender: function() {
+		onRender: function() {},
+
+		changeHeadline : function(model) {
+			var shouldChangeKicker = Shredr.request('stage:thumbclicked:shouldfade');
+			if ( shouldChangeKicker ) {
+				this.ui.header.text('Preview');
+				this.ui.headline.text(model.get('type'));
+				this.ui.backbtn.show();
+			}
+		},
+
+		__backClicked : function(e) {
+			this.ui.header.text('Stage Kicker');
+			this.ui.headline.text('Stage Headline Here');
+			this.ui.backbtn.hide();
+
+			Shredr.vent.trigger('stage:kickerback:clicked');
 		},
 
 		__searchKeyPressed : function(e) {

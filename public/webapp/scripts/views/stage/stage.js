@@ -23,9 +23,12 @@ function( Backbone, StageTmpl, StageKickerView, WelcomeBackView,
 
 
 		initialize: function() {
-			console.log("initialize a Stage Layout");
 			Shredr.vent.on('stage:thumbclicked:fadeout', this.renderPreviewView.bind(this));
 			Shredr.vent.on('stage:thumbclicked:afterReorder', this.slideInPreview.bind(this));
+			Shredr.vent.on('stage:kickerback:clicked', this.slideOutPreview.bind(this));
+
+			// Register a requst respond function
+			Shredr.reqres.setHandler('stage:thumbclicked:shouldfade', this.getIfShouldFade.bind(this));
 		},
 		
 		template: StageTmpl,
@@ -110,8 +113,12 @@ function( Backbone, StageTmpl, StageKickerView, WelcomeBackView,
 		},
 
 		renderPreviewView : function(model) {
-			this.previewView = new PreviewView({model : model});
-			this.preview.show(this.previewView);
+			var previewView = new PreviewView({model : model});
+			this.preview.show(previewView);
+
+			// In case its not garbage collected
+			delete(this.previewView);
+			this.previewView = previewView;
 
 			// Try and set the height
 			// var stageHeight = this.$el.height();
@@ -122,8 +129,22 @@ function( Backbone, StageTmpl, StageKickerView, WelcomeBackView,
 			// this.previewView.$el.height(stageHeight - navHeight - kickerHeight);
 		},
 
+		// This is triggered after each thumbview has possibly faded out.
+		// Because its waiting on logo rotate, which is asynch
 		slideInPreview : function() {
-			this.preview.$el.animate({'right' : '0'}, 'slow');
+			if ( this.getIfShouldFade() ) {
+				this.preview.$el.animate({'right' : '0'}, 'slow');
+				this.hasSlid = true;
+			}
+		},
+
+		slideOutPreview : function() {
+			this.preview.$el.animate({'right' : '-2000px'}, 'slow');
+			this.hasSlid = false;
+		},
+
+		getIfShouldFade : function() {
+			return !this.hasSlid;
 		}
 	});
 

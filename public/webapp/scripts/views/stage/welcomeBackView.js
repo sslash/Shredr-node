@@ -13,24 +13,27 @@ define([
 			className: 'col-sm-6 stage-block stage-welcome stage-box box-inner',
 
 			initialize: function() {
-				console.log("initialize a Welcomebackview ItemView");
 				Shredr.vent.on('stage:thumbclicked:fadeout', this.fadeOut.bind(this));
+				Shredr.vent.on('stage:kickerback:clicked', this.fadeIn.bind(this));
 			},
 
-			fadeOut : function() {
-				this.faded = !this.faded;
-				if ( this.faded)
-					this.$el.fadeOut();
-				else
-					this.$el.fadeIn();
-			},
 			template: WelcomebackviewTmpl,
 
 			/* ui selector cache */
 			ui: {},
 
 			/* Ui events hash */
-			events: {
+			events: {},
+
+			fadeOut : function() {
+				
+				var shouldFade = Shredr.request('stage:thumbclicked:shouldfade');
+
+				if ( shouldFade ) { this.$el.fadeOut(); }
+			},
+
+			fadeIn : function() {
+				this.$el.fadeIn();
 			}
 		});
 

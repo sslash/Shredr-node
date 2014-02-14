@@ -1,11 +1,11 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
-  Shred = mongoose.model('Shred'),
-  _ = require('underscore');
+ var mongoose = require('mongoose'),
+ Shred = mongoose.model('Shred'),
+ _ = require('underscore');
 
-exports.get = function(req, res) {
+ exports.get = function(req, res) {
 
   var _id = req.params.id;
 
@@ -21,7 +21,7 @@ exports.get = function(req, res) {
 /**
  * List
  */
-exports.list = function(req, next){
+ exports.list = function(req, next){
   var page = req.param('page');
   if ( !page ) { page = 1;}
   page = (page > 0 ? page : 1) - 1;
@@ -37,7 +37,7 @@ exports.list = function(req, next){
 
     Shred.count().exec(function (err, count) {
       if (err) { next({}, err) }
-      next(shreds);
+        next(shreds);
     });    
   });
 };
@@ -47,7 +47,7 @@ exports.list = function(req, next){
  * Create a Shred
  */
 
-exports.create = function (req, res) {
+ exports.create = function (req, res) {
   console.log("create " + req.user);
   var shred = new Shred(req.body);
   shred.user = req.user;
@@ -66,24 +66,24 @@ exports.create = function (req, res) {
  * Update article
  */
 
-exports.update = function(req, res){
+ exports.update = function(req, res){
   var shred = req.shred;
   shred = _.extend(shred, req.body);
 
   article.save(function(err) {
-     if (!err) {
-      return res.render(shred);
-    }else{
-      return res.sender({}, 400);
-    }
-  });
+   if (!err) {
+    return res.render(shred);
+  }else{
+    return res.sender({}, 400);
+  }
+});
 };
 
 
 /**
  * Delete a Shred
  */
-exports.destroy = function(req, res){
+ exports.destroy = function(req, res){
   var shred = req.shred;
   shred.remove(function(err){
     res.render({}, 200);
@@ -93,7 +93,7 @@ exports.destroy = function(req, res){
 /**
  * Find by Id. Used by other controllers
  */
-exports.findById = function(req, res, next, id){
+ exports.findById = function(req, res, next, id){
   var User = mongoose.model('User');
 
   Shred.findById(id, function (err, shred) {
@@ -118,6 +118,21 @@ exports.rate = function(req, res) {
     if ( err ) {return res.json({}, 500);}
     if (!shred) { return res.json({error : 'shred with id ' + shredid + ' not found'}, 500); }
     shred.rate(user, rate, function(err, shred) {
+      return res.json(shred);
+    });
+  });
+};
+
+exports.comment = function(req, res) {
+  var comment = req.body.comment;
+  if (!comment) {return res.json ({'error' : 'Comment not included'}, 500);}
+  var user = req.user;
+  var shredid = req.params.id;
+
+  Shred.findById(shredid, function(err, shred) {
+    if ( err ) {return res.json({}, 500);}
+    if (!shred) { return res.json({error : 'shred with id ' + shredid + ' not found'}, 500); }
+    shred.addComment(user, comment, function(err, shred) {
       return res.json(shred);
     });
   });
