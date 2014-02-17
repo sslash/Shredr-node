@@ -14,8 +14,12 @@ define([
 			Shredr.modal.show(modal);
 		},
 
-		openMessageModal : function() {
-			Shredr.modal.show(new MessageModal.MainLayout({model : Shredr.user}));
+		openMessageModal : function(messageType) {
+			if(messageType === 'register:success') {
+				// TODO: show register success modal and open musical DNA view
+			} else {
+				Shredr.modal.show(new MessageModal.MainLayout({model : Shredr.user}));
+			}
 		}
 	});
 

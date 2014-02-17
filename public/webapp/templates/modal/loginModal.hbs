@@ -1,13 +1,19 @@
 <div class="modal-flat short">
-<section class="modal-content" id="loginModal">
+    <section class="modal-content" id="loginModal">
         <header>
-            <div class="tab-btn"><h4>LOGIN</h4></div>
-            <div class="tab-btn inactive"><h4>REGISTER</h4></div>
+            <div class="tab-btn" data-event="login-btn"><h4>LOGIN</h4></div>
+            <div class="tab-btn inactive" data-event="register-btn"><h4>REGISTER</h4></div>
         </header>
 
-        <form class="form-flat">
-            <img src="img/icons/logo_sml_white.png" class="logo-medium">
-        </form>
+        <div data-region="login-content">
+        <img src="img/icons/logo_sml_white.png" class="logo-medium">
+            <div class="xsmall-gap"></div>
+            <form class="form-flat dark" id="login-form">
+                <input type="text" id="emailInput" placeholder="Username">
+                <input type="password" id="passwordInput" placeholder="Password">
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
 
     </section>
 </div>

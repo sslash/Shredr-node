@@ -8,7 +8,8 @@ var renderIndex = function(req, res, user, err) {
 	shredsController.list(req, function(shreds, err) {
 		if (err) { return res.render('index', err);}
 		return res.render('index', {
-			user : user,
+			//user : user,
+			user : {},
 			shreds : shreds
 		});
 	});
@@ -33,7 +34,6 @@ exports.index = function(req,res){
 		console.log('User is not logged in');
 		renderIndex(req, res, {});
 	}
-
 
 };
 

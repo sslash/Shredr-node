@@ -1,21 +1,13 @@
-<form role="form" id="registerForm">
-	<label class="error" style="display:none"></label>
-	<section id="login">
-		<div class="form-group">
-			<input type="text" class="form-control" name="username-input" required placeholder="Pick a username">
-			<input type="email" class="form-control" name="email-input" required placeholder="Enter email">
-		</div>
-		<div class="form-group">
-			<input type="password" class="form-control" name="pw1-input" required placeholder="Password">
-			<input type="password" class="form-control" name="pw2-input" required placeholder="Repeat password">
-		</div>
-
-		<div class="form-group">
-			<label>Upload a profile picture</label>
-			<img class="profile-img" src="img/sap.jpg">
-			<p><input type="file" id="profileImgId"></p>
-		</div>
-		<button type="submit" class="btn btn-success btn-block">Register</button>
-
-	</section>
+<div class="xsmall-gap"></div>
+<form class="form-flat dark" id="register-form">
+	<label data-model="error-msg" style="display:none"></label>
+	<input type="text" class="form-control" name="username-input" required placeholder="Pick a username">
+	<input type="email" class="form-control" name="email-input" required placeholder="Enter email">
+	<input type="password" class="form-control" name="pw1-input" required placeholder="Password">
+	<input type="password" class="form-control" name="pw2-input" required placeholder="Repeat password">
+	
+	<label>Upload a profile picture</label>
+	<img class="logo-medium" data-model="profile-img" src="img/sap.jpg">
+	<p><input type="file" id="profileImgId"></p>
+	<button type="submit" class="btn">Register</button>
 </form>

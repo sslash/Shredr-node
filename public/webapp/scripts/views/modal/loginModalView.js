@@ -3,7 +3,6 @@ define([
   'bootstrap',
   'jcrop',
   'underscore',
-
   'hbs!tmpl/modal/loginModal',
   'hbs!tmpl/modal/loginModalRegister',
   ], function (Backbone, bs, jcrop, _, tpl, registerTpl) {
@@ -16,16 +15,14 @@ define([
 
         ui : {
           modal : "#loginModal",
-          register : "#register",
-          login : "#login",
-          modalBody : ".modal-body",
-          signUpBtn : "#signupBtn",
-          logo : ".logo-medium"
+          loginForm : "#login-form",
+          loginContent : '[data-region="login-content"]',
+          loginBtn : '[data-event="login-btn"]'
         },
 
         events : {
-          "click #signupBtn" : "__signUpBtnCLicked",
-          "submit #loginForm" : "__formSubmitted"
+          'click [data-event="register-btn"]' : '__signUpBtnCLicked',
+          'submit #login-form' : '__formSubmitted'
         },
 
         initialize : function() {
@@ -46,17 +43,24 @@ define([
         },
 
         __signUpBtnCLicked : function() {
-          this.ui.login.remove();
-          this.ui.signUpBtn.remove();
+          this.ui.loginContent.empty();
+          this.$('.inactive').removeClass('inactive');
+          this.ui.loginBtn.addClass('inactive');
+          var registerView = new LoginModalView.RegisterView();
+          registerView.on("user:auth:create:success", this.registerSuccess, this);
+          this.ui.loginContent.append(registerView.render().el);
 
-          var that = this;
-          this.ui.modalBody.animate({
-            height: "+=550px"
-            }, "slow", function() {
-              var registerView = new LoginModalView.RegisterView();
-              registerView.on("user:auth:create:success", that.registerSuccess, that);
-              that.ui.register.append(registerView.render().el);
-            });
+          // this.ui.login.remove();
+          // this.ui.signUpBtn.remove();
+
+          // var that = this;
+          // this.ui.modalBody.animate({
+          //   height: "+=550px"
+          //   }, "slow", function() {
+          //     var registerView = new LoginModalView.RegisterView();
+          //     registerView.on("user:auth:create:success", that.registerSuccess, that);
+          //     that.ui.register.append(registerView.render().el);
+          //   });
         },
 
         authenticateFail : function(msg) {
@@ -72,10 +76,11 @@ define([
         },
 
         registerSuccess : function(user) {
+          console.log('register success!');
           this.ui.modal.modal('hide');
           this.ui.modal.on('hidden.bs.modal', function () {
             Shredr.vent.trigger("user:auth:success", user);
-            Shredr.buzz.openMessageModal();
+            Shredr.buzz.openMessageModal('register:success');
           });
         },
 
@@ -104,9 +109,14 @@ define([
       RegisterView : Backbone.Marionette.Layout.extend({
         template: registerTpl,
 
+        ui : {
+          profileImg : '[data-model="profile-img"]',
+          error : '[data-model="error-msg"]'
+        },
+
         events : {
           "change #profileImgId"  : "__profileImgSelected",
-          "submit #registerForm" : "__registerBtnClicked",
+          "submit #register-form" : "__registerBtnClicked",
           "blur input" : "__inputBlurred"
         },
 
@@ -153,7 +163,7 @@ define([
         },
 
         __inputBlurred : function() {
-          $('.error').text("").hide();
+          this.ui.error.text('').hide();
         },
 
         registerUserSuccess : function(user) {
@@ -167,7 +177,7 @@ define([
           for(var prop in error) {
             html = prop + ": " + error[prop];
           }
-          this.$('.error').text(html).show();
+          this.ui.error.text(html).show();
         },
 
         getImgFile : function(e) {
@@ -190,7 +200,7 @@ define([
               // Render thumbnail.
               var image = new Image();
               image.src = e.target.result;
-              $('.profile-img').attr('src',image.src );
+              that.ui.profileImg.attr('src',image.src );
               handler(image);
               };
           })(this.profileImg, $.proxy(this.setJCrop,this));
@@ -200,9 +210,10 @@ define([
         },
 
         setJCrop : function(image) {
-          var img = $('.profile-img');
+          debugger
+          var img = this.ui.profileImg;
           this.orgImage = image;
-          this.domImage =  $('.profile-img');
+          this.domImage =  this.ui.profileImg;
           this.cropData = {};
           this.cropData.x1 = 30;
           this.cropData.x2 = 230;
@@ -212,7 +223,7 @@ define([
           this.cropData.h = this.cropData.y1 + this.cropData.y2;
           var that = this;
 
-          $('.profile-img').Jcrop({
+          this.ui.profileImg.Jcrop({
             aspectRatio: 4 / 4,
             setSelect:   [that.cropData.x1, that.cropData.y1, that.cropData.x2, that.cropData.y2],
             onSelect: $.proxy(that.setChords,that)
