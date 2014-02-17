@@ -68,20 +68,16 @@ define([
         }, 
 
         authenticateSuccess : function(user) {
-          this.ui.modal.modal('hide');
-          this.ui.modal.on('hidden.bs.modal', function () {
-            Shredr.vent.trigger("user:auth:success", user);
-            Shredr.router.navigate("/theStage", {trigger: true});
-          });
+          this.ui.modal.hide();
+          Shredr.vent.trigger("user:auth:success", user);
+          Shredr.router.navigate("/theStage", {trigger: true});
         },
 
         registerSuccess : function(user) {
           console.log('register success!');
-          this.ui.modal.modal('hide');
-          this.ui.modal.on('hidden.bs.modal', function () {
-            Shredr.vent.trigger("user:auth:success", user);
-            Shredr.buzz.openMessageModal('register:success');
-          });
+          this.ui.modal.hide();
+          Shredr.vent.trigger('user:auth:success', user);
+          Shredr.buzz.openMessageModal('register:success');
         },
 
 

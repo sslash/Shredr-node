@@ -1,6 +1,6 @@
 #modal {
 	position: absolute;
-	top: 200px;
+	top: 135px;
 	z-index: 10000;
 	text-align: center;
 	width:100%;
@@ -69,7 +69,11 @@
 	.modal-content {
 		color: @white;
 		.brown-border();
+		&.with-pad {
+			padding:20px 10px;
+		}
 	}
+
 	.up-video {
 		background-image: url('/img/outlets.png');
 		background-position: initial initial;

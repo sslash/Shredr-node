@@ -15,29 +15,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "public/webapp/scripts/views/shredroom/upload.js",
-			"settings":
-			{
-				"buffer_size": 4575,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "public/webapp/templates/shredroom/upload_tmpl.hbs",
-			"settings":
-			{
-				"buffer_size": 2793,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -83,6 +60,8 @@
 	},
 	"file_history":
 	[
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/scripts/views/shredroom/upload.js",
+		"/Users/michaelgunnulfsen/code/Shredr-node/public/webapp/templates/shredroom/upload_tmpl.hbs",
 		"/Users/micgunnu/code/sap/shredr-node/node_modules/grunt-contrib-watch/node_modules/tiny-lr/bin/update-livereload",
 		"/Users/micgunnu/code/sap/shredr-node/node_modules/connect-mongo/node_modules/mongodb/lib/mongodb/connection/url_parser.js",
 		"/Users/micgunnu/code/sap/shredr-node/app/controllers/userController.js",
@@ -223,94 +202,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "public/webapp/scripts/views/shredroom/upload.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4575,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 664.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "public/webapp/templates/shredroom/upload_tmpl.hbs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2793,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Handlebars/Handlebars.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],
