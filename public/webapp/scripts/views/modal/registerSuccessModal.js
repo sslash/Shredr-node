@@ -19,17 +19,18 @@ define([
 
       ui : {
         successRegion : '[data-region="sucess-region"]',
-        dnaRegion : '[data-region="dna-region"]'
+        modalRegion : '.modal-flat'
       },
 
       onDomRefresh : function() {
-        this.ui.dnaRegion.html(dnaTpl(this.model.toJSON()));
+        this.dnahtml = dnaTpl(this.model.toJSON());
       },
 
       __okClicked : function(e) {
         e.preventDefault();
-        this.ui.successRegion.remove();
-        this.ui.dnaRegion.show();
+        this.ui.modalRegion.empty();
+        this.ui.modalRegion.html(this.dnahtml);
+        this.ui.modalRegion.animate({width: '500px'});
       },
 
       __noClicked : function(e) {

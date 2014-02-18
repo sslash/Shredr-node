@@ -62,7 +62,6 @@
 
 .img-wrapper {
 	position: relative; 
-	width: 100%; /* for IE 6 */
 	.thumb-img {
 		// border: 1px solid;
 		cursor: pointer;
@@ -76,6 +75,14 @@
 		&:hover {
 			opacity:1;
 		}
+	}
+
+	span {
+		position: absolute;
+		top: 16px;
+		left: 0;
+		background: rgba(14, 9, 9, 0.74);
+		padding: 3px;
 	}
 
 	.profile-icon {
