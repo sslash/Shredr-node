@@ -15,6 +15,10 @@ define([
 			console.log('modal open');
 			// var modal = new LoginModalView.MainView();
 			$('.fullscreen #loginArea').hide();
+			Shredr.user.set({
+				id : 10,
+				username : 'Mad mike'
+			});
 			Shredr.modal.show(new RegisterSuccessModal.OnSuccessView({model : Shredr.user}));
 			// Shredr.modal.show(modal);
 		},
