@@ -15,6 +15,10 @@
  	email: { type: String, default: '' },
  	username: { type: String, default: '' },
   location: { type: String, default: '' },
+  location: { type: String, default: '' },
+  birthdate: {type : Date},
+  guitars : {type: []},
+  musicDna : {type: []},
   profileImgFile: { type: String, default: '' },
  	provider: { type: String, default: '' },
  	hashed_password: { type: String, default: '' },
@@ -109,6 +113,11 @@ UserSchema.path('hashed_password').validate(function (hashed_password) {
  */
 
  UserSchema.methods = {
+
+
+update: function (cb) {
+    return this.save(cb);
+  },
 
   /**
    * Authenticate - check if the passwords are the same

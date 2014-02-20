@@ -49,18 +49,6 @@ define([
           var registerView = new LoginModalView.RegisterView();
           registerView.on("user:auth:create:success", this.registerSuccess, this);
           this.ui.loginContent.append(registerView.render().el);
-
-          // this.ui.login.remove();
-          // this.ui.signUpBtn.remove();
-
-          // var that = this;
-          // this.ui.modalBody.animate({
-          //   height: "+=550px"
-          //   }, "slow", function() {
-          //     var registerView = new LoginModalView.RegisterView();
-          //     registerView.on("user:auth:create:success", that.registerSuccess, that);
-          //     that.ui.register.append(registerView.render().el);
-          //   });
         },
 
         authenticateFail : function(msg) {
@@ -78,6 +66,10 @@ define([
           this.ui.modal.hide();
           Shredr.vent.trigger('user:auth:success', user);
           Shredr.buzz.openMessageModal('register:success');
+        },
+
+        registerDnaSuccess : function() {
+          this.ui.modal.hide();
         },
 
 

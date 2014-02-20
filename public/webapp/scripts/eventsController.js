@@ -12,25 +12,23 @@ define([
 	var EventController = Backbone.Marionette.Controller.extend({
 
 		openLoginModal : function() {
-			console.log('modal open');
-			// var modal = new LoginModalView.MainView();
+			var modal = new LoginModalView.MainView();
 			$('.fullscreen #loginArea').hide();
-			Shredr.user.set({
-				id : 10,
-				username : 'Mad mike'
-			});
-			Shredr.modal.show(new RegisterSuccessModal.OnSuccessView({model : Shredr.user}));
-			// Shredr.modal.show(modal);
+			Shredr.modal.show(modal);
 		},
 
 		openMessageModal : function(messageType) {
-			$('.fullscreen #loginArea').hide();
-			if(messageType === 'register:success') {
+			$( '.fullscreen #loginArea' ).hide();
+			if( messageType === 'register:success' ) {
 				// TODO: show register success modal and open musical DNA view
 				Shredr.modal.show(new RegisterSuccessModal.OnSuccessView({model : Shredr.user}));
 			} else {
 				Shredr.modal.show(new MessageModal.MainLayout({model : Shredr.user}));
 			}
+		},
+
+		hideModal : function () {
+			Shredr.modal.close();
 		}
 	});
 

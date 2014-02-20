@@ -9,7 +9,9 @@ function( Backbone ) {
 		urlRoot : 'api/user/',
 		
 		initialize: function() {
-			console.log("initialize a User model");
+			if ( this.get('_id') ) {
+				this.id = this.get('_id');
+			}
 		},
 
 		defaults: {},

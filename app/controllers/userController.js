@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
-	User = mongoose.model('User');
-	shredsController = require('./shredsController');
+	User = mongoose.model('User'),
+	shredsController = require('./shredsController'),
+	extend = require('util')._extend;
 
 var renderIndex = function(req, res, user, err) {
 	if (err) {return res.render('index', err);}
@@ -8,8 +9,7 @@ var renderIndex = function(req, res, user, err) {
 	shredsController.list(req, function(shreds, err) {
 		if (err) { return res.render('index', err);}
 		return res.render('index', {
-			//user : user,
-			user : {},
+			user : user,
 			shreds : shreds
 		});
 	});
@@ -17,6 +17,19 @@ var renderIndex = function(req, res, user, err) {
 
 exports.youtube = function(req,res) {
 	res.render('youtube');
+};
+
+exports.update = function(req,res) {
+	var user = req.user;
+	user = extend(user, req.body);
+
+	user.update(function(err) {
+	    if (!err) {
+	      return res.send(user);
+	    } else {
+	    	return res.send({'Error' : 'Failed to save'}, 401);
+	    }
+	});
 };
 
 exports.index = function(req,res){
@@ -73,7 +86,8 @@ exports.login = function(req,res){
 }
 
 exports.logout = function(req,res){
-	
+	req.logout();
+	res.redirect('/');
 }
 
 exports.signup = function(req,res){

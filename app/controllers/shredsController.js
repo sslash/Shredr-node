@@ -63,14 +63,13 @@
 
 
 /**
- * Update article
+ * Update shred
  */
-
  exports.update = function(req, res){
   var shred = req.shred;
   shred = _.extend(shred, req.body);
 
-  article.save(function(err) {
+  shred.save(function(err) {
    if (!err) {
     return res.render(shred);
   }else{

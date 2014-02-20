@@ -17,9 +17,6 @@ function( Backbone, Communicator,EventController, RoutesController,
 
 	window.Shredr = new Backbone.Marionette.Application();
 
-	// TODO: REMOVE!!!!1!!!
-	Shredr.user = new User();
-
 	Shredr.on("initialize:before", function(options){
 		this.addRegions({
 			"navigation" : "#navigation",

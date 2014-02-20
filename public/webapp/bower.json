@@ -2,7 +2,6 @@
   "name": "webapp",
   "version": "0.0.0",
   "dependencies": {
-    "bootstrap3-less" : "latest",
     "font-awesome" : "latest",
     "jquery": "~1.9.0",
     "requirejs": "~2.1.5",
