@@ -29,7 +29,7 @@ function( Backbone, StagekickerTmpl  ) {
 		/* Ui events hash */
 		events: {
 			'keyup .inline-search' : '__searchKeyPressed',
-			'click .hover' : '__backClicked'
+			'click [data-event="back-btn"]' : '__backClicked'
 		},
 
 		/* on render callback */
