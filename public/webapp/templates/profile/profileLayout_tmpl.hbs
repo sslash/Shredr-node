@@ -1,0 +1,119 @@
+<section id="sr-stage-kicker"></section>
+
+<section id="preview-mode">
+	<div class="row">
+		<div class="col-sm-6 half half-box stage-box clear-marg">
+			{{#if profileImgFile}}
+			<img src="img/profiles/{{profileImgFile}}" class="img-fullwidth">
+			{{else}}
+			<img src="{{profileImgUrl}}" class="img-fullwidth">
+			{{/if}}
+		</div>
+		<div class="col-sm-6 half half-box stage-box clear-marg">
+			<div class="img-wrapper">
+				<img class="img-fullwidth" src="http://img.youtube.com/vi/l-0F0A6Du-k/0.jpg">
+
+				<div class="content">
+					<h2>Main Video hihglight</h2>
+					<p>This is the headline for their main video</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<section class="focus-content col-sm-6 half stage-box">
+			<section class="actions-row right">
+				{{#if isUser}}<button class="btn" data-event="edit-btn">Edit Profile</button>
+				{{else}}
+				<i class="fa fa-envelope-o"></i>
+				<i class="fa fa-gamepad"></i>
+				<i class="fa fa-plus"></i>
+				{{/if}}
+			</section>
+			<h1 class="heading">{{username}}</h1>
+
+			<table class="two-columns-stats">
+				<tr>
+					<td><h3 class="lead"><small>Born:</small>{{dateString}}</h3></td>
+					<td><h3 class="lead"><small>Location:</small>{{location}}</h3></td>
+				</tr>
+				<tr>
+					<td><h3 class="lead"><small>Played since:</small>{{startedPlaying}}</h3></td>
+					<td><h3 class="lead"><small>Fans:</small> 10</h3></td>
+				</tr>
+			</table>
+
+			<p>{{description}}</p>
+
+			<div class="xsmall-gap"></div>
+			<h6>{{username}} plays on:</h6>
+			<section class="style-tags">
+				{{#each guitars}}
+				<span class="font-xsmall">{{this}}</span>
+				{{/each}}
+			</section>
+
+			<div class="xsmall-gap"></div>
+			<h6>Musical inspiration:</h6>
+			<section class="style-tags">
+				{{#each musicalDna}}
+				<span class="font-xsmall">{{this}}</span>
+				{{/each}}
+			</section>
+
+			<div class="small-gap"></div>
+			<section class="actions-row">
+				<i class="fa fa-twitter fa-2x"></i>
+				<i class="fa fa-facebook fa-2x"></i>
+				<i class="fa fa-google-plus fa-2x"></i>
+			</section>
+		</section>	
+
+		<div class="col-sm-6 stage-clear"><div class="col-sm-6 stage-block">
+			<div class="img-wrapper stage-box">
+				<!--<img src="img/profiles/11.jpg">-->
+				<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/l-0F0A6Du-k/0.jpg">
+
+				<div class="content">
+					<h4>Jamtrack</h4>
+					<p>Air Marshal
+					</p></div>
+
+					<a href="#shredders/5309dadbe27a9ec8caae284e" data-event="user-clicked"><img class="profile-icon" src="img/profiles/11.jpg"></a>
+				</div></div><div class="col-sm-6 stage-block">
+				<div class="img-wrapper stage-box">
+					<!--<img src="img/profiles/13.jpg">-->
+					<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/ZUM93WEzMHs/0.jpg">
+
+					<div class="content">
+						<h4>Tutorial</h4>
+						<p>Alone on a Wide, Wide Sea
+						</p></div>
+
+						<a href="#shredders/5309dadbe27a9ec8caae2877" data-event="user-clicked"><img class="profile-icon" src="img/profiles/13.jpg"></a>
+					</div></div><div class="col-sm-6 stage-block">
+					<div class="img-wrapper stage-box">
+						<!--<img src="img/profiles/2.jpg">-->
+						<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/DSDpeu0V1Ng/0.jpg">
+
+						<div class="content">
+							<h4>Tutorial</h4>
+							<p>Air Marshal
+							</p></div>
+
+							<a href="#shredders/5309dadbe27a9ec8caae287a" data-event="user-clicked"><img class="profile-icon" src="img/profiles/2.jpg"></a>
+						</div></div><div class="col-sm-6 stage-block">
+						<div class="img-wrapper stage-box">
+							<!--<img src="img/profiles/13.jpg">-->
+							<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/dm3QTgIdT8o/0.jpg">
+
+							<div class="content">
+								<h4>Jamtrack</h4>
+								<p>Air Marshal
+								</p></div>
+
+								<a href="#shredders/5309dadbe27a9ec8caae2841" data-event="user-clicked"><img class="profile-icon" src="img/profiles/13.jpg"></a>
+							</div></div></div>
+						</div>
+					</section>

@@ -12,41 +12,49 @@ define([
   var RegisterSuccessModal = {
     OnSuccessView : Backbone.Marionette.ItemView.extend({
       template : tpl,
+      className : 'modal-flat short',
       guitars : [],
       catecoriesSelected : [],
 
       ui : {
-        successRegion : '[data-region="sucess-region"]',
-        modalRegion : '.modal-flat'
+        successRegion : '[data-region="sucess-region"]'
+      },
+
+      initialize : function (options) {
+        var json = this.model.toJSON(); 
+        this.dnahtml = dnaTpl(json);
+        this.dnasuccessHtml = dnaSuccessTpl(json);
+
+        if (options.forceDna) {
+          this.template = this.dnahtml;
+        }
       },
 
       events : {
         'click [data-event="ok-link"]' : '__okClicked',
         'click [data-event="ok-btn"]' : '__okClicked',
         'click [data-event="no-link"]' : '__noClicked',
+        'click [data-event="cancel-dna"]' : '__cancelClicked',
         'click [data-event="done-btn"]' : '__doneDnaClicked',
         'click [data-event="dna-click"] li' : '__musicCategoryClicked',
         'click [data-event="gotostage-btn"]' : '__goToStage',
         'keypress #shred-tags' : '__keypressTags'
       },
 
-      onDomRefresh : function() {
-        var json = this.model.toJSON(); 
-        this.dnahtml = dnaTpl(json);
-        this.dnasuccessHtml = dnaSuccessTpl(json);
+      onRender : function() {
+        if ( this.template === this.dnahtml ) {
+          this.renderDnaView();
+        }
       },
 
       userRegistered : function(user) {
-        this.ui.modalRegion.empty();
-        this.ui.modalRegion.html(this.dnasuccessHtml);
-        this.ui.modalRegion.css({'max-width': '300px'});
+        this.$el.empty();
+        this.$el.html(this.dnasuccessHtml);
+        this.$el.css({'max-width': '300px'});
       },
 
-      __okClicked : function(e) {
-        e.preventDefault();
-        this.ui.modalRegion.empty();
-        this.ui.modalRegion.html(this.dnahtml);
-        this.ui.modalRegion.css({width: '700px'});
+      renderDnaView : function () {
+        this.$el.css({width: '700px'});
 
         this.$('#guitar-tags').autocomplete({
           source : this.autocompleteTags,
@@ -54,8 +62,20 @@ define([
         });
       },
 
+      __okClicked : function(e) {
+        e.preventDefault();
+        this.$el.empty();
+        this.$el.html(this.dnahtml);
+        this.renderDnaView();
+      },
+
       __noClicked : function(e) {
         e.preventDefault();
+      },
+
+      __cancelClicked : function (e) {
+        e.preventDefault();
+        this.close();
       },
 
       __goToStage : function() {
@@ -70,6 +90,7 @@ define([
           location : this.$('#city').val(),
           birthdate : this.$('#birth').val(),
           guitars : this.guitars,
+          bio : this.$('#bio').val(),
           musicDna : this.catecoriesSelected
         },{
           success : this.userRegistered.bind(this),

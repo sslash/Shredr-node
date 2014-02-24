@@ -38,7 +38,8 @@ function( Backbone, ThumbviewTmpl  ) {
 
 		/* Ui events hash */
 		events: {
-			'click img' : '__imgClicked'
+			'click a[data-event="user-clicked"]' : '__userClicked',
+			'click img[data-event="youtube-img"]' : '__imgClicked'
 		},
 
 		__imgClicked : function() {
@@ -51,8 +52,11 @@ function( Backbone, ThumbviewTmpl  ) {
 			// });
 		},
 
-		/* on render callback */
-		onRender: function() {}
+		__userClicked : function (e) {
+			e.preventDefault();
+			e.stopPropagation();
+			Shredr.router.navigate('#shredders/' + this.model.get('user').id, {trigger : true});
+		}
 	});
 
 });

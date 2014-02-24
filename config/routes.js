@@ -17,7 +17,7 @@ var http = require('https');
 	app.get('/signup', userController.signup);
 	app.get('/logout', userController.logout);
 
-	// Shredders
+	// todo : change to user api
 	app.post('/api/shredders/', userController.register);
 
 	// Shreds
@@ -29,6 +29,7 @@ var http = require('https');
 
 	// Users
 	app.put('/api/user/:id', auth.requiresLogin, userController.update);
+	app.get('/api/user/:id', userController.getById);
 	app.post('/users/session',
 		passport.authenticate('local', {
 			//failureRedirect: '/login',

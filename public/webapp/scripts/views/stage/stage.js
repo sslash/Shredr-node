@@ -21,7 +21,6 @@ function( Backbone, StageTmpl, StageKickerView, WelcomeBackView,
 
 		className : 'container',
 
-
 		initialize: function() {
 			Shredr.vent.on('stage:thumbclicked:fadeout', this.renderPreviewView.bind(this));
 			Shredr.vent.on('stage:thumbclicked:afterReorder', this.slideInPreview.bind(this));

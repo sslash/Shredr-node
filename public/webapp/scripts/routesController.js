@@ -6,42 +6,61 @@ define([
 	'views/landingPage/landingPage',
 	'views/nav/main',
 	'views/stage/stage',
-	'views/stage/profileLayout',
-	'views/shredroom/shredroom'
+	'views/stage/profilesLayout',
+	'views/profile/profileLayout',
+	'views/shredroom/shredroom',
+
+	// models
+	'models/user'
 
 	], function (Backbone, NavMainView, LandingPageView, MainNavView, 
-		StageView,ProfilesView, ShredroomView) {
+		StageView, ProfilesView, ProfileView, ShredroomView, User) {
 
 	var MainController = Backbone.Marionette.Controller.extend({
 
 		/** Routing functions */
 		landingPage : function() {
-			console.log('Route: landing page');
 			this.renderLandingNavView();
 			this.renderLangingView();
 			this.renderFooterView();
 		},
 
 		stagePage : function() {
-			console.log("Route: The stage");
 			this.renderNavigationView();
-
 			this.renderStageView();
-
 			this.renderFooterView();
 		},
 
 		shredroom : function() {
 			this.renderLandingNavView();
-
 			this.renderShredroomView();
-
 			this.renderFooterView();
 		},
 
 		profiles : function() {
 			this.renderNavigationView();
 			this.renderProfilesView();
+		},
+
+		profile : function (id) {
+			this.renderNavigationView();
+			var model = new User({id : id});
+
+			// Fade out the current view
+			if ( Shredr.main.currentView ) {
+				Shredr.main.currentView.$el.fadeOut(200, function() {
+					this.renderProfileView (model);
+				}.bind(this));
+
+			// If a browser reload, just load the view 
+			} else {
+				this.renderProfileView (model);
+			}
+		},
+
+		renderProfileView : function (model) {
+			var view = new ProfileView ( {model : model} );
+			Shredr.main.show(view);
 		},
 
 		renderProfilesView : function() {
@@ -58,8 +77,11 @@ define([
 		},
 
 		renderNavigationView : function() {
-			var view = new MainNavView();
-			Shredr.navigation.show(view);
+			if ( !this.mainNavView ) {
+				this.mainNavView = new MainNavView();
+			}
+			
+			Shredr.navigation.show(this.mainNavView);
 		},
 
 		renderShredroomView : function() {

@@ -9,6 +9,7 @@ var tags = ['Gibson GA-20', 'Gibson EB Bass','The Suhr Classic', 'The Gibson Fly
 var titles = ['Air Marshal', 'Alone on a Wide, Wide Sea', 'Arms and the Man', 'The Cricket on the Hearth', 'For a Breath I Tarry'];
 var locations = ['Oslo, Norway', 'Stockholm, Sweden', 'New York, USA', 'San Fransisco, USA', 'Madrid, Spain', 'London, UK' ];
 var types = ['Lick', 'Tutorial', 'Jamtrack', 'Cover', 'Other'];
+var playedsince = ['1965', '1945', '1999', '1993', '1988', '1990', '1989'];
 
 db.shreds.remove({});
 var users = db.users.find();
@@ -47,17 +48,30 @@ for (var i = 0; i < 100; i++) {
 
 
 // Create 100 users
+db.users.remove();
 for ( var i = 0; i < 100; i++ ) {
 	var namei = Math.floor((Math.random()*names.length));
 	var imgi = Math.floor((Math.random()*profileimgs.length));
 	var loci = Math.floor((Math.random()*locations.length));
+	var startedP = Math.floor((Math.random()*playedsince.length));
+
+	var tagsarr = [];
+	tagsarr.length = 0;
+	for ( var j = 0; j < tlen; j++) {
+		var tag = tags[Math.floor(Math.random()*tlen)];
+		tagsarr.push(tag);
+	}
+
 	db.users.save({
 		provider : 'local',
 		username : names[namei],
+		startedPlaying : playedsince[startedP],
 		email : namei + '@sapmail.com',
 		profileImgFile : profileimgs[imgi],
 		location : locations[loci],
-		birth : '29.12.1988'
+		birth : new Date(),
+		guitars : tagsarr,
+		description : 'Mandalore skywalker greedo cade grievous jade. Luuke greedo cade moff alderaan darth wicket yavin mace. Gonk yoda darth amidala maul. Jade skywalker c-3po ewok moff. Hutt kit mustafar gamorrean palpatine jango hutt yoda mara. Mace yavin utapau antilles kenobi lobot hutt calrissian padmé'
 	});
 }
 

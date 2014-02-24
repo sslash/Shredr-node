@@ -8,8 +8,6 @@ function( Backbone, StagekickerTmpl  ) {
 	/* Return a ItemView class definition */
 	return Backbone.Marionette.ItemView.extend({
 
-		className : 'row',
-
 		initialize: function() {
 			console.log("initialize a Stagekicker ItemView");
 			Shredr.vent.on('stage:thumbclicked:fadeout', this.changeHeadline.bind(this));
@@ -32,8 +30,12 @@ function( Backbone, StagekickerTmpl  ) {
 			'click [data-event="back-btn"]' : '__backClicked'
 		},
 
-		/* on render callback */
-		onRender: function() {},
+		serializeData : function () {
+			return {
+				headline : 'Stage Headline Here',
+				kicker : 'Stage Kicker'
+			}
+		},
 
 		changeHeadline : function(model) {
 			var shouldChangeKicker = Shredr.request('stage:thumbclicked:shouldfade');

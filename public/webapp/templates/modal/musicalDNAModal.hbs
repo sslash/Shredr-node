@@ -1,39 +1,33 @@
-<section class="modal-content row">
+<div>
+<div class="modal-content row">
 	<div class="col-lg-6 up-meta focus-content">
 		<header class="bordered-header">
 			<h4>{{username}}'s Shredr Profile</h4>
 		</header>
 
 		<form class="form-flat dark text-left">
+			<label for="bio"><small>Write a short bio about yourself</small></label>
+			<textarea id="bio" type="text">{{bio}}</textarea>
 
 			<label for="guitar-start"><small>When did you start playing guitar</small></label>
-			<input type="text" id="guitar-start" type="text" placeholder="e.g 1996">
-
-			<label for="guitar-tags"><small>What guitars do you own</small></label>
-			
-				<div class="tags-area">
-					<div class="style-tags space" data-region="guitar-tags">
-
-					</div>
-					<input type="text" placeholder="Start typing" id="guitar-tags">
-				</div>
+			<input type="text" id="guitar-start" type="text" placeholder="e.g 1996" value="{{startedPlaying}}">
 
 			<label for="city"><small>Where do you live</small></label>
-			<input type="text" id="city" type="text" placeholder="e.g Oslo">
+			<input type="text" id="city" type="text" placeholder="e.g Oslo" value="{{location}}">
 
 			<label for="birth"><small>When where you born</small></label>
 			<input id="birth" type="date">
 
+			<div class="footer">
 			<button data-event="done-btn" class="btn">Done</button>
 			<a href="#" data-event="cancel-dna">Cancel</a>
+			</div>
 		</form>
 	</div>
 
 	<div class="col-lg-6 up-video">
-		<form class="form-flat">
-
+		<form class="form-flat dark">
 			<header><p>What kind of music do you play</p></header>
-
 			<ul class="img-list" data-event="dna-click">
 				<li class="img-wrapper"><img class="dna-img" src="img/dna/classical.jpg"><span>Classical</span></li>
 				<li class="img-wrapper"><img class="dna-img" src="img/dna/electro.jpeg"><span>Electronic</span></li>
@@ -52,9 +46,19 @@
 				<li class="img-wrapper"><img class="dna-img" src="img/dna/metal.jpg"><span>Metal</span></li>
 				<li class="img-wrapper"><img class="dna-img" src="img/dna/instrumental.jpg"><span>Instrumental</span></li>
 			</ul>
+
+			<label for="guitar-tags"><small>What guitars do you own</small></label>
+
+			<div class="tags-area">
+				<div class="style-tags space" data-region="guitar-tags">
+					{{#each guitars}}
+						<span class="font-xsmall">{{this}}</span>
+					{{/each}}
+				</div>
+				<input type="text" placeholder="Start typing" id="guitar-tags">
+			</div>
 		</form>
 	</div>
-
-</section>
-
+</div>
+</div>
 

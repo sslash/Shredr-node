@@ -51,12 +51,10 @@ exports.index = function(req,res){
 };
 
 exports.register = function(req, res){
-	console.log("register: " + JSON.stringify(req.body));
 	var user = new User(req.body)
 	user.provider = 'local'
 	user.save(function (err) {
 		if (err) {
-			console.log("ERROR: " +JSON.stringify(err));
 			return res.send(err.errors);
 		} else {
 			// manually login the user once successfully signed up
@@ -79,6 +77,16 @@ var login = function (req, res) {
   // }
   res.send(req.user);
 }
+
+exports.getById = function (req, res) {
+	User.load(req.params.id, function (err, user) {
+		if ( err ) {
+			return res.send (err, 501);
+		} else {
+			return res.send (user);
+		}
+	});
+};
 
 
 exports.login = function(req,res){

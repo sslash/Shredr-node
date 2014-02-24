@@ -42,9 +42,13 @@ input {
 .form-flat {
 
   &.dark {
-    input {
+    input,textarea {
       background: @light-brown;
     }
+  }
+
+  .footer {
+    margin-top: 29px;
   }
 
   padding: 20px;
@@ -81,10 +85,7 @@ input {
       resize:none;
       &.short {height: 2.5em;}
     }
-
-    .footer {
-      margin-top: 15px;
-    }
+    
     .half {
       input, textarea {
        width:60%;
@@ -118,8 +119,8 @@ input {
 }
 
 ul.img-list {
-  min-height: 356px;
   padding: 0;
+  margin-bottom: 30px;
   li {
     display:inline-block;
     margin-bottom: 5px;

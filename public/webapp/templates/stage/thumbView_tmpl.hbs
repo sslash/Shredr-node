@@ -1,12 +1,12 @@
 
 <div class="img-wrapper stage-box">
 	<!--<img src="img/profiles/{{this.user.profileImgFile}}">-->
-	<img class="thumb-img" src="http://img.youtube.com/vi/{{this.youtubeId}}/0.jpg">
+	<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/{{this.youtubeId}}/0.jpg">
 
 	<div class="content">
 		<h4>{{this.type}}</h4>
 		<p>{{this.title}}</h5>
 	</div>
 
-	<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+	<a href="#shredders/{{this.user.id}}" data-event="user-clicked"><img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}"></a>
 </div>

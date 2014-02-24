@@ -15,10 +15,11 @@
  	email: { type: String, default: '' },
  	username: { type: String, default: '' },
   location: { type: String, default: '' },
-  location: { type: String, default: '' },
   birthdate: {type : Date},
   guitars : {type: []},
+  startedPlaying : {type: String, default: ''},
   musicDna : {type: []},
+  bio : {type: String, default: ''},
   profileImgFile: { type: String, default: '' },
  	provider: { type: String, default: '' },
  	hashed_password: { type: String, default: '' },
@@ -159,6 +160,14 @@ update: function (cb) {
    		return ''
    	}
    }
+}
+
+
+UserSchema.statics = {
+  load : function (id, cb) {
+    this.findOne({ _id : id })
+      .exec(cb)
+  }
 }
 
 mongoose.model('User', UserSchema)
