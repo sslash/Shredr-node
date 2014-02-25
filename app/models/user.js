@@ -4,6 +4,7 @@
  var mongoose     = require('mongoose'),
       Schema      = mongoose.Schema,
       crypto	    = require('crypto'),
+      Shred       = mongoose.model('Shred'),
       _           = require('underscore'),
       authTypes   = ['github', 'twitter', 'facebook', 'google', 'linkedin'],
       userPlugin  = require('mongoose-user');
@@ -24,6 +25,7 @@
  	provider: { type: String, default: '' },
  	hashed_password: { type: String, default: '' },
  	salt: { type: String, default: '' },
+  shreds: {type: []},
  	authToken: { type: String, default: '' },
  	facebook: {},
 	twitter: {},
@@ -166,7 +168,12 @@ update: function (cb) {
 UserSchema.statics = {
   load : function (id, cb) {
     this.findOne({ _id : id })
-      .exec(cb)
+      .exec(function(err,res) {
+        Shred.getShredsByUserId (id, function(err, shreds) {
+          res.shreds = shreds;
+          cb(err, res);
+        });
+      })
   }
 }
 

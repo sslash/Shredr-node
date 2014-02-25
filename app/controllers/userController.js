@@ -81,7 +81,7 @@ var login = function (req, res) {
 exports.getById = function (req, res) {
 	User.load(req.params.id, function (err, user) {
 		if ( err ) {
-			return res.send (err, 501);
+			return res.send (err, 400);
 		} else {
 			return res.send (user);
 		}

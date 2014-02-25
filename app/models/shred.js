@@ -172,6 +172,12 @@ ShredSchema.statics = {
       .exec(function(err, res) {
         cb(err,res);
       });
+  },
+
+  getShredsByUserId : function (userId, cb) {
+    this.find({user : userId})
+    .sort({'createdAt' : -1})
+    .exec(cb);
   }
 };
 

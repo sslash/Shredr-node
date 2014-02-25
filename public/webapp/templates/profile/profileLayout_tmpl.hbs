@@ -14,8 +14,8 @@
 				<img class="img-fullwidth" src="http://img.youtube.com/vi/l-0F0A6Du-k/0.jpg">
 
 				<div class="content">
-					<h2>Main Video hihglight</h2>
-					<p>This is the headline for their main video</p>
+					<h2>{{shreds.0.title}}</h2>
+					<p>{{shreds.0.description}}</p>
 				</div>
 			</div>
 		</div>
@@ -70,50 +70,20 @@
 			</section>
 		</section>	
 
-		<div class="col-sm-6 stage-clear"><div class="col-sm-6 stage-block">
-			<div class="img-wrapper stage-box">
-				<!--<img src="img/profiles/11.jpg">-->
-				<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/l-0F0A6Du-k/0.jpg">
+		<div class="col-sm-6 stage-clear">
 
-				<div class="content">
-					<h4>Jamtrack</h4>
-					<p>Air Marshal
-					</p></div>
-
-					<a href="#shredders/5309dadbe27a9ec8caae284e" data-event="user-clicked"><img class="profile-icon" src="img/profiles/11.jpg"></a>
-				</div></div><div class="col-sm-6 stage-block">
+			{{#each shreds}}
+			<div class="col-sm-6 stage-block">
 				<div class="img-wrapper stage-box">
-					<!--<img src="img/profiles/13.jpg">-->
-					<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/ZUM93WEzMHs/0.jpg">
+					<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/{{this.youtubeId}}/0.jpg">
 
 					<div class="content">
-						<h4>Tutorial</h4>
-						<p>Alone on a Wide, Wide Sea
-						</p></div>
-
-						<a href="#shredders/5309dadbe27a9ec8caae2877" data-event="user-clicked"><img class="profile-icon" src="img/profiles/13.jpg"></a>
-					</div></div><div class="col-sm-6 stage-block">
-					<div class="img-wrapper stage-box">
-						<!--<img src="img/profiles/2.jpg">-->
-						<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/DSDpeu0V1Ng/0.jpg">
-
-						<div class="content">
-							<h4>Tutorial</h4>
-							<p>Air Marshal
-							</p></div>
-
-							<a href="#shredders/5309dadbe27a9ec8caae287a" data-event="user-clicked"><img class="profile-icon" src="img/profiles/2.jpg"></a>
-						</div></div><div class="col-sm-6 stage-block">
-						<div class="img-wrapper stage-box">
-							<!--<img src="img/profiles/13.jpg">-->
-							<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/dm3QTgIdT8o/0.jpg">
-
-							<div class="content">
-								<h4>Jamtrack</h4>
-								<p>Air Marshal
-								</p></div>
-
-								<a href="#shredders/5309dadbe27a9ec8caae2841" data-event="user-clicked"><img class="profile-icon" src="img/profiles/13.jpg"></a>
-							</div></div></div>
-						</div>
-					</section>
+						<h4>{{this.type}}</h4>
+						<p>{{this.title}}</h5>
+					</div>
+				</div>
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</section>

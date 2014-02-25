@@ -10,7 +10,7 @@ define([
 		/* Return a ItemView class definition */
 		return Backbone.Marionette.ItemView.extend({
 
-			className: 'col-sm-6 stage-block stage-welcome stage-box box-inner',
+			className: 'col-sm-6 half half-box stage-box clear-marg box-inner',
 
 			initialize: function() {
 				Shredr.vent.on('stage:thumbclicked:fadeout', this.fadeOut.bind(this));
