@@ -112,7 +112,7 @@ function( Backbone, StageTmpl, StageKickerView, WelcomeBackView,
 		},
 
 		renderPreviewView : function(model) {
-			var previewView = new PreviewView({model : model});
+			var previewView = new PreviewView({model : model, fetch : true, includeUserInfo : true});
 			this.preview.show(previewView);
 
 			// In case its not garbage collected

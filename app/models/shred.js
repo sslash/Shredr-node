@@ -177,6 +177,7 @@ ShredSchema.statics = {
   getShredsByUserId : function (userId, cb) {
     this.find({user : userId})
     .sort({'createdAt' : -1})
+    .populate('comments.user')
     .exec(cb);
   }
 };

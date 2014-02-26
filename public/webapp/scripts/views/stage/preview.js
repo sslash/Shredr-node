@@ -12,8 +12,17 @@ function( Backbone, PreviewTmpl, CommentsTmpl, TabsPreviewView) {
 	return Backbone.Marionette.Layout.extend({
 		className : 'stage-box preview-inner',
 
-		initialize: function() {
-			this.model.fetch();
+		initialize: function(options) {
+			if ( options.fetch === true ) {
+				this.model.fetch();	
+			}
+
+			if ( options.includeUserInfo === true ) {
+				this.model.set({includeUserInfo : true});
+			} else {
+				this.model.set({includeUserInfo : false});
+			}
+			
 			this.listenTo(this.model, 'change:tags', this.populateView);
 			this.listenTo(this.model, 'change:rating', this.ratingChanged);
 			this.listenTo(this.model, 'change:comments', this.commentsChanged);
@@ -179,26 +188,25 @@ function( Backbone, PreviewTmpl, CommentsTmpl, TabsPreviewView) {
         	this.renderDuration();
       	},
 
-	      // 5. The API calls this function when the player's state changes.
-	      onPlayerStateChange : function(event) {
-	      	var that = this;
+      	// 5. The API calls this function when the player's state changes.
+	    onPlayerStateChange : function(event) {
+			var that = this;
 	        if (event.data == YT.PlayerState.PLAYING && !this.done) {
-	          // setTimeout(that.stopVideo.bind(that), 6000); // This stops the player after 6 seconds
-	          that.done = true;
-	        }
-	      },
-	      
-	      stopVideo : function() {
-	        this.player.stopVideo();
-	      },
+	      		that.done = true;
+	    	}
+      	},
+      	
+      	stopVideo : function() {
+      		this.player.stopVideo();
+      	},
 
-	      renderDuration : function() {
-	      	var secs = this.player.getDuration();
-	      	var mins = Math.floor(secs / 60);
-	      	secs = secs % 60;
+      	renderDuration : function() {
+      		var secs = this.player.getDuration();
+      		var mins = Math.floor(secs / 60);
+      		secs = secs % 60;
 
-	      	this.ui.duration.text(mins + ':' + secs);
-	      }
+      		this.ui.duration.text(mins + ':' + secs);
+      	}
 	});
 
 });

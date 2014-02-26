@@ -7,7 +7,7 @@ function( Backbone, Thumbview  ) {
 
 	/* Return a ItemView class definition */
 	return Backbone.Marionette.CollectionView.extend({
-		className: 'col-sm-6 stage-clear',
+		className: 'col-sm-6 clear-marg',
 
 		renderCount : 0,
 

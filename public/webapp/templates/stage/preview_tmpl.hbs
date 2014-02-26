@@ -6,6 +6,7 @@
 	<h5 class="lead">{{this.title}}</h5>
 	
 
+	{{#if includeUserInfo}}
 	<section class="profile-region row">
 		<div class="col-sm-2">
 			<img class="profile-icon profile-icon-lg" src="img/profiles/{{this.user.profileImgFile}}">
@@ -15,6 +16,7 @@
 			<small>{{this.user.location}}</small>
 		</div>
 	</section>
+	{{/if}}
 
 	<div class="xsmall-gap"></div>
 	<section class="rate-region row">

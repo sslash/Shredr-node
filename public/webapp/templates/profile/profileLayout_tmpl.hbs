@@ -1,6 +1,6 @@
 <section id="sr-stage-kicker"></section>
 
-<section id="preview-mode">
+<section>
 	<div class="row">
 		<div class="col-sm-6 half half-box stage-box clear-marg">
 			{{#if profileImgFile}}
@@ -11,13 +11,12 @@
 		</div>
 		<div class="col-sm-6 half half-box stage-box clear-marg">
 			<div class="img-wrapper">
-				<img class="img-fullwidth" src="http://img.youtube.com/vi/l-0F0A6Du-k/0.jpg">
-
+				<div id="player"></div>
 				<div class="content">
-					<h2>{{shreds.0.title}}</h2>
-					<p>{{shreds.0.description}}</p>
+					<h2 data-model="shred-title">{{shreds.0.title}}</h2>
+					<p data-model="shred-desc">{{shreds.0.description}}</p>
 				</div>
-			</div>
+			</div>			
 		</div>
 	</div>
 
@@ -31,7 +30,7 @@
 				<i class="fa fa-plus"></i>
 				{{/if}}
 			</section>
-			<h1 class="heading">{{username}}</h1>
+			<h1 class="heading big-up">{{username}}</h1>
 
 			<table class="two-columns-stats">
 				<tr>
@@ -70,12 +69,12 @@
 			</section>
 		</section>	
 
-		<div class="col-sm-6 stage-clear">
+		<div class="col-sm-6 clear-marg">
 
 			{{#each shreds}}
 			<div class="col-sm-6 stage-block">
 				<div class="img-wrapper stage-box">
-					<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/{{this.youtubeId}}/0.jpg">
+					<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/{{this.youtubeId}}/0.jpg" data-index="{{@index}}">
 
 					<div class="content">
 						<h4>{{this.type}}</h4>

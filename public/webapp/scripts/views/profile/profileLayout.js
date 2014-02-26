@@ -5,9 +5,18 @@ define([
 
 	// views
 	'views/stage/stageKicker',
-	'views/profile/editProfileView'
+	'views/profile/editProfileView',
+
+	// models
+	'models/shred',
+
+	// libs
+	'libs/youtubeplayer'
+
+
 ],
-function( Backbone, ProfileTmpl, StageKickerTmpl, StageKickerView, EditProfileView) {
+function( Backbone, ProfileTmpl, StageKickerTmpl, StageKickerView, EditProfileView,
+		  Shred, Youtubeplayer) {
     'use strict';
 
 	/* Return a Layout class definition */
@@ -26,20 +35,23 @@ function( Backbone, ProfileTmpl, StageKickerTmpl, StageKickerView, EditProfileVi
 
 		ui: {
 			kicker : '#sr-stage-kicker',
-			preview : '#preview-mode'
+			dataFadeable : '[data-fadeable="true"]',
+
+			// iframe content
+			shredDesc : '[data-model="shred-desc"]',
+			shredTitle : '[data-model="shred-title"]'
 		},
 
-		regions : {
-			preview : '#preview-mode'
-		},
+		regions : {},
 
 		/* Ui events hash */
 		events: {
-			'click [data-event="edit-btn"]' : '__editClicked'
+			'click [data-event="edit-btn"]' : '__editClicked',
+			'click [data-event="youtube-img"]' : '__videoImgClicked'
 		},
 
 		/* on render callback */
-		onRender: function() {
+		onRender: function () {
 			if ( this.model.get('birthdate') ) {
 				this.model.setDateString();
 			}
@@ -47,11 +59,28 @@ function( Backbone, ProfileTmpl, StageKickerTmpl, StageKickerView, EditProfileVi
 				kicker : 'Profile Kicker',
 				headline : 'Profile Headline'
 			}) );
+			if ( this.model.get('shreds') ) {
+				this.player = new Youtubeplayer('player', new Shred(this.model.get('shreds')[0]));
+				this.player.onYouTubeIframeAPIReady();
+			}
 		},
 
 		editProfileClosed : function () {
 			Shredr.modal.close();
 			this.$el.css({'opacity' : '1'});
+		},
+
+		__videoImgClicked : function (e) {
+			var index = $(e.currentTarget).attr('data-index');
+			index = parseInt(index);
+			var shred = new Shred(this.model.get('shreds')[index]);
+
+			// change headers
+			this.ui.shredDesc.text(shred.get('description'));
+			this.ui.shredTitle.text(shred.get('title'));
+			
+			// change and start playing video
+			this.player.changeVideo(shred);
 		},
 
 		__editClicked : function() {
