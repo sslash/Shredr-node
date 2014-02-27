@@ -8,6 +8,7 @@ define([
 		'shreds' : 'stagePage',
 		'shredroom': 'shredroom',
 		'profiles' : 'profiles',
+		'shred/:id' : 'shredPreview',
 		'shredders/:id' : 'profile',
 		'*action' : 'landingPage'
     },

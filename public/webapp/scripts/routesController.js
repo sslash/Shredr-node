@@ -9,12 +9,15 @@ define([
 	'views/stage/profilesLayout',
 	'views/profile/profileLayout',
 	'views/shredroom/shredroom',
+	'views/shred/shredPreviewView',
 
 	// models
-	'models/user'
+	'models/user',
+	'models/Shred'
 
 	], function (Backbone, NavMainView, LandingPageView, MainNavView, 
-		StageView, ProfilesView, ProfileView, ShredroomView, User) {
+		StageView, ProfilesView, ProfileView, ShredroomView, ShredPreviewView,
+		User, Shred) {
 
 	var MainController = Backbone.Marionette.Controller.extend({
 
@@ -42,6 +45,11 @@ define([
 			this.renderProfilesView();
 		},
 
+		shredPreview : function (id) {
+			this.renderNavigationView();
+			this.renderShredPreview(id);
+		},
+
 		profile : function (id) {
 			this.renderNavigationView();
 			var model = new User({id : id});
@@ -61,6 +69,12 @@ define([
 		renderProfileView : function (model) {
 			var view = new ProfileView ( {model : model} );
 			Shredr.main.show(view);
+		},
+
+		renderShredPreview : function (id) {
+			var shred = new Shred({id : id});
+			var view = new ShredPreviewView ( {model : shred} );
+			Shredr.main.show(view);	
 		},
 
 		renderProfilesView : function() {

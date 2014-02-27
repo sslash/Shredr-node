@@ -12,6 +12,19 @@
 		<div class="col-sm-6 half half-box stage-box clear-marg">
 			<div class="img-wrapper">
 				<div id="player"></div>
+				<img class="img-fullwidth" data-model="youtube-preview" src="http://img.youtube.com/vi/{{shreds.0.youtubeId}}/0.jpg">
+
+				<div class="content-btns">
+					<span class="fa-stack fa-lg" title="Play" data-event="youtube-img">
+						<i class="fa fa-circle fa-stack-2x"></i>
+						<i class="fa fa-play fa-stack-1x fa-inverse"></i>
+					</span>
+					<span class="fa-stack fa-lg" title="Fullscreen view" data-event="fullscreen-shred" data-model="{{shreds.0._id}}">
+						<i class="fa fa-circle fa-stack-2x"></i>
+						<i class="fa fa-expand fa-stack-1x fa-inverse"></i>
+					</span>
+				</div>
+
 				<div class="content">
 					<h2 data-model="shred-title">{{shreds.0.title}}</h2>
 					<p data-model="shred-desc">{{shreds.0.description}}</p>
@@ -73,8 +86,19 @@
 
 			{{#each shreds}}
 			<div class="col-sm-6 stage-block">
-				<div class="img-wrapper stage-box">
-					<img class="thumb-img" data-event="youtube-img" src="http://img.youtube.com/vi/{{this.youtubeId}}/0.jpg" data-index="{{@index}}">
+				<div class="img-wrapper stage-box" data-event="thumb-hover">
+					<img class="thumb-img" src="http://img.youtube.com/vi/{{this.youtubeId}}/0.jpg" data-index="{{@index}}">
+
+					<div class="content-btns" data-model="content-btns" style="display:none">
+						<span class="fa-stack fa-lg" title="Play" data-event="youtube-img">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-play fa-stack-1x fa-inverse"></i>
+						</span>
+						<span class="fa-stack fa-lg" title="Fullscreen view" data-event="fullscreen-shred" data-model="{{this._id}}">
+							<i class="fa fa-circle fa-stack-2x"></i>
+							<i class="fa fa-expand fa-stack-1x fa-inverse"></i>
+						</span>
+					</div>
 
 					<div class="content">
 						<h4>{{this.type}}</h4>

@@ -20,7 +20,7 @@ function() {
     			height: '390',
     			width: '640',
     			playerVars : {
-    				autoplay : 0,
+    				autoplay : 1,
     				cc_load_policy : 0,
     				controls : 0,
     				fs : 0,
