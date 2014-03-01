@@ -37,12 +37,12 @@ define([
 				kicker : '#sr-stage-kicker',
 				contentBtns : '[data-model="content-btns"]',
 
-			// iframe content
-			shredDesc : '[data-model="shred-desc"]',
-			shredTitle : '[data-model="shred-title"]',
-			youtubePreview : '[data-model="youtube-preview"]',
+				// iframe content
+				shredDesc : '[data-model="shred-desc"]',
+				shredTitle : '[data-model="shred-title"]',
+				youtubePreview : '[data-model="youtube-preview"]',
 
-		},
+			},
 
 		regions : {},
 
