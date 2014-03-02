@@ -34,6 +34,8 @@
     "request": "~2.27.0",
     "time-grunt": "~0.1.1",
     "load-grunt-tasks": "~0.2.0",
-    "grunt-contrib-less": "~0.8.3"
+    "grunt-contrib-less": "~0.8.3",
+    "winston": "0.6.x",
+    "express-winston": "~0.2.4"
   }
 }

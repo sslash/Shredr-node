@@ -1,3 +1,5 @@
+// TODO: change to use a shredpreviewmeta view here!!
+
 define([
 	'backbone',
 	'hbs!tmpl/stage/preview_tmpl',

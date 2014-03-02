@@ -33,7 +33,6 @@ function( Backbone ) {
 				var str = curr_date + '-' + curr_month + '-' + curr_year;
 				this.set({'dateString': str});
 			}
-		}
-
+		},
 	});
 });

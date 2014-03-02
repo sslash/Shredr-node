@@ -11,11 +11,11 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    develop: {
-      server: {
-        file: 'app.js'
-      }
-    },
+    // develop: {
+    //   server: {
+    //     file: 'app.js'
+    //   }
+    // },
     watch: {
       options: {
         nospawn: true,
@@ -35,14 +35,9 @@ module.exports = function (grunt) {
         ],
         //tasks: ['develop', 'delayed-livereload']
       },
-      ejs: {
-        files: ['app/views/**/*.ejs'],
-        options: { livereload: reloadPort }
-      },
-
       less: {
         files: ['public/webapp/css/*.less'],
-        tasks: ['less']//, 'develop', 'delayed-livereload'],
+        tasks: ['less'],
       }
     },
 
@@ -85,5 +80,5 @@ module.exports = function (grunt) {
     }, 500);
   });
 
-  grunt.registerTask('default', ['develop', 'watch']);
+  grunt.registerTask('default', ['watch']);
 };

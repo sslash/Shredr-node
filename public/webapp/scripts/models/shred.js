@@ -871,6 +871,10 @@ define([
 				})
 				.fail(function(err) {console.log('fail');});
 			}
+		},
+
+		getUserId : function () {
+			return this.get('user')._id || this.get('user').id;
 		}
 	});
 });

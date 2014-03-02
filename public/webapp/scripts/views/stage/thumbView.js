@@ -42,20 +42,16 @@ function( Backbone, ThumbviewTmpl  ) {
 			'click img[data-event="youtube-img"]' : '__imgClicked'
 		},
 
+
+		// Todo: remember to remove any listeners on this event when their view closes
 		__imgClicked : function() {
 			Shredr.vent.trigger('stage:thumbclicked:fadeout', this.model);
-
-			// $("input").toggle(function() {
-			// 	clearTimeout(timer);
-			// }, function() {
-			// 	rotate();
-			// });
 		},
 
 		__userClicked : function (e) {
 			e.preventDefault();
 			e.stopPropagation();
-			Shredr.router.navigate('#shredders/' + this.model.get('user').id, {trigger : true});
+			Shredr.router.navigate('#shredders/' + this.model.getUserId(), {trigger : true});
 		}
 	});
 

@@ -1,9 +1,11 @@
 /**
  * Module dependencies.
  */
- var mongoose = require('mongoose'),
- Shred = mongoose.model('Shred'),
- _ = require('underscore');
+ var mongoose   = require('mongoose'),
+     Shred      = mongoose.model('Shred'),
+     _          = require('underscore'),
+     ShredsQuery= require('../libs/shredsQuery.js');
+
 
  exports.get = function(req, res) {
 
@@ -28,7 +30,8 @@
   var perPage = 32;
   var options = {
     perPage: perPage,
-    page: page
+    page: page,
+    populate : 'user' 
   };
 
   Shred.list(options, function(err, shreds) {
@@ -100,6 +103,16 @@
     if (!shred) { return next(new Error('not found')); }
     req.shred = shred;
     next();
+  });
+};
+
+exports.query = function (req, res) {
+  return ShredsQuery.query(req.query, function (err, result) {
+    if ( err ) {
+      res.send(err, 400);
+    } else {
+      res.send(result);  
+    }    
   });
 };
 

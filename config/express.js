@@ -1,8 +1,10 @@
-var express = require('express');
-var mongoStore = require('connect-mongo')(express);
-var mongoConfig = require('./mongoConfig');
-var pkg = require('../package');
-var exphbs  = require('express3-handlebars');
+var express     = require('express'),
+    mongoStore  = require('connect-mongo')(express),
+    mongoConfig = require('./mongoConfig'),
+    pkg         = require('../package'),
+    exphbs      = require('express3-handlebars'),
+    winston     = require('winston'),
+    expressWinston = require('express-winston');
 
 module.exports = function (app, config, passport) {
   app.set('showStackError', true);
@@ -12,6 +14,16 @@ module.exports = function (app, config, passport) {
 
   app.use(express.static(config.root + '/public'));
   app.use(express.logger('dev'));
+
+  // express-winston logger makes sense BEFORE the router.
+  app.use(expressWinston.logger({
+    transports: [
+      new winston.transports.Console({
+        json: true,
+        colorize: true
+      })
+    ]
+  }));
 
   // views config
   app.engine('.hbs', exphbs({extname: '.hbs'}));
@@ -40,6 +52,16 @@ module.exports = function (app, config, passport) {
 
     // routes should be at the last
     app.use(app.router);
+
+    // express-winston errorLogger makes sense AFTER the router.
+    app.use(expressWinston.errorLogger({
+      transports: [
+        new winston.transports.Console({
+          json: true,
+          colorize: true
+        })
+      ]
+    }));
 
     app.use(function (req, res, next) {
       res.status(404).render('404', { url: req.originalUrl });

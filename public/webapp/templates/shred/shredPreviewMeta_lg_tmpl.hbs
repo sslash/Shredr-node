@@ -1,0 +1,95 @@
+<section class="tabs-preview stage-box"></section>
+<section class="focus-content stage-box">
+
+	<section class="right" data-section="shred-stats">
+		<span class="meta-stretch"><small>Rating: </small><label data-model="rateVal">{{#if this.rateValue}}{{this.rateValue}}{{else}}0{{/if}}</label></span>
+		<span class="meta-stretch"><small>Duration: </small><label data-model="duration"></label></span>
+		<span class="meta-stretch"> <button class="btn small"><small>Hide</small><label><i class="fa fa-angle-double-right"></i></label></button></span>
+	</section>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<h5>{{this.type}}</h5>
+			<h3 class="lead clear-marg">{{this.title}}</h3>
+			<section class="desc-section">
+				<p class="small"><em>{{this.description}}</em></p>
+			</section>
+
+			<div class="xsmall-gap"></div>
+
+			<section class="profile-region row">
+				<div class="col-sm-2">
+					<img class="profile-icon profile-icon-lg" src="img/profiles/{{this.user.profileImgFile}}">
+				</div>
+				<div class="col-sm-10 usr-meta">
+					<p class="clear-marg"><strong>{{this.user.username}}</strong></p>
+					<small>{{this.user.location}}</small>
+				</div>
+			</section>
+
+			<div class="xsmall-gap"></div>
+
+			<section class="style-tags row clear-marg">
+				<div class="col-sm-10 clear-marg">
+				{{#each this.tags}}
+				<span class="font-xsmall">{{this}}</span>
+				{{/each}}
+				</div>
+			</section>
+
+		</div> <!-- /col-sm-6 -->
+
+		<div class="col-sm-6">			
+
+			<section class="rate-region row">
+				<div class="xsmall-gap"></div>
+				<form>
+					<div class="col-sm-10 logos">
+						<img src="img/icons/logo_sml_white.png" data-index="0" class="logo-xsmall">
+						<img src="img/icons/logo_sml_white.png" data-index="1" class="logo-xsmall">
+						<img src="img/icons/logo_sml_white.png" data-index="2" class="logo-xsmall">
+						<img src="img/icons/logo_sml_white.png" data-index="3" class="logo-xsmall">
+						<img src="img/icons/logo_sml_white.png" data-index="4" class="logo-xsmall">
+						<img src="img/icons/logo_sml_white.png" data-index="5" class="logo-xsmall">
+						<img src="img/icons/logo_sml_white.png" data-index="6" class="logo-xsmall">
+						<img src="img/icons/logo_sml_white.png" data-index="7" class="logo-xsmall">
+						<img src="img/icons/logo_sml_white.png" data-index="8" class="logo-xsmall">
+						<img src="img/icons/logo_sml_white.png" data-index="9" class="logo-xsmall">
+					</div>
+
+					<div class="col-sm-2 clear-marg">
+						<p><strong data-model="rating">0/10</strong></p>
+					</div>
+				</form>
+			</section>
+
+			<section class="lighten">
+				<section data-region="comments-list">
+					<section class="profile-region row comment">
+						<div class="col-sm-2">
+							<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+						</div>
+						<div class="col-sm-10">
+							<p class="clear-marg small"><strong>Mike dike</strong> <em class="font-xsmall right">12. August 2014</em>
+							<small class="font-small">Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
+							</p>
+						</div>
+					</section>
+					<section class="profile-region row comment">
+						<div class="col-sm-2">
+							<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
+						</div>
+						<div class="col-sm-10">
+							<p class="clear-marg small"><strong>Mike dike</strong> <em class="font-xsmall right">12. August 2014</em>
+							<small class="font-small">Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small></p>
+						</div>
+					</section>
+				</section>   <!-- /comments-list -->
+			</section>  <!-- /comments-region -->
+
+			<div class="xsmall-gap"></div>
+
+		</div> <!-- /col-sm-6 -->
+	</div> <!-- /row-->
+
+</section> 

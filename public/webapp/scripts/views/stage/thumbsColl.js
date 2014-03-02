@@ -29,7 +29,7 @@ function( Backbone, Thumbview  ) {
   			}
   			this.renderCount++;
 
-			var options = _.extend({model: item, mustFadeOut : mustFadeOut}, itemViewOptions);
+			var options = _.extend({model: item, mustFadeOut : mustFadeOut, }, itemViewOptions);
 
 			// create the item view instance
 		  	var view = new ItemViewType(options);

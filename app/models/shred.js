@@ -163,9 +163,11 @@ ShredSchema.statics = {
 
   list: function (options, cb) {
     var criteria = options.criteria || {};
+    var populate = options.populate || '';
+    console.log('list: ' + JSON.stringify(options));
 
     this.find(criteria)
-      .populate('user')
+      .populate(populate)
       .sort({'createdAt': -1}) // sort by date
       .limit(options.perPage)
       .skip(options.perPage * options.page)

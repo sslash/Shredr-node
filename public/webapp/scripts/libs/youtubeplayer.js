@@ -1,10 +1,12 @@
-define([],
-function() {
+define([
+    'backbone'
+    ], function(Backbone) {
     'use strict';
 
     var Player = function (el, model) {
     	this.el = el;
     	this.model = model;
+        _.extend(this, Backbone.Events);
     };
 
     Player.prototype.changeVideo = function (model) {
@@ -15,12 +17,13 @@ function() {
 	// 3. This function creates an <iframe> (and YouTube player)
   	//    after the API code downloads.
     Player.prototype.onYouTubeIframeAPIReady = function () {
+        var trycount = 0;
     	try {
     		this.player = new YT.Player(this.el, {
     			height: '390',
     			width: '640',
     			playerVars : {
-    				autoplay : 1,
+    				autoplay : 0,
     				cc_load_policy : 0,
     				controls : 0,
     				fs : 0,
@@ -37,7 +40,9 @@ function() {
     		});
     	}catch(e) {
     		console.log('error ' + e);
-    		setTimeout(this.onYouTubeIframeAPIReady.bind(this), 50);
+            if ( ++trycount < 20 ) {
+    	   	   setTimeout(this.onYouTubeIframeAPIReady.bind(this), 100);
+            }
     	}
     };
 
@@ -45,6 +50,7 @@ function() {
     Player.prototype.onPlayerReady = function(event) {
     	// event.target.playVideo();
     	// this.renderDuration();
+        this.trigger('player:ready');
   	};
 
   	// 5. The API calls this function when the player's state changes.
@@ -58,6 +64,10 @@ function() {
 	Player.prototype.stopVideo = function () {
   		this.player.stopVideo();
   	};
+
+    Player.prototype.getDuration = function () {
+        return this.player.getDuration();
+    };
 
   	return Player;
 

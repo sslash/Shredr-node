@@ -1,5 +1,5 @@
 <div id="player"></div>
-<section class="tabs-preview stage-box"></section>
+
 <section class="focus-content">
 	<label class="right" data-model="duration"></label>
 	<h3>{{this.type}}</h3>
@@ -8,7 +8,7 @@
 
 	{{#if includeUserInfo}}
 	<section class="profile-region row">
-		<div class="col-sm-2">
+		<div class="col-sm-2 clear-marg">
 			<img class="profile-icon profile-icon-lg" src="img/profiles/{{this.user.profileImgFile}}">
 		</div>
 		<div class="col-sm-10 usr-meta">
@@ -125,11 +125,4 @@
 	</section>
 </section>
 
-<!-- rating:
-
-- number of raters
-- rating
-
-- rate it: 0-10 pics
-
--->
+<section class="tabs-preview stage-box"></section>

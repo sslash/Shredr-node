@@ -1,12 +1,24 @@
 .btn {
-	display: inline-block;
-  	font-weight: @btn-font-weight;
-  	text-align: center;
-  	vertical-align: middle;
-  	cursor: pointer;
-  	.button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-base);
-  	color: @white;
-  	background-color: @red-dark;
+  display: inline-block;
+  border-radius: 0px;
+  font-weight: @btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-base);
+  color: @white;
+  background-color: @red-dark;
+
+  i {
+    position: relative;
+    left: 3px;
+    top: 1px;
+  }
+
+  &.small {
+    line-height:1;
+    padding: 4px 10px;
+  }
 }
 
 .btn-medium {
