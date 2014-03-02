@@ -5,8 +5,8 @@ define([
 	// models
 	'models/shred',
 
-	'views/stage/tabsPreview'
-
+	// views
+	'views/stage/tabsPreview',
 ],
 function( Backbone, tmpl, Shred, TabsView) {
     'use strict';
@@ -26,7 +26,7 @@ function( Backbone, tmpl, Shred, TabsView) {
 		ui : {
 			duration : '[data-model="duration"]',
 			logos : '.logos .logo-xsmall',
-			commentsList : '[data-region="comments-list"]',
+			tabs : '[data-region="tabs-region"]',
 
 			// imgs
 			index0 : '[data-index="0"]',
@@ -52,6 +52,16 @@ function( Backbone, tmpl, Shred, TabsView) {
 
 		onRender : function () {
 			this.renderDuration();
+		},
+
+		onShow : function () {
+			this.renderTabs();
+		},
+
+		renderTabs : function (){
+			this.tabsView = new TabsView({model : this.model});
+			this.ui.tabs.append(this.tabsView.render().el);
+			this.tabsView.drawTabs();
 		},
 
 		playerReady : function () {

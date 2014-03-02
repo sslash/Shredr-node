@@ -10,7 +10,7 @@ function( Backbone, TabsPrev  ) {
 		
 		initialize: function(options) {
       // Must render on this event, in order to get the correct size of the tabs image
-      Shredr.vent.on('stage:thumbclicked:afterReorder', this.drawTabs.bind(this));
+      // Shredr.vent.on('stage:thumbclicked:afterReorder', this.drawTabs.bind(this));
 		},
 		
 		template: TabsPrev,
@@ -19,7 +19,7 @@ function( Backbone, TabsPrev  ) {
     },
 
   	startTabRuler : function() {
-  		var tempo = this.model.get('tabs').tempo;
+  		  var tempo = this.model.get('tabs').tempo;
       	var bts_sec = tempo / 60; // beveg deg bts_sec firedels noter i sekundet
       	var draws_sec = bts_sec * (1*4); // 1/4 noter i sekundet * 16 = 1/64
       	var miliseconds_until_next_draw = 1000/draws_sec;
@@ -64,11 +64,10 @@ function( Backbone, TabsPrev  ) {
       		if (!this.model.get('tabs')) {
       			return false;
       		}
-
 	        var prevLeft = 0;
-	        
-	        this.tabswidth = this.$('img').width();
-          this.tabsHeight = (this.$('.tabsArea img').height()/6) - 2.5;
+          var rect = this.el.getBoundingClientRect();
+	        this.tabswidth = rect.width;
+          this.tabsHeight = (rect.height/6) - 2.5;
 	        var tabs = this.model.get('tabs').tabs;
 	        var prevRest = tabs[0].rest * 2; // Start from 32 px left margin
 
