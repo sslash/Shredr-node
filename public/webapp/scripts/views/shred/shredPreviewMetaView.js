@@ -27,6 +27,7 @@ function( Backbone, tmpl, Shred, TabsView) {
 			duration : '[data-model="duration"]',
 			logos : '.logos .logo-xsmall',
 			tabs : '[data-region="tabs-region"]',
+			meta : '[data-region="meta"]',
 
 			// imgs
 			index0 : '[data-index="0"]',
@@ -48,6 +49,8 @@ function( Backbone, tmpl, Shred, TabsView) {
 			'mouseenter .logos .logo-xsmall' : '__logoEntered',
 			'mouseleave .logos'		: '__logoExit',
 			'click .logos .logo-xsmall' : '__rateClicked',
+			'click [data-event="hide-btn"]' : '__hideClicked'
+
 		},
 
 		onRender : function () {
@@ -58,7 +61,7 @@ function( Backbone, tmpl, Shred, TabsView) {
 			this.renderTabs();
 		},
 
-		renderTabs : function (){
+		renderTabs : function () {
 			this.tabsView = new TabsView({model : this.model});
 			this.ui.tabs.append(this.tabsView.render().el);
 			this.tabsView.drawTabs();
@@ -95,6 +98,10 @@ function( Backbone, tmpl, Shred, TabsView) {
 		},
 
       	// EVENTS
+
+      	__hideClicked : function () {
+      		this.ui.meta.fadeOut();
+      	},
 
       	__logoExit : function(e) {
 			if ( !this.model.get('userHasRated') ) {

@@ -7,16 +7,22 @@ function( Backbone, TabsPrev  ) {
 
 	/* Return a ItemView class definition */
 	return Backbone.Marionette.ItemView.extend({
+
+    barsIndex : 0,
 		
 		initialize: function(options) {
       // Must render on this event, in order to get the correct size of the tabs image
-      // Shredr.vent.on('stage:thumbclicked:afterReorder', this.drawTabs.bind(this));
+      this.tabs = this.model.get('tabs').tabs;
+      Shredr.vent.on('stage:thumbclicked:afterReorder', this.drawTabs.bind(this));
 		},
 		
 		template: TabsPrev,
     ui : {
-      tab : "#tab-input"
+      tab : '[data-model="tab-input"]',
+      tabsArea : '[data-region="tabs"]'
     },
+
+    // Playback
 
   	startTabRuler : function() {
   		  var tempo = this.model.get('tabs').tempo;
@@ -27,17 +33,16 @@ function( Backbone, TabsPrev  ) {
       	this.firstRest = this.model.get('tabs').tempo * 2;
       	var widthInterval = 1148 / (4*16); // bredde per bevegelse. vet ikke hvorfor 1140 gir riktig bredde
       	this.currWidthInterval = this.tabswidth / (firstRest*4) - 5;
-      	var that = this;
 
       	this.antallRulerMvmnts = 4*16;
       	setInterval(function(){
       		antallRulerMvmnts --;
       		if (antallRulerMvmnts == 0) {
-      			that.redrawTabs();            
+      			this.redrawTabs();            
       		}
-      		that.drawRuler(that.currWidthInterval);
-      		that.currWidthInterval += widthInterval;
-      	}, miliseconds_until_next_draw);
+      		this.drawRuler(this.currWidthInterval);
+      		this.currWidthInterval += widthInterval;
+      	}.bind(this), miliseconds_until_next_draw);
       },
 
       redrawTabs : function() {
@@ -56,41 +61,50 @@ function( Backbone, TabsPrev  ) {
       	},
 
       	drawBackground : function(){
-          var that = this;
+          if (!this.tabs) { return false; }
 
-      		if ( !this.barsIndex ){
-      			this.barsIndex = 0;
-      		}
-      		if (!this.model.get('tabs')) {
-      			return false;
-      		}
 	        var prevLeft = 0;
+          var topOffset = 0;
           var rect = this.el.getBoundingClientRect();
-	        this.tabswidth = rect.width;
-          this.tabsHeight = (rect.height/6) - 2.5;
-	        var tabs = this.model.get('tabs').tabs;
-	        var prevRest = tabs[0].rest * 2; // Start from 32 px left margin
+	        this.tabswidth = rect.width - 24; // 24 is left and right margin
+          this.tabsHeight = (85/6) -2; // img is set to 85px. -2 just works...
+	        
+	        var prevRest = this.tabs[0].rest * 2; // Start from 32 px left margin
 
-	        for (var barsCounter = 0; (this.barsIndex < tabs.length && barsCounter < 4); this.barsIndex ++ ){
-	        	var tab = tabs[this.barsIndex];
+	        for (var barsCounter = 0; (this.barsIndex < this.tabs.length); this.barsIndex++ ){
+	        	var tab = this.tabs[this.barsIndex];
 	        	barsCounter += 1/tab.rest;
 
 	        	prevLeft = Math.round(( this.tabswidth / (prevRest*4)) + prevLeft);
 	        	prevRest = tab.rest;
 
-	        	_.each(tab.stringz, function(obj) {
+	        	tab.stringz.forEach(function(obj) {
 	        		var le_string = Object.keys(obj)[0];
 	        		var label = $("<label class='note' title='" +tab.rest + "'>" + obj[le_string] + "</label>");
-	        		label.css('left', (prevLeft + "px") );
 
 	            // first 9 = top offset. Multiplier 10 = offset between lines
-	            var top = that.tabsHeight-6 + (le_string*that.tabsHeight);
-	            label.css('top', (top + "px") );
+	            var top = this.tabsHeight +10 + (le_string*this.tabsHeight) + topOffset;
+	            label.css({
+                'top': (top + 'px'),
+                'left': (prevLeft + "px") 
+              });
+	            this.ui.tab.append(label);
+            }.bind(this)); 
 
-	            that.$('#tab-input').append(label);
-	        });             
+            if(barsCounter % 4 === 0 ) {
+              this.appendNoteImg();
+              prevLeft = 0;
+              topOffset += rect.height -18; // -18 just works...
+            }            
 	        }
     	},
+
+      appendNoteImg : function () {
+        this.ui.tabsArea.append('<div class="tabs-row"><img src="img/tabs.png" class="tabs-img">\
+          <div data-model="tab-input" id="tab-input">\
+          <canvas id="bars" style="width:540;"></canvas>\
+          </div></div>');
+      },
 
     	drawRuler : function(nextWidth){
     		var ruler=document.getElementById("bars");
