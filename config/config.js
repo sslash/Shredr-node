@@ -9,33 +9,7 @@ var config = {
     app: {
       name: 'shredr'
     },
-    port: 3000,
-
-    facebook: {
-      clientID: "APP_ID",
-      clientSecret: "APP_SECRET",
-      callbackURL: "http://localhost:3000/auth/facebook/callback"
-    },
-    twitter: {
-      clientID: "CONSUMER_KEY",
-      clientSecret: "CONSUMER_SECRET",
-      callbackURL: "http://localhost:3000/auth/twitter/callback"
-    },
-    github: {
-      clientID: 'APP_ID',
-      clientSecret: 'APP_SECRET',
-      callbackURL: 'http://localhost:3000/auth/github/callback'
-    },
-    google: {
-      clientID: "APP_ID",
-      clientSecret: "APP_SECRET",
-      callbackURL: "http://localhost:3000/auth/google/callback"
-    },
-    linkedin: {
-      clientID: "CONSUMER_KEY",
-      clientSecret: "CONSUMER_SECRET",
-      callbackURL: "http://localhost:3000/auth/linkedin/callback"
-    }
+    port: 3000
   },
 
   test: {
@@ -43,43 +17,13 @@ var config = {
     app: {
       name: 'shredr'
     },
-    port: 3000,
-
-    facebook: {
-      clientID: "APP_ID",
-      clientSecret: "APP_SECRET",
-      callbackURL: "http://localhost:3000/auth/facebook/callback"
-    },
-    twitter: {
-      clientID: "CONSUMER_KEY",
-      clientSecret: "CONSUMER_SECRET",
-      callbackURL: "http://localhost:3000/auth/twitter/callback"
-    },
-    github: {
-      clientID: 'APP_ID',
-      clientSecret: 'APP_SECRET',
-      callbackURL: 'http://localhost:3000/auth/github/callback'
-    },
-    google: {
-      clientID: "APP_ID",
-      clientSecret: "APP_SECRET",
-      callbackURL: "http://localhost:3000/auth/google/callback"
-    },
-    linkedin: {
-      clientID: "CONSUMER_KEY",
-      clientSecret: "CONSUMER_SECRET",
-      callbackURL: "http://localhost:3000/auth/linkedin/callback"
-    }
+    port: 3000
   },
 
-  production: {
+  production : {
     root: rootPath,
-    app: {
-      name: 'shredr'
-    },
-    port: 3000
+    port: process.env.PORT || 5000
   }
-
 };
 
 module.exports = config[env];
