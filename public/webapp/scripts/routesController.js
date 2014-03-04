@@ -13,7 +13,7 @@ define([
 
 	// models
 	'models/user',
-	'models/Shred'
+	'models/shred'
 
 	], function (Backbone, NavMainView, LandingPageView, MainNavView, 
 		StageView, ProfilesView, ProfileView, ShredroomView, ShredPreviewView,
