@@ -1,8 +1,8 @@
 require([
-	'backbone',
+	'backbone.marionette',
 	'application',
 	'regionManager'
 ],
-function ( Backbone, App ) {
+function ( Marionette, App ) {
     'use strict';
 });

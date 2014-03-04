@@ -1,5 +1,5 @@
 define([
-	'backbone',
+	'backbone.marionette',
 	'communicator',
 
 	'eventsController',
@@ -11,11 +11,11 @@ define([
     'models/user'
 ],
 
-function( Backbone, Communicator,EventController, RoutesController,
+function( Marionette, Communicator,EventController, RoutesController,
 			MainRouter, ShredsCollection, User ) {
     'use strict';
 
-	window.Shredr = new Backbone.Marionette.Application();
+	window.Shredr = new Marionette.Application();
 
 	Shredr.on("initialize:before", function(options){
 		this.addRegions({
