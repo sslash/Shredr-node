@@ -1,6 +1,7 @@
 define([
 	'backbone',
 	'hbs!tmpl/shred/shredPreviewMeta_lg_tmpl',
+	'hbs!tmpl/stage/comment_tmpl',
 
 	// models
 	'models/shred',
@@ -8,7 +9,7 @@ define([
 	// views
 	'views/stage/tabsPreview',
 ],
-function( Backbone, tmpl, Shred, TabsView) {
+function( Backbone, tmpl, CommentsTmpl, Shred, TabsView) {
     'use strict';
 
 	/* Return a Layout class definition */
@@ -21,6 +22,7 @@ function( Backbone, tmpl, Shred, TabsView) {
 			this.player = options.player;
 			this.listenTo(this.player, 'player:ready', this.playerReady);
 			this.listenTo(this.model, 'change:rating', this.ratingChanged);
+			this.listenTo(this.model, 'leChange:commentAdded', this.commentAddedSuccess);
 		},
 
 		ui : {
@@ -28,6 +30,7 @@ function( Backbone, tmpl, Shred, TabsView) {
 			logos : '.logos .logo-xsmall',
 			tabs : '[data-region="tabs-region"]',
 			meta : '[data-region="meta"]',
+			commentsList : '[data-region="comments-list"]',
 
 			// imgs
 			index0 : '[data-index="0"]',
@@ -49,12 +52,14 @@ function( Backbone, tmpl, Shred, TabsView) {
 			'mouseenter .logos .logo-xsmall' : '__logoEntered',
 			'mouseleave .logos'		: '__logoExit',
 			'click .logos .logo-xsmall' : '__rateClicked',
-			'click [data-event="hide-btn"]' : '__hideClicked'
-
+			'click [data-event="hide-btn"]' : '__hideClicked',
+			'click [data-event="comment"]' : '__commentClicked',
+			'keypress textarea' : '__commentKeyPress'
 		},
 
 		onRender : function () {
 			this.renderDuration();
+			this.renderComments();
 		},
 
 		onShow : function () {
@@ -97,10 +102,55 @@ function( Backbone, tmpl, Shred, TabsView) {
 			}
 		},
 
+		commentAddedSuccess : function(comment) {
+			comment.user = Shredr.user.toJSON();
+			this.renderComment(comment);
+		},
+
+		renderComment : function(comment) {
+			var commentHtml = CommentsTmpl({
+				body : comment.body,
+				createdAt : comment.createdAt,
+				user : comment.user
+			});
+			this.ui.commentsList.prepend(commentHtml);
+		},
+
+		renderComments : function() {
+			// render comments
+			if( this.model.get('comments')) {
+				this.model.get('comments').forEach(function(comment) {
+					this.renderComment(comment);
+				}.bind(this));
+			}
+		},
+
       	// EVENTS
 
-      	__hideClicked : function () {
-      		this.ui.meta.fadeOut();
+      	__commentKeyPress : function (e) {
+      		if ( e.keyCode === 13 ) {
+      			var comment = $(e.currentTarget).val();
+				this.model.addComment(comment);
+      		}
+      	},
+
+      	__commentClicked : function (e) {
+      		$(e.currentTarget).parents('.row').find('.col-sm-8').html('<textarea placeholder="Insert Comment" class="light"></textarea>');
+      	},
+
+      	__hideClicked : function (e) {
+      		if ( this.metaHidden ) {
+      			this.metaHidden = false;
+      			this.$('.show-btn').remove();
+      			this.ui.meta.fadeIn();
+      		} else {
+      			this.metaHidden = true;
+      			this.ui.meta.fadeOut();
+      			var $btn = $(e.currentTarget).clone();
+      			$btn.addClass('show-btn');
+	      		$btn.find('small').text('Show');
+	      		this.ui.tabs.prepend($btn);
+      		}      		
       	},
 
       	__logoExit : function(e) {

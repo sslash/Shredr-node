@@ -6,7 +6,7 @@
       crypto	    = require('crypto'),
       Shred       = mongoose.model('Shred'),
       _           = require('underscore'),
-      authTypes   = ['github', 'twitter', 'facebook', 'google', 'linkedin'],
+      authTypes   = [],
       userPlugin  = require('mongoose-user');
 
 /**
@@ -26,12 +26,7 @@
  	hashed_password: { type: String, default: '' },
  	salt: { type: String, default: '' },
   shreds: {type: []},
- 	authToken: { type: String, default: '' },
- 	facebook: {},
-	twitter: {},
-	github: {},
-	google: {},
-	linkedin: {}
+ 	authToken: { type: String, default: '' }
  });
 
 /**

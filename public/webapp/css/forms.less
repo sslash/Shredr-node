@@ -6,7 +6,6 @@ input[type="text"] {
 }
 
 input {
-
 	&.inline-search {
 		height: 14px; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
 		padding: @padding-base-vertical @padding-base-horizontal;
@@ -16,6 +15,25 @@ input {
 		padding-left: 24px;
 	}
 }
+
+input, textarea {
+  display:block;
+  width: 100%;
+  padding: @padding-base-vertical @padding-base-horizontal;
+  font-size: @font-size-small;
+  line-height: @line-height-base;
+  vertical-align: middle;
+  border: none;
+  color: @white;
+  &.light {
+    color:@nav-black;
+  }
+      // Placeholder
+      //
+      // Placeholder text gets special styles because when browsers invalidate entire
+      // lines if it doesn't understand a selector/
+      .placeholder();
+    }
 
 .search-content{
 	position: absolute;
@@ -60,25 +78,6 @@ input {
   input, select, textarea {
     margin: 10px 0;
   };
-
-  input, textarea {
-    display:block;
-    width: 100%;
-    padding: @padding-base-vertical @padding-base-horizontal;
-    font-size: @font-size-small;
-    line-height: @line-height-base;
-    vertical-align: middle;
-    border: none;
-    color: @white;
-    &.light {
-      color:@nav-black;
-    }
-  		// Placeholder
-  		//
-  		// Placeholder text gets special styles because when browsers invalidate entire
-  		// lines if it doesn't understand a selector/
-  		.placeholder();
-  	}
 
   	textarea { 
       height: 110px; 

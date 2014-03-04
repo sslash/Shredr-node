@@ -6,9 +6,10 @@ var express     = require('express'),
 	fs          = require('fs'),
 	config      = require('./config/config');
 
+var modelsPath = __dirname + '/app/models';
+
 mongoConfig.connectToMongo();
 
-var modelsPath = __dirname + '/app/models';
 
 fs.readdirSync(modelsPath).forEach(function (file) {
   if (file.indexOf('.js') >= 0) {
@@ -22,7 +23,6 @@ var app = express();
 
 require('./config/express')(app, config, passport);
 require('./config/routes')(app, passport);
-
 
 // Logging
 app.use(function(req, res, next){

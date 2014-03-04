@@ -3,7 +3,7 @@
 	<section class="right" data-section="shred-stats">
 		<span class="meta-stretch"><small>Rating: </small><label data-model="rateVal">{{#if this.rateValue}}{{this.rateValue}}{{else}}0{{/if}}</label></span>
 		<span class="meta-stretch"><small>Duration: </small><label data-model="duration"></label></span>
-		<span class="meta-stretch"> <button class="btn small" data-event="hide-btn"><small>Hide</small><label><i class="fa fa-angle-double-right"></i></label></button></span>
+		<span class="meta-stretch"><button class="btn small" data-event="hide-btn"><small>Hide</small><label><i class="fa fa-angle-double-right"></i></label></button></span>
 	</section>
 
 	<div class="row">
@@ -63,26 +63,13 @@
 			</section>
 
 			<section class="lighten">
-				<section data-region="comments-list">
-					<section class="profile-region row comment">
-						<div class="col-sm-2">
-							<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
-						</div>
-						<div class="col-sm-10">
-							<p class="clear-marg small"><strong>Mike dike</strong> <em class="font-xsmall right">12. August 2014</em>
-							<small class="font-small">Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small>
-							</p>
-						</div>
-					</section>
-					<section class="profile-region row comment">
-						<div class="col-sm-2">
-							<img class="profile-icon" src="img/profiles/{{this.user.profileImgFile}}">
-						</div>
-						<div class="col-sm-10">
-							<p class="clear-marg small"><strong>Mike dike</strong> <em class="font-xsmall right">12. August 2014</em>
-							<small class="font-small">Very nice yes indeead lol sap hello bro come at me. For whatever is sapp dap crap yeas sir bro</small></p>
-						</div>
-					</section>
+				<div class="row">
+				<div class="col-sm-4">
+					<button class="btn small" data-event="comment">Comment</button>
+				</div>
+				<div class="col-sm-8"></div>
+				</div>
+				<section data-region="comments-list" class="comments">
 				</section>   <!-- /comments-list -->
 			</section>  <!-- /comments-region -->
 
