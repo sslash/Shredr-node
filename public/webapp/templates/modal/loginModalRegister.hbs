@@ -1,10 +1,10 @@
 <div class="xsmall-gap"></div>
-<form class="form-flat dark" id="register-form">
+<form class="form-flat dark login-form" id="register-form">
 	<label data-model="error-msg" style="display:none"></label>
-	<input type="text" class="form-control" name="username-input" required placeholder="Pick a username">
-	<input type="email" class="form-control" name="email-input" required placeholder="Enter email">
-	<input type="password" class="form-control" name="pw1-input" required placeholder="Password">
-	<input type="password" class="form-control" name="pw2-input" required placeholder="Repeat password">
+	<input type="text" name="username-input" required autocomplete="off" placeholder="Pick a username">
+	<input type="email" name="email-input" required autocomplete="off" placeholder="Enter email">
+	<input type="password" name="pw1-input" required autocomplete="off" placeholder="Password">
+	<input type="password" name="pw2-input" required autocomplete="off" placeholder="Repeat password">
 	
 	<label>Upload a profile picture</label>
 	<img class="logo-medium" data-model="profile-img" src="img/sap.jpg">

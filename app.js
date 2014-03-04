@@ -30,8 +30,9 @@ app.use(function(req, res, next){
   next();
 });
 
-app.listen(config.port, function(){
-	console.log('Shredr is running. Port: ' + config.port);
+var port = process.env.PORT || 5000;
+app.listen(port, function(){
+	console.log('Shredr is running. Port: ' + port);
 });
 
 module.exports = app;
