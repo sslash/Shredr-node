@@ -28,12 +28,8 @@ input, textarea {
   &.light {
     color:@nav-black;
   }
-      // Placeholder
-      //
-      // Placeholder text gets special styles because when browsers invalidate entire
-      // lines if it doesn't understand a selector/
-      .placeholder();
-    }
+  .placeholder();
+}
 
 .search-content{
 	position: absolute;
@@ -79,42 +75,42 @@ input, textarea {
     margin: 10px 0;
   };
 
-  	textarea { 
-      height: 110px; 
-      resize:none;
-      &.short {height: 2.5em;}
-    }
-    
-    .half {
-      input, textarea {
-       width:60%;
-       float: left;
-       display:inline-block;
-       height:  @input-height-small;
-       font-size: @font-size-small;
-       background-color: @light-brown;
-       margin-right: 8px;
-     }
+  textarea { 
+    height: 110px; 
+    resize:none;
+    &.short {height: 2.5em;}
+  }
+  
+  .half {
+    input, textarea {
+     width:60%;
+     float: left;
+     display:inline-block;
+     height:  @input-height-small;
+     font-size: @font-size-small;
+     background-color: @light-brown;
+     margin-right: 8px;
+   }
 
-     label {
-       width:32%;
-       float: left;
-       margin-top: 10px;
-     }
+   label {
+     width:32%;
+     float: left;
+     margin-top: 10px;
+   }
 
-     input[type="submit"] {
-       float:left;
-     }
+   input[type="submit"] {
+     float:left;
+   }
 
-     .tags-area {
-       input{
-        float: none;background-color: rgba(31, 30, 30, 0.81);
-        width: 100%;
-        height: 36px;
-        box-shadow: inset 0px 0px 3px 0px #000;
-      }
+   .tags-area {
+     input{
+      float: none;background-color: rgba(31, 30, 30, 0.81);
+      width: 100%;
+      height: 36px;
+      box-shadow: inset 0px 0px 3px 0px #000;
     }
   }
+}
 }
 
 ul.img-list {
