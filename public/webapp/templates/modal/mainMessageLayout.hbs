@@ -1,12 +1,12 @@
-<div class="modal fade" id="registerSuccessModal" tabindex="-1" role="dialog" aria-labelledby="registersucessLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <section class="modal-content">
-        <div class="message">
-            <img src="img/icons/shreddr-logo.jpg" class="logo-medium">
-            <label class="lead">Congratz {{username}}!</label>
-            <label>You are now signed up to Shredr</label>
-            <button class="btn btn-success">I'm Ready</button>
-        </div>
-    </section><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+<div class="short with-pad">
+    <header class="bordered-header">
+        <h4>Send {{username}} a Message</header>
+    </header>
+    <section>
+        <form class="form-flat">
+            <textarea></textarea>
+            <button class="btn">Send</button>
+            <a href="#" data-event="cancel-btn">Cancel</a>
+        </form>
+    </section>
+</div>

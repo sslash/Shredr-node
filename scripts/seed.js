@@ -11,40 +11,12 @@ var locations = ['Oslo, Norway', 'Stockholm, Sweden', 'New York, USA', 'San Fran
 var types = ['Lick', 'Tutorial', 'Jamtrack', 'Cover', 'Other'];
 var playedsince = ['1965', '1945', '1999', '1993', '1988', '1990', '1989'];
 
-db.shreds.remove({});
-var users = db.users.find();
-var count = db.users.count();
 var tlenh = tags.length/2;
 var tlen = tags.length;
 
 var typelen = types.length;
 var youlen = youtubeurls.length;
 var titlelen = titles.length;
-for (var i = 0; i < 100; i++) {
-	var typei = Math.floor((Math.random()*typelen)),
-		useri = Math.floor((Math.random()*count)),
-		youtubei = Math.floor((Math.random()*youlen)),
-		ti = Math.floor((Math.random()*titlelen));
-
-	var tagsarr = [];
-	tagsarr.length = 0;
-	for ( var j = 0; j < tlen; j++) {
-		var tag = tags[Math.floor(Math.random()*tlen)];
-		tagsarr.push(tag);
-	}
-
-	db.shreds.save({
-		user : users[useri]._id,
-		createdAt : new Date(),
-		tags : tagsarr,
-		type : types[typei],
-		comments : [],
-		youtubeUrl : 'http://youtu.be/' + youtubeurls[youtubei],
-		youtubeId : youtubeurls[youtubei],
-		description : "This Shred is neat. cewl. sweet. ty. gangsta #" + i,
-		title : titles[ti]
-	});
-} 
 
 
 // Create 100 users
@@ -75,28 +47,32 @@ for ( var i = 0; i < 100; i++ ) {
 	});
 }
 
+db.shreds.remove({});
+var users = db.users.find();
+var count = db.users.count();
 
-// create user
-db.users.save({
-	"provider" : "local",
-	"username" : "Mikey Megakill",
-	"email" : "michaelgunnulfsen@gmail.com",
-	"profileImgFile" : "sap.jpg",
-	"location" : "Oslo, Norway",
-	"Birth" : "29.12.1988"
-});
+for (var i = 0; i < 100; i++) {
+	var typei = Math.floor((Math.random()*typelen)),
+		useri = Math.floor((Math.random()*count)),
+		youtubei = Math.floor((Math.random()*youlen)),
+		ti = Math.floor((Math.random()*titlelen));
 
-// Create shreds
-db.shreds.save({
-	"user" : {
-		"$id" : "52f686f60fa645eea55ae78d",
-		"$ref" : "users"
-	},
-	"createdAt" : new Date(),
-	"tags" : [],
-	"comments" : [],
-	"youtubeUrl" : "http://youtu.be/URNUo6oQetU",
-	"youtubeId" : "URNUo6oQetU",
-	"description" : "This Shred is neat. cewl. sweet. ty. gangsta",
-	"title" : "Hello, Shredr. First!"
-});
+	var tagsarr = [];
+	tagsarr.length = 0;
+	for ( var j = 0; j < tlen; j++) {
+		var tag = tags[Math.floor(Math.random()*tlen)];
+		tagsarr.push(tag);
+	}
+
+	db.shreds.save({
+		user : users[useri]._id,
+		createdAt : new Date(),
+		tags : tagsarr,
+		type : types[typei],
+		comments : [],
+		youtubeUrl : 'http://youtu.be/' + youtubeurls[youtubei],
+		youtubeId : youtubeurls[youtubei],
+		description : "This Shred is neat. cewl. sweet. ty. gangsta #" + i,
+		title : titles[ti]
+	});
+} 

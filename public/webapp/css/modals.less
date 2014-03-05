@@ -4,13 +4,19 @@
 	z-index: 1000;
 	text-align: center;
 	width:100%;
+
+	.short {
+		width:300px;
+	}
+	.wide {
+		width: 650px;
+	}
 }
 
 // Box modal
 .modal-flat {
 	background: @brown;
 	opacity: 1;
-	width: 650px;
 	display: inline-block;
 
 	.tab-btn {
@@ -29,11 +35,7 @@
 		}
 	}
 
-	&.short {
-		width:300px;
-	}
-
-	.bordered-header{
+	.bordered-header {
 		h4 {
 			margin-bottom: 10px;
 		}
@@ -68,14 +70,6 @@
 
 	}
 
-	.modal-content {
-		color: @white;
-		.brown-border();
-		&.with-pad {
-			padding:20px 10px;
-		}
-	}
-
 	.up-video {
 		background-image: url('/img/outlets.png');
 		background-position: initial initial;
@@ -101,4 +95,12 @@
 		strong{ color: @nav-black;}
 		border: 1px solid @nav-black;
 	}
+}
+
+.modal-content {
+	color: @white;
+	.brown-border();
+}
+.with-pad {
+	padding:20px 10px;
 }

@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
 	User = mongoose.model('User'),
 	shredsController = require('./shredsController'),
+	client = require('../libs/responseClient'),
 	extend = require('util')._extend;
 
 var renderIndex = function(req, res, user, err) {
@@ -63,6 +64,21 @@ exports.register = function(req, res){
 		      if (err) return next(err)
 		      return res.send(user);
 		    });
+		}
+	});
+};
+
+exports.postMessageToUser = function (req,res) {
+	var body = req.body.body;
+	if (!body || body === '') {res.send({error : 'Empty body'}, 400);}
+	var userId = req.params.id;
+
+	User.findOne({_id : userId}, function(err, doc) {
+		if(err) {res.send({error : 'User doesn"t exist'}, 400);}
+		else {
+			var fromUser = req.user;
+			var toUser = doc;
+			toUser.sendMessage(fromUser._id, body, client.send.bind(this, res));
 		}
 	});
 };

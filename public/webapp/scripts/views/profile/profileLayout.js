@@ -6,6 +6,7 @@ define([
 	// views
 	'views/stage/stageKicker',
 	'views/profile/editProfileView',
+	'views/modal/messageModal',
 
 	// models
 	'models/shred',
@@ -15,8 +16,8 @@ define([
 
 
 	],
-	function( Backbone, ProfileTmpl, StageKickerTmpl, StageKickerView, EditProfileView,
-		Shred, Youtubeplayer) {
+	function( Backbone, ProfileTmpl, StageKickerTmpl, StageKickerView,
+			EditProfileView, MessageModalView, Shred, Youtubeplayer) {
 		'use strict';
 
 		/* Return a Layout class definition */
@@ -52,7 +53,8 @@ define([
 			'click [data-event="youtube-img"]' : '__videoImgClicked',
 			'mouseover [data-event="thumb-hover"]' : '__thumbmouseover',
 			'mouseout [data-event="thumb-hover"]' : '__thumbmouseout',
-			'click [data-event="fullscreen-shred"]' : '__fullscreenShredClicked'
+			'click [data-event="fullscreen-shred"]' : '__fullscreenShredClicked',
+			'click [data-event="msg"]' : '__messageClicked',
 		},
 
 		/* on render callback */
@@ -66,7 +68,7 @@ define([
 			}) );
 		},
 
-		editProfileClosed : function () {
+		modalClosed : function () {
 			Shredr.modal.close();
 			this.$el.css({'opacity' : '1'});
 		},
@@ -79,6 +81,19 @@ define([
 			} else {
 				this.player.changeVideo(shred);	
 			}
+		},
+
+		fadeOut : function () {
+			this.$el.css({'opacity' : '0.1'});
+		},
+
+		// EVENTS
+
+		__messageClicked : function () {
+			this.fadeOut();
+			var view = new MessageModalView({model : this.model});
+			this.listenTo(view, 'message:canceled', this.modalClosed);
+			Shredr.modal.show(view);
 		},
 
 		__thumbmouseover : function (e) {
@@ -108,10 +123,10 @@ define([
 		},
 
 		__editClicked : function() {
-			this.$el.css({'opacity' : '0.1'});
+			this.fadeOut();
 			var view = new EditProfileView({model : this.model, forceDna : true});
-			this.listenTo(view, 'editProfile:canceled', this.editProfileClosed);
-			this.listenTo(view, 'editProfile:success', this.editProfileClosed);
+			this.listenTo(view, 'editProfile:canceled', this.modalClosed);
+			this.listenTo(view, 'editProfile:success', this.modalClosed);
 			Shredr.modal.show(view);
 		}
 	});

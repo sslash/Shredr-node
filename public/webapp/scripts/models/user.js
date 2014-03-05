@@ -34,5 +34,18 @@ function( Backbone ) {
 				this.set({'dateString': str});
 			}
 		},
+
+		// Send a message from Shredr.user to this.
+		sendMessage : function (msgBody) {
+			var that = this;
+			var url = this.url() + '/sendMessage';
+			$.post(url, {body : msgBody})
+			.done(function(res) {
+				that.trigger('message:sent:success', res);
+			})
+			.fail(function(jqXHR, textStatus, errorThrown) {
+				that.trigger('message:sent:fail', textStatus);
+			});
+		}
 	});
 });

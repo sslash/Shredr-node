@@ -18,6 +18,7 @@
   location: { type: String, default: '' },
   birthdate: {type : Date},
   guitars : {type: []},
+  conversations : {type:[]},
   startedPlaying : {type: String, default: ''},
   musicDna : {type: []},
   bio : {type: String, default: ''},
@@ -112,8 +113,41 @@ UserSchema.path('hashed_password').validate(function (hashed_password) {
 
  UserSchema.methods = {
 
+sendMessage : function(fromUserId, body, cb) {
+  var conv, newMessage;
 
-update: function (cb) {
+  // look for an existing conversation with these two communicators
+  this.conversations.forEach(function(c) {
+    if ( fromUserId === c.fromId ) {
+      conv = c; return false;
+    }
+  });
+
+
+  // create the conversation object, if it wasn't found
+  if(!conv) {
+    conv = {};
+    conv.initiatorId = fromUserId;
+    conv.messages = [];
+    this.conversations.push(conv);
+  }
+
+  // Create the message
+  newMessage = {
+    timestamp : new Date(),
+    body : body,
+
+    // if message is from the originator, from = 0, else from = 1; 
+    from : conv.initiatorId === fromUserId ? 0 : 1
+  };
+
+  conv.messages.push(newMessage);
+
+  console.log("will save: " + JSON.stringify(this));
+  this.update({conversations : this.conversations}, cb);
+},
+
+updatePass: function (cb) {
     return this.save(cb);
   },
 
@@ -151,7 +185,7 @@ update: function (cb) {
    	if (!password) return ''
    		var encrypred
    	try {
-   		encrypred = crypto.createHmac('sha1', this.salt).update(password).digest('hex')
+   		encrypred = crypto.createHmac('sha1', this.salt).updatePass(password).digest('hex')
    		return encrypred
    	} catch (err) {
    		return ''

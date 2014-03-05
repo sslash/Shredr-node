@@ -31,6 +31,7 @@ var http = require('https');
 	// Users
 	app.put('/api/user/:id', auth.requiresLogin, userController.update);
 	app.get('/api/user/:id', userController.getById);
+	app.post('/api/user/:id/sendMessage', auth.requiresLogin, userController.postMessageToUser);
 	app.post('/users/session',
 		passport.authenticate('local', {
 			//failureRedirect: '/login',

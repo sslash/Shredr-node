@@ -1,3 +1,4 @@
+// TODO: this module is only meant to be extended
 define([
   'backbone',
   'bootstrap',
@@ -6,28 +7,42 @@ define([
   'hbs!tmpl/modal/mainMessageLayout',
   ],function (Backbone, bs, tpl) {
 
-  var MessageModal = {
-    MainLayout : Backbone.Marionette.Layout.extend({
+  return Backbone.Marionette.Layout.extend({
       template : tpl,
+      className : 'modal-flat modal-content',
+
+      initialize : function (options) {
+        if ( options.template) {
+          this.template = tpl;
+        }
+      },
 
       ui : {
-        modal : "#registerSuccessModal",
+        textarea : 'textarea'
       },
 
       events : {
-        "click button" : "__readyBtnClicked"
+        'click [data-event="cancel-btn"]' : '__cancelClicked',
+        'submit form' : '__formSubmitted'
       },
 
-      __readyBtnClicked : function() {
-        this.ui.modal.modal('hide');
-        //Shredr.router.navigate("/theStage", {trigger: true});
+      messageSentSuccess : function (res) {
+        console.log('success!');
+        this.trigger('message:canceled');
       },
 
-      onDomRefresh : function() {
-        this.ui.modal.modal('show');
+      __cancelClicked : function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.trigger('message:canceled');
       },
-    })
-  };
 
-  return MessageModal;
+      __formSubmitted : function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.listenTo(this.model, 'message:sent:success', this.messageSentSuccess);
+        var body = this.ui.textarea.val();
+        this.model.sendMessage(body);
+      }
+    });
 });
