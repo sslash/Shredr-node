@@ -1,8 +1,8 @@
 define([
-	'backbone',
-	],function (Backbone) {
+	'backbone.marionette',
+	],function (Marionette) {
 
-  var MainRouter = Backbone.Marionette.AppRouter.extend({
+  var MainRouter = Marionette.AppRouter.extend({
     appRoutes: {
 		'theStage' : 'stagePage',
 		'shreds' : 'stagePage',

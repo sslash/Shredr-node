@@ -41,9 +41,11 @@ function( Backbone ) {
 			var url = this.url() + '/sendMessage';
 			$.post(url, {body : msgBody})
 			.done(function(res) {
+				console.log('hei')
 				that.trigger('message:sent:success', res);
 			})
 			.fail(function(jqXHR, textStatus, errorThrown) {
+				console.log('ok')
 				that.trigger('message:sent:fail', textStatus);
 			});
 		}

@@ -118,7 +118,7 @@ sendMessage : function(fromUserId, body, cb) {
 
   // look for an existing conversation with these two communicators
   this.conversations.forEach(function(c) {
-    if ( fromUserId === c.fromId ) {
+    if ( c.initiatorId === fromUserId) {
       conv = c; return false;
     }
   });
@@ -143,7 +143,6 @@ sendMessage : function(fromUserId, body, cb) {
 
   conv.messages.push(newMessage);
 
-  console.log("will save: " + JSON.stringify(this));
   this.update({conversations : this.conversations}, cb);
 },
 

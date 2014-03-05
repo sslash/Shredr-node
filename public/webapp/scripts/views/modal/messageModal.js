@@ -18,7 +18,8 @@ define([
       },
 
       ui : {
-        textarea : 'textarea'
+        textarea : 'textarea',
+        content : '[data-region="modal-content"]'
       },
 
       events : {
@@ -27,8 +28,9 @@ define([
       },
 
       messageSentSuccess : function (res) {
-        console.log('success!');
-        this.trigger('message:canceled');
+        this.ui.content.children().fadeOut('fast', function() {
+          this.ui.content.append('<p>Message was successfully sent</p><button class="btn" data-event="cancel-btn">Ok</button>');
+        }.bind(this));
       },
 
       __cancelClicked : function (e) {

@@ -78,7 +78,7 @@ exports.postMessageToUser = function (req,res) {
 		else {
 			var fromUser = req.user;
 			var toUser = doc;
-			toUser.sendMessage(fromUser._id, body, client.send.bind(this, res));
+			toUser.sendMessage(fromUser._id.toString(), body, client.send.bind(this, res));
 		}
 	});
 };
