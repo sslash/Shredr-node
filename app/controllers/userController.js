@@ -24,10 +24,11 @@ exports.update = function(req,res) {
 	var user = req.user;
 	user = extend(user, req.body);
 
-	user.update(function(err) {
+	user.save(function(err) {
 	    if (!err) {
 	      return res.send(user);
 	    } else {
+	    	console.log('error: ' + err);
 	    	return res.send({'Error' : 'Failed to save'}, 401);
 	    }
 	});
@@ -70,15 +71,18 @@ exports.register = function(req, res){
 
 exports.postMessageToUser = function (req,res) {
 	var body = req.body.body;
-	if (!body || body === '') {res.send({error : 'Empty body'}, 400);}
+	if (!body || body === '') {client.error(res, 'Empty message body');}
 	var userId = req.params.id;
 
-	User.findOne({_id : userId}, function(err, doc) {
-		if(err) {res.send({error : 'User doesn"t exist'}, 400);}
+	User.findOne({_id : userId}, function(err, toUser) {
+
+		// Failed to find the recipient.
+		// This should not happen
+		if (err) {
+			client.error(res, 'User doesn"t exist');
+		}
 		else {
-			var fromUser = req.user;
-			var toUser = doc;
-			toUser.sendMessage(fromUser._id.toString(), body, client.send.bind(this, res));
+			toUser.sendMessage(req.user, body, client.send.bind(this, res));
 		}
 	});
 };

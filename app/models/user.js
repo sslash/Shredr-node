@@ -21,6 +21,17 @@
   conversations : {type:[]},
   startedPlaying : {type: String, default: ''},
   musicDna : {type: []},
+
+  /*
+  * notifications : [
+  *   {
+  *     type : 'New Message',
+  *     id : 'some id',
+  *     body : 'You got a new fan'
+  *   }
+  * ]
+  */
+  notifications : {type:[]},
   bio : {type: String, default: ''},
   profileImgFile: { type: String, default: '' },
  	provider: { type: String, default: '' },
@@ -113,8 +124,8 @@ UserSchema.path('hashed_password').validate(function (hashed_password) {
 
  UserSchema.methods = {
 
-sendMessage : function(fromUserId, body, cb) {
-  var conv, newMessage;
+sendMessage : function(fromUser, body, cb) {
+  var conv, newMessage, fromUserId = fromUser._id.toString();
 
   // look for an existing conversation with these two communicators
   this.conversations.forEach(function(c) {
@@ -143,7 +154,17 @@ sendMessage : function(fromUserId, body, cb) {
 
   conv.messages.push(newMessage);
 
-  this.update({conversations : this.conversations}, cb);
+  // add notification
+  this.notifications.push({
+    type : getNotificationTypeById(1),
+    body : 'Received a new message from ' + fromUser.username,
+    id : new Date().getTime()
+  });
+
+  this.update({
+    conversations : this.conversations,
+    notifications : this.notifications
+  }, cb);
 },
 
 updatePass: function (cb) {
@@ -184,7 +205,7 @@ updatePass: function (cb) {
    	if (!password) return ''
    		var encrypred
    	try {
-   		encrypred = crypto.createHmac('sha1', this.salt).updatePass(password).digest('hex')
+   		encrypred = crypto.createHmac('sha1', this.salt).update(password).digest('hex')
    		return encrypred
    	} catch (err) {
    		return ''
@@ -205,4 +226,10 @@ UserSchema.statics = {
   }
 }
 
+// Helpers
+function getNotificationTypeById (id) {
+    if ( id === 1 ) {
+      return 'New Message';
+    }
+};
 mongoose.model('User', UserSchema)

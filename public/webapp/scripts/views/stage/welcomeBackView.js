@@ -13,6 +13,7 @@ define([
 			className: 'col-sm-6 half half-box stage-box clear-marg box-inner',
 
 			initialize: function() {
+				this.listenTo(Shredr.user, 'change:notifications', this.render);
 				Shredr.vent.on('stage:thumbclicked:fadeout', this.fadeOut.bind(this));
 				Shredr.vent.on('stage:kickerback:clicked', this.fadeIn.bind(this));
 			},
@@ -24,6 +25,24 @@ define([
 
 			/* Ui events hash */
 			events: {},
+
+			serializeData : function () {
+				var user = Shredr.user ? Shredr.user.toJSON() : null;
+				if ( user.notifications ) {
+					user.notCount = user.notifications.length;
+					user.hasNotifications = user.notifications.length > 0;
+				}
+
+				if ( user ) {
+					return {user : user};
+				} else {
+					return {
+						user : {
+							username : 'yo'
+						}
+					};
+				}
+			},
 
 			fadeOut : function() {
 				

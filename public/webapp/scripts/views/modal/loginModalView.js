@@ -155,7 +155,7 @@ define([
         },
 
         registerUserSuccess : function(user) {
-          this.trigger("user:auth:create:success", user);
+          this.trigger('user:auth:create:success', user);
         },
 
         registerUserError : function(errorObj) {

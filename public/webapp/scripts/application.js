@@ -37,6 +37,7 @@ function( Marionette, Communicator,EventController, RoutesController,
 	Shredr.vent.on("user:auth:success", function(userdata) {
 		Shredr.loggedIn = true;
 		Shredr.user = new User(userdata);
+		Shredr.user.fetch();
 		// Shredr.mainController.renderNavigationView(true);
 		// Shredr.mainController.renderLangingView();
 	});
