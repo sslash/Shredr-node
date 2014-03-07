@@ -23,6 +23,16 @@ function( Backbone ) {
 			profileImgUrl : 'https://secure.gravatar.com/avatar/0a14846a74c61c9cecb61887d492371c'
 		},
 
+		parse : function (attr) {
+			if ( !attr.profileImgFile || attr.profileImgFile.length === 0 ) {
+				attr.profileImgFile = this.get('profileImgUrl');
+			} else {
+				attr.profileImgFile = 'img/profiles/' + attr.profileImgFile;
+			}
+
+			return attr;
+		},
+
 		setDateString : function() {
 			var d = this.get('birthdate');
 			if ( d !== 'Unkown') {

@@ -1,0 +1,23 @@
+<div class="row">
+	{{#each conversation.messages}}
+	<div class="col-sm-3">
+		<img class="profile-icon" src="{{../otherUser.profileImgFile}}">
+	</div>
+	<div class="col-sm-9 text-left">
+			<p>{{body}}</p>
+			<em class="font-xsmall left">Sent: {{this.timestamp}}</em>
+	</div>
+	{{/each}}
+</div>
+
+<div class="xsmall-gap"></div>
+	<form class="form-flat">
+		<div class="row">
+			<div class="col-sm-9">	
+				<textarea placeholder="Reply" class="light" data-model="comment-input"></textarea>
+			</div>
+			<div class="col-sm-3">
+				<input type="submit" value="Send" class="btn btn-small">
+			</div>
+		</div>
+	</form>
