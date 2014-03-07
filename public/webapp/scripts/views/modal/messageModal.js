@@ -1,11 +1,10 @@
 // TODO: this module is only meant to be extended
 define([
   'backbone',
-  'bootstrap',
 
   // Templates
   'hbs!tmpl/modal/mainMessageLayout',
-  ],function (Backbone, bs, tpl) {
+  ],function (Backbone, tpl) {
 
   return Backbone.Marionette.Layout.extend({
       template : tpl,

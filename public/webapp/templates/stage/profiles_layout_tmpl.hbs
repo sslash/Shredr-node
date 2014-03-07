@@ -1,14 +1,31 @@
 <section data-region="thumbails">
 
+	<form>
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div class="inline">
+					<input type="search" class="inline-search"  data-model="search" placeholder="Search for user">
+					<div class="search-content">
+						<i class="fa fa-search"></i>
+					</div>
+				</div>
+				<button class="btn small">Search</button>
+			</div>
+			<div class="col-sm-4"></div>
+		</div>
+	</form>
+
+
+	{{#each users}}
 	<div class="profile-thumb">
 		<div class="img-wrap">
-			<img class="border" src="img/harrison.jpeg">
+			<a href="#shredders/{{_id}}"><img class="border" src="img/profiles/{{profileImgFile}}"></a>
 		</div>
 
 		<div class="profile-thmb-meta">
-			<p class="font-small lead">Name Namersen</p>
+			<p class="font-small lead">{{username}}</p>
 			<div class="left-side">
-				<i class="fa fa-map-marker"></i><small>Hong Kong, China</small>
+				<i class="fa fa-map-marker"></i><small>{{location}}</small>
 
 				<div class="skills">
 					<i class="fa fa-music"></i><i class="fa fa-bolt"></i>
@@ -18,301 +35,13 @@
 
 			<div class="right-side">
 				<div class="style-tags">
-					<span class="font-xsmall">Rock</span>
-					<span class="font-xsmall">Pop</span>
-					<span class="font-xsmall">Metal</span>
-					<span class="font-xsmall">...</span>
+					{{#each musicDna}}
+					<span class="font-xsmall">{{this}}</span>
+					{{/each}}
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<div class="profile-thumb">
-		<div class="img-wrap">
-			<img src="img/steve.jpeg" class="border">
-		</div>
-
-		<div class="profile-thmb-meta">
-			<p class="font-small lead">Name Namersen</p>
-			<div class="left-side">
-				<i class="fa fa-map-marker"></i><small>Hong Kong, China</small>
-			</div>
-
-			<div class="skills">
-				<i class="fa fa-music"></i><i class="fa fa-bolt"></i>
-			</div>
-
-			<div class="right-side">
-				<div class="style-tags">
-					<span class="font-xsmall">Rock</span>
-					<span class="font-xsmall">Pop</span>
-					<span class="font-xsmall">Metal</span>
-					<span class="font-xsmall">...</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="profile-thumb">
-		<div class="img-wrap">
-			<img src="img/slash.jpeg" class="border">
-		</div>
-
-		<div class="profile-thmb-meta">
-			<p class="font-small lead">Name Namersen</p>
-			<div class="left-side">
-				<i class="fa fa-map-marker"></i><small>Hong Kong, China</small>
-			</div>
-
-			<div class="skills">
-					<i class="fa fa-music"></i><i class="fa fa-bolt"></i>
-				</div>
-
-			<div class="right-side">
-				<div class="style-tags">
-					<span class="font-xsmall">Rock</span>
-					<span class="font-xsmall">Pop</span>
-					<span class="font-xsmall">Metal</span>
-					<span class="font-xsmall">...</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="profile-thumb">
-		<div class="img-wrap">
-			<img class="border" src="img/harrison.jpeg">
-		</div>
-
-		<div class="profile-thmb-meta">
-			<p class="font-small lead">Name Namersen</p>
-			<div class="left-side">
-				<i class="fa fa-map-marker"></i><small>Hong Kong, China</small>
-
-				<div class="skills">
-					<i class="fa fa-music"></i><i class="fa fa-bolt"></i>
-				</div>
-
-			</div>
-
-			<div class="right-side">
-				<div class="style-tags">
-					<span class="font-xsmall">Rock</span>
-					<span class="font-xsmall">Pop</span>
-					<span class="font-xsmall">Metal</span>
-					<span class="font-xsmall">...</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="profile-thumb">
-		<div class="img-wrap">
-			<img src="img/steve.jpeg" class="border">
-		</div>
-
-		<div class="profile-thmb-meta">
-			<p class="font-small lead">Name Namersen</p>
-			<div class="left-side">
-				<i class="fa fa-map-marker"></i><small>Hong Kong, China</small>
-			</div>
-
-			<div class="skills">
-				<i class="fa fa-music"></i><i class="fa fa-bolt"></i>
-			</div>
-
-			<div class="right-side">
-				<div class="style-tags">
-					<span class="font-xsmall">Rock</span>
-					<span class="font-xsmall">Pop</span>
-					<span class="font-xsmall">Metal</span>
-					<span class="font-xsmall">...</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="profile-thumb">
-		<div class="img-wrap">
-			<img src="img/slash.jpeg" class="border">
-		</div>
-
-		<div class="profile-thmb-meta">
-			<p class="font-small lead">Name Namersen</p>
-			<div class="left-side">
-				<i class="fa fa-map-marker"></i><small>Hong Kong, China</small>
-			</div>
-
-			<div class="skills">
-					<i class="fa fa-music"></i><i class="fa fa-bolt"></i>
-				</div>
-
-			<div class="right-side">
-				<div class="style-tags">
-					<span class="font-xsmall">Rock</span>
-					<span class="font-xsmall">Pop</span>
-					<span class="font-xsmall">Metal</span>
-					<span class="font-xsmall">...</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="profile-thumb">
-		<div class="img-wrap">
-			<img class="border" src="img/harrison.jpeg">
-		</div>
-
-		<div class="profile-thmb-meta">
-			<p class="font-small lead">Name Namersen</p>
-			<div class="left-side">
-				<i class="fa fa-map-marker"></i><small>Hong Kong, China</small>
-
-				<div class="skills">
-					<i class="fa fa-music"></i><i class="fa fa-bolt"></i>
-				</div>
-
-			</div>
-
-			<div class="right-side">
-				<div class="style-tags">
-					<span class="font-xsmall">Rock</span>
-					<span class="font-xsmall">Pop</span>
-					<span class="font-xsmall">Metal</span>
-					<span class="font-xsmall">...</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="profile-thumb">
-		<div class="img-wrap">
-			<img src="img/steve.jpeg" class="border">
-		</div>
-
-		<div class="profile-thmb-meta">
-			<p class="font-small lead">Name Namersen</p>
-			<div class="left-side">
-				<i class="fa fa-map-marker"></i><small>Hong Kong, China</small>
-			</div>
-
-			<div class="skills">
-				<i class="fa fa-music"></i><i class="fa fa-bolt"></i>
-			</div>
-
-			<div class="right-side">
-				<div class="style-tags">
-					<span class="font-xsmall">Rock</span>
-					<span class="font-xsmall">Pop</span>
-					<span class="font-xsmall">Metal</span>
-					<span class="font-xsmall">...</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="profile-thumb">
-		<div class="img-wrap">
-			<img src="img/slash.jpeg" class="border">
-		</div>
-
-		<div class="profile-thmb-meta">
-			<p class="font-small lead">Name Namersen</p>
-			<div class="left-side">
-				<i class="fa fa-map-marker"></i><small>Hong Kong, China</small>
-			</div>
-
-			<div class="skills">
-					<i class="fa fa-music"></i><i class="fa fa-bolt"></i>
-				</div>
-
-			<div class="right-side">
-				<div class="style-tags">
-					<span class="font-xsmall">Rock</span>
-					<span class="font-xsmall">Pop</span>
-					<span class="font-xsmall">Metal</span>
-					<span class="font-xsmall">...</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="profile-thumb">
-		<div class="img-wrap">
-			<img class="border" src="img/harrison.jpeg">
-		</div>
-
-		<div class="profile-thmb-meta">
-			<p class="font-small lead">Name Namersen</p>
-			<div class="left-side">
-				<i class="fa fa-map-marker"></i><small>Hong Kong, China</small>
-
-				<div class="skills">
-					<i class="fa fa-music"></i><i class="fa fa-bolt"></i>
-				</div>
-
-			</div>
-
-			<div class="right-side">
-				<div class="style-tags">
-					<span class="font-xsmall">Rock</span>
-					<span class="font-xsmall">Pop</span>
-					<span class="font-xsmall">Metal</span>
-					<span class="font-xsmall">...</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="profile-thumb">
-		<div class="img-wrap">
-			<img src="img/steve.jpeg" class="border">
-		</div>
-
-		<div class="profile-thmb-meta">
-			<p class="font-small lead">Name Namersen</p>
-			<div class="left-side">
-				<i class="fa fa-map-marker"></i><small>Hong Kong, China</small>
-			</div>
-
-			<div class="skills">
-				<i class="fa fa-music"></i><i class="fa fa-bolt"></i>
-			</div>
-
-			<div class="right-side">
-				<div class="style-tags">
-					<span class="font-xsmall">Rock</span>
-					<span class="font-xsmall">Pop</span>
-					<span class="font-xsmall">Metal</span>
-					<span class="font-xsmall">...</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="profile-thumb">
-		<div class="img-wrap">
-			<img src="img/slash.jpeg" class="border">
-		</div>
-
-		<div class="profile-thmb-meta">
-			<p class="font-small lead">Name Namersen</p>
-			<div class="left-side">
-				<i class="fa fa-map-marker"></i><small>Hong Kong, China</small>
-			</div>
-
-			<div class="skills">
-					<i class="fa fa-music"></i><i class="fa fa-bolt"></i>
-				</div>
-
-			<div class="right-side">
-				<div class="style-tags">
-					<span class="font-xsmall">Rock</span>
-					<span class="font-xsmall">Pop</span>
-					<span class="font-xsmall">Metal</span>
-					<span class="font-xsmall">...</span>
-				</div>
-			</div>
-		</div>
-	</div>
-
+	{{/each}}
 
 </section>

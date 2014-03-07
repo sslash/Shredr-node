@@ -2,6 +2,7 @@ var mongoose = require('mongoose'),
 	User = mongoose.model('User'),
 	shredsController = require('./shredsController'),
 	client = require('../libs/responseClient'),
+	Query = require('../libs/query'),
 	extend = require('util')._extend;
 
 var renderIndex = function(req, res, user, err) {
@@ -18,6 +19,29 @@ var renderIndex = function(req, res, user, err) {
 
 exports.youtube = function(req,res) {
 	res.render('youtube');
+};
+
+exports.query = function (req, res) {
+  return Query.UsersQuery.query(req.query, function (err, result) {
+    if ( err ) {
+      res.send(err, 400);
+    } else {
+      res.send(result);  
+    }    
+  });
+};
+
+exports.list = function(req, res) {
+	var page = req.param('page');
+	if ( !page ) { page = 1;}
+	page = (page > 0 ? page : 1) - 1;
+	var perPage = 10;
+	var options = {
+		perPage: perPage,
+		page: page
+	};
+
+	User.list(options, client.send.bind(this,res));
 };
 
 exports.update = function(req,res) {

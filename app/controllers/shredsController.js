@@ -4,7 +4,7 @@
  var mongoose   = require('mongoose'),
      Shred      = mongoose.model('Shred'),
      _          = require('underscore'),
-     ShredsQuery= require('../libs/shredsQuery.js');
+     Query= require('../libs/query.js');
 
 
  exports.get = function(req, res) {
@@ -107,7 +107,7 @@
 };
 
 exports.query = function (req, res) {
-  return ShredsQuery.query(req.query, function (err, result) {
+  return Query.ShredsQuery.query(req.query, function (err, result) {
     if ( err ) {
       res.send(err, 400);
     } else {

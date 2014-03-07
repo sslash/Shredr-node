@@ -1,0 +1,23 @@
+<div class="short with-pad">
+	<header class="bordered-header">
+		<h4>Notifications</h4></header>
+	</header>
+
+	<div class="xsmall-gap"></div>
+	<section data-region="notsList">
+	{{#each this.notifications}}
+	<div class="row text-left">
+		<div class="col-sm-4">
+			{{this.type}}
+		</div>
+		<div class="col-sm-8">
+			<a href="#" data-event="bodyClk" data-model="{{this.type}}">{{this.body}}</a>
+		</div>
+	</div>
+	{{/each}}
+	</section>
+	<section data-region="nots-detail"></section>
+
+	<div class="small-gap"></div>
+	<a href="#" data-event="cancel-btn">Cancel</a>
+</div>

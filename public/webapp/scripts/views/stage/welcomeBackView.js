@@ -2,9 +2,11 @@ define([
 	'backbone',
 	'hbs!tmpl/stage/welcomeBackView_tmpl',
 
+	'views/modal/notificationsModal',
+
 	'models/shred'
 	],
-	function( Backbone, WelcomebackviewTmpl, Shred ) {
+	function( Backbone, WelcomebackviewTmpl, NotificationModal, Shred ) {
 		'use strict';
 
 		/* Return a ItemView class definition */
@@ -24,7 +26,9 @@ define([
 			ui: {},
 
 			/* Ui events hash */
-			events: {},
+			events: {
+				'click [data-event="notification"]' : '__notificationClicked'
+			},
 
 			serializeData : function () {
 				var user = Shredr.user ? Shredr.user.toJSON() : null;
@@ -44,8 +48,18 @@ define([
 				}
 			},
 
-			fadeOut : function() {
-				
+			__notificationClicked : function (e) {
+				e.preventDefault();
+				var view = new NotificationModal();
+				Shredr.modal.show(view);
+				this.listenTo(view, 'message:canceled', this.modalClosed);
+			},
+
+			modalClosed : function () {
+				Shredr.modal.close();
+			},
+
+			fadeOut : function() {				
 				var shouldFade = Shredr.request('stage:thumbclicked:shouldfade');
 
 				if ( shouldFade ) { this.$el.fadeOut(); }

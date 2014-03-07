@@ -1,11 +1,10 @@
 define([
   'backbone',
-  'bootstrap',
   'jcrop',
   'underscore',
   'hbs!tmpl/modal/loginModal',
   'hbs!tmpl/modal/loginModalRegister',
-  ], function (Backbone, bs, jcrop, _, tpl, registerTpl) {
+  ], function (Backbone, jcrop, _, tpl, registerTpl) {
 
     
     var LoginModalView = {

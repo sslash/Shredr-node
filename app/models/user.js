@@ -223,7 +223,30 @@ UserSchema.statics = {
           cb(err, res);
         });
       })
-  }
+  },
+
+  /**
+   * List shreds
+   *
+   * @param {Object} options
+   * @param {Function} cb
+   * @api private
+   */
+
+  list: function (options, cb) {
+    var criteria = options.criteria || {};
+    var populate = options.populate || '';
+
+    console.log('saP: ' + JSON.stringify(options));
+    this.find(criteria)
+      .populate(populate)
+      .sort({'createdAt': -1}) // sort by date
+      .limit(options.perPage)
+      .skip(options.perPage * options.page)
+      .exec(function(err, res) {
+        cb(err,res);
+      });
+  },
 }
 
 // Helpers

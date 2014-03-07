@@ -4,7 +4,7 @@ var responseClient = {
 		if ( err ) {
 			res.send(err, 400);
 		} else {
-			res.send({}, 200);
+			res.send(doc, 200);
 		}
 	},
 

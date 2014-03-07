@@ -29,8 +29,10 @@ var http = require('https');
 
 
 	// Users
+	app.get('/api/user/query', userController.query);
 	app.put('/api/user/:id', auth.requiresLogin, userController.update);
 	app.get('/api/user/:id', userController.getById);
+	app.get('/api/user', userController.list);
 	app.post('/api/user/:id/sendMessage', auth.requiresLogin, userController.postMessageToUser);
 	app.post('/users/session',
 		passport.authenticate('local', {
