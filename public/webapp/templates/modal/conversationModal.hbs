@@ -1,11 +1,13 @@
 <div class="row">
-	{{#each conversation.messages}}
+	{{#each messages}}
 	<div class="col-sm-3">
-		<img class="profile-icon" src="{{../otherUser.profileImgFile}}">
+		{{#if from}}<img class="profile-icon" src="{{../recipient.profileImgFile}}">
+		{{else}}<img class="profile-icon" src="{{../originator.profileImgFile}}">
+		{{/if}}
 	</div>
 	<div class="col-sm-9 text-left">
 			<p>{{body}}</p>
-			<em class="font-xsmall left">Sent: {{this.timestamp}}</em>
+			<em class="font-xsmall left">Sent: {{timestamp}}</em>
 	</div>
 	{{/each}}
 </div>

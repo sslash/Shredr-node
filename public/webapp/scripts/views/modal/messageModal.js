@@ -2,9 +2,11 @@
 define([
   'backbone',
 
+  'models/conversation',
+
   // Templates
   'hbs!tmpl/modal/mainMessageLayout',
-  ],function (Backbone, tpl) {
+  ],function (Backbone, Conversation, tpl) {
 
   return Backbone.Marionette.Layout.extend({
       template : tpl,
@@ -41,9 +43,23 @@ define([
       __formSubmitted : function (e) {
         e.preventDefault();
         e.stopPropagation();
-        this.listenTo(this.model, 'message:sent:success', this.messageSentSuccess);
+
+        this.conversation = new Conversation({
+          originator : Shredr.user.get('_id'),
+          recipient : this.model.get('id')
+        });
+
         var body = this.ui.textarea.val();
-        this.model.sendMessage(body);
+
+        this.conversation.get('messages').push({
+          body : body,
+          from : 0,
+          timestamp : new Date()
+        });
+
+        this.conversation.save({}, {
+          success : this.messageSentSuccess.bind(this)
+        });
       }
     });
 });

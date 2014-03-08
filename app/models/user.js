@@ -7,6 +7,7 @@
       Shred       = mongoose.model('Shred'),
       _           = require('underscore'),
       authTypes   = [],
+      Q           = require('q'),
       userPlugin  = require('mongoose-user');
 
 /**
@@ -18,7 +19,6 @@
   location: { type: String, default: '' },
   birthdate: {type : Date},
   guitars : {type: []},
-  conversations : {type:[]},
   startedPlaying : {type: String, default: ''},
   musicDna : {type: []},
 
@@ -124,47 +124,21 @@ UserSchema.path('hashed_password').validate(function (hashed_password) {
 
  UserSchema.methods = {
 
-sendMessage : function(fromUser, body, cb) {
-  var conv, newMessage, fromUserId = fromUser._id.toString();
-
-  // look for an existing conversation with these two communicators
-  this.conversations.forEach(function(c) {
-    if ( c.initiatorId === fromUserId) {
-      conv = c; return false;
-    }
-  });
-
-
-  // create the conversation object, if it wasn't found
-  if(!conv) {
-    conv = {};
-    conv.initiatorId = fromUserId;
-    conv.messages = [];
-    this.conversations.push(conv);
-  }
-
-  // Create the message
-  newMessage = {
-    timestamp : new Date(),
-    body : body,
-
-    // if message is from the originator, from = 0, else from = 1; 
-    from : conv.initiatorId === fromUserId ? 0 : 1
-  };
-
-  conv.messages.push(newMessage);
-
-  // add notification
+addNotification : function (opts) {
+  var deferred = Q.defer();
   this.notifications.push({
-    type : getNotificationTypeById(1),
-    body : 'Received a new message from ' + fromUser.username,
-    id : new Date().getTime()
+    type : getNotificationTypeById(opts.type),
+    body : opts.body,
+    id  : new Date().getTime(),
+    referenceId : opts.referenceId
   });
 
-  this.update({
-    conversations : this.conversations,
-    notifications : this.notifications
-  }, cb);
+  this.update({notifications : this.notifications})
+  .exec(function(err,res) {
+    if (err) { deferred.reject(err); }
+    else { deferred.resolve(res); }
+  });
+  return deferred.promise;
 },
 
 updatePass: function (cb) {
@@ -225,6 +199,16 @@ UserSchema.statics = {
       })
   },
 
+  loadSimple : function(id) {
+    var deferred = Q.defer();
+    this.findOne({_id : id}).exec(function(err, res) {
+      if (err) { deferred.reject(err); }
+      else { deferred.resolve(res); }
+    });
+
+    return deferred.promise;
+  },
+
   /**
    * List shreds
    *
@@ -232,12 +216,10 @@ UserSchema.statics = {
    * @param {Function} cb
    * @api private
    */
-
   list: function (options, cb) {
     var criteria = options.criteria || {};
     var populate = options.populate || '';
 
-    console.log('saP: ' + JSON.stringify(options));
     this.find(criteria)
       .populate(populate)
       .sort({'createdAt': -1}) // sort by date

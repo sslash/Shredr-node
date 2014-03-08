@@ -27,11 +27,7 @@ define([
         initialize : function() {
           this.setUpFaceLogin();
         },
-
-        onDomRefresh : function() {
-          this.ui.modal.modal('show');
-        },
-
+        
         __formSubmitted : function(e) {
           e.preventDefault();
           var username = $('#emailInput').val();

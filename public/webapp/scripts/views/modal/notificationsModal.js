@@ -37,23 +37,27 @@ define([
   		e.stopPropagation();
 
 		  this.ui.notsList.fadeOut('fast');
-  		var type = $(e.currentTarget).attr('data-model');
+      var index = $(e.currentTarget).attr('data-index');
+      var notification = Shredr.user.get('notifications')[parseInt(index, 10)];
 
-  		if( type === 'New Message' ) {
+  		if( notification.type === 'New Message' ) {
 
         // this wont work. cant rely on the conversation being the newest.
         // Need an id here
-  			var conversation = new Conversation(Shredr.user.get('conversations')[0]);
-        var user = new User({id : conversation.get('initiatorId')});
-        user.fetch({success: this.showMessageQueue.bind(this, conversation)});
+        var conversation = new Conversation({id : notification.referenceId});
+
+  			// var conversation = new Conversation(Shredr.user.get('conversations')[0]);
+     //    var user = new User({id : conversation.get('initiatorId')});
+        conversation.fetch({success: this.showMessageQueue.bind(this)});
   		}
   	},
 
-    showMessageQueue : function (conversation, user) {
-        this.ui.notsDetail.append(new ConversationModal({
-          conversation : conversation,
-          model : user
-        }).render().el);
+    showMessageQueue : function (conversation) {
+      var view = new ConversationModal({
+          model : conversation
+        });
+
+        this.ui.notsDetail.append(view.render().el);
         this.ui.back.show();
     },
 

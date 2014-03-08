@@ -93,24 +93,6 @@ exports.register = function(req, res){
 	});
 };
 
-exports.postMessageToUser = function (req,res) {
-	var body = req.body.body;
-	if (!body || body === '') {client.error(res, 'Empty message body');}
-	var userId = req.params.id;
-
-	User.findOne({_id : userId}, function(err, toUser) {
-
-		// Failed to find the recipient.
-		// This should not happen
-		if (err) {
-			client.error(res, 'User doesn"t exist');
-		}
-		else {
-			toUser.sendMessage(req.user, body, client.send.bind(this, res));
-		}
-	});
-};
-
 var login = function (req, res) {
   // if (req.session.returnTo) {
 

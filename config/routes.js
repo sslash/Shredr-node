@@ -5,8 +5,10 @@ var http = require('https');
 /**
  * Route middlewares
  */
- var userController		= require('../app/controllers/userController');
- var shredsController	= require('../app/controllers/shredsController');
+ var userController		= require('../app/controllers/userController'),
+	 shredsController	= require('../app/controllers/shredsController'),
+	 conversationController = require('../app/controllers/conversationController');
+
 
  module.exports = function(app, passport){
 	app.get('/', userController.index);
@@ -33,12 +35,15 @@ var http = require('https');
 	app.put('/api/user/:id', auth.requiresLogin, userController.update);
 	app.get('/api/user/:id', userController.getById);
 	app.get('/api/user', userController.list);
-	app.post('/api/user/:id/sendMessage', auth.requiresLogin, userController.postMessageToUser);
 	app.post('/users/session',
 		passport.authenticate('local', {
 			//failureRedirect: '/login',
 			//failureFlash: 'Invalid email or password.'
 		}), userController.session);
+
+	app.post('/api/conversation', auth.requiresLogin, conversationController.create);
+	app.get('/api/conversation/:id', auth.requiresLogin, conversationController.get);
+	app.post('/api/conversation/:id/sendMessage', auth.requiresLogin, conversationController.sendMessage);
 
 
 	// TODO: This is code for authenticating with youtube

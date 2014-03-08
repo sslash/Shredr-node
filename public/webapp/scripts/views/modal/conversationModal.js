@@ -2,15 +2,17 @@
 define([
   'backbone',
 
+  'models/conversation',
+
   // Templates
   'hbs!tmpl/modal/conversationModal',
-  ],function (Backbone, tpl) {
+  ],function (Backbone, Conversation, tpl) {
 
     return Backbone.Marionette.ItemView.extend({
     	template : tpl,
 
-      initialize : function (options) {
-        this.conversation = options.conversation;
+      initialize : function () {
+
       },
 
       events : {
@@ -22,14 +24,8 @@ define([
         e.stopPropagation();
 
         // TODO: continue here...
-      },
-
-      serializeData : function () {
-        return {
-          conversation : this.conversation.toJSON(),
-          otherUser : this.model.toJSON(),
-          user : Shredr.user.toJSON()
-        }
+        var body = $('[data-model="comment-input"]').val();
+        this.model.sendMessage(body);
       }
     });
 });

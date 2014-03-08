@@ -49,9 +49,7 @@
 /**
  * Create a Shred
  */
-
  exports.create = function (req, res) {
-  console.log("create " + req.user);
   var shred = new Shred(req.body);
   shred.user = req.user;
 

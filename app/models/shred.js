@@ -77,7 +77,6 @@ ShredSchema.methods = {
    * @param {Function} cb
    * @api private
    */
-
   create: function (cb) {
    this.save(cb);
   },
