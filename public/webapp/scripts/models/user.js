@@ -52,7 +52,7 @@ function( Backbone ) {
 				that.trigger(opts.event + ':success', res);
 			})
 			.fail(function(jqXHR, textStatus, errorThrown) {
-				that.trigger(opts.event + ':fail', res);
+				that.trigger(opts.event + ':fail', textStatus);
 			});
 		},
 
@@ -70,6 +70,14 @@ function( Backbone ) {
 				url : this.url() + '/deleteNotification/' + notificationId,
 				body : {},
 				event : 'notification:deleted'
+			});
+		},
+
+		addFan : function (faneeId) {
+			this.postMsg({
+				url : this.url() + '/addFan/' + faneeId,
+				body : {},
+				event : 'fane:add'
 			});
 		}
 	});

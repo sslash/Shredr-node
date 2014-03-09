@@ -3,15 +3,29 @@ var gulp = require('gulp'),
 	watch = require('gulp-watch'),
 	path = require('path'),
 	refresh = require('gulp-livereload'),
+	eslint = require('gulp-eslint'),
 	lr = require('tiny-lr');
 var server = lr();
 
+var dir = 'public/webapp/';
+
+var scriptsDir = ['public/webapp/**/*.js'];
+
+
 gulp.task('less', function () {
-  gulp.src(['public/webapp/css/application.less'])
+  gulp.src([dir + 'css/application.less'])
     .pipe(less({
       paths: [ path.join(__dirname, 'less', 'includes') ],
     }))
-    .pipe(gulp.dest('public/webapp/css/dist'));
+    .pipe(gulp.dest(dir + 'css/dist'));
+});
+
+gulp.task('lint', function() {
+	return gulp.src('app/models/user.js')
+		.pipe(eslint({
+			config: 'eslint.json'
+		}))
+		.pipe(eslint.format());
 });
 
 gulp.task('lr-server', function() {  
@@ -23,11 +37,7 @@ gulp.task('lr-server', function() {
 gulp.task('default', function() {  
     gulp.run('lr-server', 'less');
 
-    // gulp.watch('src/**', function(event) {
-    //     gulp.run('scripts');
-    // })
-
-    gulp.watch('public/webapp/css/**', function(event) {
+    gulp.watch(dir + 'css/**', function(event) {
         gulp.run('less');
     })
 })

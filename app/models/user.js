@@ -1,14 +1,15 @@
+'use strict';
 /*!
  * Module dependencies
  */
- var mongoose     = require('mongoose'),
-      Schema      = mongoose.Schema,
-      crypto	    = require('crypto'),
-      Shred       = mongoose.model('Shred'),
-      _           = require('underscore'),
-      authTypes   = [],
-      Q           = require('q'),
-      userPlugin  = require('mongoose-user');
+var mongoose     = require('mongoose');
+var Schema      = mongoose.Schema;
+var Crypto	    = require('crypto');
+var Shred       = mongoose.model('Shred');
+var _           = require('underscore');
+var authTypes   = [];
+var Q           = require('q');
+var userPlugin  = require('mongoose-user');
 
 /**
  * User schema
@@ -21,16 +22,15 @@
   guitars : {type: []},
   startedPlaying : {type: String, default: ''},
   musicDna : {type: []},
+  fanees: [{
+    user: { type : Schema.ObjectId, ref : 'User' },
+    createdAt: { type : Date, default : Date.now }
+  }],
+  fans: [{
+    user: { type : Schema.ObjectId, ref : 'User' },
+    createdAt: { type : Date, default : Date.now }
+  }],
 
-  /*
-  * notifications : [
-  *   {
-  *     type : 'New Message',
-  *     id : 'some id',
-  *     body : 'You got a new fan'
-  *   }
-  * ]
-  */
   notifications : {type:[]},
   bio : {type: String, default: ''},
   profileImgFile: { type: String, default: '' },
@@ -48,19 +48,19 @@
  UserSchema
  .virtual('password')
  .set(function(password) {
- 	this._password = password
- 	this.salt = this.makeSalt()
- 	this.hashed_password = this.encryptPassword(password)
+ 	this._password = password;
+ 	this.salt = this.makeSalt();
+ 	this.hashed_password = this.encryptPassword(password);
  })
- .get(function() { return this._password })
+ .get(function() { return this._password; })
 
 /**
  * Validations
  */
 
- var validatePresenceOf = function (value) {
- 	return value && value.length
- }
+var validatePresenceOf = function (value) {
+ 	return value && value.length;
+}
 
 
 // the below 4 validations only apply if you are signing up traditionally
@@ -68,25 +68,25 @@
 UserSchema.path('username').validate(function (username) {
   // if you are authenticating by any of the oauth strategies, don't validate
   if (authTypes.indexOf(this.provider) !== -1) return true
-  	return username.length
+  	return username.length;
 }, 'Username cannot be blank')
 
 UserSchema.path('email').validate(function (email) {
   // if you are authenticating by any of the oauth strategies, don't validate
   if (authTypes.indexOf(this.provider) !== -1) return true
-  	return email.length
+  	return email.length;
 }, 'Email cannot be blank')
 
 UserSchema.path('email').validate(function (email, fn) {
-	var User = mongoose.model('User')
+	var User = mongoose.model('User');
 
   // if you are authenticating by any of the oauth strategies, don't validate
-  if (authTypes.indexOf(this.provider) !== -1) fn(true)
+  if (authTypes.indexOf(this.provider) !== -1) fn(true);
 
   // Check only when it is a new user or when email field is modified
 if (this.isNew || this.isModified('email')) {
 	User.find({ email: email }).exec(function (err, users) {
-		fn(!err && users.length === 0)
+		fn(!err && users.length === 0);
 	})
 } else fn(true)
 }, 'Email already exists')
@@ -94,13 +94,13 @@ if (this.isNew || this.isModified('email')) {
 UserSchema.path('username').validate(function (username) {
   // if you are authenticating by any of the oauth strategies, don't validate
   if (authTypes.indexOf(this.provider) !== -1) return true
-  	return username.length
+  	return username.length;
 }, 'Username cannot be blank')
 
 UserSchema.path('hashed_password').validate(function (hashed_password) {
   // if you are authenticating by any of the oauth strategies, don't validate
   if (authTypes.indexOf(this.provider) !== -1) return true
-  	return hashed_password.length
+  	return hashed_password.length;
 }, 'Password cannot be blank')
 
 
@@ -109,13 +109,13 @@ UserSchema.path('hashed_password').validate(function (hashed_password) {
  */
 
  UserSchema.pre('save', function(next) {
- 	if (!this.isNew) return next()
+ 	if (!this.isNew) return next();
 
  		if (!validatePresenceOf(this.password)
  			&& authTypes.indexOf(this.provider) === -1)
- 			next(new Error('Invalid password'))
+ 			next(new Error('Invalid password'));
  		else
- 			next()
+ 			next();
  	})
 
 /**
@@ -140,6 +140,33 @@ addNotification : function (opts) {
   return deferred.promise;
 },
 
+addFanee : function (faneeId) {
+ var deferred = Q.defer();
+ var fanees = this.fanees;
+ fanees.push({user : faneeId});
+ this.update({fanees : fanees}, function(err,res){
+  if (err) { deferred.reject(err); }
+  else { deferred.resolve(res); }
+});
+ return deferred.promise;
+},
+
+addFan : function (fan) {
+   var deferred = Q.defer();
+   var fans = this.fans;
+   fans.push({user : fan._id});
+   this.update({fans : fans}, function(err,res){
+    if (err) { deferred.reject(err); }
+    else { 
+      return this.addNotification({
+        type : 2,
+        body : 'You got a new fan: ' + fan.username
+      });
+    }
+  });
+   return deferred.promise;
+},
+
 updatePass: function (cb) {
     return this.save(cb);
   },
@@ -151,7 +178,6 @@ updatePass: function (cb) {
    * @return {Boolean}
    * @api public
    */
-
    authenticate: function (plainText) {
    	return this.encryptPassword(plainText) === this.hashed_password
    },
@@ -162,7 +188,6 @@ updatePass: function (cb) {
    * @return {String}
    * @api public
    */
-
    makeSalt: function () {
    	return Math.round((new Date().valueOf() * Math.random())) + ''
    },
@@ -178,7 +203,7 @@ updatePass: function (cb) {
    	if (!password) return ''
    		var encrypred
    	try {
-   		encrypred = crypto.createHmac('sha1', this.salt).update(password).digest('hex')
+   		encrypred = Crypto.createHmac('sha1', this.salt).update(password).digest('hex')
    		return encrypred
    	} catch (err) {
    		return ''
@@ -234,6 +259,8 @@ UserSchema.statics = {
 function getNotificationTypeById (id) {
     if ( id === 1 ) {
       return 'New Message';
+    } else if ( id === 2 ) {
+      return 'New Fan';
     }
 };
 mongoose.model('User', UserSchema)

@@ -7,6 +7,7 @@ define([
 	'views/stage/stageKicker',
 	'views/profile/editProfileView',
 	'views/modal/messageModal',
+	'views/modal/okMessageModal',
 
 	// models
 	'models/shred',
@@ -17,7 +18,7 @@ define([
 
 	],
 	function( Backbone, ProfileTmpl, StageKickerTmpl, StageKickerView,
-			EditProfileView, MessageModalView, Shred, Youtubeplayer) {
+			EditProfileView, MessageModalView, OkMessageModalView, Shred, Youtubeplayer) {
 		'use strict';
 
 		/* Return a Layout class definition */
@@ -55,6 +56,7 @@ define([
 			'mouseout [data-event="thumb-hover"]' : '__thumbmouseout',
 			'click [data-event="fullscreen-shred"]' : '__fullscreenShredClicked',
 			'click [data-event="msg"]' : '__messageClicked',
+			'click [data-event="fan"]' : '__becomeFanCLicked'
 		},
 
 		/* on render callback */
@@ -87,7 +89,19 @@ define([
 			this.$el.css({'opacity' : '0.1'});
 		},
 
+		addFaneeSuccess : function () {
+			var view = new OkMessageModalView({message : msg});
+			var msg = this.model.get('username') + ' was added to fanees list!';
+			Shredr.modal.show(view.render().el);
+			this.listenTo(view, 'message:ok', this.modalClosed);
+		},
+
 		// EVENTS
+
+		__becomeFanCLicked : function () {
+			this.listenToOnce(Shredr.user, 'fane:add', this.addFaneeSuccess);
+			Shredr.user.addFan(this.model.get('id'));
+		},
 
 		__messageClicked : function () {
 			this.fadeOut();

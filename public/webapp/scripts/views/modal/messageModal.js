@@ -29,7 +29,6 @@ define([
       },
 
       messageSentSuccess : function (res) {
-        console.log('yeah')
         this.ui.content.children().fadeOut('fast', function() {
           this.ui.content.append('<p>Message was successfully sent</p><button class="btn" data-event="cancel-btn">Ok</button>');
         }.bind(this));

@@ -1,3 +1,4 @@
+
 var mongoose = require('mongoose'),
 	User = mongoose.model('User'),
 	shredsController = require('./shredsController'),
@@ -73,7 +74,6 @@ exports.index = function(req,res){
 		console.log('User is not logged in');
 		renderIndex(req, res, {});
 	}
-
 };
 
 exports.register = function(req, res){
@@ -113,13 +113,6 @@ exports.deleteNotification = function(req, res) {
 };
 
 var login = function (req, res) {
-  // if (req.session.returnTo) {
-
-  //   res.send(req.session.returnTo)
-  //   console.log("delete and return");
-  //   delete req.session.returnTo
-  //   return;
-  // }
   res.send(req.user);
 }
 
@@ -131,6 +124,21 @@ exports.getById = function (req, res) {
 			return res.send (user);
 		}
 	});
+};
+
+exports.addFan = function (req, res) {
+	var faneeId = req.params.faneeId;
+
+	req.user.addFanee(faneeId)
+	.then(function() {
+		User.loadSimple(faneeId)
+	})
+	.then( function(user) {
+		user.addFan(req.user);
+	})
+	.fail ( function(err) {
+		return Client.error(res, err);
+	})
 };
 
 
