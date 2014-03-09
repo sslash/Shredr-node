@@ -90,16 +90,16 @@ define([
 		},
 
 		addFaneeSuccess : function () {
-			var view = new OkMessageModalView({message : msg});
 			var msg = this.model.get('username') + ' was added to fanees list!';
-			Shredr.modal.show(view.render().el);
+			var view = new OkMessageModalView({message : msg});
+			Shredr.modal.show(view);
 			this.listenTo(view, 'message:ok', this.modalClosed);
 		},
 
 		// EVENTS
 
 		__becomeFanCLicked : function () {
-			this.listenToOnce(Shredr.user, 'fane:add', this.addFaneeSuccess);
+			this.listenToOnce(Shredr.user, 'fane:add:success', this.addFaneeSuccess);
 			Shredr.user.addFan(this.model.get('id'));
 		},
 

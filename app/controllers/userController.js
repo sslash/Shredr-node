@@ -2,7 +2,7 @@
 var mongoose = require('mongoose'),
 	User = mongoose.model('User'),
 	shredsController = require('./shredsController'),
-	client = require('../libs/responseClient'),
+	Client = require('../libs/responseClient'),
 	Query = require('../libs/query'),
 	extend = require('util')._extend;
 
@@ -42,7 +42,7 @@ exports.list = function(req, res) {
 		page: page
 	};
 
-	User.list(options, client.send.bind(this,res));
+	User.list(options, Client.send.bind(this,res));
 };
 
 exports.update = function(req,res) {
@@ -109,7 +109,7 @@ exports.deleteNotification = function(req, res) {
 		notifications.splice(toDel, 1);
 	}
 
-	user.save(client.send.bind(this,res));
+	user.save(Client.send.bind(this,res));
 };
 
 var login = function (req, res) {
@@ -131,10 +131,13 @@ exports.addFan = function (req, res) {
 
 	req.user.addFanee(faneeId)
 	.then(function() {
-		User.loadSimple(faneeId)
+		return User.loadSimple(faneeId)
 	})
 	.then( function(user) {
-		user.addFan(req.user);
+		return user.addFan(req.user);
+	})
+	.then ( function (user) {
+		return Client.send(res, null, user);
 	})
 	.fail ( function(err) {
 		return Client.error(res, err);

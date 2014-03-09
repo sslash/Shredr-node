@@ -50,7 +50,10 @@ define([
      //    var user = new User({id : conversation.get('initiatorId')});
         conversation.fetch({success: this.showMessageQueue.bind(this)});
         Shredr.user.deleteNotification(notification.id);
-  		}
+
+  		} else if ( notification.type === 'New Fan') {
+        Shredr.user.deleteNotification(notification.id);        
+      }
   	},
 
     showMessageQueue : function (conversation) {

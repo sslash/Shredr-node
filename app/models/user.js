@@ -154,14 +154,19 @@ addFanee : function (faneeId) {
 addFan : function (fan) {
    var deferred = Q.defer();
    var fans = this.fans;
+   var that = this;
    fans.push({user : fan._id});
    this.update({fans : fans}, function(err,res){
     if (err) { deferred.reject(err); }
     else { 
-      return this.addNotification({
+      return that.addNotification({
         type : 2,
-        body : 'You got a new fan: ' + fan.username
-      });
+        body : 'You got a new fan: ' + fan.username,
+        referenceId : fan._id.toString()
+      })
+      .then( function(res) { deferred.resolve(res); })
+      .fail( function(err) { deferred.reject(err); }
+      );
     }
   });
    return deferred.promise;
