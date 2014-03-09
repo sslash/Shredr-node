@@ -29,7 +29,7 @@
     });
   })
   .then( function(doc) {
-    return Client.send(res, null, doc);
+    return Client.send(res, null, conversation);
   })
   .fail( function (err) {
     return Client.error(res, err);
@@ -65,16 +65,16 @@ exports.sendMessage = function (req, res) {
 
   // get the current recipient (TODO!!)
   .then( function(conv) {
-    return User.loadSimple(//RECIPIENT);
+    var currRecipient = message.from === 0 ? conv.recipient : conv.originator;
+    return User.loadSimple(currRecipient);
   })
 
   // send notification to recipient
-  .then( function( user) ){
-    // TODO set right info
+  .then( function(user) {
     return user.addNotification({
-      // type : 1,
-      // body : 'New message received from ' + req.user.username,
-      // referenceId : conversation._id.toString()
+      type : 1,
+      body : 'New response message received from ' + req.user.username,
+      referenceId : conversation._id.toString()
     });
   })
 

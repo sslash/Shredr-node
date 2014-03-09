@@ -16,6 +16,7 @@ define([
 
 			initialize: function() {
 				this.listenTo(Shredr.user, 'change:notifications', this.render);
+				this.listenTo(Shredr.user, 'notification:deleted:success', this.render);
 				Shredr.vent.on('stage:thumbclicked:fadeout', this.fadeOut.bind(this));
 				Shredr.vent.on('stage:kickerback:clicked', this.fadeIn.bind(this));
 			},

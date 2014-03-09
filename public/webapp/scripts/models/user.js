@@ -45,17 +45,31 @@ function( Backbone ) {
 			}
 		},
 
-		// Send a message from Shredr.user to this.
-		sendMessage : function (msgBody) {
+		postMsg : function (opts) {
 			var that = this;
-			var url = this.url() + '/sendMessage';
-			$.post(url, {body : msgBody})
+			$.post(opts.url, opts.body)
 			.done(function(res) {
-				that.trigger('message:sent:success', res);
+				that.trigger(opts.event + ':success', res);
 			})
 			.fail(function(jqXHR, textStatus, errorThrown) {
-				console.log('ok')
-				that.trigger('message:sent:fail', textStatus);
+				that.trigger(opts.event + ':fail', res);
+			});
+		},
+
+		// Send a message from Shredr.user to this.
+		sendMessage : function (msgBody) {
+			this.postMsg({
+				url : this.url() + '/sendMessage',
+				body : {body : msgBody},
+				event : 'message:sent'
+			});
+		},
+
+		deleteNotification : function (notificationId) {
+			this.postMsg({
+				url : this.url() + '/deleteNotification/' + notificationId,
+				body : {},
+				event : 'notification:deleted'
 			});
 		}
 	});

@@ -49,6 +49,7 @@ define([
   			// var conversation = new Conversation(Shredr.user.get('conversations')[0]);
      //    var user = new User({id : conversation.get('initiatorId')});
         conversation.fetch({success: this.showMessageQueue.bind(this)});
+        Shredr.user.deleteNotification(notification.id);
   		}
   	},
 

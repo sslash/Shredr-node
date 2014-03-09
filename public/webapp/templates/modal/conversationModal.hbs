@@ -1,5 +1,6 @@
 <div class="row">
 	{{#each messages}}
+	<div class="row">
 	<div class="col-sm-3">
 		{{#if from}}<img class="profile-icon" src="{{../recipient.profileImgFile}}">
 		{{else}}<img class="profile-icon" src="{{../originator.profileImgFile}}">
@@ -8,6 +9,7 @@
 	<div class="col-sm-9 text-left">
 			<p>{{body}}</p>
 			<em class="font-xsmall left">Sent: {{timestamp}}</em>
+	</div>
 	</div>
 	{{/each}}
 </div>

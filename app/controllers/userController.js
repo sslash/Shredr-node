@@ -93,6 +93,25 @@ exports.register = function(req, res){
 	});
 };
 
+exports.deleteNotification = function(req, res) {
+	var user = req.user;
+	var notId = req.params.nid;
+	var notifications = user.notifications;
+	var len = notifications.length;
+	var toDel = -1;
+	for (var i = 0; i < len; i++) {
+		if ( notifications[i].id.toString() === notId ) {
+			toDel = i; break;
+		}
+	}
+
+	if ( toDel > -1 ) {
+		notifications.splice(toDel, 1);
+	}
+
+	user.save(client.send.bind(this,res));
+};
+
 var login = function (req, res) {
   // if (req.session.returnTo) {
 

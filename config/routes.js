@@ -35,6 +35,9 @@ var http = require('https');
 	app.put('/api/user/:id', auth.requiresLogin, userController.update);
 	app.get('/api/user/:id', userController.getById);
 	app.get('/api/user', userController.list);
+	app.post('/api/user/:id/deleteNotification/:nid', auth.requiresLogin, userController.deleteNotification);
+
+
 	app.post('/users/session',
 		passport.authenticate('local', {
 			//failureRedirect: '/login',

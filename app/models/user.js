@@ -133,8 +133,7 @@ addNotification : function (opts) {
     referenceId : opts.referenceId
   });
 
-  this.update({notifications : this.notifications})
-  .exec(function(err,res) {
+  this.update({notifications : this.notifications},function(err,res) {
     if (err) { deferred.reject(err); }
     else { deferred.resolve(res); }
   });

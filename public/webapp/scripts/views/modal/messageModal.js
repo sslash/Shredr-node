@@ -29,6 +29,7 @@ define([
       },
 
       messageSentSuccess : function (res) {
+        console.log('yeah')
         this.ui.content.children().fadeOut('fast', function() {
           this.ui.content.append('<p>Message was successfully sent</p><button class="btn" data-event="cancel-btn">Ok</button>');
         }.bind(this));
@@ -49,6 +50,8 @@ define([
           recipient : this.model.get('id')
         });
 
+        this.listenToOnce(this.conversation, 'sync', this.messageSentSuccess);
+
         var body = this.ui.textarea.val();
 
         this.conversation.get('messages').push({
@@ -57,9 +60,7 @@ define([
           timestamp : new Date()
         });
 
-        this.conversation.save({}, {
-          success : this.messageSentSuccess.bind(this)
-        });
+        this.conversation.save();
       }
     });
 });
