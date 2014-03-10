@@ -2,8 +2,6 @@
 @import '../bower_components/bootstrap3-less/mixins.less';
 @import './variables.less';
 
-@nav-height: 92px;
-
 nav {
 	color: #fff;
 	position: fixed;
@@ -11,7 +9,7 @@ nav {
 	height: @nav-height;
 	background-color: @nav-black;
 	z-index: 10000;
-	.box-shadow( 0px 4px 8px 0px #0A0A0A);
+	.box-shadow( 0px 2px 8px 0px #0A0A0A);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 
 	a {
@@ -44,9 +42,9 @@ nav {
 
 
 	.nav-categories {
-		position: absolute;
-		top: 54px;
-		left: 400px;
+		position: relative;
+		top: -42px;
+		margin-left: 34%;
 
 		li { &:hover { .scale(1.1); } }
 		a{
@@ -54,10 +52,26 @@ nav {
 			color: #fff;
 			border: 1px solid rgba(255,255,255,.14);
 			border-bottom: none;
-			&.active{ 
+			&.active{
 				border-bottom: 1px solid @nav-black;
 				padding: 11px 34px;
 			}
+		}
+	}
+}
+
+.side-nav {
+	position: absolute;
+	height: 100%;
+	background-color: @brown;
+	border-right: 1px solid #414040;
+
+	ul {
+		color : @white;
+		padding: 10px 3px;
+		li {
+			margin: 60px 0;
+			text-align: center;
 		}
 	}
 }

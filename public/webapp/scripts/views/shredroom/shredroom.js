@@ -3,7 +3,6 @@ define([
 	'models/shred',
 
 	// Views
-	'views/shredroom/resources',
 	'views/shredroom/tabs',
 	'views/shredroom/upload',
 	'views/shredroom/backtrack',
@@ -11,7 +10,7 @@ define([
 
 	'hbs!tmpl/shredroom/shredroom_tmpl'
 ],
-function( Backbone, Shred, ResourcesView, TabsView,
+function( Backbone, Shred, TabsView,
 			UploadView, BacktrackView, PreviewView, ShredroomTmpl  ) {
     'use strict';
 
@@ -22,17 +21,15 @@ function( Backbone, Shred, ResourcesView, TabsView,
 		className : 'shredroom',
 
 		initialize: function() {
-			console.log("initialize a Shredroom Layout");
 			this.model = new Shred();
 			this.vent = new Backbone.Wreqr.EventAggregator();
 			this.vent.on('shredroom:model:uploaded', this.shredUploaded.bind(this));
 		},
-		
-    	template: ShredroomTmpl,    	
+
+    	template: ShredroomTmpl,
 
     	/* Layout sub regions */
     	regions: {
-    		resources 	: '#resources-region',
     		tabs 		: '#tabs-region',
     		upload      : '#upload-region',
     		backtrack	: '#backtrack-region',
@@ -41,7 +38,6 @@ function( Backbone, Shred, ResourcesView, TabsView,
 
     	/* ui selector cache */
     	ui: {
-    		resource 	: '#resources-region',
     		tabs 		: '#tabs-region',
     		buttons  	: '#buttons',
     		uploadBtn   : '#upload',
@@ -60,7 +56,7 @@ function( Backbone, Shred, ResourcesView, TabsView,
 		__backtrackClicked : function () {
 			if ( !this.BacktrackView ){
 				this.backtrackView = new BacktrackView({model : this.model});
-				this.listenTo(this.backtrackView, 'arrow:event:click', 
+				this.listenTo(this.backtrackView, 'arrow:event:click',
 				this.arrowClicked.bind(this, this.ui.backtrack, {'left':'-2200'}));
 				this.backtrack.show(this.backtrackView);
 			}
@@ -68,10 +64,8 @@ function( Backbone, Shred, ResourcesView, TabsView,
 			this.showTransover(this.ui.backtrack, {'left' : '0'});
 		},
 
-		showTransover : function(container, opts) {
-			this.ui.buttons.fadeOut();
-			container.show();
-			container.animate(opts, 'slow');
+		showTransover : function (cb) {
+			this.ui.buttons.fadeOut('fast', cb);
 		},
 
 		__uploadClicked : function() {
@@ -88,7 +82,7 @@ function( Backbone, Shred, ResourcesView, TabsView,
 		__tabsClicked : function() {
 			if ( !this.tabsView ) {
 				this.tabsView = new TabsView();
-				this.listenTo(this.tabsView, 'arrow:event:click', 
+				this.listenTo(this.tabsView, 'arrow:event:click',
 				this.arrowClicked.bind(this, this.ui.tabs, {'bottom':'-2200'}));
 				this.tabs.show(this.tabsView);
 			}
@@ -96,15 +90,9 @@ function( Backbone, Shred, ResourcesView, TabsView,
 		},
 
 		__resourcesClicked : function() {
-			if (!this.resourcesView) {
-				this.resourcesView = new ResourcesView();
-				this.listenTo(this.resourcesView, 'arrow:event:click', 
-					this.arrowClicked.bind(this, this.ui.resource, {'right':'-2200'}));
-
-				this.resources.show(this.resourcesView);
-			}
-
-			this.showTransover(this.ui.resource, {'right' : '0'});
+			this.showTransover( function () {
+					Shredr.router.navigate("/shredroom/theorySection", {trigger: true});
+			});
 		},
 
 		arrowClicked : function ( container, opts) {

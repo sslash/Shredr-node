@@ -6,6 +6,7 @@ define([
     appRoutes: {
 		'theStage' : 'stagePage',
 		'shreds' : 'stagePage',
+		'shredroom/theorySection' : 'theorySection',
 		'shredroom': 'shredroom',
 		'profiles' : 'profiles',
 		'shred/:id' : 'shredPreview',

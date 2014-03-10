@@ -10,14 +10,15 @@ define([
 	'views/profile/profileLayout',
 	'views/shredroom/shredroom',
 	'views/shred/shredPreviewView',
+	'views/shredroom/resources', // SrTheoryView
 
 	// models
 	'models/user',
 	'models/shred'
 
-	], function (Backbone, NavMainView, LandingPageView, MainNavView, 
+	], function (Backbone, NavMainView, LandingPageView, MainNavView,
 		StageView, ProfilesView, ProfileView, ShredroomView, ShredPreviewView,
-		User, Shred) {
+		SrTheoryView, User, Shred) {
 
 	var MainController = Backbone.Marionette.Controller.extend({
 
@@ -35,9 +36,14 @@ define([
 		},
 
 		shredroom : function() {
-			this.renderLandingNavView();
+			this.renderShredroomNavView();
 			this.renderShredroomView();
 			this.renderFooterView();
+		},
+
+		theorySection : function () {
+			this.renderShredroomNavView('Theory Section');
+			this.renderTheorySection();
 		},
 
 		profiles : function() {
@@ -60,11 +66,13 @@ define([
 					this.renderProfileView (model);
 				}.bind(this));
 
-			// If a browser reload, just load the view 
+			// If a browser reload, just load the view
 			} else {
 				this.renderProfileView (model);
 			}
 		},
+
+		// render things
 
 		renderProfileView : function (model) {
 			var view = new ProfileView ( {model : model} );
@@ -74,13 +82,13 @@ define([
 		renderShredPreview : function (id) {
 			var shred = new Shred({id : id});
 			var view = new ShredPreviewView ( {model : shred} );
-			Shredr.main.show(view);	
+			Shredr.main.show(view);
 		},
 
 		renderProfilesView : function() {
 			var view = new ProfilesView();
 			Shredr.main.show(view);
-		},		
+		},
 
 		/** Rendering functions */
 		renderLandingNavView : function(forced){
@@ -90,16 +98,32 @@ define([
 			}
 		},
 
+		renderShredroomNavView : function (subCat) {
+			if ( !this.mainNavView ) {
+				this.mainNavView = new MainNavView({subTmpl : 'shredroom', subCat : subCat});
+			} else {
+				this.mainNavView.setSubTmpl('shredroom', subCat);
+			}
+			Shredr.navigation.show(this.mainNavView);
+		},
+
 		renderNavigationView : function() {
 			if ( !this.mainNavView ) {
 				this.mainNavView = new MainNavView();
+			} else {
+				this.mainNavView.setSubTmpl('std');
 			}
-			
+
 			Shredr.navigation.show(this.mainNavView);
 		},
 
 		renderShredroomView : function() {
 			var view = new ShredroomView();
+			Shredr.main.show(view);
+		},
+
+		renderTheorySection : function () {
+			var view = new SrTheoryView();
 			Shredr.main.show(view);
 		},
 
