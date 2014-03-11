@@ -60,6 +60,18 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
 
 .form-flat {
 
+  .large {
+    width: 60%;
+    padding: 8px;
+    line-height: 13px;
+  }
+
+  .dark {
+    background: @brown;
+    border: none;
+    color: @white;
+  }
+
   .footer {
     margin-top: 51px;
   }
@@ -74,12 +86,12 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
     margin: 10px 0;
   }
 
-  textarea { 
-    height: 110px; 
+  textarea {
+    height: 110px;
     resize:none;
     &.short {height: 2.5em;}
   }
-  
+
   input[type="text"], input[type="password"], input[type="email"] {
     height:  @input-height-small;
   }

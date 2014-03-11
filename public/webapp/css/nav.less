@@ -2,15 +2,19 @@
 @import '../bower_components/bootstrap3-less/mixins.less';
 @import './variables.less';
 
-nav {
+@nav-border: 1px solid rgba(255, 255, 255, 0.14);
+
+.nav {
 	color: #fff;
+	background-color: @nav-black;
+	.box-shadow( 0px 2px 8px 0px #0A0A0A);
+}
+nav {
 	position: fixed;
 	width:100%;
 	height: @nav-height;
-	background-color: @nav-black;
 	z-index: 10000;
-	.box-shadow( 0px 2px 8px 0px #0A0A0A);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+	border-bottom: @nav-border;
 
 	a {
 		padding: 10px 15px;
@@ -61,17 +65,26 @@ nav {
 }
 
 .side-nav {
-	position: absolute;
-	height: 100%;
-	background-color: @brown;
-	border-right: 1px solid #414040;
+	position: fixed;
+	bottom: -12px;
+	text-align: center;
+	width: 100%;
 
 	ul {
+		border: @nav-border;
+		margin:0;
+		padding: 0;
 		color : @white;
-		padding: 10px 3px;
+		display:inline-block;
 		li {
-			margin: 60px 0;
+			padding: 6px 23px;
+			float:left;
+			cursor : pointer;
 			text-align: center;
+			.transition(background-color 300ms ease-out);
+			&:hover {
+				background-color: @brown;
+			}
 		}
 	}
 }

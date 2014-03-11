@@ -1908,6 +1908,9 @@ body {
 .text-left {
   text-align: left;
 }
+.text-center {
+  text-align: center;
+}
 .clear-marg {
   margin: 0;
   padding: 0;
@@ -1944,6 +1947,14 @@ strong,
 small,
 em {
   color: #d1d1d1;
+}
+.under {
+  color: #cccccc;
+  font-size: 9px;
+  line-height: 9px;
+}
+.bold {
+  font-weigth: bold;
 }
 .big-up {
   text-transform: uppercase;
@@ -2027,6 +2038,16 @@ textarea::-webkit-input-placeholder {
   border-right: 1px solid rgba(255, 255, 255, 0.7);
   -webkit-box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.51);
   box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.51);
+}
+.form-flat .large {
+  width: 60%;
+  padding: 8px;
+  line-height: 13px;
+}
+.form-flat .dark {
+  background: #333333;
+  border: none;
+  color: #d1d1d1;
 }
 .form-flat .footer {
   margin-top: 51px;
@@ -2183,15 +2204,17 @@ footer {
 .meta-stretch {
   margin: 20px 10px;
 }
-nav {
+.nav {
   color: #fff;
+  background-color: #0e0e0e;
+  -webkit-box-shadow: 0px 2px 8px 0px #0a0a0a;
+  box-shadow: 0px 2px 8px 0px #0a0a0a;
+}
+nav {
   position: fixed;
   width: 100%;
   height: 86px;
-  background-color: #0e0e0e;
   z-index: 10000;
-  -webkit-box-shadow: 0px 2px 8px 0px #0a0a0a;
-  box-shadow: 0px 2px 8px 0px #0a0a0a;
   border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 nav a {
@@ -2240,18 +2263,28 @@ nav .nav-categories a.active {
   padding: 11px 34px;
 }
 .side-nav {
-  position: absolute;
-  height: 100%;
-  background-color: #333333;
-  border-right: 1px solid #414040;
+  position: fixed;
+  bottom: -12px;
+  text-align: center;
+  width: 100%;
 }
 .side-nav ul {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  margin: 0;
+  padding: 0;
   color: #d1d1d1;
-  padding: 10px 3px;
+  display: inline-block;
 }
 .side-nav ul li {
-  margin: 60px 0;
+  padding: 6px 23px;
+  float: left;
+  cursor: pointer;
   text-align: center;
+  -webkit-transition: background-color 300ms ease-out;
+  transition: background-color 300ms ease-out;
+}
+.side-nav ul li:hover {
+  background-color: #333333;
 }
 img.tabs-img {
   width: 100%;
@@ -2701,8 +2734,8 @@ nav .logo a {
 }
 .sr-box {
   border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(0, 0, 0, 0.86);
-  z-index: 100000;
+  background: #333333;
+  padding: 20px;
   color: #fff;
   opacity: 0.9;
   -webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.89);
@@ -2728,6 +2761,15 @@ nav .logo a {
   height: 100%;
   position: absolute;
   background: #1f1e1e;
+}
+.sr-main {
+  margin-top: 20px;
+}
+.sr-main p {
+  margin: 0;
+}
+.sr-main .row {
+  margin: 5px 0px;
 }
 .profile-thumb {
   margin: 20px;
