@@ -25,12 +25,9 @@
 		"quotes": 0,
 		"no-unreachable":2
 	},
-	"globals": {
-		"Backbone": false,
-		"$": false
-	},
 	"env":{
 		"browser": true,
-		"node": true
+		"node": true,
+		"amd" : true
 	}
 }

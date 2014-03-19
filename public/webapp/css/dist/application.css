@@ -1912,8 +1912,8 @@ body {
   text-align: center;
 }
 .clear-marg {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .pull-down {
   position: relative;
@@ -2201,6 +2201,18 @@ footer {
   margin-top: 20px;
   cursor: pointer;
 }
+.up-video {
+  background-image: url('/img/outlets.png');
+  background-position: initial initial;
+  background-repeat: initial initial;
+}
+.up-video .form-flat {
+  padding-left: 0;
+  padding-right: 0;
+}
+.up-video .form-flat .tags-area {
+  height: 96px;
+}
 .meta-stretch {
   margin: 20px 10px;
 }
@@ -2432,18 +2444,6 @@ img.tabs-img {
 }
 .modal-flat .style-tags.short {
   min-height: 40px;
-}
-.modal-flat .up-video {
-  background-image: url('/img/outlets.png');
-  background-position: initial initial;
-  background-repeat: initial initial;
-}
-.modal-flat .up-video .form-flat {
-  padding-left: 0;
-  padding-right: 0;
-}
-.modal-flat .up-video .form-flat .tags-area {
-  height: 96px;
 }
 .style-tags {
   margin: 5px 0;
@@ -2770,6 +2770,9 @@ nav .logo a {
 }
 .sr-main .row {
   margin: 5px 0px;
+}
+[data-region="theory-content"] .col-sm-6 {
+  padding: 20px;
 }
 .profile-thumb {
   margin: 20px;
