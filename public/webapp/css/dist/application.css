@@ -2516,6 +2516,10 @@ img.tabs-img {
   width: 50%;
   text-align: left;
 }
+.nice-rows {
+  border-bottom: 1px solid #666;
+  padding: 15px 0;
+}
 /* TODO: remove this whole file and merge with the other nav.less Æ*/
 nav.navbar.navbar-default.navbar-inverse {
   border-radius: 0;
