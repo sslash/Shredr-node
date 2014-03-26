@@ -22,7 +22,6 @@ var setTags = function (tags) {
 /**
  * Shred Schema
  */
-
 var ShredSchema = new Schema({
   title: {type : String, default : '', trim : true},
   type: {type : String, default : '', trim : true},
@@ -73,7 +72,7 @@ ShredSchema.methods = {
   /**
    * Save the shred
    *
-   * @param {data} shred data 
+   * @param {data} shred data
    * @param {Function} cb
    * @api private
    */
@@ -90,7 +89,7 @@ ShredSchema.methods = {
       this.rating.raters = {};
     }
     var rateObj = this.rating.raters[user._id];
-    
+
     // If user has rated; then substract that value first
     if ( rateObj ) {
       this.rating.rating -= parseInt(rateObj, 10);

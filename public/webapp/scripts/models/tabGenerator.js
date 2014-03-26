@@ -1,3 +1,6 @@
+ // TODO: possible bug on: when a note is entered
+// and some combination of key up/down/left/right
+// is pressed, it stores wrong data
  define([
   'underscore',
   'jquery'
@@ -5,7 +8,7 @@
   function(_,$) {
 
 	var TabGenerator = function(options) {
-		
+
 		this.init = function(){
 			this.tabInput = this.find("input");
 
@@ -14,7 +17,7 @@
 			}
 
 			this.notes = that.options.notes || $('.notes');
-			this.bendBtn = that.options.bendBtn || $('#bendBtn');	
+			this.bendBtn = that.options.bendBtn || $('#bendBtn');
 			this.tabs = [];
 			this.tabsIndex = 0;			/* current Y */
 			this.tabsStringIndex = 0;	/* current string */
@@ -23,11 +26,11 @@
 			this.noteDiv = "#crotchet";	/* Current interval image */
 			this.note_color = "white";
 
-
 			// Listeners
 			this.tabInput.on('keyup', $.proxy(that.__keypressed, that));
 			this.notes.on('click', $.proxy(that.__noteChangeClicked, that));
 			this.bendBtn.on('click', $.proxy(that.__bendBtnClicked, that));
+            this.on('click', this.__tabsAreaClicked.bind(this));
 
 		};
 
@@ -39,11 +42,10 @@
 			return {
 				tempo: "125",
 				tabs: this.tabs
-			};			
+			};
 		};
 
 		this.getNextMoveWidth = function() {
-			console.log(this.height()/6);
 			return this.width() / (this.intervall*4);
 		};
 
@@ -57,13 +59,11 @@
 
 			this.tabs[tabsIndex].rest = this.intervall;
 			if (!this.tabs[tabsIndex].stringz) {
-				this.tabs[tabsIndex].stringz = [];
+				this.tabs[tabsIndex].stringz = {};
 			}
 
 			// add the fret at the given string
-			var obj = {};
-			obj[tabsStringIndex] = parsedFret;
-			this.tabs[tabsIndex].stringz.push(obj);
+			this.tabs[tabsIndex].stringz[tabsStringIndex] = parsedFret;
 			return parsedFret;
 		};
 
@@ -74,48 +74,63 @@
 			this.bars += 1/this.intervall;
 
 			// at the end
-			if ( this.bars !== 4){ 
+			if ( this.bars !== 4){
 				var intervallWidthPx = this.getNextMoveWidth();
-				this.tabInput.animate({ left: "+=" + intervallWidthPx + "px"}, 1);
+				this.tabInput.css({ left: "+=" + intervallWidthPx + "px"}, 1);
 			}
 			return fret;
 		};
 
 		this.moveBarBackwards = function(){
+            if ( this.tabsIndex === 0 ) { return ''; }
 			var intervallWidthPx = this.getNextMoveWidth();
-			this.tabInput.animate({ left: "-=" + intervallWidthPx + "px"}, 1);
+			this.tabInput.css({ left: "-=" + intervallWidthPx + "px"}, 1);
 			this.tabsIndex --;
 			this.bars -= 1/this.intervall;
 			return;
 		};
 
 		this.moveBarDownOrUpwards = function(dir) {
-			var height = Math.floor(this.height() / 6) - 2; /* Height between strings. - 2: duno why */
+
+            /* Height between strings. - 2: duno why */
+			var height = Math.floor(this.height() / 6) - 2;
+
+            if (dir === 'up'){
+                // dont move on edge cases
+                if ( this.tabsStringIndex === 0 ) { return ''; }
+
+                this.tabInput.css({ top: "-=" + height}, 1);
+                this.tabsStringIndex --;
+            } else {
+                // dont move on edge cases
+                if ( this.tabsStringIndex === 5 ) { return ''; }
+
+                this.tabInput.css({ top: "+=" + height}, 1);
+                this.tabsStringIndex ++;
+            }
+
 			var fret = this.getTabInput();
 			if ( !isNaN (parseInt(fret, 10)) ){
 				this.createNoteObject(fret, this.tabsIndex, this.tabsStringIndex);
 			}
-			if (dir === 'up'){
-				this.tabInput.animate({ top: "-=" + height}, 1);
-				this.tabsStringIndex --;
-			} else {
-				this.tabInput.animate({ top: "+=" + height}, 1);
-				this.tabsStringIndex ++;
-			}
 			return fret;
 		};
 
+        this.__tabsAreaClicked = function (e) {
+            this.tabInput.focus();
+        };
+
 		this.__bendBtnClicked = function(e) {
-			console.log("SAP");
 			if (!this.currDecorators){
 				this.currDecorators = {};
 			}
 			this.currDecorators.bend = true;
 		};
-		
+
 		this.__keypressed = function(e) {
 			var key = e.keyCode;
 			var fret = "";
+            var inputStartPos = this.tabInput.position();
 			switch(key){
 				case 13: // enter
 					fret = this.moveBarForward();
@@ -140,12 +155,14 @@
 					return;
 			}
 			if ( fret === -1) {
-				fret = "<img src='img/notes/hvilepause.png'>";
+                // dont need this now (scales yo)
+				// fret = "<img src='img/notes/hvilepause.png'>";
+                fret = '';
 			}
 
 			var label = $("<label class='note' style='color:" + this.note_color + ";'>" + fret + "</label>");
-			label.offset(this.tabInput.position());
-			this.tabInput.after(label);
+			label.offset(inputStartPos);
+			this.tabInput.before(label);
 			this.tabInput.val("");
 
 			if (this.currDecorators){
@@ -156,8 +173,10 @@
 			}
 
 			if ( this.bars === 4 ) {
-				this.clearAndIterateBars();				
+				this.clearAndIterateBars();
 			}
+
+            // else if on the left case and moving backwards
 		};
 
 		this.__noteChangeClicked = function(e) {
@@ -195,6 +214,7 @@
 			$(this.noteDiv).removeClass("selected");
 			this.noteDiv = "#" + divId;
 			$(this.noteDiv).addClass("selected");
+            this.tabInput.focus();
 		};
 
 		this.clearAndIterateBars = function() {

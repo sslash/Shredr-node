@@ -1,6 +1,6 @@
 define([
 	'backbone',
-	'hbs!tmpl/shredroom/tabs_tmpl',
+	'hbs!tmpl/shredroom/scale_tabs_tmpl',
 	'models/tabGenerator',
 ],
 function( Backbone, TabsTmpl ) {
@@ -10,12 +10,7 @@ function( Backbone, TabsTmpl ) {
 	return Backbone.Marionette.ItemView.extend({
 		className : 'sr-region-inner',
 
-		initialize: function() {
-			console.log("initialize a Tabs ItemView");
-		},
-		
     	template: TabsTmpl,
-        
 
     	/* ui selector cache */
     	ui: {},
@@ -31,6 +26,10 @@ function( Backbone, TabsTmpl ) {
 		/* on render callback */
 		onRender: function() {
 			this.tabsGen = this.$('.tabsArea').tabGenerator({notes : this.$('.notes')});
+		},
+
+		getTabs : function () {
+			return this.tabsGen.getTabs();
 		}
 	});
 

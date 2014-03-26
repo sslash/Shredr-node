@@ -1,27 +1,31 @@
+@import '../bower_components/bootstrap3-less/mixins.less';
 img {
 	&.tabs-img {
-		width: 100%;
 		opacity: 0.7;
-		height: 85px;
 	}
 }
 .note-decorator{
-	width: 300px;
-	height: 57px;
-	color:black;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
+	display: inline-block;
+	color: black;
 	background: #fff;
-	border: 2px solid #ccc;
+	border: 1px solid @light-brown;
+	position: absolute;
+	right: 0;
+	top: -29px;
 	img {
 		padding-left: 5px;
 		padding-right: 5px;
 	}
 	ul {
-		border-bottom: 2px solid lightgrey;
 		margin: 0;
+		padding: 3px 11px;
+		height: 25px;
 	}
 	li {
+		padding: 0;
+		&:hover {
+			.scale(1.2, 1.2);
+		}
 		display: inline-block;
 		cursor:pointer;
 	}
@@ -47,37 +51,45 @@ img {
 
 .tabsArea {
 
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.24);
+	}
+
+	.transition(background-color 0.2s ease);
 	.tabs-row {
 		margin: 19px 12px;
 	}
-	
+
 	background: rgba(0, 0, 0, 0.8);
 	position:relative;
+	cursor: pointer;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
-	border-radius: 3px;	
+	border-radius: 3px;
 	display:inline-block;
 
 	#tab-input {
 		position: absolute;
-		width: 540px;
 		display: inline-block;
+		height: 100%;
 		left: 0px;
 		top: 0;
 	}
 
 	#tabs-cursor {
 		position: absolute;
-		top: 32px;
-		width: 33px;
+		top: 4px;
+		width: 25px;
 		padding: 0 0 0 4px;
 		margin: 0;
 		display: inline;
 		background: transparent;
 		border-color: transparent;
 		border-left: 1px solid #fff;
-		font-size: 12px;
+		font-size: 10px;
+		line-height: 10px;
 		left: 11px;
+		height: 18px;
 		color: white;
 	}
 

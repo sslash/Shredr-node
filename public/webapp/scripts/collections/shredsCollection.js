@@ -27,6 +27,6 @@ function( Backbone, Shred ) {
 				console.log('failed to fetcH: ' + url + ', error: ' + textStatus);
 			});
 		}
-		
+
 	});
 });

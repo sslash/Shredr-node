@@ -7,10 +7,12 @@ var http = require('https');
  */
  var userController		= require('../app/controllers/userController'),
 	 shredsController	= require('../app/controllers/shredsController'),
+     scalesController	= require('../app/controllers/scalesController'),
 	 conversationController = require('../app/controllers/conversationController');
 
 
  module.exports = function(app, passport){
+     'use strict';
 	app.get('/', userController.index);
 	app.get('/youtube', userController.youtube);
 
@@ -38,6 +40,11 @@ var http = require('https');
 	app.post('/api/user/:id/addFan/:faneeId', auth.requiresLogin, userController.addFan);
 	app.post('/api/user/:id/deleteNotification/:nid', auth.requiresLogin, userController.deleteNotification);
 
+
+    // Scales
+    app.post('/api/scales', auth.requiresLogin, scalesController.create);
+    app.get('/api/scales/:id', scalesController.get);
+    app.get('/api/scales', scalesController.query);
 
 	app.post('/users/session',
 		passport.authenticate('local', {
@@ -104,6 +111,6 @@ var http = require('https');
 
 
 
-	app.get('/users/:userId', userController.show)
-	app.param('userId', userController.user)
+	app.get('/users/:userId', userController.show);
+	app.param('userId', userController.user);
 };

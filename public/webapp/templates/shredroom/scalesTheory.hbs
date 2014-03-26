@@ -2,27 +2,13 @@
     <div class="row clear-marg">
         <div class="col-sm-6">
             <div class="pull-right"><button class="btn" data-event="add">Add Scale</button></div>
-            <ul>
-                <li class="row nice-rows">
-                    <h5 class="lead clear-marg">C-minor Scale</h5>
+            <ul class="nice-rows">
+                {{#each collection}}
+                <li class="row pointer" data-event="scale" data-model="{{@index}}">
+                    <h5 class="lead clear-marg">{{title}}</h5>
                     <p class="font-xsmall">3 positions - 120 examples</p>
                 </li>
-                <li class="row nice-rows">
-                    <h5 class="lead clear-marg">C-minor Scale</h5>
-                    <p class="font-xsmall">3 positions - 120 examples</p>
-                </li>
-                <li class="row nice-rows">
-                    <h5 class="lead clear-marg">C-minor Scale</h5>
-                    <p class="font-xsmall">3 positions - 120 examples</p>
-                </li>
-                <li class="row nice-rows">
-                    <h5 class="lead clear-marg">C-minor Scale</h5>
-                    <p class="font-xsmall">3 positions - 120 examples</p>
-                </li>
-                <li class="row nice-rows">
-                    <h5 class="lead clear-marg">C-minor Scale</h5>
-                    <p class="font-xsmall">3 positions - 120 examples</p>
-                </li>
+                {{/each}}
             </ul>
         </div>
         <div class="col-sm-6 up-video">

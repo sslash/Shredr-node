@@ -13,13 +13,16 @@ define([
 				"tempo" : "125",
 				"tabs" : [
 				{
+					// this is the correct data structure
 					"rest" : 4,
-					"stringz" : [
-					{
-						"0" : 3
+					"stringz" : {
+						"0" : 12,
+						"1" : 14,
+						"2" : 14
 					}
-					]
 				},
+
+					// this is not
 				{
 					"rest" : 4,
 					"stringz" : [
@@ -815,11 +818,11 @@ define([
 				response.rateValue = this.setRateValue(response.rating);
 			}
 
-			// 
+			//
 			if ( Shredr.user ) {
 				if ( response.rating[Shredr.user.get('_id')] ) {
 					response.userHasRated = response.rating[Shredr.user.get('_id')];
-				}	
+				}
 			}
 
 			return response;
@@ -864,7 +867,7 @@ define([
 				$.post(url, {comment : comment})
 				.done(function(res) {
 
-					// Don't set the comments. no need. 
+					// Don't set the comments. no need.
 					// just append the new one to the current view
 					var comment = res.comments[res.comments.length-1];
 					that.trigger('leChange:commentAdded', comment);

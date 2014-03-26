@@ -2299,30 +2299,35 @@ nav .nav-categories a.active {
   background-color: #333333;
 }
 img.tabs-img {
-  width: 100%;
   opacity: 0.7;
-  height: 85px;
 }
 .note-decorator {
-  width: 300px;
-  height: 57px;
+  display: inline-block;
   color: black;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
   background: #fff;
-  border: 2px solid #ccc;
+  border: 1px solid #4f4f4f;
+  position: absolute;
+  right: 0;
+  top: -29px;
 }
 .note-decorator img {
   padding-left: 5px;
   padding-right: 5px;
 }
 .note-decorator ul {
-  border-bottom: 2px solid lightgrey;
   margin: 0;
+  padding: 3px 11px;
+  height: 25px;
 }
 .note-decorator li {
+  padding: 0;
   display: inline-block;
   cursor: pointer;
+}
+.note-decorator li:hover {
+  -webkit-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
 }
 .note-decorator #bendBtn {
   width: 30px;
@@ -2341,35 +2346,43 @@ img.tabs-img {
   opacity: 1;
 }
 .tabsArea {
+  -webkit-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
   background: rgba(0, 0, 0, 0.8);
   position: relative;
+  cursor: pointer;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   display: inline-block;
+}
+.tabsArea:hover {
+  background-color: rgba(255, 255, 255, 0.24);
 }
 .tabsArea .tabs-row {
   margin: 19px 12px;
 }
 .tabsArea #tab-input {
   position: absolute;
-  width: 540px;
   display: inline-block;
+  height: 100%;
   left: 0px;
   top: 0;
 }
 .tabsArea #tabs-cursor {
   position: absolute;
-  top: 32px;
-  width: 33px;
+  top: 4px;
+  width: 25px;
   padding: 0 0 0 4px;
   margin: 0;
   display: inline;
   background: transparent;
   border-color: transparent;
   border-left: 1px solid #fff;
-  font-size: 12px;
+  font-size: 10px;
+  line-height: 10px;
   left: 11px;
+  height: 18px;
   color: white;
 }
 .tabsArea label {
@@ -2516,9 +2529,19 @@ img.tabs-img {
   width: 50%;
   text-align: left;
 }
-.nice-rows {
+ul.nice-rows {
+  padding: 0;
+  height: 386px;
+  overflow-y: scroll;
+}
+ul.nice-rows li {
   border-bottom: 1px solid #666;
-  padding: 15px 0;
+  padding: 15px 10px;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+ul.nice-rows li:hover {
+  background-color: #4f4f4f;
 }
 /* TODO: remove this whole file and merge with the other nav.less Æ*/
 nav.navbar.navbar-default.navbar-inverse {
@@ -2773,7 +2796,7 @@ nav .logo a {
   margin: 0;
 }
 .sr-main .row {
-  margin: 5px 0px;
+  margin: 0px;
 }
 [data-region="theory-content"] .col-sm-6 {
   padding: 20px;

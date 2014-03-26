@@ -8,7 +8,18 @@
 	}
 }
 
-.nice-rows {
-	.bottom-brown-border();
-		padding: 15px 0;
+ul {
+	&.nice-rows {
+		padding: 0;
+		height: 386px;
+		overflow-y: scroll;
+		li {
+			.bottom-brown-border();
+			padding: 15px 10px;
+			.transition(background-color .3s ease);
+			&:hover {
+				background-color: @light-brown;
+			}
+		}
+	}
 }
