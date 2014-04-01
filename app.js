@@ -4,7 +4,8 @@ var express     = require('express'),
 	schema      = mongoose.Schema,
 	passport    = require('passport'),
 	fs          = require('fs'),
-	config      = require('./config/config');
+	config      = require('./config/config'),
+	elasticsearch = require('./config/elasticsearch');
 
 var modelsPath = __dirname + '/app/models';
 
@@ -20,6 +21,8 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 require('./config/passport')(passport, config);
 
 var app = express();
+
+app.elasticsearch = elasticsearch();
 
 require('./config/express')(app, config, passport);
 require('./config/routes')(app, passport);

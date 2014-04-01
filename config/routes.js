@@ -5,12 +5,13 @@ var http = require('https');
 /**
  * Route middlewares
  */
- var userController		= require('../app/controllers/userController'),
-	 shredsController	= require('../app/controllers/shredsController'),
-	 conversationController = require('../app/controllers/conversationController');
-
 
  module.exports = function(app, passport){
+   var userController		= require('../app/controllers/userController'),
+     shredsController	= require('../app/controllers/shredsController'),
+     conversationController = require('../app/controllers/conversationController'),
+     searchController = require('../app/controllers/searchController')(app);
+
 	app.get('/', userController.index);
 	app.get('/youtube', userController.youtube);
 
@@ -49,6 +50,9 @@ var http = require('https');
 	app.get('/api/conversation/:id', auth.requiresLogin, conversationController.get);
 	app.post('/api/conversation/:id/sendMessage', auth.requiresLogin, conversationController.sendMessage);
 
+
+  // Search
+  app.get("/api/search/health", searchController.health);
 
 	// TODO: This is code for authenticating with youtube
 	// It doesnt work..
