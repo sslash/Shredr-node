@@ -25,12 +25,14 @@
 }
 
 // things over fullscreen image
-.over-fs {
+.over-fs-1 {
+	position: relative;
+	z-index: 5;
+}
+.over-fs-2 {
 	position: relative;
 	z-index: 2;
-	top : 100px;
 }
-
 #buttons {
 	z-index: 500;
 	position: fixed;
@@ -71,64 +73,64 @@
 	bottom:70%;
 }
 
+#upload-region {
+	top:20px;
+}
+
 #resources {
 	right: 10%;
 	bottom:70%;
 }
-#tabs {
-	left:45%;
-	bottom:20%;
-}
 
 @grey-border : 1px solid rgba(255, 255, 255, 0.15);
-.shredroom-region {
-	position: fixed;
-	display:none;
-	background: transparent;
-	border-top: @grey-border;
-	.box-shadow (0px -1px 7px  rgba(0, 0, 0, 0.89));
+// .shredroom-region {
+// 	position: fixed;
+// 	display:none;
+// 	background: transparent;
+// 	border-top: @grey-border;
+// 	.box-shadow (0px -1px 7px  rgba(0, 0, 0, 0.89));
+//
+// 	.row {
+// 		padding-left: 60px;
+// 		padding-top: 20px;
+// 	}
+// 	ul {
+// 		height: 300px;
+// 		overflow-y: scroll;
+// 	}
+// 	li {
+// 		cursor: pointer;
+// 		&:hover {
+// 			-webkit-transform: scale(1.1);
+// 			-moz-transform:    scale(1.1);
+// 			-o-transform:      scale(1.1);
+// 			transform:         scale(1.1);
+// 		}
+// 	}
+// }
 
-	.row {
-		padding-left: 60px;
-		padding-top: 20px;
-	}
-	ul {
-		height: 300px;
-		overflow-y: scroll;
-	}
-	li {
-		cursor: pointer;
-		&:hover {
-			-webkit-transform: scale(1.1);
-			-moz-transform:    scale(1.1);
-			-o-transform:      scale(1.1);
-			transform:         scale(1.1);
-		}
-	}
-}
+// #tabs-region {
+// 	bottom: -1000px;
+// 	width:100%;
+// 	height:430px;
+// 	.box-shadow (0px -1px 7px  rgba(255, 255, 255, 0.35));
+// }
 
-#tabs-region {
-	bottom: -1000px;
-	width:100%;
-	height:430px;
-	.box-shadow (0px -1px 7px  rgba(255, 255, 255, 0.35));
-}
-
-#backtrack-region {
-	width: 100%;
-	height: 100%;
-	left:-1900px;
-}
+// #backtrack-region {
+// 	width: 100%;
+// 	height: 100%;
+// 	left:-1900px;
+// }
 
 
 /* Resources region */
-#resources-region {
-	right:-1900px;
-	width:100%;
-	height: 100%;
-	// .box-shadow (0px -1px 7px  rgba(0, 0, 0, 0.89));
-	.resource-main { .row { padding-left: 0; } }
-}
+// #resources-region {
+// 	right:-1900px;
+// 	width:100%;
+// 	height: 100%;
+// 	// .box-shadow (0px -1px 7px  rgba(0, 0, 0, 0.89));
+// 	.resource-main { .row { padding-left: 0; } }
+// }
 
 // TODO: remove when done with branch
 // .sr-region-inner {

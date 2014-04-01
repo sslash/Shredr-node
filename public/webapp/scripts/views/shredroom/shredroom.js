@@ -1,9 +1,10 @@
+/* global Shredr */
 define([
 	'backbone',
 	'models/shred',
 
 	// Views
-	'views/shredroom/tabs',
+	'views/shredroom/createShredTabs',
 	'views/shredroom/upload',
 	'views/shredroom/backtrack',
 	'views/shredroom/preview',
@@ -24,6 +25,7 @@ function( Backbone, Shred, TabsView,
 			this.model = new Shred();
 			this.vent = new Backbone.Wreqr.EventAggregator();
 			this.vent.on('shredroom:model:uploaded', this.shredUploaded.bind(this));
+			this.vent.on('tabsView:click:open', this.tabsClicked.bind(this));
 		},
 
     	template: ShredroomTmpl,
@@ -48,7 +50,6 @@ function( Backbone, Shred, TabsView,
 		/* Ui events hash */
 		events: {
 			'click #resources' 	: '__resourcesClicked',
-			'click #tabs'		: '__tabsClicked',
 			'click #upload'		: '__uploadClicked',
 			'click #jamtracks'	: '__backtrackClicked'
 		},
@@ -79,14 +80,10 @@ function( Backbone, Shred, TabsView,
 			this.ui.upload.fadeIn();
 		},
 
-		__tabsClicked : function() {
-			if ( !this.tabsView ) {
-				this.tabsView = new TabsView();
-				this.listenTo(this.tabsView, 'arrow:event:click',
-				this.arrowClicked.bind(this, this.ui.tabs, {'bottom':'-2200'}));
-				this.tabs.show(this.tabsView);
-			}
-			this.showTransover(this.ui.tabs, {'bottom' : '0'});
+		tabsClicked : function (model) {
+			console.log
+			this.tabsView = new TabsView({model : model, vent : this.vent });
+			this.tabs.show(this.tabsView);
 		},
 
 		__resourcesClicked : function() {

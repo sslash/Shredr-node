@@ -1,7 +1,6 @@
 define([
 	'backbone',
 	'hbs!tmpl/shredroom/upload_tmpl',
-
 	'autocomplete'
 	],
 	function( Backbone, UploadTmpl ) {
@@ -9,12 +8,10 @@ define([
 
 		/* Return a ItemView class definition */
 		return Backbone.Marionette.ItemView.extend({
-			tagName : 'div',
 			className : 'modal-flat',
 			tags : [],
 
 			initialize: function(options) {
-				console.log("initialize a Upload ItemView");
 				this.model = options.model;
 				this.listenTo(this.model, 'sync', this.modelSynced);
 				this.listenTo(this.model, 'error', this.modelSyncFailed);
@@ -24,23 +21,27 @@ define([
 
 			template: UploadTmpl,
 
-
 			/* ui selector cache */
 			ui : {
-				tags : '#shred-tags',
-				tagsArea : '.style-tags',
+				eqTags : '#eq-tags',
+				shredTags : '#shred-tags',
+				eqTagsArea : '[data-region="eq-tags"]',
+				shredTagsArea : '[data-region="shred-tags"]',
+				fullView : '[data-region="fullview"]',
+				thumbView : '[data-region="thumbview"]'
 			},
 
-			/* Ui events hash */
 			events: {
 				'submit form' 	: '__uploadFormSubmitted',
 				'click a' 		: '__closeModalClicked',
-				'keypress #shred-tags' : '__keypressTags'
+				'keypress [data-event="tags-input"]' : '__keypressTags',
+				'click [data-event="addTabs"]' : '__addTabsClicked',
+				'click [data-event="showUpload"]' : '__showUploadClicked'
 			},
 
 			onRender: function() {
 				window.addEventListener("message", this.receiveIframeMessage.bind(this), false);
-				this.ui.tags.autocomplete({
+				this.ui.eqTags.autocomplete({
 					source : this.autocompleteTags,
 					select: this.__tagSelected.bind(this)
 				});
@@ -58,6 +59,13 @@ define([
 				dropZone.addEventListener('drop', this.__fileDropped, false);
 			},
 
+			pushTag : function (ui, input, value) {
+				this.tags.push(value);
+				var html = '<span class="font-xsmall">' + value + '</span>';
+				ui.append(html);
+				input.val('');
+				return false;
+			},
 
 			// TODO:
 			// Either send the file to the child frame's upload form
@@ -94,7 +102,7 @@ define([
 			__fileDragover : function(evt) {
 				evt.stopPropagation();
 				evt.preventDefault();
-			    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.			    
+			    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
 			},
 
 		  __closeModalClicked : function(e) {
@@ -138,13 +146,55 @@ define([
 			} else {}
 		},
 
-		__tagSelected : function(event, ui) {
-			var value = ui.item.label;
-			this.tags.push(value);
-			var html = '<span class="font-xsmall">' + value + '</span>';
-			this.ui.tagsArea.append(html);
-			this.ui.tags.val('');
-			return false;
+		__keypressTags : function (e) {
+			if ( e.keyCode === 13 ) {
+				var $curr = $(e.currentTarget);
+				if ( $curr.attr('id') === 'shred-tags' ) {
+					this.pushTag(this.ui.shredTagsArea, this.ui.shredTags, $curr.val());
+				} else {
+					this.pushTag(this.ui.eqTagsArea, this.ui.eqTags, $curr.val());
+				}
+			}
+		},
+
+		__addTabsClicked : function () {
+			this.vent.trigger('tabsView:click:open', this.model);
+			this.ui.fullView.css({'display': 'none'});
+			this.ui.thumbView.css({'display': 'block'});
+			this.$el.css({position: 'fixed'});
+			this.$el.animate({
+				width: '100px',
+				height: '100px',
+				bottom: '0px',
+				right: '0px'
+			}, 'fast');
+		},
+
+		__showUploadClicked : function () {
+			this.ui.fullView.css({'display': 'block'});
+			this.ui.thumbView.css({'display': 'none'});
+			this.$el.css({
+				position: 'inherit',
+				width: 'inherit',
+				height: 'inherit',
+				bottom: 'inherit',
+				right: 'inherit'
+			}, 'fast');
+		},
+
+		// __keypressEqTags : function (e) {
+		// 	if ( e.keyCode === 13 ) {
+		// 		this.pushTag(this.ui.eqTagsArea, this.ui.eqTags, $(e.currentTarget).val());
+		// 	}
+		// },
+		//
+		// __keypressShredTags : function (e) {
+		// 	if ( e.keyCode === 13 ) {
+		// 		this.pushTag(this.ui.shredTagsArea, this.ui.shredTags, $(e.currentTarget).val());
+		// 	}
+		// },
+		__tagSelected : function(event, ui, val) {
+			this.pushTag(this.ui.eqTagsArea, this.ui.eqTags, ui.item.label);
 		},
 
 		/*
@@ -153,14 +203,14 @@ define([
 		*  The message includes:
 		* event : {"youtubeUrl":"http://youtu.be/v_ck-cNNKxU",
 		*          "youtubeId":"v_ck-cNNKxU"};
-		* 
+		*
 		* These attributes are saved on the model, and must be used to
 		* show the video instead of the button after the upload is made.
 		*/
 		receiveIframeMessage : function(event) {
 			event.preventDefault();
 			console.log('Got data from iframe!');
-			if ( event.data ) {	
+			if ( event.data ) {
 				try {
 					var data = JSON.parse(event.data);
 					if ( data.youtubeUrl && data.youtubeId ) {

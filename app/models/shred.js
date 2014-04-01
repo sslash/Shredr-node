@@ -40,6 +40,7 @@ var ShredSchema = new Schema({
     createdAt: { type : Date, default : Date.now }
   }],
   tags: {type: [], get: getTags, set: setTags},
+  eqTags: {type: []},
   createdAt  : {type : Date, default : Date.now}
 });
 

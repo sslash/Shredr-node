@@ -3,9 +3,10 @@ define([
 	'backbone',
 
 	'views/shredroom/scalesTheory',
+	'views/shredroom/comingSoon',
 	'hbs!tmpl/shredroom/theorySection'
 ],
-function( Backbone, ScalesTheoryView, tmpl ) {
+function( Backbone, ScalesTheoryView, ComingSoonView, tmpl ) {
     'use strict';
 
 	return Backbone.Marionette.Layout.extend({
@@ -14,7 +15,8 @@ function( Backbone, ScalesTheoryView, tmpl ) {
 		className : 'sr-background',
 
 		events : {
-			'click [data-event="category-click"] li' : '__categoryClicked'
+			'click [data-event="category-click"] li' : '__categoryClicked',
+			'click [data-event="back-btn"]' : '__backClicked'
 		},
 
 		ui : {
@@ -30,6 +32,9 @@ function( Backbone, ScalesTheoryView, tmpl ) {
 				case 'scales':
 					this.renderSubView(ScalesTheoryView);
 					break;
+				default:
+					this.renderSubView(ComingSoonView);
+					break;
 			}
 		},
 
@@ -41,6 +46,10 @@ function( Backbone, ScalesTheoryView, tmpl ) {
 		},
 
 		// EVENTS
+
+		__backClicked : function () {
+			Backbone.history.history.back();
+		},
 
 		__categoryClicked : function (e) {
 			e.preventDefault();

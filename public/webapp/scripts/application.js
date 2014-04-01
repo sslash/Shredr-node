@@ -44,7 +44,7 @@ function( Marionette, Communicator,EventController, RoutesController,
 
 	Shredr.addInitializer(function(options){
 		this.router = new MainRouter({controller:options.controller});
-		Backbone.history.start();
+		Backbone.history.start({pushstate: true});
 	});
 
 	Shredr.on("initialize:before", function(options){
