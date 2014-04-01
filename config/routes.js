@@ -53,6 +53,7 @@ var http = require('https');
 
   // Search
   app.get("/api/search/health", searchController.health);
+  app.get("/api/search/shreds/:query", searchController.searchshreds);
   app.get("/api/search/indexshreds", searchController.indexShreds);
 
 	// TODO: This is code for authenticating with youtube
