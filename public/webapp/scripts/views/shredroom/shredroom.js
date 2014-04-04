@@ -54,6 +54,11 @@ function( Backbone, Shred, TabsView,
 			'click #jamtracks'	: '__backtrackClicked'
 		},
 
+		onRender : function () {
+			this.$('#buttons').hide();
+			this.tabsClicked(new Shred());
+		},
+
 		__backtrackClicked : function () {
 			if ( !this.BacktrackView ){
 				this.backtrackView = new BacktrackView({model : this.model});
@@ -81,7 +86,6 @@ function( Backbone, Shred, TabsView,
 		},
 
 		tabsClicked : function (model) {
-			console.log
 			this.tabsView = new TabsView({model : model, vent : this.vent });
 			this.tabs.show(this.tabsView);
 		},
