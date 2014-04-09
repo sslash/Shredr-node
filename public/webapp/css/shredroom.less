@@ -276,3 +276,31 @@
 		padding: 20px;
 	}
 }
+
+.left-side-nav {
+	position: fixed;
+	text-align: center;
+	left: 0;
+	width:inherit;
+	top:30%;
+	ul {
+		padding:4px;
+		li {
+			box-sizing:border-box;
+			p {
+				&.selected {
+					border: 1px solid rgba(255, 255, 255, 0.48);
+				}
+				margin:0;
+			}
+
+			&.note {
+				cursor:pointer;
+				&:hover {
+					border: 1px solid rgba(255, 255, 255, 0.2);
+				}
+			}
+			margin:13px 0;
+		}
+	}
+}

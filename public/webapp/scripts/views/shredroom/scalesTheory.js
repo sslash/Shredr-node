@@ -11,9 +11,8 @@ define([
 'hbs!tmpl/shredroom/scalesTheory',
 'hbs!tmpl/shredroom/scalesTheoryAddScale'
 ],
-function( Backbone, Scale, ScalesCollection,
-    TabsEditor, ScalePreviewView, tmpl,
-    scaleAddTpl ) {
+function( Backbone, Scale, ScalesCollection, TabsEditor,
+    ScalePreviewView, tmpl, scaleAddTpl ) {
     'use strict';
 
     /* Return a Layout class definition */

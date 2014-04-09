@@ -1,4 +1,4 @@
-<section>
+<!-- <section>
 <p>
 <select id="waveType" style="color:black;">
     <option>sine</option>
@@ -155,30 +155,24 @@ BPM: <input type="text" id="bpm" size="3" value="120" style="color:black; displa
   </g>
 </svg>
 </section>
+ -->
+<!-- <div class="arrow_box bottom-side"></div> -->
+
+<section class="left-side-nav">
+    <ul class="nav">
+        <li class="note"><p data-model="note" id="semibreve">o</p></li>
+        <li class="note"><p data-model="note" id="minim">d</p></li>
+        <li class="note"><p data-model="note" class="selected" id="crotchet">&#9833;</p></li>
+        <li class="note"><p data-model="note" id="quaver">&#9834;</p></li>
+        <li class="note"><p data-model="note" id="semiquaver">&#9836;</p></li>
+        <li class="note"><p data-model="note" id="demisemiquaver">&#9836;&#9836;</p></li>
+        <li class="note"><p data-model="note" id="hemidemisemiquaver">&#9836;&#9836;&#9836;</p></li>
+        <li><button class="nav-btn">Keyboard</button></li>
+    </ul>
+</section>
 
 
-
-
-
-
-<div class="arrow_box bottom-side"></div>
 <div class="content-wrap bottom-side">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="note-decorator">
-                <ul>
-                <li><img src="img/notes/helnote.png" class="notes" id="semibreve"></li>
-                    <li><img src="img/notes/halvnote.png"class="notes" id="minim"></li>
-                    <li><img src="img/notes/firedels.png"class="notes selected" id="crotchet"></li>
-                    <li><img src="img/notes/attedels.png"class="notes" id="quaver"></li>
-                    <li><img src="img/notes/sekstendels.png"class="notes" id="semiquaver"></li>
-                    <li><img src="img/notes/tretitodels.png"class="notes" id="demisemiquaver"></li>
-                    <li><img src="img/notes/64dels.png"class="notes" id="hemidemisemiquaver"></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
     <section class="tabsArea">
         <div class="tabs-row">
             <img src="img/tabs.png" class="tabs-img" style="width:100%;">
@@ -195,6 +189,6 @@ BPM: <input type="text" id="bpm" size="3" value="120" style="color:black; displa
         <div id="tab-input">
             <canvas id="bars" style="height: 100%;"></canvas>
         </div>
-        <input type="text" id="tabs-cursor" maxlength="2" autocomplete="off"></input>
+        <input type="text" id="tabs-cursor" class="tabs-cursor" maxlength="2" autocomplete="off"></input>
     </section>
 </div>

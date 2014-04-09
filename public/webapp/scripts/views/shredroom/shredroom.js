@@ -55,6 +55,7 @@ function( Backbone, Shred, TabsView,
 		},
 
 		onRender : function () {
+			// temporary
 			this.$('#buttons').hide();
 			this.tabsClicked(new Shred());
 		},

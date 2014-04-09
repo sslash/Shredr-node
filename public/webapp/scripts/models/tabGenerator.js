@@ -1,3 +1,4 @@
+ TODONOW: moving backwards
  // TODO: possible bug on: when a note is entered
 // and some combination of key up/down/left/right
 // is pressed, it stores wrong data
@@ -9,13 +10,14 @@
 
 	var TabGenerator = function(options) {
 
-		this.init = function(){
-			this.tabInput = this.find("input");
+		this.init = function() {
+            this.cursorIdSel = '#tabs-cursor';
+			this.tabInput = options.input || this.find(this.cursorIdSel);
 
 			if (!this.tabInput){
 				throw "Could not find tab input";
 			}
-
+            this.rowGap = options.drawMultiRow || false;
 			this.notes = that.options.notes || $('.notes');
 			this.bendBtn = that.options.bendBtn || $('#bendBtn');
 			this.tabs = [];
@@ -25,6 +27,7 @@
 			this.bars = 0;				/* current bar / space */
 			this.noteDiv = "#crotchet";	/* Current interval image */
 			this.note_color = "white";
+            this.tabInputClone = this.tabInput.clone();
 
 			// Listeners
 			this.tabInput.on('keyup', $.proxy(that.__keypressed, that));
@@ -68,12 +71,13 @@
 		};
 
 		this.moveBarForward = function() {
-			fret = this.getTabInput();
+			var fret = this.getTabInput();
 			fret = this.createNoteObject(fret, this.tabsIndex, this.tabsStringIndex);
 			this.tabsIndex ++;
 			this.bars += 1/this.intervall;
 
 			// at the end
+            console.log('bars: ' + this.bars);
 			if ( this.bars !== 4){
 				var intervallWidthPx = this.getNextMoveWidth();
 				this.tabInput.css({ left: "+=" + intervallWidthPx + "px"}, 1);
@@ -81,13 +85,16 @@
 			return fret;
 		};
 
-		this.moveBarBackwards = function(){
+		this.moveBarBackwards = function() {
             if ( this.tabsIndex === 0 ) { return ''; }
+            var fret = this.getTabInput();
+            fret = this.createNoteObject(fret, this.tabsIndex, this.tabsStringIndex);
+
 			var intervallWidthPx = this.getNextMoveWidth();
 			this.tabInput.css({ left: "-=" + intervallWidthPx + "px"}, 1);
 			this.tabsIndex --;
 			this.bars -= 1/this.intervall;
-			return;
+			return fret;
 		};
 
 		this.moveBarDownOrUpwards = function(dir) {
@@ -130,6 +137,7 @@
 		this.__keypressed = function(e) {
 			var key = e.keyCode;
 			var fret = "";
+            var tabIndex = this.tabsIndex, stringIndex = this.tabsStringIndex;
             var inputStartPos = this.tabInput.position();
 			switch(key){
 				case 13: // enter
@@ -141,7 +149,9 @@
 					break;
 
 				case 37: // left
-					this.moveBarBackwards();
+					fret = this.moveBarBackwards();
+                    tabIndex += 1; // special condition
+                    debugger
 					break;
 
 				case 38: // up
@@ -160,10 +170,25 @@
                 fret = '';
 			}
 
-			var label = $("<label class='note' style='color:" + this.note_color + ";'>" + fret + "</label>");
-			label.offset(inputStartPos);
-			this.tabInput.before(label);
-			this.tabInput.val("");
+            // see if we are on an existing input field
+            var sel = '[data-index="' +this.tabsIndex + ',' + this.tabsStringIndex + '"]';
+            var $existingInput = $(sel);
+            if ($existingInput.length > 0 ) {
+                this.tabInput.remove();
+                this.tabInput = $existingInput;
+                this.tabInput.focus();
+                this.tabInput.removeClass('note');
+                this.tabInput.attr('id', 'cursorIdSel');
+                this.tabInput.on('keyup', this.__keypressed.bind(this));
+            } else {
+                // Draw input value
+                var $value = $("<input type='text' class='tabs-cursor note' " +
+                "data-index='" + tabIndex + "," + stringIndex +  "' style='color:"
+                    + this.note_color + ";' value='" + fret + "'>");
+                 $value.offset(inputStartPos);
+    			this.tabInput.before($value);
+    			this.tabInput.val("");
+            }
 
 			if (this.currDecorators){
 				var img = $("<img src='img/notes/arrow_white.png' class='bendImg'>");
@@ -218,7 +243,15 @@
 		};
 
 		this.clearAndIterateBars = function() {
-			$('.note').remove();
+            if(this.rowGap) {
+                var oldTop = this.tabInput.css('top').replace(/px$/, '');
+                oldTop = parseInt(oldTop, 10);
+                var top = this.height() + oldTop + this.rowGap + 'px';
+                this.tabInput.css('top', top);
+            } else {
+                $('.note').remove();
+            }
+
 			this.painTabInputField();
 			this.bars = 0;
 		};
@@ -226,7 +259,7 @@
 		this.painTabInputField = function() {
 			var intervallWidthPx = this.getNextMoveWidth();
 			// Set tab-input start location
-			this.tabInput.css("left", ((intervallWidthPx / 2) + "px"));
+			this.tabInput.css('left', ((intervallWidthPx / 2) + "px"));
 		};
 
 		var that = this;

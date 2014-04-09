@@ -37,7 +37,12 @@ function( Backbone, ScaleTmpl, NormalTmpl ) {
 
 		/* on render callback */
 		onRender: function() {
-			this.tabsGen = this.$('.tabsArea').tabGenerator({notes : this.$('.notes')});
+			this.tabsGen = this.$('.tabsArea .tabs-row:first-child')
+			.tabGenerator({
+				notes : this.$('[data-model="note"]'),
+				input : this.$('#tabs-cursor'),
+				drawMultiRow : 19 // 25 px margin
+			});
 		},
 
 		getTabs : function () {

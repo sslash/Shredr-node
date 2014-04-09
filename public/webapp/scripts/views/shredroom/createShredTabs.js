@@ -33,7 +33,29 @@ define([
                 window.AudioContext = window.AudioContext || window.webkitAudioContext;
                 var ctx = new AudioContext(), arrNotes = [], that = this;
 
+                function playNote(e) {
+                    var frq = notes[e.currentTarget.id], o = ctx.createOscillator(), g = ctx.createGain(),
+                        bpm = parseInt($("#bpm").val()), notelength = parseFloat($("#noteLength").val()), playlength = 0;
+                    // $(e.currentTarget).attr("fill","yellow");
+                    o.type = $("#waveType").val();
+
+                    // 1 second divided by number of beats per second times number of beats (length of a note)
+                    playlength = 1/(bpm/60) * notelength;
+
+                    if (frq) {
+                        // $("#note").val(e.currentTarget.id);
+                        o.frequency.value = frq;
+                        o.start(ctx.currentTime);
+                        o.stop(ctx.currentTime + playlength);
+
+                        g.gain.value = 1;
+                        o.connect(g);
+                        g.connect(ctx.destination);
+                    }
+                }
+
                 function startNote(e) {
+                    playNote(e);
                     var frq = notes[e.currentTarget.id], thisNote = {}, notelength = parseFloat(that.$("#noteLength").val());
                     $(e.currentTarget).attr("fill","yellow");
 
@@ -46,7 +68,7 @@ define([
                     }
                 }
                 function stopNote(e) {
-                    $(e.currentTarget).attr("fill","inherit");
+                    $(e.currentTarget).attr("fill", "inherit");
                     that.$("#note").val("");
                 }
 

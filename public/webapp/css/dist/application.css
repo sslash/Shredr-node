@@ -2358,20 +2358,25 @@ img.tabs-img {
   opacity: 1;
 }
 .tabsArea {
-  -webkit-transition: background-color 0.2s ease;
-  transition: background-color 0.2s ease;
   position: relative;
-  cursor: pointer;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   display: inline-block;
 }
-.tabsArea:hover {
-  background-color: rgba(255, 255, 255, 0.24);
-}
 .tabsArea .tabs-row {
-  margin: 19px 12px;
+  margin: 19px 0;
+  -webkit-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+}
+.tabsArea .tabs-row:first-child {
+  margin: 0;
+}
+.tabsArea .tabs-row:hover {
+  background-color: rgba(255, 255, 255, 0.24);
 }
 .tabsArea #tab-input {
   position: absolute;
@@ -2380,7 +2385,7 @@ img.tabs-img {
   left: 0px;
   top: 0;
 }
-.tabsArea #tabs-cursor {
+.tabsArea .tabs-cursor {
   position: absolute;
   top: 4px;
   width: 25px;
@@ -2396,6 +2401,9 @@ img.tabs-img {
   height: 18px;
   color: white;
 }
+.tabsArea .tabs-cursor.note {
+  border: none;
+}
 .tabsArea label {
   text-shadow: 5px 5px 12px black;
   font-size: 12px;
@@ -2407,9 +2415,6 @@ img.tabs-img {
   -moz-transform: scale(1.3);
   -o-transform: scale(1.3);
   transform: scale(1.3);
-}
-.tabsArea .tabs-row {
-  margin: 20px 0;
 }
 #modal {
   position: absolute;
@@ -2523,6 +2528,12 @@ img.tabs-img {
   -webkit-transform: scale(1.2, 1.2);
   -ms-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
+}
+.nav-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.53);
+  font-size: 0.5em;
+  line-height: 1.3em;
 }
 .ui-autocomplete {
   background-color: #1f1e1e;
@@ -2771,6 +2782,32 @@ nav .logo a {
 }
 [data-region="theory-content"] .col-sm-6 {
   padding: 20px;
+}
+.left-side-nav {
+  position: fixed;
+  text-align: center;
+  left: 0;
+  width: inherit;
+  top: 30%;
+}
+.left-side-nav ul {
+  padding: 4px;
+}
+.left-side-nav ul li {
+  box-sizing: border-box;
+  margin: 13px 0;
+}
+.left-side-nav ul li p {
+  margin: 0;
+}
+.left-side-nav ul li p.selected {
+  border: 1px solid rgba(255, 255, 255, 0.48);
+}
+.left-side-nav ul li.note {
+  cursor: pointer;
+}
+.left-side-nav ul li.note:hover {
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .profile-thumb {
   margin: 20px;
