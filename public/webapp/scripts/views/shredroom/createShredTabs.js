@@ -17,7 +17,10 @@ define([
                 tabs : '[data-region="leTabs"]'
             },
 
-            events : {},
+            events : {
+                'click [data-event="keyboard-clicked"]' : '__keyboardClicked',
+                'click [data-event="save-tabs-btn"]' : '__saveTabslLicked'
+            },
 
             onRender : function () {
                 this.tabsView = new TabsEditor({
@@ -231,6 +234,22 @@ define([
                     'B7': 3951.07,
                     'C8': 4186.01
                 };
+            },
+
+            __keyboardClicked : function () {
+                // this.$('.keyboard').toggle();
+                if(this.keyboardVis) {
+                    this.$('.keyboard').animate({'left' : '-2000px'}, 'fast');
+                    this.keyboardVis = false;
+                } else {
+                    this.$('.keyboard').animate({'left' : '56px'}, 'fast');
+                    this.keyboardVis = true;
+                }
+            },
+
+            __saveTabslLicked : function () {
+                var tabs = this.tabsView.getTabs();
+                console.log('t: ' + JSON.stringify(tabs));
             }
         });
 

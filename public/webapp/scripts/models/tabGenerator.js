@@ -1,5 +1,4 @@
- TODONOW: moving backwards
- // TODO: possible bug on: when a note is entered
+  // TODO: possible bug on: when a note is entered
 // and some combination of key up/down/left/right
 // is pressed, it stores wrong data
  define([
@@ -17,6 +16,9 @@
 			if (!this.tabInput){
 				throw "Could not find tab input";
 			}
+            this.currentRow = 1;
+            this.appendRowFn = options.appendRowFn || function () {};
+            this.paintedRows = options.paintedRows || 1;
             this.rowGap = options.drawMultiRow || false;
 			this.notes = that.options.notes || $('.notes');
 			this.bendBtn = that.options.bendBtn || $('#bendBtn');
@@ -38,13 +40,36 @@
 		};
 
 		this.getTabInput = function() {
-			return this.tabInput.val();
+			var fret = this.tabInput.val();
+                fret = parseInt(fret, 10);
+                fret = isNaN(parsedFret) ? -1 : parsedFret;
+            return fret;
 		};
 
 		this.getTabs = function() {
+            var tabs = this.tabs;
+            $('*[data-index]').filter(function(i, el) {return !!el.value })
+            .map(function(i,el) {
+                //if ( !tabs[el.])
+                var $el = $(el);
+                var is = $el.attr('data-index').split(',');
+                var index = is[0],
+                    string = is[1];
+                var rest = $el.attr('data-interval');
+
+                if ( !tabs[index] ) {
+                    tabs[index] = {};
+                    tabs[index].rest = rest;
+                    tabs[index].stringz = {};
+                }
+
+                tabs[index].stringz[string] = el.value;
+            });
+
 			return {
 				tempo: "125",
-				tabs: this.tabs
+				// tabs: this.tabs
+                tabs : tabs
 			};
 		};
 
@@ -52,32 +77,31 @@
 			return this.width() / (this.intervall*4);
 		};
 
-		this.createNoteObject = function(fret,tabsIndex,tabsStringIndex) {
-			var parsedFret = parseInt(fret, 10);
-			parsedFret = isNaN(parsedFret) ? -1 : parsedFret;
-
-			if ( !this.tabs[tabsIndex] ){
-				this.tabs[tabsIndex] = {};
-			}
-
-			this.tabs[tabsIndex].rest = this.intervall;
-			if (!this.tabs[tabsIndex].stringz) {
-				this.tabs[tabsIndex].stringz = {};
-			}
-
-			// add the fret at the given string
-			this.tabs[tabsIndex].stringz[tabsStringIndex] = parsedFret;
-			return parsedFret;
-		};
+		// this.createNoteObject = function(fret,tabsIndex,tabsStringIndex) {
+		// 	var parsedFret = parseInt(fret, 10);
+		// 	parsedFret = isNaN(parsedFret) ? -1 : parsedFret;
+        //
+		// 	if ( !this.tabs[tabsIndex] ){
+		// 		this.tabs[tabsIndex] = {};
+		// 	}
+        //
+		// 	this.tabs[tabsIndex].rest = this.intervall;
+		// 	if (!this.tabs[tabsIndex].stringz) {
+		// 		this.tabs[tabsIndex].stringz = {};
+		// 	}
+        //
+		// 	// add the fret at the given string
+		// 	this.tabs[tabsIndex].stringz[tabsStringIndex] = parsedFret;
+        //     console.log('t: ' + JSON.stringify(this.tabs))
+		// 	return parsedFret;
+		// };
 
 		this.moveBarForward = function() {
 			var fret = this.getTabInput();
-			fret = this.createNoteObject(fret, this.tabsIndex, this.tabsStringIndex);
 			this.tabsIndex ++;
 			this.bars += 1/this.intervall;
 
 			// at the end
-            console.log('bars: ' + this.bars);
 			if ( this.bars !== 4){
 				var intervallWidthPx = this.getNextMoveWidth();
 				this.tabInput.css({ left: "+=" + intervallWidthPx + "px"}, 1);
@@ -88,7 +112,7 @@
 		this.moveBarBackwards = function() {
             if ( this.tabsIndex === 0 ) { return ''; }
             var fret = this.getTabInput();
-            fret = this.createNoteObject(fret, this.tabsIndex, this.tabsStringIndex);
+            //fret = this.createNoteObject(fret, this.tabsIndex, this.tabsStringIndex);
 
 			var intervallWidthPx = this.getNextMoveWidth();
 			this.tabInput.css({ left: "-=" + intervallWidthPx + "px"}, 1);
@@ -117,9 +141,9 @@
             }
 
 			var fret = this.getTabInput();
-			if ( !isNaN (parseInt(fret, 10)) ){
-				this.createNoteObject(fret, this.tabsIndex, this.tabsStringIndex);
-			}
+			// if ( !isNaN (parseInt(fret, 10)) ){
+			// 	this.createNoteObject(fret, this.tabsIndex, this.tabsStringIndex);
+			// }
 			return fret;
 		};
 
@@ -139,55 +163,53 @@
 			var fret = "";
             var tabIndex = this.tabsIndex, stringIndex = this.tabsStringIndex;
             var inputStartPos = this.tabInput.position();
-			switch(key){
-				case 13: // enter
-					fret = this.moveBarForward();
-					break;
+            switch(key){
+                case 13: // enter
+                    fret = this.moveBarForward();
+                    break;
 
-				case 39: // right
-					fret = this.moveBarForward();
-					break;
+                case 39: // right
+                    fret = this.moveBarForward();
+                    break;
 
-				case 37: // left
-					fret = this.moveBarBackwards();
-                    tabIndex += 1; // special condition
-                    debugger
-					break;
+                case 37: // left
+                    fret = this.moveBarBackwards();
+                    break;
 
-				case 38: // up
-					fret = this.moveBarDownOrUpwards('up');
-					break;
+                case 38: // up
+                    fret = this.moveBarDownOrUpwards('up');
+                    break;
 
-				case 40: // down
-					fret = this.moveBarDownOrUpwards('down');
-					break;
-				default:
-					return;
-			}
-			if ( fret === -1) {
-                // dont need this now (scales yo)
-				// fret = "<img src='img/notes/hvilepause.png'>";
-                fret = '';
-			}
+                case 40: // down
+                    fret = this.moveBarDownOrUpwards('down');
+                    break;
+                default:
+                    return;
+            }
+			if ( fret === -1 || fret === '-1' ) { fret = ''; }
 
-            // see if we are on an existing input field
-            var sel = '[data-index="' +this.tabsIndex + ',' + this.tabsStringIndex + '"]';
+
+            // if current pos dont exist, draw number.
+            var sel = '[data-index="' + tabIndex + ',' + stringIndex + '"]';
             var $existingInput = $(sel);
-            if ($existingInput.length > 0 ) {
+             var $value = $("<input type='text' class='tabs-cursor note' " +
+                 "data-index='" + tabIndex + "," + stringIndex + "' style='color:"
+                 + this.note_color + ";' value='" + fret + "' autocomplete='off' " +
+                 "maxlength='2' data-interval='" + this.interval + "'>");
+             $value.offset(inputStartPos);
+             this.tabInput.before($value);
+             this.tabInput.val("");
+
+            // if new pos exists, capture it
+            sel = '[data-index="' + this.tabsIndex + ',' + this.tabsStringIndex + '"]';
+            $existingInput = $(sel);
+            if ( $existingInput.length > 0 ) {
                 this.tabInput.remove();
                 this.tabInput = $existingInput;
                 this.tabInput.focus();
                 this.tabInput.removeClass('note');
-                this.tabInput.attr('id', 'cursorIdSel');
+                this.tabInput.attr('id', this.cursorIdSel);
                 this.tabInput.on('keyup', this.__keypressed.bind(this));
-            } else {
-                // Draw input value
-                var $value = $("<input type='text' class='tabs-cursor note' " +
-                "data-index='" + tabIndex + "," + stringIndex +  "' style='color:"
-                    + this.note_color + ";' value='" + fret + "'>");
-                 $value.offset(inputStartPos);
-    			this.tabInput.before($value);
-    			this.tabInput.val("");
             }
 
 			if (this.currDecorators){
@@ -200,8 +222,6 @@
 			if ( this.bars === 4 ) {
 				this.clearAndIterateBars();
 			}
-
-            // else if on the left case and moving backwards
 		};
 
 		this.__noteChangeClicked = function(e) {
@@ -243,11 +263,18 @@
 		};
 
 		this.clearAndIterateBars = function() {
-            if(this.rowGap) {
+            // vertical UI
+            if ( this.rowGap ) {
+                this.currentRow ++;
+                if ( this.currentRow > this.paintedRows ) {
+                    this.appendNewRow();
+                }
                 var oldTop = this.tabInput.css('top').replace(/px$/, '');
                 oldTop = parseInt(oldTop, 10);
                 var top = this.height() + oldTop + this.rowGap + 'px';
                 this.tabInput.css('top', top);
+
+            // horizontal UI
             } else {
                 $('.note').remove();
             }
@@ -255,6 +282,10 @@
 			this.painTabInputField();
 			this.bars = 0;
 		};
+
+        this.appendNewRow = function () {
+            this.appendRowFn();
+        };
 
 		this.painTabInputField = function() {
 			var intervallWidthPx = this.getNextMoveWidth();

@@ -27,9 +27,15 @@ BPM: <input type="text" id="bpm" size="3" value="120" style="color:black; displa
     </thead>
     <tbody></tbody>
 </table>
-<svg xmlns="http://www.w3.org/2000/svg"
+</section>
+-->
+
+
+<!-- <div class="arrow_box bottom-side"></div> -->
+<section class="keyboard">
+    <svg xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
-     width="100%" height="100%" viewBox="-5 -5 1130 450">
+     width="450px" height="50px" viewBox="-16 0 1240 120" style="display:block;">
 
   <defs>
     <rect id="key-white" x="0" y="0" width="20" height="120" rx="3" ry="3" stroke="black" />
@@ -153,13 +159,12 @@ BPM: <input type="text" id="bpm" size="3" value="120" style="color:black; displa
       <use id="Bb7" xlink:href="#key-black" x="1093"/>
     </g>
   </g>
-</svg>
-</section>
- -->
-<!-- <div class="arrow_box bottom-side"></div> -->
-
+</svg></section>
 <section class="left-side-nav">
     <ul class="nav">
+
+
+        <li><button class="nav-btn" data-event="keyboard-clicked">Keyboard</button></li>
         <li class="note"><p data-model="note" id="semibreve">o</p></li>
         <li class="note"><p data-model="note" id="minim">d</p></li>
         <li class="note"><p data-model="note" class="selected" id="crotchet">&#9833;</p></li>
@@ -167,28 +172,27 @@ BPM: <input type="text" id="bpm" size="3" value="120" style="color:black; displa
         <li class="note"><p data-model="note" id="semiquaver">&#9836;</p></li>
         <li class="note"><p data-model="note" id="demisemiquaver">&#9836;&#9836;</p></li>
         <li class="note"><p data-model="note" id="hemidemisemiquaver">&#9836;&#9836;&#9836;</p></li>
-        <li><button class="nav-btn">Keyboard</button></li>
     </ul>
 </section>
 
 
 <div class="content-wrap bottom-side">
     <section class="tabsArea">
-        <div class="tabs-row">
-            <img src="img/tabs.png" class="tabs-img" style="width:100%;">
+        <div class="rows">
+            <div class="tabs-row">
+                <img src="img/tabs.png" class="tabs-img" style="width:100%;">
+            </div>
+            <div class="tabs-row">
+                <img src="img/tabs.png" class="tabs-img" style="width:100%;">
+            </div>
+            <div class="tabs-row">
+                <img src="img/tabs.png" class="tabs-img" style="width:100%;">
+            </div>
+            <div class="tabs-row">
+                <img src="img/tabs.png" class="tabs-img" style="width:100%;">
+            </div>
         </div>
-        <div class="tabs-row">
-            <img src="img/tabs.png" class="tabs-img" style="width:100%;">
-        </div>
-        <div class="tabs-row">
-            <img src="img/tabs.png" class="tabs-img" style="width:100%;">
-        </div>
-        <div class="tabs-row">
-            <img src="img/tabs.png" class="tabs-img" style="width:100%;">
-        </div>
-        <div id="tab-input">
-            <canvas id="bars" style="height: 100%;"></canvas>
-        </div>
+        
         <input type="text" id="tabs-cursor" class="tabs-cursor" maxlength="2" autocomplete="off"></input>
     </section>
 </div>

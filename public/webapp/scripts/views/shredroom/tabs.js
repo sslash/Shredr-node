@@ -41,8 +41,19 @@ function( Backbone, ScaleTmpl, NormalTmpl ) {
 			.tabGenerator({
 				notes : this.$('[data-model="note"]'),
 				input : this.$('#tabs-cursor'),
-				drawMultiRow : 19 // 25 px margin
+				drawMultiRow : 20, // 25 px margin
+				paintedRows : 4,
+				appendRowFn : this.appendRowFn.bind(this)
 			});
+		},
+
+		appendRowFn : function () {
+			var html = [
+				'<div class="tabs-row">',
+				'<img src="img/tabs.png" class="tabs-img" style="width:100%;">',
+				'</div>'].join('');
+
+			this.$('.tabsArea .rows').append(html);
 		},
 
 		getTabs : function () {
