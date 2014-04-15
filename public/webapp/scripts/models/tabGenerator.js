@@ -11,39 +11,40 @@
 
 		this.init = function() {
             this.cursorIdSel = '#tabs-cursor';
-			this.tabInput = options.input || this.find(this.cursorIdSel);
+  			this.tabInput = options.input || this.find(this.cursorIdSel);
 
-			if (!this.tabInput){
-				throw "Could not find tab input";
-			}
-            this.currentRow = 1;
-            this.appendRowFn = options.appendRowFn || function () {};
-            this.paintedRows = options.paintedRows || 1;
-            this.rowGap = options.drawMultiRow || false;
-			this.notes = that.options.notes || $('.notes');
-			this.bendBtn = that.options.bendBtn || $('#bendBtn');
-			this.tabs = [];
-			this.tabsIndex = 0;			/* current Y */
-			this.tabsStringIndex = 0;	/* current string */
-			this.intervall = 4;			/* current rest */
-			this.bars = 0;				/* current bar / space */
-			this.noteDiv = "#crotchet";	/* Current interval image */
-			this.note_color = "white";
-            this.tabInputClone = this.tabInput.clone();
+  			if (!this.tabInput){
+  				throw "Could not find tab input";
+  			}
+              this.currentRow = 1;
+              this.appendRowFn = options.appendRowFn || function () {};
+              this.paintedRows = options.paintedRows || 1;
+              this.rowGap = options.drawMultiRow || false;
+  			this.notes = that.options.notes || $('.notes');
+  			this.bendBtn = that.options.bendBtn || $('#bendBtn');
+  			this.tabs = [];
+  			this.tabsIndex = 0;			/* current Y */
+  			this.tabsStringIndex = 0;	/* current string */
+  			this.intervall = 4;			/* current rest */
+        this.noteLength = 1;			/* current rest, TODO: switch intervall to this */
+  			this.bars = 0;				/* current bar / space */
+  			this.noteDiv = "#crotchet";	/* Current interval image */
+  			this.note_color = "white";
+              this.tabInputClone = this.tabInput.clone();
 
-			// Listeners
-			this.tabInput.on('keyup', $.proxy(that.__keypressed, that));
-			this.notes.on('click', $.proxy(that.__noteChangeClicked, that));
-			this.bendBtn.on('click', $.proxy(that.__bendBtnClicked, that));
-            this.on('click', this.__tabsAreaClicked.bind(this));
+  			// Listeners
+  			this.tabInput.on('keyup', $.proxy(that.__keypressed, that));
+  			this.notes.on('click', $.proxy(that.__noteChangeClicked, that));
+  			this.bendBtn.on('click', $.proxy(that.__bendBtnClicked, that));
+              this.on('click', this.__tabsAreaClicked.bind(this));
 
 		};
 
 		this.getTabInput = function() {
-			var fret = this.tabInput.val();
-                fret = parseInt(fret, 10);
-                fret = isNaN(parsedFret) ? -1 : parsedFret;
-            return fret;
+			   var fret = this.tabInput.val();
+          fret = parseInt(fret, 10);
+          fret = isNaN(fret) ? -1 : fret;
+          return fret;
 		};
 
 		this.getTabs = function() {
@@ -195,7 +196,7 @@
              var $value = $("<input type='text' class='tabs-cursor note' " +
                  "data-index='" + tabIndex + "," + stringIndex + "' style='color:"
                  + this.note_color + ";' value='" + fret + "' autocomplete='off' " +
-                 "maxlength='2' data-interval='" + this.interval + "'>");
+                 "maxlength='2' data-interval='" + this.noteLength + "'>");
              $value.offset(inputStartPos);
              this.tabInput.before($value);
              this.tabInput.val("");
@@ -224,35 +225,43 @@
 			}
 		};
 
+  // TODO: change intervall numbers to equal noteLength, and remove noteLength!
 		this.__noteChangeClicked = function(e) {
 			var divId = e.currentTarget.id;
 			switch (true) {
 				case /^semibreve$/.test(divId):
 					this.intervall = 1;
+          this.noteLength = 4;
 					this.note_color = "red";
 					break;
 				case /^minim$/.test(divId):
 					this.intervall = 2;
+          this.noteLength = 2;
 					this.note_color = "blue";
 					break;
 				case /^crotchet$/.test(divId):
 					this.intervall = 4;
+          this.noteLength = 1;
 					this.note_color = "white";
 					break;
 				case /^quaver$/.test(divId):
 					this.intervall = 8;
+          this.noteLength = 0.5;
 					this.note_color = "yellow";
 					break;
 				case /^semiquaver$/.test(divId):
 					this.intervall = 16;
+          this.noteLength = 0.25;
 					this.note_color = "purple";
 					break;
 				case /^demisemiquaver$/.test(divId):
 					this.intervall = 32;
+          this.noteLength = 0.125;
 					this.note_color = "green";
 					break;
 				case /^hemidemisemiquaver$/.test(divId):
 					this.intervall = 64;
+          this.noteLength = 0.0625;
 					this.note_color = "brown";
 					break;
 			}
