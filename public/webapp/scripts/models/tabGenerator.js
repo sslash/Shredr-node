@@ -3,9 +3,10 @@
 // is pressed, it stores wrong data
  define([
   'underscore',
-  'jquery'
+  'jquery',
+  'libs/tabPlayer'
   ],
-  function(_,$) {
+  function(_,$, tabPlayer) {
 
 	var TabGenerator = function(options) {
 
@@ -26,7 +27,7 @@
   			this.tabsIndex = 0;			/* current Y */
   			this.tabsStringIndex = 0;	/* current string */
   			this.intervall = 4;			/* current rest */
-        this.noteLength = 1;			/* current rest, TODO: switch intervall to this */
+              this.noteLength = 1;			/* current rest, TODO: switch intervall to this */
   			this.bars = 0;				/* current bar / space */
   			this.noteDiv = "#crotchet";	/* Current interval image */
   			this.note_color = "white";
@@ -37,17 +38,17 @@
   			this.notes.on('click', $.proxy(that.__noteChangeClicked, that));
   			this.bendBtn.on('click', $.proxy(that.__bendBtnClicked, that));
               this.on('click', this.__tabsAreaClicked.bind(this));
-
 		};
 
-		this.getTabInput = function() {
-			   var fret = this.tabInput.val();
-          fret = parseInt(fret, 10);
-          fret = isNaN(fret) ? -1 : fret;
-          return fret;
-		};
+        this.getTabInput = function() {
+            var fret = this.tabInput.val();
+            fret = parseInt(fret, 10);
+            fret = isNaN(fret) ? -1 : fret;
+            return fret;
+        };
 
 		this.getTabs = function() {
+            this.tabs.length = 0;
             var tabs = this.tabs;
             $('*[data-index]').filter(function(i, el) {return !!el.value })
             .map(function(i,el) {
@@ -73,6 +74,10 @@
                 tabs : tabs
 			};
 		};
+
+        this.playTabs = function () {
+            tabPlayer.playTabs(this.getTabs());
+        };
 
 		this.getNextMoveWidth = function() {
 			return this.width() / (this.intervall*4);
@@ -141,11 +146,7 @@
                 this.tabsStringIndex ++;
             }
 
-			var fret = this.getTabInput();
-			// if ( !isNaN (parseInt(fret, 10)) ){
-			// 	this.createNoteObject(fret, this.tabsIndex, this.tabsStringIndex);
-			// }
-			return fret;
+			return this.getTabInput();
 		};
 
         this.__tabsAreaClicked = function (e) {
@@ -187,7 +188,7 @@
                 default:
                     return;
             }
-			if ( fret === -1 || fret === '-1' ) { fret = ''; }
+			if ( fret === -1 || fret === '-1' ) { fret = 'r'; }
 
 
             // if current pos dont exist, draw number.

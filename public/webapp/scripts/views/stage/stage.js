@@ -12,7 +12,7 @@ define([
 	// Collections
 	'collections/shredsCollection'
 ],
-function( Backbone, StageTmpl, StageKickerView, WelcomeBackView, 
+function( Backbone, StageTmpl, StageKickerView, WelcomeBackView,
 			ThumbsCollView, PreviewView, ShredsCollection ) {
     'use strict';
 
@@ -22,14 +22,14 @@ function( Backbone, StageTmpl, StageKickerView, WelcomeBackView,
 		className : 'container',
 
 		initialize: function() {
-			Shredr.vent.on('stage:thumbclicked:fadeout', this.renderPreviewView.bind(this));
-			Shredr.vent.on('stage:thumbclicked:afterReorder', this.slideInPreview.bind(this));
-			Shredr.vent.on('stage:kickerback:clicked', this.slideOutPreview.bind(this));
+			this.listenTo(Shredr.vent, 'stage:thumbclicked:fadeout', this.renderPreviewView);
+			this.listenTo(Shredr.vent, 'stage:thumbclicked:afterReorder', this.slideInPreview);
+			this.listenTo(Shredr.vent, 'stage:kickerback:clicked', this.slideOutPreview);
 
 			// Register a requst respond function
 			Shredr.reqres.setHandler('stage:thumbclicked:shouldfade', this.getIfShouldFade.bind(this));
 		},
-		
+
 		template: StageTmpl,
 
 		/* Layout sub regions */
@@ -90,7 +90,7 @@ function( Backbone, StageTmpl, StageKickerView, WelcomeBackView,
 			this.ui.fourthRow.append( new WelcomeBackView({
 				className : 'col-sm-6 stage-block stage-welcome right-large-focus',
 			}).render().el );
-			
+
 			// normal rows
 			this.ui.fifthRow.append( new ThumbsCollView({
 				className : 'col-sm-12 stage-clear',

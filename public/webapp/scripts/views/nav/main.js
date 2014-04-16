@@ -11,10 +11,13 @@ define([
 
 			initialize: function(options) {
 				options = options || {};
-				Shredr.vent.on('stage:thumbclicked:fadeout', this.rotateLogo.bind(this));
+				// todo: change client users to use nav:logo:rotate instead
+				this.listenTo(Shredr.vent, 'stage:thumbclicked:fadeout', this.rotateLogo);
+				// Shredr.vent.on('stage:thumbclicked:fadeout', this.rotateLogo.bind(this));
 
 				// decide which sub template to render inside the navigation
 				this._setSubTmpl(options.subTmpl || '', options.subCat || null);
+				this.listenTo(Shredr.vent, 'nav:logo:rotate', this.rotateLogo);
 			},
 
 			template: NavMainTmpl,
@@ -41,6 +44,15 @@ define([
 				}
 			},
 
+			rotateLogo : function () {
+				var $logo = this.$('[data-model="shredr-icon"]');
+				$logo.addClass('rotate');
+				Shredr.vent.trigger('stage:thumbclicked:afterReorder');
+				setTimeout(function() {
+					$logo.removeClass('rotate');
+				}.bind(this), 1000);
+			},
+
 			_setSubTmpl : function (subTmpl, subCat) {
 				if ( subTmpl === 'shredroom' ) {
 					this.subTmpl = ShredroomNavTmpl;
@@ -60,7 +72,7 @@ define([
 
 			setSubTmpl : function (subTmpl, subCategory) {
 				this._setSubTmpl(subTmpl, subCategory);
-			},
+			}
 
 			// setShredroomNav : function (subCategory) {
 			// 	this.ui.categories.children().fadeOut('fast', function() {
@@ -73,28 +85,28 @@ define([
 			// 	}.bind(this));
 			// },
 
-			rotateLogo : function() {
-				var $elie = $(".logo-small"), degree = 30, timer, countDown = 4, ticks = 1;
-				rotate();
-				function rotate() {
-
-					$elie.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});
-					$elie.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});
-					countDown--;
-
-					timer = setTimeout(function() {
-						degree *= -1;
-						rotate();
-					},200);
-
-					if (countDown === 0){
-						clearTimeout(timer);
-						$elie.css({ WebkitTransform: 'rotate(0deg'});
-						$elie.css({ '-moz-transform': 'rotate(0deg)'});
-						Shredr.vent.trigger('stage:thumbclicked:afterReorder');
-					}
-				}
-			}
+			// rotateLogo : function() {
+			// 	var $elie = $(".logo-small"), degree = 30, timer, countDown = 4, ticks = 1;
+			// 	rotate();
+			// 	function rotate() {
+			//
+			// 		$elie.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});
+			// 		$elie.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});
+			// 		countDown--;
+			//
+			// 		timer = setTimeout(function() {
+			// 			degree *= -1;
+			// 			rotate();
+			// 		},200);
+			//
+			// 		if (countDown === 0){
+			// 			clearTimeout(timer);
+			// 			$elie.css({ WebkitTransform: 'rotate(0deg'});
+			// 			$elie.css({ '-moz-transform': 'rotate(0deg)'});
+			//
+			// 		}
+			// 	}
+			// }
 		});
 
 	});

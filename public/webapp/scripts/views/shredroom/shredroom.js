@@ -24,8 +24,9 @@ function( Backbone, Shred, TabsView,
 		initialize: function() {
 			this.model = new Shred();
 			this.vent = new Backbone.Wreqr.EventAggregator();
-			this.vent.on('shredroom:model:uploaded', this.shredUploaded.bind(this));
-			this.vent.on('tabsView:click:open', this.tabsClicked.bind(this));
+			this.listenTo(this.vent, 'shredroom:model:uploaded', this.shredUploaded);
+			this.listenTo(this.vent, 'tabsView:click:open', this.tabsClicked);
+			this.listenTo(this.vent, 'tabsView:click:close', this.tabsCloseClicked);
 		},
 
     	template: ShredroomTmpl,
@@ -52,12 +53,6 @@ function( Backbone, Shred, TabsView,
 			'click #resources' 	: '__resourcesClicked',
 			'click #upload'		: '__uploadClicked',
 			'click #jamtracks'	: '__backtrackClicked'
-		},
-
-		onRender : function () {
-			// temporary
-			this.$('#buttons').hide();
-			this.tabsClicked(new Shred());
 		},
 
 		__backtrackClicked : function () {
@@ -89,6 +84,10 @@ function( Backbone, Shred, TabsView,
 		tabsClicked : function (model) {
 			this.tabsView = new TabsView({model : model, vent : this.vent });
 			this.tabs.show(this.tabsView);
+		},
+
+		tabsCloseClicked : function () {
+			this.tabs.close();
 		},
 
 		__resourcesClicked : function() {

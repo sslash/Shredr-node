@@ -21,7 +21,6 @@ define([
 
 			template: UploadTmpl,
 
-			/* ui selector cache */
 			ui : {
 				eqTags : '#eq-tags',
 				shredTags : '#shred-tags',
@@ -74,177 +73,181 @@ define([
 				// evt.stopPropagation();
 				// evt.preventDefault();
 
-    			//var files = evt.dataTransfer.files; // FileList object.
+				//var files = evt.dataTransfer.files; // FileList object.
 
-			// files is a FileList of File objects. List some properties.
-			 //    var output = [];
-			 //    for (var i = 0, f; f = files[i]; i++) {
-			 //    	output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-			 //    		f.size, ' bytes, last modified: ',
-			 //    		f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-			 //    		'</li>');
-			 //    }
-			 //    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+				// files is a FileList of File objects. List some properties.
+				//    var output = [];
+				//    for (var i = 0, f; f = files[i]; i++) {
+				//    	output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+				//    		f.size, ' bytes, last modified: ',
+				//    		f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+				//    		'</li>');
+				//    }
+				//    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 			},
 
 			__fileLeave : function(evt) {
 				var $target = $(evt.currentTarget);
-		    	$target.removeClass('highlight')
+				$target.removeClass('highlight')
 			},
 
 			__fileEnter : function(evt) {
 				var $target = $(evt.currentTarget);
 				if ( !$target.hasClass('highlight')) {
-			    	$target.addClass('highlight')
-			    }
+					$target.addClass('highlight')
+				}
 			},
 
 			__fileDragover : function(evt) {
 				evt.stopPropagation();
 				evt.preventDefault();
-			    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+				evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
 			},
 
-		  __closeModalClicked : function(e) {
-		  	e.preventDefault();
-		  	this.trigger('close:event:click');
-		  },
+			__closeModalClicked : function(e) {
+				e.preventDefault();
+				this.trigger('close:event:click');
+			},
 
-		// Sends message to save the video to youtube
-		__uploadFormSubmitted : function(e) {
-			e.preventDefault();
-			var title = this.$('#shred-title').val(),
+			// Sends message to save the video to youtube
+			__uploadFormSubmitted : function(e) {
+				e.preventDefault();
+				var title = this.$('#shred-title').val(),
 				desc = this.$('#shred-description').val(),
 				type = $('input[name="optionsRadios"]:checked').val();
 
 
-			this.model.set({
-				title : title,
-				description : desc,
-				tags : this.tags,
-				type : type
-			}, {validate : true});
-
-
-			if ( !this.model.validationError ){
-				var data = JSON.stringify({
+				this.model.set({
 					title : title,
-					description : desc
-				});
+					description : desc,
+					tags : this.tags,
+					type : type
+				}, {validate : true});
 
-				// Skips this part which sends the video to youTube
-				if ( this.debug ) {
-					this.model.set({
-						youtubeUrl : '//www.youtube.com/embed/eKOpKLv7Wv8?autohide=1',
-						youtubeId : 'eKOpKLv7Wv8'
+
+				if ( !this.model.validationError ){
+					var data = JSON.stringify({
+						title : title,
+						description : desc
 					});
-					this.saveShred();
-				} else {
-					var receiver = document.getElementById('receiver').contentWindow;
-					receiver.postMessage(data, '*');
-				}
-			} else {}
-		},
 
-		__keypressTags : function (e) {
-			if ( e.keyCode === 13 ) {
-				var $curr = $(e.currentTarget);
-				if ( $curr.attr('id') === 'shred-tags' ) {
-					this.pushTag(this.ui.shredTagsArea, this.ui.shredTags, $curr.val());
-				} else {
-					this.pushTag(this.ui.eqTagsArea, this.ui.eqTags, $curr.val());
-				}
-			}
-		},
-
-		__addTabsClicked : function () {
-			this.vent.trigger('tabsView:click:open', this.model);
-			this.ui.fullView.css({'display': 'none'});
-			this.ui.thumbView.css({'display': 'block'});
-			this.$el.css({position: 'fixed'});
-			this.$el.animate({
-				width: '100px',
-				height: '100px',
-				bottom: '0px',
-				right: '0px'
-			}, 'fast');
-		},
-
-		__showUploadClicked : function () {
-			this.ui.fullView.css({'display': 'block'});
-			this.ui.thumbView.css({'display': 'none'});
-			this.$el.css({
-				position: 'inherit',
-				width: 'inherit',
-				height: 'inherit',
-				bottom: 'inherit',
-				right: 'inherit'
-			}, 'fast');
-		},
-
-		// __keypressEqTags : function (e) {
-		// 	if ( e.keyCode === 13 ) {
-		// 		this.pushTag(this.ui.eqTagsArea, this.ui.eqTags, $(e.currentTarget).val());
-		// 	}
-		// },
-		//
-		// __keypressShredTags : function (e) {
-		// 	if ( e.keyCode === 13 ) {
-		// 		this.pushTag(this.ui.shredTagsArea, this.ui.shredTags, $(e.currentTarget).val());
-		// 	}
-		// },
-		__tagSelected : function(event, ui, val) {
-			this.pushTag(this.ui.eqTagsArea, this.ui.eqTags, ui.item.label);
-		},
-
-		/*
-		* Received message back from youtube (iframe js script)
-		*
-		*  The message includes:
-		* event : {"youtubeUrl":"http://youtu.be/v_ck-cNNKxU",
-		*          "youtubeId":"v_ck-cNNKxU"};
-		*
-		* These attributes are saved on the model, and must be used to
-		* show the video instead of the button after the upload is made.
-		*/
-		receiveIframeMessage : function(event) {
-			event.preventDefault();
-			console.log('Got data from iframe!');
-			if ( event.data ) {
-				try {
-					var data = JSON.parse(event.data);
-					if ( data.youtubeUrl && data.youtubeId ) {
+					// Skips this part which sends the video to youTube
+					if ( this.debug ) {
 						this.model.set({
-							youtubeUrl : data.youtubeUrl,
-							youtubeId : data.youtubeId
+							youtubeUrl : '//www.youtube.com/embed/eKOpKLv7Wv8?autohide=1',
+							youtubeId : 'eKOpKLv7Wv8'
 						});
 						this.saveShred();
+					} else {
+						var receiver = document.getElementById('receiver').contentWindow;
+						receiver.postMessage(data, '*');
 					}
-				}catch(e){}
-			}
-		},
+				} else {}
+			},
 
-		// TODO:
-		// Fix this so that it saves model to server
-		saveShred : function() {
-			// this.model.save();
-			this.vent.trigger('shredroom:model:uploaded');
-		},
+			__keypressTags : function (e) {
+				if ( e.keyCode === 13 ) {
+					var $curr = $(e.currentTarget);
+					if ( $curr.attr('id') === 'shred-tags' ) {
+						this.pushTag(this.ui.shredTagsArea, this.ui.shredTags, $curr.val());
+					} else {
+						this.pushTag(this.ui.eqTagsArea, this.ui.eqTags, $curr.val());
+					}
+				}
+			},
 
-		modelSyncFailed : function(err) {
-			console.log("model failed to sync " + err);
-		},
+			__addTabsClicked : function () {
+				this.vent.trigger('tabsView:click:open', this.model);
+				this.ui.fullView.css({'display': 'none'});
+				this.ui.thumbView.css({'display': 'block'});
+				this.$el.css({position: 'fixed'});
+				this.$el.animate({
+					width: '100px',
+					height: '100px',
+					bottom: '0px',
+					right: '0px'
+				}, 'fast');
+			},
 
-		modelSynced : function(model) {
-			console.log("model synced! " + model);
-		},
+			/**
+			* Called when in tabs view
+			*/
+			__showUploadClicked : function () {
+				this.vent.trigger('tabsView:click:close', this.model);
+				this.ui.fullView.css({'display': 'block'});
+				this.ui.thumbView.css({'display': 'none'});
+				this.$el.css({
+					position: 'inherit',
+					width: 'inherit',
+					height: 'inherit',
+					bottom: 'inherit',
+					right: 'inherit'
+				}, 'fast');
+			},
 
-		autocompleteTags : [
+			// __keypressEqTags : function (e) {
+			// 	if ( e.keyCode === 13 ) {
+			// 		this.pushTag(this.ui.eqTagsArea, this.ui.eqTags, $(e.currentTarget).val());
+			// 	}
+			// },
+			//
+			// __keypressShredTags : function (e) {
+			// 	if ( e.keyCode === 13 ) {
+			// 		this.pushTag(this.ui.shredTagsArea, this.ui.shredTags, $(e.currentTarget).val());
+			// 	}
+			// },
+			__tagSelected : function(event, ui, val) {
+				this.pushTag(this.ui.eqTagsArea, this.ui.eqTags, ui.item.label);
+			},
+
+			/*
+			* Received message back from youtube (iframe js script)
+			*
+			*  The message includes:
+			* event : {"youtubeUrl":"http://youtu.be/v_ck-cNNKxU",
+			*          "youtubeId":"v_ck-cNNKxU"};
+			*
+			* These attributes are saved on the model, and must be used to
+			* show the video instead of the button after the upload is made.
+			*/
+			receiveIframeMessage : function(event) {
+				event.preventDefault();
+				console.log('Got data from iframe!');
+				if ( event.data ) {
+					try {
+						var data = JSON.parse(event.data);
+						if ( data.youtubeUrl && data.youtubeId ) {
+							this.model.set({
+								youtubeUrl : data.youtubeUrl,
+								youtubeId : data.youtubeId
+							});
+							this.saveShred();
+						}
+					}catch(e){}
+				}
+			},
+
+			// TODO:
+			// Fix this so that it saves model to server
+			saveShred : function() {
+				// this.model.save();
+				this.vent.trigger('shredroom:model:uploaded');
+			},
+
+			modelSyncFailed : function(err) {
+				console.log("model failed to sync " + err);
+			},
+
+			modelSynced : function(model) {
+				console.log("model synced! " + model);
+			},
+
+			autocompleteTags : [
 			'Gibson Les Paul',
 			'Fender Stratocaster',
 			'C-major Scale',
 			'Marshall JCM-2000',
 			'C-sharp major five'
-		]
+			]
+		});
 	});
-});

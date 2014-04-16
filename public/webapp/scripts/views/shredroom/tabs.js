@@ -56,6 +56,10 @@ function( Backbone, ScaleTmpl, NormalTmpl ) {
 			this.$('.tabsArea .rows').append(html);
 		},
 
+		playTabs : function () {
+			this.tabsGen.playTabs();
+		},
+
 		getTabs : function () {
 			return this.tabsGen.getTabs();
 		}
