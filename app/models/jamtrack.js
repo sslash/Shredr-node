@@ -18,11 +18,11 @@ var JamtrackSchema = new Schema({
  */
 JamtrackSchema.path('title').validate(function (title) {
   return title.length > 0;
-}, 'Scale title cannot be blank');
+}, 'Jamtrack title cannot be blank');
 
 JamtrackSchema.path('user').validate(function (user) {
   return typeof user !== "undefined" && user !== null ;
-}, 'Scale must have an owner');
+}, 'Jamtrack must have an owner');
 
 
 /**

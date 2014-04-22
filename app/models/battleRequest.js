@@ -1,4 +1,5 @@
 // TODO: find a way to remove unfinished battlerequests...
+// TODO: change the various fileId's to match the way battle does it
 var mongoose = require('mongoose'),
     Q           = require('q'),
   Schema = mongoose.Schema;

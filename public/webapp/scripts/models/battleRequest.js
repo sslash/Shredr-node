@@ -28,6 +28,7 @@ function( Backbone, User, Jamtrack ) {
 
             if ( attrs.jamtrackId) {
                 attrs.jamtrack = new Jamtrack(attrs.jamtrackId);
+                attrs.fileId = attrs.jamtrack.get('fileId');
             }
 
             return attrs;
@@ -59,6 +60,14 @@ function( Backbone, User, Jamtrack ) {
 
         getUploadAdvancedFinishedUrl : function () {
             return this.url() + '/' + this.get('mode') + '/uploadVideoFile';
+        },
+
+        acceptRequest : function () {
+            var that = this;
+            $.post(this.url() + '/accept')
+            .done ( function (battle) {
+                that.trigger('battleRequest:accept:success', battle);
+            });
         }
     });
 });

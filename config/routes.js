@@ -61,6 +61,7 @@ var http = require('https');
     // Battles
     app.post('/api/battleRequest/:id/:mode/uploadFile', auth.requiresLogin, battleController.uploadInitialBrFile);
     app.post('/api/battleRequest/:id/Advanced/uploadVideoFile', auth.requiresLogin, battleController.uploadInitialBrVideoAdvanced);
+    app.post('/api/battleRequest/:id/accept', auth.requiresLogin, battleController.acceptBattleRequest);
     app.get('/api/battleRequest/:id', auth.requiresLogin, battleController.getBattleRequest);
     app.post('/api/battleRequest', auth.requiresLogin, battleController.createBattleRequest);
     app.put('/api/battleRequest/:id', auth.requiresLogin, battleController.updateBattleRequest);

@@ -1,7 +1,8 @@
 var mongoose   = require('mongoose'),
     BattleRequest = mongoose.model('BattleRequest'),
-    client     = require('../libs/responseClient'),
+    client         = require('../libs/responseClient'),
     fileHandler = require('../libs/fileHandler');
+    Battle     = mongoose.model('Battle');
 
 var sendBrNotification = function (br, res) {
     br.battlee.addNotification({
@@ -125,4 +126,54 @@ exports.updateBattleRequest = function (req, res) {
     .fail(function(err){
         client.error(res, err);
     });
-}
+};
+
+exports.acceptBattleRequest = function (req, res) {
+    var battler = {}, battleRequest;
+    BattleRequest.findById(req.params.id)
+    // copy things over from battle request object
+    .then(function(br){
+        battleRequest = br;
+        battle = new Battle();
+        battle.battler = br.battler._id.toString();
+        battle.battlee = br.battlee._id.toString();
+        battle.numRounds = br.rounds;
+        battle.mode = br.mode;
+        var fileId = br.fileId;
+
+        if ( br.mode === 'Advanced') {
+            // set jamtrack
+            if ( br.jamtrackId ) {
+                battle.jamtrackId = br.jamtrackId._id.toString();
+            } else {
+                battle.jamtrackFileId = fileId;
+            }
+
+            // battlerequest advanced-mode files have a different name. lame
+            fileId = br.advVidFile;
+        }
+
+        // set video files
+        battle.rounds = [];
+        battle.rounds[0] = {
+            turns : [{
+                videoFileId : fileId,
+                createdAt : new Date(),
+                rating : { raters : 0, currentValue : 0 }
+            }]
+        };
+
+        battle.save();
+    })
+
+    // delete battlerequest object
+    .then(function() {
+        battleRequest.remove();
+    })
+    .then(function(){
+        client.send(res, null, battle);
+    })
+    .fail(function(err) {
+        client.error(res, err);
+    })
+};
