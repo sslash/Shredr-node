@@ -30,10 +30,10 @@ module.exports = function (app, config, passport) {
   app.set('view engine', '.hbs');
 
   app.set('views', config.root + '/app/views');
-  
+
   app.configure(function () {
     // bodyParser should be above methodOverride
-    app.use(express.bodyParser());
+    app.use(express.bodyParser({uploadDir:'./uploads'}));
     app.use(express.methodOverride());
 
     // cookieParser should be above session

@@ -1,28 +1,32 @@
 <div data-region="thumbview" style="display:none; height:100%;"><button class="btn small vert-align" data-event="showUpload">Upload<br>Video</button></div>
 <div data-region="fullview">
 	<section class="modal-content row">
-		<div class="col-lg-6 up-meta focus-content">
-			<header class="bordered-header">
-				<h4>Upload A New Shredr Video</h4>
-				<label class="font-small">
-					<input type="radio" name="optionsRadios" id="optionsRadios2" value="Lick"checked>Lick
-				</label>
-				<label class="font-small">
-					<input type="radio" name="optionsRadios" id="optionsRadios1" value="Tutorial" >Tutorial
-				</label>
-				<label class="font-small">
-					<input type="radio" name="optionsRadios" id="optionsRadios3" value="Jam">Jam
-				</label>
-				<label class="font-small">
-					<input type="radio" name="optionsRadios" id="optionsRadios4" value="Cover">Cover
-				</label>
-				<label class="font-small">
-					<input type="radio" name="optionsRadios" id="optionsRadios5" value="Other">Other
-				</label>
+		<form class="form-flat">
+			<div class="col-sm-6 up-meta focus-content">
+				<header class="bordered-header">
+					<h4>Upload A New Shredr Video</h4>
+					<label class="font-small">
+						<input type="radio" name="optionsRadios" id="optionsRadios2" value="Lick"checked>Lick
+					</label>
+					<label class="font-small">
+						<input type="radio" name="optionsRadios" id="optionsRadios1" value="Tutorial" >Tutorial
+					</label>
+					<label class="font-small">
+						<input type="radio" name="optionsRadios" id="optionsRadios3" value="Jam">Jam
+					</label>
+					<label class="font-small">
+						<input type="radio" name="optionsRadios" id="optionsRadios4" value="Cover">Cover
+					</label>
+					<label class="font-small">
+						<input type="radio" name="optionsRadios" id="optionsRadios5" value="Gear-review">Gear-review
+					</label>
+					<label class="font-small">
+						<input type="radio" name="optionsRadios" id="optionsRadios5" value="Gear-review">Other
+					</label>
 
-				<button class="btn pull-right-up" data-event="addTabs">Add Tabs!</button>
-			</header>
-			<form class="form-flat">
+					<button class="btn pull-right-up" data-event="addTabs">Add Tabs!</button>
+				</header>
+				<!-- 			<form class="form-flat"> -->
 
 				<div class="row">
 					<div class="col-sm-8">
@@ -45,7 +49,7 @@
 				<div class="row">
 					<div class="tags-area col-sm-8">
 						<div class="style-tags space" data-region="shred-tags"></div>
-						<input type="text" placeholder="Tags" data-event="tags-input" id="shred-tags">
+						<input type="text" placeholder="Tags" data-event="shred-tags-input">
 					</div>
 					<div class="col-sm-4">
 						<label class="font-small"><em>Add tags for that describes the shred. For example C-minor scale, tapping, G-minor7 etc'.</em></label>
@@ -54,28 +58,40 @@
 
 				<div class="row">
 					<div class="tags-area col-sm-8">
-						<div class="style-tags space" data-region="eq-tags"></div>
-						<input type="text" placeholder="Equiptment" id="eq-tags" data-event="tags-input">
+						<div class="style-tags space" data-region="gear-tags"></div>
+						<input type="text" placeholder="Equiptment" data-event="gear-tags-input">
 					</div>
 					<div class="col-sm-4">
 						<label class="font-small"><em>Add tags for the equiptment you used. For instance 'Gibson Les Paul std 1960, or Marshall JCM-2000'.</em></label>
 					</div>
 				</div>
 
-				<div class="footer row">
-					<input type="submit" class="btn center-pos" value="Save">
-					<a href="#" date-name="close-btn" class="pull-right">Close</a>
+				<div class="row" data-region="jamtrack" style="display:none;">
+					<div class="tags-area col-sm-8">
+						<div class="style-tags space" data-region="jt-tags"></div>
+						<input type="text" placeholder="Shredr jamtrack" data-event="jt-tags-input">
+					</div>
+					<div class="col-sm-4">
+						<label class="font-small"><em>Link it to a Shredr jamtrack! If you have used one, of course.</em></label>
+					</div>
 				</div>
-			</form>
-		</div>
 
-		<div class="col-lg-6 up-video">
 
-			<div class="upload-box vert-align">
-				<h5 class="lead" id="file-drop">Drag<br>File<br>Here</h5>
+				<!-- 			</form> -->
 			</div>
 
-			<iframe id="receiver" height="150" frameborder="0" scrolling="no" src="webapp/youtube-direct-lite/static/index.html#playlist=PL2ZqlZMI8p2qFGfzdHs_PXBQ_LCmazTf0"></iframe>
-		</div>
+			<div class="col-sm-6 up-video dark-wrapper">
+				<div class="row vert-align-top">
+					<section data-region="upload"></section>
+				</div>
+
+				<div class="footer">
+					<input type="submit" class="btn" value="Save">
+					<a href="#" date-name="close-btn" style="padding-top:10px; float:left">Close</a>
+				</div>
+
+				<!-- 			<iframe id="receiver" height="150" frameborder="0" scrolling="no" src="webapp/youtube-direct-lite/static/index.html#playlist=PL2ZqlZMI8p2qFGfzdHs_PXBQ_LCmazTf0"></iframe> -->
+			</div>
+		</form>
 	</section>
 </div>

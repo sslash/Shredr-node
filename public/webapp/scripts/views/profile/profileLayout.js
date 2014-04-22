@@ -8,9 +8,11 @@ define([
 	'views/profile/editProfileView',
 	'views/modal/messageModal',
 	'views/modal/okMessageModal',
+	'views/modal/battleChallenge',
 
 	// models
 	'models/shred',
+	'models/battleRequest',
 
 	// libs
 	'libs/youtubeplayer'
@@ -18,7 +20,8 @@ define([
 
 	],
 	function( Backbone, ProfileTmpl, StageKickerTmpl, StageKickerView,
-			EditProfileView, MessageModalView, OkMessageModalView, Shred, Youtubeplayer) {
+			EditProfileView, MessageModalView, OkMessageModalView,
+			BattleChallengeView, Shred, BattleRequest, Youtubeplayer) {
 		'use strict';
 
 		/* Return a Layout class definition */
@@ -56,7 +59,8 @@ define([
 			'mouseout [data-event="thumb-hover"]' : '__thumbmouseout',
 			'click [data-event="fullscreen-shred"]' : '__fullscreenShredClicked',
 			'click [data-event="msg"]' : '__messageClicked',
-			'click [data-event="fan"]' : '__becomeFanCLicked'
+			'click [data-event="fan"]' : '__becomeFanCLicked',
+			'click [data-event="challenge"]' : '__challengeClicked'
 		},
 
 		/* on render callback */
@@ -68,6 +72,9 @@ define([
 				kicker : 'Profile Kicker',
 				headline : 'Profile Headline'
 			}) );
+
+			// var battleRequest = new BattleRequest({id : '5353924b75f462c3f15052c3'},{parse:true});
+			// battleRequest.fetch({success:Shredr.buzz.showBrAdvanced.bind(null, battleRequest)});
 		},
 
 		modalClosed : function () {
@@ -81,7 +88,7 @@ define([
 				this.player = new Youtubeplayer('player', new Shred(this.model.get('shreds')[0]));
 				this.player.onYouTubeIframeAPIReady();
 			} else {
-				this.player.changeVideo(shred);	
+				this.player.changeVideo(shred);
 			}
 		},
 
@@ -96,7 +103,22 @@ define([
 			this.listenTo(view, 'message:ok', this.modalClosed);
 		},
 
+		challengeDone : function (model) {
+			console.log('sap' + model + ', ' + model.get('_id') + model.get('mode')) ;
+			if (!model || !model.get('_id')) {return false;}
+			if ( model.get('mode') === 'Advanced') {
+				Shredr.vent.trigger('br:advanced:show', model);
+			};
+		},
+
 		// EVENTS
+
+		__challengeClicked : function () {
+			Shredr.vent.trigger('modal:show', new BattleChallengeView({
+				battlee : this.model
+			}));
+			this.listenTo(Shredr.vent, 'modal:close:after', this.challengeDone);
+		},
 
 		__becomeFanCLicked : function () {
 			this.listenToOnce(Shredr.user, 'fane:add:success', this.addFaneeSuccess);
@@ -126,7 +148,7 @@ define([
 			// change headers
 			this.ui.shredDesc.text(shred.get('description'));
 			this.ui.shredTitle.text(shred.get('title'));
-			
+
 			// change and start playing video
 			this.swapAndPlayVideo(shred);
 		},

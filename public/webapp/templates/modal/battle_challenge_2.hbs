@@ -1,0 +1,39 @@
+<p class="lead section">{{mode}} mode</p>
+<div data-region="thumbview" style="display:none; height:100%;"><button class="btn small vert-align" data-event="showUpload">Upload<br>Video</button></div>
+<form class="form-flat">
+    <div class="row" style="position:relative;">
+        <div class="col-sm-6 up-meta focus-content">
+            <div class="row">
+                <div class="col-sm-8">
+                    <textarea placeholder="Challenge statement" id="statement"></textarea>
+                </div>
+                <div class="col-sm-4">
+                    <label for="statement" class="font-small"><em>You are challenging another shredr. Send him a convincing challenge message!</em></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <input type="number" placeholder="Battle Rounds" id="rounds">
+                </div>
+                <div class="col-sm-4">
+                    <label for="rounds" class="font-small"><em>Enter the number of rounds that this battle should last for</em></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 up-video dark-wrapper" style="height:340px;">
+            <div class="row vert-align-top">
+                {{#if_eq mode "Advanced" }}
+                    <p>Pick a backing track</p>
+                    <select data-model="jamtracks">
+                        <option>Choose</option>
+                    </select>
+                    <p>Or, upload a new one</p>
+                {{else}}
+                    <p>Upload your initial video (Round 1)</p>
+                {{/if_eq}}
+                <section data-region="upload"></section>
+            </div>
+        </div>
+    </div>
+</form>

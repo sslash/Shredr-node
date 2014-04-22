@@ -6,13 +6,12 @@ define([
 	// Views
 	'views/shredroom/createShredTabs',
 	'views/shredroom/upload',
-	'views/shredroom/backtrack',
 	'views/shredroom/preview',
 
 	'hbs!tmpl/shredroom/shredroom_tmpl'
 ],
 function( Backbone, Shred, TabsView,
-			UploadView, BacktrackView, PreviewView, ShredroomTmpl  ) {
+			UploadView, PreviewView, ShredroomTmpl  ) {
     'use strict';
 
 	/* Return a Layout class definition */
@@ -35,7 +34,6 @@ function( Backbone, Shred, TabsView,
     	regions: {
     		tabs 		: '#tabs-region',
     		upload      : '#upload-region',
-    		backtrack	: '#backtrack-region',
     		preview 	: '#preview-region'
     	},
 
@@ -44,26 +42,13 @@ function( Backbone, Shred, TabsView,
     		tabs 		: '#tabs-region',
     		buttons  	: '#buttons',
     		uploadBtn   : '#upload',
-    		upload      : '#upload-region',
-    		backtrack 	: '#backtrack-region'
+    		upload      : '#upload-region'
     	},
 
 		/* Ui events hash */
 		events: {
 			'click #resources' 	: '__resourcesClicked',
-			'click #upload'		: '__uploadClicked',
-			'click #jamtracks'	: '__backtrackClicked'
-		},
-
-		__backtrackClicked : function () {
-			if ( !this.BacktrackView ){
-				this.backtrackView = new BacktrackView({model : this.model});
-				this.listenTo(this.backtrackView, 'arrow:event:click',
-				this.arrowClicked.bind(this, this.ui.backtrack, {'left':'-2200'}));
-				this.backtrack.show(this.backtrackView);
-			}
-
-			this.showTransover(this.ui.backtrack, {'left' : '0'});
+			'click #upload'		: '__uploadClicked'
 		},
 
 		showTransover : function (cb) {
@@ -77,8 +62,9 @@ function( Backbone, Shred, TabsView,
 				this.listenTo(this.uploadView, 'close:event:click', this.uploadModalClosed);
 			}
 
-			this.ui.buttons.fadeOut();
-			this.ui.upload.fadeIn();
+			this.ui.buttons.fadeOut('fast', function () {
+				this.ui.upload.fadeIn();
+			}.bind(this));
 		},
 
 		tabsClicked : function (model) {

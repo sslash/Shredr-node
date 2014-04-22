@@ -75,4 +75,11 @@ for (var i = 0; i < 100; i++) {
 		description : "This Shred is neat. cewl. sweet. ty. gangsta #" + i,
 		title : titles[ti]
 	});
-} 
+}
+
+// tagslist
+db.tagslists.remove({});
+db.tagslists.save({
+	shredTags : ['17 equal temperament', 'Acoustic scale', 'Aeolian mode', 'Algerian scale', 'Altered scale', 'Augmented scale', 'Bebop dominant scale', 'Beta scale', 'Blues scale', 'Bohlen–Pierce scale', 'Chromatic scale', 'Delta scale', 'Dorian mode', 'Double harmonic scale', 'Enigmatic scale', 'Euler–Fokker genus', 'Flamenco mode', 'Gamma scale','"Gypsy" scale', 'Half diminished scale', 'Harmonic major scale', 'Harmonic minor scale','Harmonic Scale', 'Hexany' ],
+	gearTags : ['Gibson Les Pau', 'Fender Stratocaster', 'Fender Telecaster', 'Marshal JCM-2000', 'Mesa Boogie Mark v']
+});

@@ -18,12 +18,29 @@ body {
 @blue-dark:	#2286CC;
 @blue-light: #4585B2;
 
+.red-grad {
+	background-image: -o-linear-gradient(bottom, #C97C65 0%, #C43741 50%, #C97C65 100%);
+	background-image: -moz-linear-gradient(bottom, #C97C65 0%, #C43741 50%, #C97C65 100%);
+	background-image: -webkit-linear-gradient(bottom, #C97C65 0%, #C43741 50%, #C97C65 100%);
+	background-image: -ms-linear-gradient(bottom, #C97C65 0%, #C43741 50%, #C97C65 100%);
+	background-image: linear-gradient(to bottom, #C97C65 0%, #C43741 50%, #C97C65 100%);
+}
+
 .bottom-brown-border (){border-bottom: 1px solid #666;}
 
+.border-btm {
+	.bottom-brown-border;
+}
 @nav-height: 86px;
 
 /* Should be used to add standard margin over and below sections */
 .section { margin: 20px 0;}
+.section-sm { margin: 10px 0;}
+.section-lg {margin: 2em 0;}
+.section-vert {margin-left:5em; margin-right: 5em;}
+.ms {margin:5px;}
+
+.white { color: @white; }
 
 .xsmall-gap {
 	width:100%;
@@ -46,6 +63,12 @@ body {
 	top: 50%;
 	transform: translateY(-50%);
 	-webkit-transform: translateY(-50%);
+}
+.vert-align-top {
+	position: relative;
+	top: 30%;
+	transform: translateY(-30%);
+	-webkit-transform: translateY(-30%);
 }
 
 .inline { display:inline-block;}
@@ -91,7 +114,30 @@ body {
 	}
 }
 
+.drop-down {
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.drop-down-prev {
+	transform: translate3d(0, -400%, 0);
+	-webkit-transform: translate3d(0, -400%, 0);
+}
+.drop-down-after {
+	transform: translate3d(0, 0, 0);
+	-webkit-transform: translate3d(0, 0, 0);
+}
+
  .lighten {
     background-color:@light-brown;
     padding:10px;
   }
+
+span.tags {
+	margin:1px;
+	float:left;
+	background: @red-dark;
+	padding: 2px 2px;
+	strong{ color: @nav-black;}
+	border: 1px solid @nav-black;
+}

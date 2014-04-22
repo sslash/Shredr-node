@@ -16,7 +16,7 @@ function( Backbone, PreviewTmpl, CommentsTmpl, TabsPreviewView) {
 
 		initialize: function(options) {
 			if ( options.fetch === true ) {
-				this.model.fetch();	
+				this.model.fetch();
 			}
 
 			if ( options.includeUserInfo === true ) {
@@ -24,13 +24,13 @@ function( Backbone, PreviewTmpl, CommentsTmpl, TabsPreviewView) {
 			} else {
 				this.model.set({includeUserInfo : false});
 			}
-			
+
 			this.listenTo(this.model, 'change:tags', this.populateView);
 			this.listenTo(this.model, 'change:rating', this.ratingChanged);
 			this.listenTo(this.model, 'change:comments', this.commentsChanged);
 			this.listenTo(this.model, 'leChange:commentAdded', this.commentAddedSuccess);
 		},
-		
+
 		template: PreviewTmpl,
 
 		/* Layout sub regions */
@@ -92,7 +92,7 @@ function( Backbone, PreviewTmpl, CommentsTmpl, TabsPreviewView) {
 
 		populateView : function() {
 			this.model.get('tags').forEach(function(t){
-				this.ui.tags.append('<span class="font-xsmall"><strong>' + t + '<strong></span>');
+				this.ui.tags.append('<span class="font-xsmall tags"><strong>' + t + '<strong></span>');
 			}, this);
 		},
 
@@ -110,7 +110,7 @@ function( Backbone, PreviewTmpl, CommentsTmpl, TabsPreviewView) {
 
 			for ( var i = index +1; i < 10; i++ ) {
 				var $logo = this.ui['index'+i];
-				$logo.attr('src', 'img/icons/logo_sml_white.png');	
+				$logo.attr('src', 'img/icons/logo_sml_white.png');
 			}
 		},
 
@@ -197,7 +197,7 @@ function( Backbone, PreviewTmpl, CommentsTmpl, TabsPreviewView) {
 	      		that.done = true;
 	    	}
       	},
-      	
+
       	stopVideo : function() {
       		this.player.stopVideo();
       	},

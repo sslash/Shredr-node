@@ -7,7 +7,7 @@ function( Backbone ) {
 	/* Return a model class definition */
 	return Backbone.Model.extend({
 		urlRoot : 'api/user/',
-		
+
 		initialize: function() {
 			if ( this.get('_id') ) {
 				this.id = this.get('_id');
@@ -20,14 +20,16 @@ function( Backbone ) {
 			birthdate : 'Unkown',
 			musicalDna : ['Dance Music', 'Kingsplyingharp', 'Hipster Jingles'],
 			dateString : 'Unkown',
-			profileImgUrl : 'https://secure.gravatar.com/avatar/0a14846a74c61c9cecb61887d492371c'
+			profileImgFile : 'img/shredder.jpg'
 		},
 
 		parse : function (attr) {
 			if ( !attr.profileImgFile || attr.profileImgFile.length === 0 ) {
 				attr.profileImgFile = this.get('profileImgUrl');
 			} else {
-				attr.profileImgFile = 'img/profiles/' + attr.profileImgFile;
+				if (!(attr.profileImgFile.match(/img\/profiles\//)) ) {
+					attr.profileImgFile = 'img/profiles/' + attr.profileImgFile;
+				}
 			}
 
 			return attr;

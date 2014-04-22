@@ -19,6 +19,10 @@
 	cursor: pointer;
 }
 
+.left-icon {
+	margin-left:3%;
+}
+
 .dna-img {
 	width:75px;
 	height:75px;
@@ -30,4 +34,35 @@
 
 .img-fullwidth {
 	width : 100%;
+}
+
+.vid-drag {
+	height:100%;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	cursor: move;
+}
+
+.faded-ex {
+	position:relative;
+	width:100%;
+	img {
+		opacity:0.4;
+		&.selected {
+			opacity:0.7;
+		}
+	}
+
+	h3 {
+		position:absolute;
+		top:40%;
+		left:0;
+		right:0;
+		font-size:4em;
+		&:hover {
+			color:#fff;
+		}
+		&.selected {
+			color:#fff;
+		}
+	}
 }

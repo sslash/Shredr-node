@@ -32,8 +32,9 @@ require.config({
         'backbone.marionette': '../bower_components/backbone.marionette/lib/core/amd/backbone.marionette',
         'backbone.wreqr': '../bower_components/backbone.wreqr/lib/amd/backbone.wreqr',
         'backbone.babysitter': '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',
-
-        autocomplete: 'vendor/jquery-ui-1.10.4.custom', // includes jquery ui core, widget, position, menu
+        autocomplete: 'vendor/jquery-ui-drag-auto-1.10.4.custom', // includes jquery ui core, widget, position, menu
+        //autocomplete: 'vendor/jquery-ui-1.10.4.custom', // includes jquery ui core, widget, position, menu
+        //autocomplete: 'vendor/jquery-ui-1.10.4.custom', // includes jquery ui core, widget, position, menu
 
         /* Alias text.js for template loading and shortcut the templates dir to tmpl */
         text: '../bower_components/requirejs-text/text',

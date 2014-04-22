@@ -19,6 +19,11 @@
 	padding: 20px 24px;
 }
 
+#kicker {
+	display:none;
+	padding-top: 93px;
+}
+
 #sr-stage-kicker {
 	padding: 10px 0;
 }
@@ -139,6 +144,13 @@ footer {
 	background-position: initial initial;
 	background-repeat: initial initial;
 
+	.footer {
+		text-align: left;
+		position: absolute;
+		bottom: 10%;
+		left: 10%;
+	}
+
 	.form-flat {
 		padding-left: 0;
 		padding-right: 0;
@@ -150,4 +162,31 @@ footer {
 
 .meta-stretch {
 	margin: 20px 10px;
+}
+
+.light-section {
+	padding: 1.6em 1em 0.4em 1em;
+	background-color:@white;
+	margin: 2.5em -25px;
+	border-top: 1px solid rgba(255, 255, 255, 0.25);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+	.battle-icon {
+		margin-left:4%;
+	}
+	@media screen and (max-width: 960px) {
+		.battle-icon {
+			margin-left:20%;
+		}
+	}
+	p {
+		color: @light-brown;
+	}
+}
+.drag-vid-region {
+	position:relative;
+	border-top: 1px solid rgba(255, 255, 255, 0.25);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+	height:15em;
+	background-color: rgba(209, 209, 209, 0.79);
 }

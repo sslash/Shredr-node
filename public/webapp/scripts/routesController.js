@@ -71,7 +71,6 @@ define([
 				this.renderProfileView (model);
 			}
 		},
-
 		// render things
 
 		renderProfileView : function (model) {
@@ -137,7 +136,7 @@ define([
 			Shredr.main.show(view);
 		},
 
-		renderFooterView : function(){
+		renderFooterView : function() {
 		}
 
 	});

@@ -4,9 +4,10 @@ define([
 
 	'views/shredroom/scalesTheory',
 	'views/shredroom/comingSoon',
-	'hbs!tmpl/shredroom/theorySection'
+	'views/shredroom/jamtrack',
+	'hbs!tmpl/shredroom/resources'
 ],
-function( Backbone, ScalesTheoryView, ComingSoonView, tmpl ) {
+function( Backbone, ScalesTheoryView, ComingSoonView, BacktrackView, tmpl ) {
     'use strict';
 
 	return Backbone.Marionette.Layout.extend({
@@ -16,7 +17,8 @@ function( Backbone, ScalesTheoryView, ComingSoonView, tmpl ) {
 
 		events : {
 			'click [data-event="category-click"] li' : '__categoryClicked',
-			'click [data-event="back-btn"]' : '__backClicked'
+			'click [data-event="back-btn"]' : '__backClicked',
+			'click [data-region="jamtrack"]': '__jamtrackClicked'
 		},
 
 		ui : {
@@ -46,6 +48,10 @@ function( Backbone, ScalesTheoryView, ComingSoonView, tmpl ) {
 		},
 
 		// EVENTS
+
+		__jamtrackClicked : function () {
+			this.renderSubView(BacktrackView);
+		},
 
 		__backClicked : function () {
 			Backbone.history.history.back();

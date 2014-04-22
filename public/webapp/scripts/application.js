@@ -16,10 +16,20 @@ function( Marionette, Communicator,EventController, RoutesController,
     'use strict';
 
 	window.Shredr = new Marionette.Application();
+	window.RAF = window.requestAnimationFrame ||
+                        window.webkitRequestAnimationFrame ||
+                        window.mozRequestAnimationFrame ||
+                        window.oRequestAnimationFrame ||
+                        window.msRequestAnimationFrame ||
+                        function(callback) {
+                            window.setTimeout(callback, 1000 / FPS);
+                        };
+	window.CRAF = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
 
 	Shredr.on("initialize:before", function(options){
 		this.addRegions({
 			"navigation" : "#navigation",
+			"kicker" : "#kicker",
 			"modal" : "#modal",
 			"main" : "#main",
 			"footer" : "#footer"
@@ -32,6 +42,17 @@ function( Marionette, Communicator,EventController, RoutesController,
 				xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
 			}
 		});
+	});
+
+	Shredr.addInitializer(function() {
+		Backbone.Model.prototype.setDateString = function (date) {
+			if ( !(date instanceof Date) ) { date = new Date(date); }
+			var curr_date = date.getDate();
+			var curr_month = date.getMonth();
+			var curr_year = date.getFullYear();
+			var str = curr_date + '-' + curr_month + '-' + curr_year;
+			this.set({'dateString': str});
+		};
 	});
 
 	Shredr.vent.on("user:auth:success", function(userdata) {
@@ -67,11 +88,15 @@ function( Marionette, Communicator,EventController, RoutesController,
 	});
 
 	Shredr.on("initialize:after", function(options){
-		if (window.message && window.message === "user:register:success")
+		Shredr.buzz.start();
+		if (window.message && window.message === "user:register:success") {
 			Shredr.buzz.openMessageModal();
+		}
 	});
 
 	Shredr.mainController = new RoutesController();
+
+	// main controller!
 	Shredr.buzz = new EventController();
 	Shredr.start({controller : Shredr.mainController} );
 

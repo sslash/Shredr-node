@@ -1,0 +1,39 @@
+<div class="with-pad">
+<header class="bordered-header modal-header">
+    <h4>Challenge {{nickname}}</h4>
+    <span class="battle-icon">
+        <i class="fa fa-times fa-2x"></i>
+        <img class="profile-icon" src="img/icons/bluefire.jpg">
+    </span>
+</header>
+<section data-region="main" class="text-center">
+    <p class="lead section">Select Battle Mode</p>
+
+    <div class="row section">
+        <div class="col-sm-6">
+            <div class="faded-ex pointer" data-event="model-sel" data-model="Simple">
+                <img src="img/banners/simple.png" style="width:100%">
+                <h3>Simple</h3>
+            </div>
+
+            <p>For each round, each player adds a Shredr video thats meant to beat the opponent.
+                Each video is rated, and the vinner is the one with the highest total rate. An opponent can also surrender.</p>
+        </div>
+        <div class="col-sm-6">
+            <div class="faded-ex pointer" data-event="model-sel" data-model="Advanced">
+                <img src="img/banners/advanced.png" style="width:100%">
+                <h3>Advanced</h3>
+            </div>
+            <p>A backing track is chosen.
+                After this, each opponent will alternate in adding a Shredr video
+                on top of the jamtrack until x-number of rounds is finished. The vinner is selected in the same way as in simple-mode.</p>
+        </div>
+    </div>
+</section>
+
+<section class="modal-footer section">
+    <div class="buttons">
+        <button class="btn" data-event="next">Next</button>
+    </div>
+</section>
+</div>

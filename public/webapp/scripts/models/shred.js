@@ -805,8 +805,12 @@ define([
 					]
 				}
 				],
-				userHasRated : false
 			},
+			userHasRated : false
+		},
+
+		getUploadUrl : function () {
+			return this.url() + '/upload';
 		},
 
 		parse : function(response, options) {
@@ -823,6 +827,10 @@ define([
 				if ( response.rating[Shredr.user.get('_id')] ) {
 					response.userHasRated = response.rating[Shredr.user.get('_id')];
 				}
+			}
+
+			if ( response._id ) {
+				this.id = response._id;
 			}
 
 			return response;

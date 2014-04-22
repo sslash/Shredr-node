@@ -15,30 +15,30 @@ var userPlugin  = require('mongoose-user');
  * User schema
  */
  var UserSchema = new Schema({
- 	email: { type: String, default: '' },
- 	username: { type: String, default: '' },
-  location: { type: String, default: '' },
-  birthdate: {type : Date},
-  guitars : {type: []},
-  startedPlaying : {type: String, default: ''},
-  musicDna : {type: []},
-  fanees: [{
-    user: { type : Schema.ObjectId, ref : 'User' },
-    createdAt: { type : Date, default : Date.now }
-  }],
-  fans: [{
-    user: { type : Schema.ObjectId, ref : 'User' },
-    createdAt: { type : Date, default : Date.now }
-  }],
+     email: { type: String, default: '' },
+     username: { type: String, default: '' },
+     location: { type: String, default: '' },
+     birthdate: {type : Date},
+     guitars : {type: []},
+     startedPlaying : {type: String, default: ''},
+     musicDna : {type: []},
+     fanees: [{
+         user: { type : Schema.ObjectId, ref : 'User' },
+         createdAt: { type : Date, default : Date.now }
+     }],
+     fans: [{
+         user: { type : Schema.ObjectId, ref : 'User' },
+         createdAt: { type : Date, default : Date.now }
+     }],
 
-  notifications : {type:[]},
-  bio : {type: String, default: ''},
-  profileImgFile: { type: String, default: '' },
- 	provider: { type: String, default: '' },
- 	hashed_password: { type: String, default: '' },
- 	salt: { type: String, default: '' },
-  shreds: {type: []},
- 	authToken: { type: String, default: '' }
+     notifications : {type:[]},
+     bio : {type: String, default: ''},
+     profileImgFile: { type: String, default: 'shredder.jpg' },
+     provider: { type: String, default: '' },
+     hashed_password: { type: String, default: '' },
+     salt: { type: String, default: '' },
+     shreds: {type: []},
+     authToken: { type: String, default: '' }
  });
 
 /**
@@ -158,7 +158,7 @@ addFan : function (fan) {
    fans.push({user : fan._id});
    this.update({fans : fans}, function(err,res){
     if (err) { deferred.reject(err); }
-    else { 
+    else {
       return that.addNotification({
         type : 2,
         body : 'You got a new fan: ' + fan.username,
@@ -266,6 +266,8 @@ function getNotificationTypeById (id) {
       return 'New Message';
     } else if ( id === 2 ) {
       return 'New Fan';
-    }
+  } else if (id === 3 ) {
+      return 'New Battle Request';
+  }
 };
 mongoose.model('User', UserSchema)

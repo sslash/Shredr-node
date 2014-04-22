@@ -1,7 +1,7 @@
 // TODO: this module is only meant to be extended
 define([
   'backbone',
-  
+
   'views/modal/messageModal',
   // Templates
   'hbs!tmpl/modal/okMessageModal',
@@ -22,6 +22,7 @@ define([
 
     __okClicked : function () {
       this.trigger('message:ok');
+      Shredr.vent.trigger('modal:close');
     },
 
     serializeData : function () {

@@ -29,17 +29,15 @@
 					<h2 data-model="shred-title">{{shreds.0.title}}</h2>
 					<p data-model="shred-desc">{{shreds.0.description}}</p>
 				</div>
-			</div>			
+			</div>
 		</div>
 	</div>
 
 	<div class="row">
 		<section class="focus-content col-sm-6 half stage-box">
 			<section class="actions-row right">
-				{{#if isUser}}<button class="btn" data-event="edit-btn">Edit Profile</button>
-				{{else}}
+				{{#if isUser}}<button class="btn" data-event="edit-btn">Edit Profile</button>{{else}}
 				<i class="fa fa-envelope-o scale" data-event="msg" title="Send Message"></i>
-				<i class="fa fa-gamepad scale" data-event="challenge" title="Challenge to Battle"></i>
 				<i class="fa fa-plus scale" data-event="fan" title="Become Fan"></i>
 				{{/if}}
 			</section>
@@ -58,11 +56,20 @@
 
 			<p>{{description}}</p>
 
+
+			<section class="light-section">
+				<p class="lead">Challenge {{username}} to a battle!
+					<span class="pointer battle-icon" data-event="challenge">
+						<i class="fa fa-trophy"></i>
+						<img class="profile-icon" src="img/icons/bluefire.jpg"></span>
+				</p>
+			</section>
+
 			<div class="xsmall-gap"></div>
 			<h6>{{username}} plays on:</h6>
 			<section class="style-tags">
 				{{#each guitars}}
-				<span class="font-xsmall">{{this}}</span>
+				<span class="font-xsmall tags">{{this}}</span>
 				{{/each}}
 			</section>
 
@@ -70,7 +77,7 @@
 			<h6>Musical inspiration:</h6>
 			<section class="style-tags">
 				{{#each musicalDna}}
-				<span class="font-xsmall">{{this}}</span>
+				<span class="font-xsmall tags">{{this}}</span>
 				{{/each}}
 			</section>
 
@@ -80,7 +87,7 @@
 				<i class="fa fa-facebook fa-2x"></i>
 				<i class="fa fa-google-plus fa-2x"></i>
 			</section>
-		</section>	
+		</section>
 
 		<div class="col-sm-6 clear-marg">
 

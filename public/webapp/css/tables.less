@@ -9,6 +9,16 @@
 }
 
 ul {
+
+	&.thmb-list {
+		padding: 0;
+		max-height: 50px;
+		overflow: hidden;
+		margin: 5px 0;
+		li {
+			display:inline-block;
+		}
+	}
 	&.nice-rows {
 		padding: 0;
 		height: 386px;
@@ -20,6 +30,30 @@ ul {
 			&:hover {
 				background-color: @light-brown;
 			}
+
+			.small-things {
+				line-height: 1.6em;
+				margin: 6px;
+			}
+		}
+	}
+}
+
+.right-nice-table {
+	min-height:440px;
+}
+
+.ppl-listing {
+	header {
+		text-align:center;
+		margin-bottom: 12px;
+		.bottom-brown-border;
+		padding: 8px 0;
+	}
+	.row {
+		margin-bottom: 3% !important;
+		h6 {
+			margin-top: 11px;
 		}
 	}
 }

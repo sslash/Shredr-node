@@ -4,7 +4,7 @@
 	<label class="right" data-model="duration"></label>
 	<h3>{{this.type}}</h3>
 	<h5 class="lead">{{this.title}}</h5>
-	
+
 
 	{{#if includeUserInfo}}
 	<section class="profile-region row">
@@ -42,7 +42,7 @@
 	</section>
 
 	<div class="xsmall-gap"></div>
-	
+
 	<section class="desc-section">
 		<p>{{this.description}}</p>
 	</section>
@@ -51,7 +51,7 @@
 
 	<section class="style-tags">
 		{{#each this.tags}}
-		<span class="font-xsmall">{{this}}</span>
+		<span class="font-xsmall tags">{{this}}</span>
 		{{/each}}
 	</section>
 
@@ -61,7 +61,7 @@
 
 		<form class="form-flat">
 			<div class="row">
-				<div class="col-sm-9">	
+				<div class="col-sm-9">
 					<textarea placeholder="Leave a comment" class="light short" data-model="comment-input"></textarea>
 				</div>
 				<div class="col-sm-3">

@@ -9,12 +9,9 @@ function( Backbone, PreviewTmpl  ) {
 	return Backbone.Marionette.ItemView.extend({
 		className : 'upload-wrap',
 
-		initialize: function() {
-			console.log("initialize a Preview ItemView");
-		},
-		
+
     	template: PreviewTmpl,
-        
+
 
     	/* ui selector cache */
     	ui: {},

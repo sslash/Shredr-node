@@ -9,12 +9,11 @@ function( Backbone, StagekickerTmpl  ) {
 	return Backbone.Marionette.ItemView.extend({
 
 		initialize: function() {
-			console.log("initialize a Stagekicker ItemView");
 			Shredr.vent.on('stage:thumbclicked:fadeout', this.changeHeadline.bind(this));
 		},
-		
+
 		template: StagekickerTmpl,
-        
+
 
 		/* ui selector cache */
 		ui: {
@@ -55,7 +54,7 @@ function( Backbone, StagekickerTmpl  ) {
 		},
 
 		__searchKeyPressed : function(e) {
-			if( e.keyCode !== 13 && e.keyCode !== 8) { 
+			if( e.keyCode !== 13 && e.keyCode !== 8) {
 				return true;
 			}
 
@@ -64,7 +63,7 @@ function( Backbone, StagekickerTmpl  ) {
 
 			if ( e.keyCode === 8 ) {
 				$searchContent.children().last().remove();
-			} else {			
+			} else {
 				var searchTxt = $currTarget.val();
 				$currTarget.val('');
 				var tagHtml = '<span class="search-tag">'+searchTxt+'</span>';

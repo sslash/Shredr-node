@@ -1,0 +1,47 @@
+<div class="sr-box clear-marg">
+    <div class="row text-center">
+        <h4 class="section-lg">Upload your initial video</h4>
+        <p data-model="instr"></p>
+        <div class="small-gap"></div>
+
+        <div data-region="video-drag" class="section-vert drag-vid-region">
+            <span data-region="arrow" class="arrow left" style="display:none">
+                <i class="fa fa-arrow-left fa-3x"></i>
+            </span>
+            <section data-region="upload" class="section-sm"></section>
+            <span data-region="arrow" class="arrow right" style="display:none">
+                <i class="fa fa-arrow-right fa-3x"></i>
+            </span>
+        </div>
+
+        <div class="section-vert audio-bfr red-grad" data-region="audio">
+            <canvas id="myCanvas" style="position:absolute; left: 0; right:0; z-index:1"></canvas>
+            <audio data-model="audio">
+                <p>Your browser does not support this feauture :(</p>
+                {{#if this.jamtrack}}
+                    <source src="audio/{{this.jamtrack.fileId}}"type="audio/mpeg">
+                {{else}}
+                    <source src="audio/br/{{this.fileId}}"type="audio/mpeg">
+                {{/if}}
+            </audio>
+            <label data-model="offset" style="position:absolute;"></label>
+        </div>
+
+        <label data-model="duration" style="position:absolute;"></label>
+
+        <div class="section">
+            <div class="section-vert text-left" style="position:relative;z-index:100;">
+                <span class="pointer ms" data-event="play">
+                    <i class="fa fa-play"></i>
+                </span>
+                <span class="pointer ms" data-event="stop">
+                    <i class="fa fa-stop"></i>
+                </span>
+                <div class="right">
+                    <button class="btn" data-event="save">Save</button>
+                    <a href="#" date-name="close-btn" >Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

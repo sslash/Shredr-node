@@ -1,1 +1,18 @@
-jamtracks
+start on receiving a br message and response
+open battle editor
+
+type 1, simple
+    x rounds
+    participants uplaod independent videos in each turn
+    viewers rates each one
+
+type 2, backtrack
+    x rounds
+    users pick backing track
+    drag videos into a timeline
+
+
+
+Architecture 2.0:
+
+- One view for all the main regions (started in some controller)

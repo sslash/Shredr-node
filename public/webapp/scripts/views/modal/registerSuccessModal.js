@@ -21,7 +21,7 @@ define([
       },
 
       initialize : function (options) {
-        var json = this.model.toJSON(); 
+        var json = this.model.toJSON();
         this.dnahtml = dnaTpl(json);
         this.dnasuccessHtml = dnaSuccessTpl(json);
 
@@ -107,7 +107,7 @@ define([
       __tagSelected : function(event, ui) {
         var value = ui.item.label;
         this.guitars.push(value);
-        var html = '<span class="font-xsmall">' + value + '</span>';
+        var html = '<span class="font-xsmall tags">' + value + '</span>';
         this.$('[data-region="guitar-tags"]').append(html);
         this.$('#guitar-tags').val('');
         return false;
